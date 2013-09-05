@@ -1,0 +1,900 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{92219B96-2CF9-4C8B-880F-3066195A8810}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LimsProject</RootNamespace>
+    <AssemblyName>LimsProject</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publicar\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v6.1, Version=6.1.6.0, Culture=neutral, PublicKeyToken=a25117ff8ae18825">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v6.1, Version=6.1.6.0, Culture=neutral, PublicKeyToken=a25117ff8ae18825">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v6.1">
+      <HintPath>..\..\..\Instaladores\Componentes\DevExpress6\Dxperience-sources\DevExpress.Dll\DevExpress.XtraBars.v6.1.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v6.1, Version=6.1.6.0, Culture=neutral, PublicKeyToken=a25117ff8ae18825">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v6.1.UI, Version=6.1.6.0, Culture=neutral, PublicKeyToken=a25117ff8ae18825">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v6.1, Version=6.1.6.0, Culture=neutral, PublicKeyToken=a25117ff8ae18825">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v6.1.Design, Version=6.1.6.0, Culture=neutral, PublicKeyToken=a25117ff8ae18825, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Instaladores\Componentes\DevExpress6\Dxperience-sources\DevExpress.Dll\DevExpress.XtraEditors.v6.1.Design.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v6.1, Version=6.1.6.0, Culture=neutral, PublicKeyToken=a25117ff8ae18825">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v6.1.Design, Version=6.1.6.0, Culture=neutral, PublicKeyToken=a25117ff8ae18825, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Instaladores\Componentes\DevExpress6\Dxperience-sources\DevExpress.Dll\DevExpress.XtraGrid.v6.1.Design.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraNavBar.v6.1, Version=6.1.6.0, Culture=neutral, PublicKeyToken=a25117ff8ae18825">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraNavBar.v6.1.Design, Version=6.1.6.0, Culture=neutral, PublicKeyToken=a25117ff8ae18825, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Instaladores\Componentes\DevExpress6\Dxperience-sources\DevExpress.Dll\DevExpress.XtraNavBar.v6.1.Design.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPivotGrid.v6.1, Version=6.1.6.0, Culture=neutral, PublicKeyToken=a25117ff8ae18825" />
+    <Reference Include="DevExpress.XtraScheduler.v6.1, Version=6.1.6.0, Culture=neutral, PublicKeyToken=a25117ff8ae18825">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v6.1, Version=6.1.6.0, Culture=neutral, PublicKeyToken=a25117ff8ae18825">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v6.1.Design, Version=6.1.6.0, Culture=neutral, PublicKeyToken=a25117ff8ae18825, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Instaladores\Componentes\DevExpress6\Dxperience-sources\DevExpress.Dll\DevExpress.XtraTreeList.v6.1.Design.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraVerticalGrid.v6.1, Version=6.1.6.0, Culture=neutral, PublicKeyToken=a25117ff8ae18825" />
+    <Reference Include="FastReport, Version=1.9.17.0, Culture=neutral, PublicKeyToken=db7e5ce63278458c">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FastReport.Bars, Version=1.9.17.0, Culture=neutral, PublicKeyToken=db7e5ce63278458c, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FastReport.Editor, Version=1.9.17.0, Culture=neutral, PublicKeyToken=db7e5ce63278458c">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FlatTabControl">
+      <HintPath>..\..\..\Instaladores\Componentes\FlatTabControl_src\FlatTabControl\bin\Debug\FlatTabControl.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\..\..\Instaladores\Componentes\NHibernate-3.3.1.GA-bin\Required_Bins\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="MathParserNet">
+      <HintPath>..\..\MathParserNet\bin\Debug\MathParserNet.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common">
+      <HintPath>..\..\..\Instaladores\Componentes\Enterprise Library6\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data">
+      <HintPath>..\..\..\Instaladores\Componentes\Enterprise Library6\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\..\..\Instaladores\Componentes\NHibernate-3.3.1.GA-bin\Required_Bins\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TabStrip">
+      <HintPath>..\..\..\Instaladores\Componentes\TabStrip_src\TabStrip\bin\Debug\TabStrip.dll</HintPath>
+    </Reference>
+    <Reference Include="Theia.Panels, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\CustomPanelControl\ThPanel\bin\Debug\Theia.Panels.dll</HintPath>
+    </Reference>
+    <Reference Include="xthemecore_macos">
+      <HintPath>..\..\..\..\Instaladores\Componentes\xthemecore_macos\xthemecore_macos\bin\Debug\xthemecore_macos.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FormElementWavelength.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormElementWavelength.Designer.cs">
+      <DependentUpon>FormElementWavelength.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPrepSamples.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPrepSamples.Designer.cs">
+      <DependentUpon>FormPrepSamples.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormQaqcHU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormQaqcHU.Designer.cs">
+      <DependentUpon>FormQaqcHU.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Qaqc\FormImportICP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Qaqc\FormImportICP.Designer.cs">
+      <DependentUpon>FormImportICP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Methods\UcAA.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Methods\UcAA.Designer.cs">
+      <DependentUpon>UcAA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Methods\UcHumidityAnalysis.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Methods\UcHumidityAnalysis.Designer.cs">
+      <DependentUpon>UcHumidityAnalysis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UcOtherMethods.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcOtherMethods.Designer.cs">
+      <DependentUpon>UcOtherMethods.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Methods\UcSampleFrequency.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Methods\UcSampleFrequency.Designer.cs">
+      <DependentUpon>UcSampleFrequency.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormConditions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormConditions.Designer.cs">
+      <DependentUpon>FormConditions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTestControlSample.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTestControlSample.Designer.cs">
+      <DependentUpon>FormTestControlSample.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mant\FormDecree.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mant\FormDecree.Designer.cs">
+      <DependentUpon>FormDecree.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mant\FormMatrixItems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mant\FormMatrixItems.Designer.cs">
+      <DependentUpon>FormMatrixItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mant\FormGroupMatrix.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mant\FormGroupMatrix.Designer.cs">
+      <DependentUpon>FormGroupMatrix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCausasRechazo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCausasRechazo.Designer.cs">
+      <DependentUpon>FormCausasRechazo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPruebas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPruebas.Designer.cs">
+      <DependentUpon>FormPruebas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormQaQcAguas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormQaQcAguas.Designer.cs">
+      <DependentUpon>FormQaQcAguas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Methods\UcICP.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Methods\UcICP.Designer.cs">
+      <DependentUpon>UcICP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Qaqc\CEvaluatorBatch.cs" />
+    <Compile Include="Mant\FormReactives.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mant\FormReactives.Designer.cs">
+      <DependentUpon>FormReactives.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RegReception\FormPrice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegReception\FormPrice.Designer.cs">
+      <DependentUpon>FormPrice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Solutions\FormSelMethods.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Solutions\FormSelMethods.Designer.cs">
+      <DependentUpon>FormSelMethods.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Solutions\FormSolutions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Solutions\FormSolutions.Designer.cs">
+      <DependentUpon>FormSolutions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Solutions\FormTitration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Solutions\FormTitration.Designer.cs">
+      <DependentUpon>FormTitration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Solutions\FormTypeSolution.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Solutions\FormTypeSolution.Designer.cs">
+      <DependentUpon>FormTypeSolution.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ComunClass\Comun.cs" />
+    <Compile Include="Methods\CUtilMethod.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Methods\FormConfirmSaveMethod.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Methods\FormConfirmSaveMethod.Designer.cs">
+      <DependentUpon>FormConfirmSaveMethod.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\FormMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\FormMessage.Designer.cs">
+      <DependentUpon>FormMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Qaqc\CDataBatch.cs" />
+    <Compile Include="Qaqc\CPivotGridBatch.cs" />
+    <Compile Include="ComunClass\CProcessManage.cs" />
+    <Compile Include="Qaqc\CQualityControl.cs" />
+    <Compile Include="Qaqc\CSignificantValue.cs" />
+    <Compile Include="Evaluador\CalcStack.cs" />
+    <Compile Include="Evaluador\Calculator.cs" />
+    <Compile Include="Evaluador\Evaluator.cs" />
+    <Compile Include="Evaluador\ExecutionItem.cs" />
+    <Compile Include="Evaluador\ExecutionQueue.cs" />
+    <Compile Include="Evaluador\OperatorStack.cs" />
+    <Compile Include="Evaluador\Parser.cs" />
+    <Compile Include="Evaluador\Variant.cs" />
+    <Compile Include="Temp\FormAttachDescription.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Temp\FormAttachDescription.Designer.cs">
+      <DependentUpon>FormAttachDescription.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RegReception\FormConfirmCounterSample.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegReception\FormConfirmCounterSample.Designer.cs">
+      <DependentUpon>FormConfirmCounterSample.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RegReception\FormConfirmKg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegReception\FormConfirmKg.Designer.cs">
+      <DependentUpon>FormConfirmKg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Qaqc\FormNewQaQc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Qaqc\FormNewQaQc.designer.cs">
+      <DependentUpon>FormNewQaQc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Temp\FormPreparationSamples.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Temp\FormPreparationSamples.Designer.cs">
+      <DependentUpon>FormPreparationSamples.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RegReception\FormAssignMassive.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegReception\FormAssignMassive.Designer.cs">
+      <DependentUpon>FormAssignMassive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Qaqc\FormCheckContent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Qaqc\FormCheckContent.Designer.cs">
+      <DependentUpon>FormCheckContent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RegReception\FormCfgRepetition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegReception\FormCfgRepetition.Designer.cs">
+      <DependentUpon>FormCfgRepetition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Temp\FormConfigPath.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Temp\FormConfigPath.Designer.cs">
+      <DependentUpon>FormConfigPath.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mant\FormDocument.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mant\FormDocument.Designer.cs">
+      <DependentUpon>FormDocument.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mant\FormEmpresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mant\FormEmpresa.Designer.cs">
+      <DependentUpon>FormEmpresa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mant\FormConvertUM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mant\FormConvertUM.Designer.cs">
+      <DependentUpon>FormConvertUM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mant\FormCorrelatives.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mant\FormCorrelatives.Designer.cs">
+      <DependentUpon>FormCorrelatives.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mant\FormDescription.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mant\FormDescription.Designer.cs">
+      <DependentUpon>FormDescription.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mant\FormDigestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mant\FormDigestion.Designer.cs">
+      <DependentUpon>FormDigestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mant\FormElement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mant\FormElement.Designer.cs">
+      <DependentUpon>FormElement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Methods\FormMethodSaveAs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Methods\FormMethodSaveAs.Designer.cs">
+      <DependentUpon>FormMethodSaveAs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\FormResult.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\FormResult.Designer.cs">
+      <DependentUpon>FormResult.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mant\FormSerie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mant\FormSerie.Designer.cs">
+      <DependentUpon>FormSerie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Qaqc\FormShowBatch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Qaqc\FormShowBatch.Designer.cs">
+      <DependentUpon>FormShowBatch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Security\FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Security\FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mant\FormMaterialReference.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mant\FormMaterialReference.Designer.cs">
+      <DependentUpon>FormMaterialReference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Methods\FormMethod.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Methods\FormMethod.Designer.cs">
+      <DependentUpon>FormMethod.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Qaqc\FormCheckAll.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Qaqc\FormCheckAll.Designer.cs">
+      <DependentUpon>FormCheckAll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Principal\FormPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Principal\FormPrincipal.designer.cs">
+      <DependentUpon>FormPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Security\FormProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Security\FormProfile.Designer.cs">
+      <DependentUpon>FormProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RegReception\FormReception.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegReception\FormReception.designer.cs">
+      <DependentUpon>FormReception.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mant\FormTypeSample.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mant\FormTypeSample.Designer.cs">
+      <DependentUpon>FormTypeSample.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mant\FormUnitMeasure.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mant\FormUnitMeasure.Designer.cs">
+      <DependentUpon>FormUnitMeasure.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Security\FormUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Security\FormUser.Designer.cs">
+      <DependentUpon>FormUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Methods\UcSampleControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Methods\UcSampleControl.Designer.cs">
+      <DependentUpon>UcSampleControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UcFilterPrice.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UcFilterPrice.Designer.cs">
+      <DependentUpon>UcFilterPrice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UcGenerar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UcGenerar.Designer.cs">
+      <DependentUpon>UcGenerar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UcToolStrip.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UcToolStrip.Designer.cs">
+      <DependentUpon>UcToolStrip.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\MyLookUpEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Solutions\UcSelectMethods.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Solutions\UcSelectMethods.Designer.cs">
+      <DependentUpon>UcSelectMethods.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UcSign.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UcSign.designer.cs">
+      <DependentUpon>UcSign.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Solutions\UcSolInterm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Solutions\UcSolInterm.Designer.cs">
+      <DependentUpon>UcSolInterm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Solutions\UcTitration.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Solutions\UcTitration.Designer.cs">
+      <DependentUpon>UcTitration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UcTitle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UcTitle.Designer.cs">
+      <DependentUpon>UcTitle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UcTraceUser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UcTraceUser.Designer.cs">
+      <DependentUpon>UcTraceUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Solutions\UcCalibStd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Solutions\UcCalibStd.Designer.cs">
+      <DependentUpon>UcCalibStd.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FormElementWavelength.resx">
+      <DependentUpon>FormElementWavelength.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPrepSamples.resx">
+      <DependentUpon>FormPrepSamples.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormQaqcHU.resx">
+      <DependentUpon>FormQaqcHU.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Methods\UcHumidityAnalysis.resx">
+      <DependentUpon>UcHumidityAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Qaqc\FormImportICP.resx">
+      <DependentUpon>FormImportICP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Methods\UcAA.resx">
+      <DependentUpon>UcAA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UcOtherMethods.resx">
+      <DependentUpon>UcOtherMethods.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Methods\UcSampleFrequency.resx">
+      <DependentUpon>UcSampleFrequency.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormConditions.resx">
+      <DependentUpon>FormConditions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTestControlSample.resx">
+      <DependentUpon>FormTestControlSample.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mant\FormDecree.resx">
+      <DependentUpon>FormDecree.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mant\FormGroupMatrix.resx">
+      <DependentUpon>FormGroupMatrix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCausasRechazo.resx">
+      <DependentUpon>FormCausasRechazo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPruebas.resx">
+      <DependentUpon>FormPruebas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormQaQcAguas.resx">
+      <DependentUpon>FormQaQcAguas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Methods\FormConfirmSaveMethod.resx">
+      <DependentUpon>FormConfirmSaveMethod.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\FormMessage.resx">
+      <DependentUpon>FormMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Methods\UcICP.resx">
+      <DependentUpon>UcICP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mant\FormMatrixItems.resx">
+      <DependentUpon>FormMatrixItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegReception\FormPrice.resx">
+      <DependentUpon>FormPrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Temp\FormAttachDescription.resx">
+      <DependentUpon>FormAttachDescription.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegReception\FormConfirmCounterSample.resx">
+      <DependentUpon>FormConfirmCounterSample.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegReception\FormConfirmKg.resx">
+      <DependentUpon>FormConfirmKg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Qaqc\FormNewQaQc.resx">
+      <DependentUpon>FormNewQaQc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Temp\FormPreparationSamples.resx">
+      <DependentUpon>FormPreparationSamples.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegReception\FormAssignMassive.resx">
+      <DependentUpon>FormAssignMassive.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Qaqc\FormCheckContent.resx">
+      <DependentUpon>FormCheckContent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegReception\FormCfgRepetition.resx">
+      <DependentUpon>FormCfgRepetition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Temp\FormConfigPath.resx">
+      <DependentUpon>FormConfigPath.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mant\FormDocument.resx">
+      <DependentUpon>FormDocument.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mant\FormEmpresa.resx">
+      <DependentUpon>FormEmpresa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mant\FormConvertUM.resx">
+      <DependentUpon>FormConvertUM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mant\FormCorrelatives.resx">
+      <DependentUpon>FormCorrelatives.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mant\FormDescription.resx">
+      <DependentUpon>FormDescription.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mant\FormDigestion.resx">
+      <DependentUpon>FormDigestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mant\FormElement.resx">
+      <DependentUpon>FormElement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mant\FormMaterialReference.resx">
+      <DependentUpon>FormMaterialReference.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Methods\FormMethod.resx">
+      <DependentUpon>FormMethod.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Qaqc\FormCheckAll.resx">
+      <DependentUpon>FormCheckAll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Principal\FormPrincipal.resx">
+      <DependentUpon>FormPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mant\FormReactives.resx">
+      <DependentUpon>FormReactives.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegReception\FormReception.resx">
+      <DependentUpon>FormReception.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Methods\FormMethodSaveAs.resx">
+      <DependentUpon>FormMethodSaveAs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\FormResult.resx">
+      <DependentUpon>FormResult.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mant\FormSerie.resx">
+      <DependentUpon>FormSerie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Qaqc\FormShowBatch.resx">
+      <DependentUpon>FormShowBatch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Solutions\FormSelMethods.resx">
+      <DependentUpon>FormSelMethods.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Solutions\FormSolutions.resx">
+      <DependentUpon>FormSolutions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Solutions\FormTitration.resx">
+      <DependentUpon>FormTitration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mant\FormTypeSample.resx">
+      <DependentUpon>FormTypeSample.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Solutions\FormTypeSolution.resx">
+      <DependentUpon>FormTypeSolution.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mant\FormUnitMeasure.resx">
+      <DependentUpon>FormUnitMeasure.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Security\FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Security\FormProfile.resx">
+      <DependentUpon>FormProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Security\FormUser.resx">
+      <DependentUpon>FormUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Solutions\UcSelectMethods.resx">
+      <DependentUpon>UcSelectMethods.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Methods\UcSampleControl.resx">
+      <DependentUpon>UcSampleControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UcFilterPrice.resx">
+      <DependentUpon>UcFilterPrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UcGenerar.resx">
+      <DependentUpon>UcGenerar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UcToolStrip.resx">
+      <DependentUpon>UcToolStrip.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UcSign.resx">
+      <DependentUpon>UcSign.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Solutions\UcSolInterm.resx">
+      <DependentUpon>UcSolInterm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Solutions\UcTitration.resx">
+      <DependentUpon>UcTitration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UcTitle.resx">
+      <DependentUpon>UcTitle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UcTraceUser.resx">
+      <DependentUpon>UcTraceUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Solutions\UcCalibStd.resx">
+      <DependentUpon>UcCalibStd.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mant.png" />
+    <None Include="Resources\mant1.png" />
+    <None Include="Resources\corr.png" />
+    <None Include="Resources\report32.png" />
+    <None Include="Resources\report16.png" />
+    <None Include="Resources\process.png" />
+    <None Include="Resources\key.png" />
+    <None Include="Resources\users.png" />
+    <None Include="Resources\firma.png" />
+    <None Include="Resources\attach.png" />
+    <None Include="Resources\attach2.png" />
+    <None Include="Resources\folder.png" />
+    <None Include="Resources\folder12x12.png" />
+    <None Include="Resources\copy.png" />
+    <None Include="Resources\copiar.png" />
+    <None Include="Resources\ok.png" />
+    <None Include="Resources\delete.png" />
+    <None Include="Resources\empty.png" />
+    <None Include="Resources\delete1.png" />
+    <None Include="Resources\delete2.png" />
+    <None Include="Resources\add_file.png" />
+    <None Include="Resources\Delete32x32.png" />
+    <None Include="Resources\delete_column.png" />
+    <None Include="Resources\add_tray.png" />
+    <None Include="Resources\add_tray1.png" />
+    <None Include="Resources\add_tray2.png" />
+    <None Include="Resources\avatar.jpg" />
+    <None Include="Resources\avatar1.png" />
+    <None Include="Resources\find.png" />
+    <Content Include="Resource\titlebar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\LibraryBasicForm\LibraryBasicForm\LibraryBasicForm.csproj">
+      <Project>{36777684-d691-4228-857e-9cf03ebe0eb6}</Project>
+      <Name>LibraryBasicForm</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\RichTextBoxExtended\RichTextBoxExtended.csproj">
+      <Project>{a3a17708-f37e-47fe-b6b3-a43e1a008206}</Project>
+      <Name>RichTextBoxExtended</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LimsProject.Business\LimsProject.BusinessLayer.csproj">
+      <Project>{c6fd9f84-a18e-472d-ba4b-7ed274f5b276}</Project>
+      <Name>LimsProject.BusinessLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

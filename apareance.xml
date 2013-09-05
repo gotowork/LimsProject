@@ -1,0 +1,10 @@
+﻿<XtraSerializer version="1.0" application="Appearances">
+  <property name="GroupBackground" iskey="true" value="GroupBackground">
+    <property name="Options" isnull="true" iskey="true">
+      <property name="UseForeColor">true</property>
+      <property name="UseBackColor">true</property>
+    </property>
+    <property name="ForeColor">White</property>
+    <property name="BackColor">0, 0, 64</property>
+  </property>
+</XtraSerializer>
