@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormReception));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gcShowColumns = new DevExpress.XtraEditors.GroupControl();
             this.checkEdit10 = new DevExpress.XtraEditors.CheckEdit();
             this.checkEdit9 = new DevExpress.XtraEditors.CheckEdit();
@@ -65,6 +65,7 @@
             this.gcRec_Cod_interno = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcRec_NameSample = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcRec_Flag_envelope_sealed = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repEnvelope_sealed = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.gcRec_CantKg = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcRec_Reject = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcRec_Counter_Sample = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -322,7 +323,6 @@
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.lookUpEdit2 = new DevExpress.XtraEditors.LookUpEdit();
             this.label31 = new System.Windows.Forms.Label();
-            this.repEnvelope_sealed = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.paTitleSearch.SuspendLayout();
             this.paTopBasicButtons.SuspendLayout();
             this.paTopSearch.SuspendLayout();
@@ -352,6 +352,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gvReception)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repDescription)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repProcedence)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repEnvelope_sealed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repSelect)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repResult)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repSendReport)).BeginInit();
@@ -484,7 +485,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repEnvelope_sealed)).BeginInit();
             this.SuspendLayout();
             // 
             // imageList1
@@ -1138,14 +1138,14 @@
             // repDescription
             // 
             this.repDescription.AutoHeight = false;
-            serializableAppearanceObject5.BackColor = System.Drawing.Color.Transparent;
-            serializableAppearanceObject5.BackColor2 = System.Drawing.Color.Transparent;
-            serializableAppearanceObject5.BorderColor = System.Drawing.Color.Transparent;
-            serializableAppearanceObject5.Options.UseBackColor = true;
-            serializableAppearanceObject5.Options.UseBorderColor = true;
+            serializableAppearanceObject1.BackColor = System.Drawing.Color.Transparent;
+            serializableAppearanceObject1.BackColor2 = System.Drawing.Color.Transparent;
+            serializableAppearanceObject1.BorderColor = System.Drawing.Color.Transparent;
+            serializableAppearanceObject1.Options.UseBackColor = true;
+            serializableAppearanceObject1.Options.UseBorderColor = true;
             this.repDescription.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.Utils.HorzAlignment.Center, global::LimsProject.Properties.Resources.copiar, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.Utils.HorzAlignment.Center, global::LimsProject.Properties.Resources.copiar, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1)});
             this.repDescription.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Cod_des_sample", "", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Description")});
@@ -1222,6 +1222,11 @@
             this.gcRec_Flag_envelope_sealed.Visible = true;
             this.gcRec_Flag_envelope_sealed.VisibleIndex = 5;
             this.gcRec_Flag_envelope_sealed.Width = 41;
+            // 
+            // repEnvelope_sealed
+            // 
+            this.repEnvelope_sealed.AutoHeight = false;
+            this.repEnvelope_sealed.Name = "repEnvelope_sealed";
             // 
             // gcRec_CantKg
             // 
@@ -2427,10 +2432,10 @@
             // repReportOption
             // 
             this.repReportOption.AutoHeight = false;
-            serializableAppearanceObject6.Font = new System.Drawing.Font("Tahoma", 7.5F);
-            serializableAppearanceObject6.Options.UseFont = true;
+            serializableAppearanceObject2.Font = new System.Drawing.Font("Tahoma", 7.5F);
+            serializableAppearanceObject2.Options.UseFont = true;
             this.repReportOption.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.OK, "", -1, true, true, false, DevExpress.Utils.HorzAlignment.Center, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.OK, "", -1, true, true, false, DevExpress.Utils.HorzAlignment.Center, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2),
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "ver", -1, true, true, false, DevExpress.Utils.HorzAlignment.Center, null),
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "edit", -1, true, true, false, DevExpress.Utils.HorzAlignment.Center, null)});
             this.repReportOption.Name = "repReportOption";
@@ -2692,11 +2697,11 @@
             // repAttach_file
             // 
             this.repAttach_file.AutoHeight = false;
-            serializableAppearanceObject7.Font = new System.Drawing.Font("Tahoma", 7.5F);
-            serializableAppearanceObject7.Options.UseFont = true;
+            serializableAppearanceObject3.Font = new System.Drawing.Font("Tahoma", 7.5F);
+            serializableAppearanceObject3.Options.UseFont = true;
             this.repAttach_file.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Cargar", -1, true, true, false, DevExpress.Utils.HorzAlignment.Center, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject7)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Cargar", -1, true, true, false, DevExpress.Utils.HorzAlignment.Center, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3)});
             this.repAttach_file.Name = "repAttach_file";
             this.repAttach_file.NullText = "";
             // 
@@ -2735,11 +2740,11 @@
             // repButtons
             // 
             this.repButtons.AutoHeight = false;
-            serializableAppearanceObject8.Font = new System.Drawing.Font("Tahoma", 7.5F);
-            serializableAppearanceObject8.Options.UseFont = true;
+            serializableAppearanceObject4.Font = new System.Drawing.Font("Tahoma", 7.5F);
+            serializableAppearanceObject4.Options.UseFont = true;
             this.repButtons.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.OK),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "ver", -1, true, true, false, DevExpress.Utils.HorzAlignment.Center, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject8)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "ver", -1, true, true, false, DevExpress.Utils.HorzAlignment.Center, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4)});
             this.repButtons.Name = "repButtons";
             this.repButtons.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.repButtons.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repButtons_ButtonClick);
@@ -4182,11 +4187,6 @@
             this.label31.TabIndex = 9;
             this.label31.Text = "Muestra:";
             // 
-            // repEnvelope_sealed
-            // 
-            this.repEnvelope_sealed.AutoHeight = false;
-            this.repEnvelope_sealed.Name = "repEnvelope_sealed";
-            // 
             // FormReception
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4228,6 +4228,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gvReception)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repDescription)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repProcedence)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repEnvelope_sealed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repSelect)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repResult)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repSendReport)).EndInit();
@@ -4372,7 +4373,6 @@
             this.panelControl3.ResumeLayout(false);
             this.panelControl3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repEnvelope_sealed)).EndInit();
             this.ResumeLayout(false);
 
         }

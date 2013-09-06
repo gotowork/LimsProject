@@ -178,7 +178,7 @@ namespace LimsProject
             if (!Son_Datos_Correctos_TypeAnalysis())
             {
                 return false;
-            }
+            }            
             return true;
         }
 
@@ -499,7 +499,10 @@ namespace LimsProject
                             return false;
                         break;
                     case '5':
-
+                        break;
+                    case '6':
+                        if (!oucHA.Son_Datos_Correctos())
+                            return false;
                         break;
                 }
             }
@@ -525,7 +528,7 @@ namespace LimsProject
                     case '5':
                         break;
                     case '6':
-
+                        oucHA.SaveTypeAnalysis(IDTemplate_Method);
                         break;
                 }
             }
@@ -540,10 +543,7 @@ namespace LimsProject
              4 ipc           
              5 newmont-grav  
              */
-            cbElement.EditValue = null;
-            cbElement.Enabled = true;
             paSpecificMethod.Controls.Clear();
-
 
             if (cbTypeAnalysis.EditValue != null)
             {
@@ -555,6 +555,8 @@ namespace LimsProject
                         oucAA.IDElement = cbElement.EditValue == null ? Convert.ToInt16(null) : Convert.ToInt16(cbElement.EditValue);
                         oucAA.IDTemplate_Method = IDTemplate_Method;
                         oucAA.RetrieveTypeAnalysis();
+
+                        cbElement.Enabled = true;
                         break;
                     case '2':                        
                         break;
@@ -566,13 +568,18 @@ namespace LimsProject
                         oucICP.Idtemplate_method = IDTemplate_Method;
                         oucICP.Type_analisys = 4;
                         oucICP.RetrieveTypeAnalysis();
+
                         cbElement.Enabled = false;
+                        cbElement.EditValue = null;                                                
                         break;
                     case '5':                        
                         break;
                     case '6':
                         paSpecificMethod.Controls.Add(oucHA);
                         oucHA.Dock = DockStyle.Fill;
+                        oucHA.IDTemplate_Method = IDTemplate_Method;
+                        oucHA.RetrieveTypeAnalysis();
+                        cbElement.Enabled = true;                                                
                         break;
                 }
             }

@@ -794,8 +794,8 @@ namespace LimsProject
 
                                             if (result_detail_elem)
                                             {
+                                                // crear bandejas
                                                 CBatchManager oBatchManager = new CBatchManager();
-
                                                 oBatchManager.CallSaveSampleBatch(
                                                     Convert.ToInt32(oRecep_sample_detail_elem.Idtemplate_method),
                                                     Convert.ToInt64(oRecep_sample_detail_elem.Idrecep_sample),
@@ -805,6 +805,9 @@ namespace LimsProject
                                                     oRecep_sample_detail.Cod_sample,
                                                     Comun.GetUser(),
                                                     oCorrelative);
+
+                                                // enviar a preparación de muestras
+
                                             }
                                         }
                                     }
@@ -3242,7 +3245,7 @@ namespace LimsProject
             if (e.Column != null && (e.Column.Name.Contains("Dyn")
                 || e.Column.Name.Contains("gcRec_Days") || e.Column.Name.Contains("gcRec_CantKg")
                 || e.Column.Name.Contains("gcRec_Reject") || e.Column.Name.Contains("gcRec_Counter_Sample")
-                || e.Column.Name.Contains("gcRec_Envelope_sealed")))
+                || e.Column.Name.Contains("gcRec_Flag_envelope_sealed")))
             {
                 Rectangle rectangle = e.Info.CaptionRect;
                 e.Info.Caption = string.Empty;

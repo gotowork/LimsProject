@@ -125,7 +125,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAD6
-        EwAAAk1TRnQBSQFMAgEBDgEAAcABGwHIASABEAEAARABAAT/AQkBEAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        EwAAAk1TRnQBSQFMAgEBDgEAAcABGwHoASABEAEAARABAAT/AQkBEAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABQAMAAUADAAEBAQABCAYAARAYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -213,6 +213,9 @@
         AQMC/wGAAR8BwAEfAf8BBxYACw==
 </value>
   </data>
+  <data name="memoEdit3.EditValue" xml:space="preserve">
+    <value>Estandares de Calidad Ambiental Para Agua, segun el Decreto Supremo D.S. N° 002-2008-MINAM, para la Categoria 1: Poblacional y Recreacional, Sub categoria A1  Aguas que pueden ser potabilizadas con desinfeccion						</value>
+  </data>
   <metadata name="ofdRecepFileAttach.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>127, 17</value>
   </metadata>
@@ -222,9 +225,6 @@
   <metadata name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>435, 17</value>
   </metadata>
-  <data name="memoEdit3.EditValue" xml:space="preserve">
-    <value>Estandares de Calidad Ambiental Para Agua, segun el Decreto Supremo D.S. N° 002-2008-MINAM, para la Categoria 1: Poblacional y Recreacional, Sub categoria A1  Aguas que pueden ser potabilizadas con desinfeccion						</value>
-  </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>47</value>
   </metadata>
