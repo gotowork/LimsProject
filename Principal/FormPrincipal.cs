@@ -205,8 +205,7 @@ namespace LimsProject
 
         private void nbiPrueba_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            FormImportICP fmprueba = new FormImportICP();
-            fmprueba.ShowDialog();
+            Comun.OpenForm(Comun.Formulario.fmPreparationSamples);
         }
 
         

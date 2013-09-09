@@ -184,10 +184,10 @@
     <Compile Include="FormElementWavelength.Designer.cs">
       <DependentUpon>FormElementWavelength.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormPrepSamples.cs">
+    <Compile Include="Mant\FormPrepSamples.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormPrepSamples.Designer.cs">
+    <Compile Include="Mant\FormPrepSamples.Designer.cs">
       <DependentUpon>FormPrepSamples.cs</DependentUpon>
     </Compile>
     <Compile Include="FormQaqcHU.cs">
@@ -600,7 +600,7 @@
     <EmbeddedResource Include="FormElementWavelength.resx">
       <DependentUpon>FormElementWavelength.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormPrepSamples.resx">
+    <EmbeddedResource Include="Mant\FormPrepSamples.resx">
       <DependentUpon>FormPrepSamples.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormQaqcHU.resx">

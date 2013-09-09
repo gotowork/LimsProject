@@ -201,6 +201,9 @@ namespace LimsProject
 
                 ucGenerarDesde.InitItems(new List<string> { "Cotización" });
 
+                for (int i = 0; i < gvReception.Columns.Count; i++)
+                    gvReception.Columns[i].Visible = false;
+
                 //título y códigos
                 this.Text = "Registro de Recepción";
                 ucTitleRegisterRecep.Title = "Registro de Recepción";
@@ -213,16 +216,17 @@ namespace LimsProject
 
                 tpDecree.PageVisible = false;
 
-                gcRec_Description.Visible = true;
-                gcRec_Type_Sample.Visible = true;
+                gcRec_Description.VisibleIndex = gvReception.Columns.Count;
+                gcRec_Type_Sample.VisibleIndex = gvReception.Columns.Count;
                 gcRec_Procedence.Visible = true;
-                gcRec_Code.Visible = true;                
-                gcRec_NameSample.Visible = true;
-                gcRec_CantKg.Visible = true;
-                gcRec_Reject.Visible = true;
-                gcRec_Counter_Sample.Visible = true;
-                gcRec_Days.Visible = true;
-                gcRec_Cost.Visible = true;
+                gcRec_Code.VisibleIndex = gvReception.Columns.Count;
+                gcRec_NameSample.VisibleIndex = gvReception.Columns.Count;
+                gcRec_Flag_envelope_sealed.VisibleIndex = gvReception.Columns.Count;
+                gcRec_CantKg.VisibleIndex = gvReception.Columns.Count;
+                gcRec_Reject.VisibleIndex = gvReception.Columns.Count;
+                gcRec_Counter_Sample.VisibleIndex = gvReception.Columns.Count;
+                gcRec_Days.VisibleIndex = gvReception.Columns.Count;
+                gcRec_Cost.VisibleIndex = gvReception.Columns.Count;
 
                 gcAgua_Cod_campo.Visible = false;                
                 gcAgua_Cod_matrix.Visible = false;
@@ -242,6 +246,9 @@ namespace LimsProject
                 ucGenerarA.InitItems(new List<string> { "Ampliación de ensayo" });
 
                 ucGenerarDesde.InitItems(new List<string> { "Cotización" });
+
+                for (int i = 0; i < gvReception.Columns.Count; i++)
+                    gvReception.Columns[i].Visible = false;
 
                 //título y códigos
                 this.Text = "Registro de Recepción";
@@ -266,17 +273,17 @@ namespace LimsProject
                 gcRec_Days.Visible = false;
                 gcRec_Cost.Visible = false;
 
-                gcAgua_Cod_campo.Visible = true;                
-                gcAgua_Cod_matrix.Visible = true;
-                gcAgua_Code.Visible = true;
-                gcAgua_Date.Visible = true;
-                gcAgua_Hour.Visible = true;
-                gcAgua_NameSample.Visible = true;
-                gcAgua_Num_bottle_glass.Visible = true;
-                gcAgua_Num_bottle_plastic.Visible = true;
-                gcAgua_Ubigeo.Visible = true;
-                gcAgua_UTM.Visible = true;
-                gcAgua_Volumen.Visible = true;
+                gcAgua_Cod_campo.VisibleIndex = gvReception.Columns.Count;
+                gcAgua_Cod_matrix.VisibleIndex = gvReception.Columns.Count;
+                gcAgua_Code.VisibleIndex = gvReception.Columns.Count;
+                gcAgua_Date.VisibleIndex = gvReception.Columns.Count;
+                gcAgua_Hour.VisibleIndex = gvReception.Columns.Count;
+                gcAgua_NameSample.VisibleIndex = gvReception.Columns.Count;
+                gcAgua_Num_bottle_glass.VisibleIndex = gvReception.Columns.Count;
+                gcAgua_Num_bottle_plastic.VisibleIndex = gvReception.Columns.Count;
+                gcAgua_Ubigeo.VisibleIndex = gvReception.Columns.Count;
+                gcAgua_UTM.VisibleIndex = gvReception.Columns.Count;
+                gcAgua_Volumen.VisibleIndex = gvReception.Columns.Count;
 
                 initDecretos();
             }
@@ -759,9 +766,14 @@ namespace LimsProject
 
                                 faRecep_sample_detail.Update(oRecep_sample_detail);
 
+                                
+
                                 #region save element cell repetition
 
                                 CRecep_sample_detail oRecep_sample_aux = faRecep_sample_detail.GetByPrimaryKey(new CRecep_sample_detailKeys(oRecep_sample_detail.Idrecep_sample_detail));
+                                CSettings oSettings = new CSettings();
+                                bool HasHumidityAnalysis = false;
+                                bool Has60GradesElement = false;
 
                                 // --- retrieve code sample and assign
                                 if (!Convert.ToBoolean(oRecep_sample_detail.Flag_control_sample))
@@ -809,9 +821,32 @@ namespace LimsProject
                                                 // enviar a preparación de muestras
 
                                             }
+
+                                            //verificar si tiene análisis por humedad
+                                            if (oSettings.GetIdHumidityAnalysis().Contains(tagMethod.IDElement.ToString()))
+                                                HasHumidityAnalysis = true;
+
+                                            //verificar si tiene que elementos para ser analizados a 60°
+                                            if (oSettings.GetIDElements60Grades().Contains(tagMethod.IDElement.ToString()))
+                                                Has60GradesElement = true;
                                         }
                                     }
                                 }
+                                #endregion
+
+                                #region save sample preparation
+
+                                CPrep_samples oPrep_samples = new CPrep_samples();
+                                oPrep_samples.Idrecep_sample_detail = oRecep_sample_detail.Idrecep_sample_detail;
+                                oPrep_samples.Flag_counter_sample = oRecep_sample_detail.Flag_counter_sample;
+                                oPrep_samples.Flag_reject = oRecep_sample_detail.Flag_reject;
+                                oPrep_samples.Flag_humidity_analysis = HasHumidityAnalysis;
+                                oPrep_samples.Flag_60celsius = Has60GradesElement;
+
+                                CPrep_samplesFactory faPrep_samples = new CPrep_samplesFactory();
+                                if (!faPrep_samples.Update(oPrep_samples))
+                                    faPrep_samples.Insert(oPrep_samples);
+
                                 #endregion
                             }
 
@@ -3154,6 +3189,7 @@ namespace LimsProject
             gvReception.SetRowCellValue(e.RowHandle, "Amount_weight", 0.1);
             gvReception.SetRowCellValue(e.RowHandle, "Cod_type_sample", cbTypeSample.EditValue.ToString());
             gvReception.SetRowCellValue(e.RowHandle, "Analisys_time", 0);
+            gvReception.SetRowCellValue(e.RowHandle, "gcRec_Flag_envelope_sealed", false);
             gvReception.UpdateCurrentRow();
             Set_order_sample();
         }

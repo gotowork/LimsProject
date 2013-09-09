@@ -33,9 +33,9 @@
             this.gcGM_Idmatrix_group = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcGM_Sigla = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcGM_Name_group = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gcGM_Status = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btSave = new DevExpress.XtraEditors.SimpleButton();
             this.btCancel = new DevExpress.XtraEditors.SimpleButton();
-            this.gcGM_Status = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.paTitle)).BeginInit();
             this.paTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.paBottom)).BeginInit();
@@ -127,6 +127,12 @@
             this.gcGM_Name_group.VisibleIndex = 1;
             this.gcGM_Name_group.Width = 335;
             // 
+            // gcGM_Status
+            // 
+            this.gcGM_Status.Caption = "Status";
+            this.gcGM_Status.FieldName = "Status";
+            this.gcGM_Status.Name = "gcGM_Status";
+            // 
             // btSave
             // 
             this.btSave.Location = new System.Drawing.Point(12, 11);
@@ -143,12 +149,6 @@
             this.btCancel.Size = new System.Drawing.Size(59, 23);
             this.btCancel.TabIndex = 0;
             this.btCancel.Text = "Cancelar";
-            // 
-            // gcGM_Status
-            // 
-            this.gcGM_Status.Caption = "Status";
-            this.gcGM_Status.FieldName = "Status";
-            this.gcGM_Status.Name = "gcGM_Status";
             // 
             // FormGroupMatrix
             // 

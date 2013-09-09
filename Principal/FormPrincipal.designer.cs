@@ -146,7 +146,7 @@
             // 
             // nbiPrueba
             // 
-            this.nbiPrueba.Caption = "navBarItem1";
+            this.nbiPrueba.Caption = "Preparación de Muestras";
             this.nbiPrueba.Name = "nbiPrueba";
             this.nbiPrueba.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbiPrueba_LinkClicked);
             // 

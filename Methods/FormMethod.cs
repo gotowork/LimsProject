@@ -390,7 +390,7 @@ namespace LimsProject
                 oTemplate_Method.Recognized = ckRecognized.Checked;
                 oTemplate_Method.Cod_type_sample = cbTypeSample.EditValue.ToString();
                 oTemplate_Method.Cost_method = tbCost_Method.Value;
-                oTemplate_Method.Type_analisys = Convert.ToChar(cbTypeAnalysis.EditValue);                
+                oTemplate_Method.Type_analisys = Convert.ToChar(cbTypeAnalysis.EditValue);
                 oTemplate_Method.Status = true;
 
                 if (IDTemplate_Method == 0)
