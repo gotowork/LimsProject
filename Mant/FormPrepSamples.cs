@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
+using LimsProject.BusinessLayer;
+using LimsProject.BusinessLayer.Modules;
 
 namespace LimsProject
 {
@@ -68,6 +70,8 @@ namespace LimsProject
             #endregion
 
             rgPreparationSamples.SelectedIndex = 0;
+            deDateIni.DateTime = DateTime.Now.AddDays(-1);
+            deDateEnd.DateTime = DateTime.Now;
 
             switch (Convert.ToInt32(rgPreparationSamples.EditValue))
             {
@@ -88,9 +92,17 @@ namespace LimsProject
                     break;
             }
 
-            gvPrepSample.BestFitColumns();
+            repCode.DataSource = new CRecep_sample_detailFactory().GetAll();
+            repCode.ValueMember = "Idrecep_sample_detail";
+            repCode.DisplayMember = "Cod_sample";
 
-            //gcPrepSample.DataSource = lst;
+            RetrieveData();
+        }
+
+        void RetrieveData()
+        {
+            gcPrepSample.DataSource = new BindingList<CPrep_samples>(new CPrep_samplesFactory().GetAll().Where(x => x.Date_creation > deDateIni.DateTime && x.Date_creation < deDateEnd.DateTime).ToList());
+            gvPrepSample.BestFitColumns();
         }
 
         void ShowColumns(TipoProceso tipoProceso)
@@ -105,7 +117,8 @@ namespace LimsProject
                 gvPrepSample.Columns[i].Visible = false;
 
             // asignar visibilidad
-            gcol_Cod_sample.Visible = true;
+            gcol_Cod_sample.Visible = false;
+            gcol_Idrecep_sample_detail.Visible = true;
             gcol_Weight_gross.Visible = true;
             gcol_Weight_gross_date.Visible = true;
             gcol_Weight_gross_user.Visible = true;
@@ -137,7 +150,7 @@ namespace LimsProject
                     gcol_Weight_gross_reject_date.Visible = true;
                     gcol_Weight_gross_reject_user.Visible = true;
                     break;
-                case TipoProceso.Humedad:                    
+                case TipoProceso.Humedad:
                     gcol_Weight_gross.Visible = false;
                     gcol_Weight_gross_date.Visible = false;
                     gcol_Weight_gross_user.Visible = false;
@@ -254,6 +267,8 @@ namespace LimsProject
 
         private void rgPreparationSamples_SelectedIndexChanged(object sender, EventArgs e)
         {
+            RetrieveData();
+
             switch (Convert.ToInt32(rgPreparationSamples.EditValue))
             {
                 case 1:
@@ -273,5 +288,47 @@ namespace LimsProject
                     break;
             }
         }
+
+        private void gvPrepSample_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+            if (e.Column == gcol_Weight_gross)
+            {
+                // actualizar fecha entrada y usuario                                                                
+                CPrep_samples oPrep_sample = gvPrepSample.GetRow(e.RowHandle) as CPrep_samples;
+                oPrep_sample.Weight_gross_date = Comun.GetDate();
+                oPrep_sample.Weight_gross_user = Comun.GetUser();                
+                new CPrep_samplesFactory().Update(oPrep_sample);
+
+                //gvPrepSample.UpdateCurrentRow();
+            }
+            else if (e.Column == gcol_Weight_moisture)
+            {
+                // actualizar fecha de peso húmedo y usuario
+                CPrep_samples oPrep_sample = gvPrepSample.GetRow(e.RowHandle) as CPrep_samples;
+                if (oPrep_sample.Weight_moisture != null && oPrep_sample.Weight_dry != null
+                    && oPrep_sample.Weight_dry > 0 && oPrep_sample.Weight_moisture > 0)
+                    oPrep_sample.Percent_moisture = (oPrep_sample.Weight_moisture - oPrep_sample.Weight_dry) / oPrep_sample.Weight_moisture;
+
+                oPrep_sample.Weight_moisture_date = Comun.GetDate();
+                oPrep_sample.Weight_moisture_user = Comun.GetUser();
+                new CPrep_samplesFactory().Update(oPrep_sample);
+            }
+            else if (e.Column == gcol_Weight_dry)
+            {
+                // actualizar fecha de peso seco y usuario y calcular la humedad
+                CPrep_samples oPrep_sample = gvPrepSample.GetRow(e.RowHandle) as CPrep_samples;
+
+                if (oPrep_sample.Weight_moisture != null && oPrep_sample.Weight_dry != null
+                    && oPrep_sample.Weight_dry > 0 && oPrep_sample.Weight_moisture > 0)
+                {
+                    oPrep_sample.Percent_moisture = (oPrep_sample.Weight_moisture - oPrep_sample.Weight_dry) / oPrep_sample.Weight_moisture;
+                    oPrep_sample.Weight_dry_date = Comun.GetDate();
+                    oPrep_sample.Weight_dry_user = Comun.GetUser();
+                    new CPrep_samplesFactory().Update(oPrep_sample);
+                }
+            }
+        }
+
+        
     }    
 }

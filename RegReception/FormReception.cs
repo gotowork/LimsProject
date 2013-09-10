@@ -842,6 +842,7 @@ namespace LimsProject
                                 oPrep_samples.Flag_reject = oRecep_sample_detail.Flag_reject;
                                 oPrep_samples.Flag_humidity_analysis = HasHumidityAnalysis;
                                 oPrep_samples.Flag_60celsius = Has60GradesElement;
+                                oPrep_samples.Date_creation = Comun.GetDate();
 
                                 CPrep_samplesFactory faPrep_samples = new CPrep_samplesFactory();
                                 if (!faPrep_samples.Update(oPrep_samples))
