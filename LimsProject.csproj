@@ -178,11 +178,29 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="cbMethodIpc.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="cbMethodIpc.Designer.cs">
+      <DependentUpon>cbMethodIpc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\cbElement.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserControls\cbElement.Designer.cs">
+      <DependentUpon>cbElement.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormElementWavelength.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormElementWavelength.Designer.cs">
       <DependentUpon>FormElementWavelength.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormElemWavelength.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormElemWavelength.Designer.cs">
+      <DependentUpon>FormElemWavelength.cs</DependentUpon>
     </Compile>
     <Compile Include="Mant\FormPrepSamples.cs">
       <SubType>Form</SubType>
@@ -600,6 +618,9 @@
     <EmbeddedResource Include="FormElementWavelength.resx">
       <DependentUpon>FormElementWavelength.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormElemWavelength.resx">
+      <DependentUpon>FormElemWavelength.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Mant\FormPrepSamples.resx">
       <DependentUpon>FormPrepSamples.cs</DependentUpon>
     </EmbeddedResource>
@@ -777,6 +798,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Methods\UcSampleControl.resx">
       <DependentUpon>UcSampleControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\cbElement.resx">
+      <DependentUpon>cbElement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UcFilterPrice.resx">
       <DependentUpon>UcFilterPrice.cs</DependentUpon>

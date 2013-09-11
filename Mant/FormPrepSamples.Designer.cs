@@ -44,7 +44,6 @@
             this.gcol_Flag_counter_sample = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gcol_Flag_humidity_analysis = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gcol_Flag_reject = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gcol_Percent_moisture = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand3 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gcol_Input_sample_user = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gcol_Input_sample_date = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
@@ -56,10 +55,14 @@
             this.gcol_Weight_dry = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gcol_Weight_dry_date = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gcol_Weight_dry_user = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gcol_Percent_moisture = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gcol_Moisture_reject = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gcol_Moisture_reject_user = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gcol_Moisture_reject_date = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand5 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gcol_Output_flag_cs = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gcol_Output_flag_sample = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gcol_Output_flag_re = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gcol_Output_user_re = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gcol_Weight_gross_reject_date = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gcol_Weight_gross_reject_user = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
@@ -79,13 +82,17 @@
             this.gcol_Store_input_user_re = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gcol_Store_input_user_cs = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gcol_Store_input_date_re = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.btOk = new DevExpress.XtraEditors.SimpleButton();
-            this.btCancel = new DevExpress.XtraEditors.SimpleButton();
+            this.gcol_Final_weight_gross = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gcol_Final_moisture = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gcol_Final_reject = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gcol_Final_sample_prepared = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.tbBarCode = new DevExpress.XtraEditors.TextEdit();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.rgPreparationSamples = new DevExpress.XtraEditors.RadioGroup();
             this.deDateIni = new DevExpress.XtraEditors.DateEdit();
             this.deDateEnd = new DevExpress.XtraEditors.DateEdit();
+            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.rgStatusComplete = new DevExpress.XtraEditors.RadioGroup();
+            this.ucSign1 = new LimsProject.UcSign();
             ((System.ComponentModel.ISupportInitialize)(this.paTitle)).BeginInit();
             this.paTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.paBottom)).BeginInit();
@@ -103,6 +110,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.rgPreparationSamples.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deDateIni.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deDateEnd.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
+            this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rgStatusComplete.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // laTitle
@@ -116,17 +126,16 @@
             // 
             // paBottom
             // 
-            this.paBottom.Controls.Add(this.simpleButton1);
-            this.paBottom.Controls.Add(this.btCancel);
-            this.paBottom.Controls.Add(this.btOk);
-            this.paBottom.Location = new System.Drawing.Point(0, 363);
-            this.paBottom.Size = new System.Drawing.Size(940, 39);
+            this.paBottom.Controls.Add(this.ucSign1);
+            this.paBottom.Location = new System.Drawing.Point(0, 350);
+            this.paBottom.Size = new System.Drawing.Size(940, 52);
             // 
             // paCenter
             // 
             this.paCenter.Controls.Add(this.gcPrepSample);
+            this.paCenter.Controls.Add(this.panelControl2);
             this.paCenter.Location = new System.Drawing.Point(0, 93);
-            this.paCenter.Size = new System.Drawing.Size(940, 270);
+            this.paCenter.Size = new System.Drawing.Size(940, 257);
             // 
             // paTop
             // 
@@ -152,7 +161,7 @@
             this.gcPrepSample.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repSelected,
             this.repCode});
-            this.gcPrepSample.Size = new System.Drawing.Size(936, 266);
+            this.gcPrepSample.Size = new System.Drawing.Size(936, 213);
             this.gcPrepSample.TabIndex = 0;
             this.gcPrepSample.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvPrepSample});
@@ -207,11 +216,19 @@
             this.gcol_Store_output_user_cs,
             this.gcol_Store_output_date_re,
             this.gcol_Store_output_user_re,
-            this.gcol_Observation2});
+            this.gcol_Observation2,
+            this.gcol_Output_flag_sample,
+            this.gcol_Output_flag_cs,
+            this.gcol_Output_flag_re,
+            this.gcol_Final_weight_gross,
+            this.gcol_Final_moisture,
+            this.gcol_Final_reject,
+            this.gcol_Final_sample_prepared});
             this.gvPrepSample.GridControl = this.gcPrepSample;
             this.gvPrepSample.Name = "gvPrepSample";
             this.gvPrepSample.OptionsView.ColumnAutoWidth = false;
             this.gvPrepSample.OptionsView.ShowGroupPanel = false;
+            this.gvPrepSample.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.gvPrepSample_RowCellStyle);
             this.gvPrepSample.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvPrepSample_CellValueChanged);
             // 
             // gbMuestra
@@ -236,7 +253,7 @@
             // 
             // gcol_Idrecep_sample_detail
             // 
-            this.gcol_Idrecep_sample_detail.Caption = "Idrecep_sample_detail";
+            this.gcol_Idrecep_sample_detail.Caption = "Cod. Muestra";
             this.gcol_Idrecep_sample_detail.ColumnEdit = this.repCode;
             this.gcol_Idrecep_sample_detail.FieldName = "Idrecep_sample_detail";
             this.gcol_Idrecep_sample_detail.Name = "gcol_Idrecep_sample_detail";
@@ -268,6 +285,7 @@
             this.gcol_Weight_gross.Caption = "Peso bruto";
             this.gcol_Weight_gross.FieldName = "Weight_gross";
             this.gcol_Weight_gross.Name = "gcol_Weight_gross";
+            this.gcol_Weight_gross.OptionsFilter.AllowFilter = false;
             this.gcol_Weight_gross.Visible = true;
             this.gcol_Weight_gross.Width = 20;
             // 
@@ -276,6 +294,7 @@
             this.gcol_Weight_gross_date.Caption = "Fecha Peso Bruto";
             this.gcol_Weight_gross_date.FieldName = "Weight_gross_date";
             this.gcol_Weight_gross_date.Name = "gcol_Weight_gross_date";
+            this.gcol_Weight_gross_date.OptionsFilter.AllowFilter = false;
             this.gcol_Weight_gross_date.Visible = true;
             this.gcol_Weight_gross_date.Width = 20;
             // 
@@ -284,6 +303,7 @@
             this.gcol_Weight_gross_user.Caption = "Usuario Peso Bruto";
             this.gcol_Weight_gross_user.FieldName = "Weight_gross_user";
             this.gcol_Weight_gross_user.Name = "gcol_Weight_gross_user";
+            this.gcol_Weight_gross_user.OptionsFilter.AllowFilter = false;
             this.gcol_Weight_gross_user.Visible = true;
             this.gcol_Weight_gross_user.Width = 20;
             // 
@@ -304,6 +324,7 @@
             this.gcol_Flag_60celsius.FieldName = "Flag_60celsius";
             this.gcol_Flag_60celsius.Name = "gcol_Flag_60celsius";
             this.gcol_Flag_60celsius.OptionsColumn.AllowEdit = false;
+            this.gcol_Flag_60celsius.OptionsFilter.AllowFilter = false;
             this.gcol_Flag_60celsius.Visible = true;
             this.gcol_Flag_60celsius.Width = 20;
             // 
@@ -340,14 +361,6 @@
             this.gcol_Flag_reject.OptionsColumn.AllowEdit = false;
             this.gcol_Flag_reject.Visible = true;
             this.gcol_Flag_reject.Width = 20;
-            // 
-            // gcol_Percent_moisture
-            // 
-            this.gcol_Percent_moisture.Caption = "Porcentaje";
-            this.gcol_Percent_moisture.FieldName = "Percent_moisture";
-            this.gcol_Percent_moisture.Name = "gcol_Percent_moisture";
-            this.gcol_Percent_moisture.Visible = true;
-            this.gcol_Percent_moisture.Width = 20;
             // 
             // gridBand3
             // 
@@ -403,6 +416,7 @@
             this.gcol_Weight_moisture.Caption = "Peso Húmedo";
             this.gcol_Weight_moisture.FieldName = "Weight_moisture";
             this.gcol_Weight_moisture.Name = "gcol_Weight_moisture";
+            this.gcol_Weight_moisture.OptionsFilter.AllowFilter = false;
             this.gcol_Weight_moisture.Visible = true;
             this.gcol_Weight_moisture.Width = 20;
             // 
@@ -427,6 +441,7 @@
             this.gcol_Weight_dry.Caption = "Peso Seco";
             this.gcol_Weight_dry.FieldName = "Weight_dry";
             this.gcol_Weight_dry.Name = "gcol_Weight_dry";
+            this.gcol_Weight_dry.OptionsFilter.AllowFilter = false;
             this.gcol_Weight_dry.Visible = true;
             this.gcol_Weight_dry.Width = 20;
             // 
@@ -445,6 +460,15 @@
             this.gcol_Weight_dry_user.Name = "gcol_Weight_dry_user";
             this.gcol_Weight_dry_user.Visible = true;
             this.gcol_Weight_dry_user.Width = 20;
+            // 
+            // gcol_Percent_moisture
+            // 
+            this.gcol_Percent_moisture.Caption = "Porcentaje";
+            this.gcol_Percent_moisture.FieldName = "Percent_moisture";
+            this.gcol_Percent_moisture.Name = "gcol_Percent_moisture";
+            this.gcol_Percent_moisture.OptionsFilter.AllowFilter = false;
+            this.gcol_Percent_moisture.Visible = true;
+            this.gcol_Percent_moisture.Width = 20;
             // 
             // gcol_Moisture_reject
             // 
@@ -474,6 +498,9 @@
             // gridBand5
             // 
             this.gridBand5.Caption = "Salida";
+            this.gridBand5.Columns.Add(this.gcol_Output_flag_cs);
+            this.gridBand5.Columns.Add(this.gcol_Output_flag_sample);
+            this.gridBand5.Columns.Add(this.gcol_Output_flag_re);
             this.gridBand5.Columns.Add(this.gcol_Output_user_re);
             this.gridBand5.Columns.Add(this.gcol_Weight_gross_reject_date);
             this.gridBand5.Columns.Add(this.gcol_Weight_gross_reject_user);
@@ -485,13 +512,38 @@
             this.gridBand5.Columns.Add(this.gcol_Output_date_cs);
             this.gridBand5.Columns.Add(this.gcol_Observation2);
             this.gridBand5.Name = "gridBand5";
-            this.gridBand5.Width = 201;
+            this.gridBand5.Width = 426;
+            // 
+            // gcol_Output_flag_cs
+            // 
+            this.gcol_Output_flag_cs.Caption = "Contramuestra";
+            this.gcol_Output_flag_cs.ColumnEdit = this.repSelected;
+            this.gcol_Output_flag_cs.FieldName = "Output_flag_cs";
+            this.gcol_Output_flag_cs.Name = "gcol_Output_flag_cs";
+            this.gcol_Output_flag_cs.Visible = true;
+            // 
+            // gcol_Output_flag_sample
+            // 
+            this.gcol_Output_flag_sample.Caption = "Muestra";
+            this.gcol_Output_flag_sample.ColumnEdit = this.repSelected;
+            this.gcol_Output_flag_sample.FieldName = "Output_flag_sample";
+            this.gcol_Output_flag_sample.Name = "gcol_Output_flag_sample";
+            this.gcol_Output_flag_sample.Visible = true;
+            // 
+            // gcol_Output_flag_re
+            // 
+            this.gcol_Output_flag_re.Caption = "Rechazo";
+            this.gcol_Output_flag_re.ColumnEdit = this.repSelected;
+            this.gcol_Output_flag_re.FieldName = "Output_flag_re";
+            this.gcol_Output_flag_re.Name = "gcol_Output_flag_re";
+            this.gcol_Output_flag_re.Visible = true;
             // 
             // gcol_Output_user_re
             // 
             this.gcol_Output_user_re.Caption = "Usuario Rechazo";
             this.gcol_Output_user_re.FieldName = "Output_user_re";
             this.gcol_Output_user_re.Name = "gcol_Output_user_re";
+            this.gcol_Output_user_re.OptionsFilter.AllowFilter = false;
             this.gcol_Output_user_re.Visible = true;
             this.gcol_Output_user_re.Width = 20;
             // 
@@ -524,6 +576,7 @@
             this.gcol_Output_user_sample.Caption = "Usuario Salida Muestra";
             this.gcol_Output_user_sample.FieldName = "Output_user_sample";
             this.gcol_Output_user_sample.Name = "gcol_Output_user_sample";
+            this.gcol_Output_user_sample.OptionsFilter.AllowFilter = false;
             this.gcol_Output_user_sample.Visible = true;
             this.gcol_Output_user_sample.Width = 20;
             // 
@@ -532,6 +585,7 @@
             this.gcol_Output_user_cs.Caption = "Usuario Contramuestra";
             this.gcol_Output_user_cs.FieldName = "Output_user_cs";
             this.gcol_Output_user_cs.Name = "gcol_Output_user_cs";
+            this.gcol_Output_user_cs.OptionsFilter.AllowFilter = false;
             this.gcol_Output_user_cs.Visible = true;
             this.gcol_Output_user_cs.Width = 20;
             // 
@@ -540,6 +594,7 @@
             this.gcol_Output_date_re.Caption = "Fecha Rechazo";
             this.gcol_Output_date_re.FieldName = "Output_date_re";
             this.gcol_Output_date_re.Name = "gcol_Output_date_re";
+            this.gcol_Output_date_re.OptionsFilter.AllowFilter = false;
             this.gcol_Output_date_re.Visible = true;
             this.gcol_Output_date_re.Width = 20;
             // 
@@ -548,6 +603,7 @@
             this.gcol_Output_date_sample.Caption = "Fecha Salida Muestra";
             this.gcol_Output_date_sample.FieldName = "Output_date_sample";
             this.gcol_Output_date_sample.Name = "gcol_Output_date_sample";
+            this.gcol_Output_date_sample.OptionsFilter.AllowFilter = false;
             this.gcol_Output_date_sample.Visible = true;
             this.gcol_Output_date_sample.Width = 20;
             // 
@@ -556,6 +612,7 @@
             this.gcol_Output_date_cs.Caption = "Fecha Contramuestra";
             this.gcol_Output_date_cs.FieldName = "Output_date_cs";
             this.gcol_Output_date_cs.Name = "gcol_Output_date_cs";
+            this.gcol_Output_date_cs.OptionsFilter.AllowFilter = false;
             this.gcol_Output_date_cs.Visible = true;
             this.gcol_Output_date_cs.Width = 20;
             // 
@@ -645,23 +702,29 @@
             this.gcol_Store_input_date_re.Visible = true;
             this.gcol_Store_input_date_re.Width = 27;
             // 
-            // btOk
+            // gcol_Final_weight_gross
             // 
-            this.btOk.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btOk.Location = new System.Drawing.Point(12, 8);
-            this.btOk.Name = "btOk";
-            this.btOk.Size = new System.Drawing.Size(43, 23);
-            this.btOk.TabIndex = 0;
-            this.btOk.Text = "Ok";
+            this.gcol_Final_weight_gross.Caption = "Final_weight_gross";
+            this.gcol_Final_weight_gross.FieldName = "Final_weight_gross";
+            this.gcol_Final_weight_gross.Name = "gcol_Final_weight_gross";
             // 
-            // btCancel
+            // gcol_Final_moisture
             // 
-            this.btCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btCancel.Location = new System.Drawing.Point(61, 8);
-            this.btCancel.Name = "btCancel";
-            this.btCancel.Size = new System.Drawing.Size(71, 23);
-            this.btCancel.TabIndex = 1;
-            this.btCancel.Text = "Cancelar";
+            this.gcol_Final_moisture.Caption = "Final_moisture";
+            this.gcol_Final_moisture.FieldName = "Final_moisture";
+            this.gcol_Final_moisture.Name = "gcol_Final_moisture";
+            // 
+            // gcol_Final_reject
+            // 
+            this.gcol_Final_reject.Caption = "Final_reject";
+            this.gcol_Final_reject.FieldName = "Final_reject";
+            this.gcol_Final_reject.Name = "gcol_Final_reject";
+            // 
+            // gcol_Final_sample_prepared
+            // 
+            this.gcol_Final_sample_prepared.Caption = "Final_sample_prepared";
+            this.gcol_Final_sample_prepared.FieldName = "Final_sample_prepared";
+            this.gcol_Final_sample_prepared.Name = "gcol_Final_sample_prepared";
             // 
             // tbBarCode
             // 
@@ -671,24 +734,16 @@
             this.tbBarCode.TabIndex = 0;
             this.tbBarCode.Visible = false;
             // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Location = new System.Drawing.Point(401, 8);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(75, 23);
-            this.simpleButton1.TabIndex = 2;
-            this.simpleButton1.Text = "temp";
-            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
-            // 
             // rgPreparationSamples
             // 
             this.rgPreparationSamples.Location = new System.Drawing.Point(219, 5);
             this.rgPreparationSamples.Name = "rgPreparationSamples";
+            this.rgPreparationSamples.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.rgPreparationSamples.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(1D, "Recepcion"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(2D, "A. Humedad"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(4D, "Pesar Rechazos"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(3D, "Salida Muestrería")});
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(1D, "Orden de Trabajo"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(2D, "D. Humedad"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(4D, "Peso Rechazos"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(3D, "Muestras Preparadas")});
             this.rgPreparationSamples.Size = new System.Drawing.Size(667, 24);
             this.rgPreparationSamples.TabIndex = 1;
             this.rgPreparationSamples.SelectedIndexChanged += new System.EventHandler(this.rgPreparationSamples_SelectedIndexChanged);
@@ -702,6 +757,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.deDateIni.Size = new System.Drawing.Size(99, 20);
             this.deDateIni.TabIndex = 2;
+            this.deDateIni.EditValueChanged += new System.EventHandler(this.deDateIni_EditValueChanged);
             // 
             // deDateEnd
             // 
@@ -712,6 +768,39 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.deDateEnd.Size = new System.Drawing.Size(96, 20);
             this.deDateEnd.TabIndex = 3;
+            this.deDateEnd.EditValueChanged += new System.EventHandler(this.deDateEnd_EditValueChanged);
+            // 
+            // panelControl2
+            // 
+            this.panelControl2.Controls.Add(this.rgStatusComplete);
+            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelControl2.Location = new System.Drawing.Point(2, 215);
+            this.panelControl2.Name = "panelControl2";
+            this.panelControl2.Size = new System.Drawing.Size(936, 40);
+            this.panelControl2.TabIndex = 1;
+            this.panelControl2.Text = "panelControl2";
+            // 
+            // rgStatusComplete
+            // 
+            this.rgStatusComplete.Location = new System.Drawing.Point(10, 6);
+            this.rgStatusComplete.Name = "rgStatusComplete";
+            this.rgStatusComplete.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.rgStatusComplete.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Pendientes"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Completados")});
+            this.rgStatusComplete.Size = new System.Drawing.Size(181, 29);
+            this.rgStatusComplete.TabIndex = 0;
+            this.rgStatusComplete.SelectedIndexChanged += new System.EventHandler(this.rgStatusComplete_SelectedIndexChanged);
+            // 
+            // ucSign1
+            // 
+            this.ucSign1.Location = new System.Drawing.Point(12, 3);
+            this.ucSign1.Margin = new System.Windows.Forms.Padding(0);
+            this.ucSign1.Name = "ucSign1";
+            this.ucSign1.Pwd = null;
+            this.ucSign1.Size = new System.Drawing.Size(158, 40);
+            this.ucSign1.TabIndex = 0;
+            this.ucSign1.Title = "";
             // 
             // FormPrepSamples
             // 
@@ -737,6 +826,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.rgPreparationSamples.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deDateIni.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deDateEnd.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
+            this.panelControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.rgStatusComplete.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -744,10 +836,7 @@
         #endregion
 
         private DevExpress.XtraGrid.GridControl gcPrepSample;
-        private DevExpress.XtraEditors.SimpleButton btCancel;
-        private DevExpress.XtraEditors.SimpleButton btOk;
         private DevExpress.XtraEditors.TextEdit tbBarCode;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.RadioGroup rgPreparationSamples;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridView gvPrepSample;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gbMuestra;
@@ -801,5 +890,15 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repCode;
         private DevExpress.XtraEditors.DateEdit deDateEnd;
         private DevExpress.XtraEditors.DateEdit deDateIni;
+        private DevExpress.XtraEditors.PanelControl panelControl2;
+        private DevExpress.XtraEditors.RadioGroup rgStatusComplete;
+        private UcSign ucSign1;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gcol_Output_flag_cs;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gcol_Output_flag_sample;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gcol_Output_flag_re;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gcol_Final_weight_gross;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gcol_Final_moisture;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gcol_Final_reject;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gcol_Final_sample_prepared;
     }
 }

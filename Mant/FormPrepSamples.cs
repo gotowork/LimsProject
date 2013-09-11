@@ -15,6 +15,8 @@ namespace LimsProject
 {
     public partial class FormPrepSamples : LibraryBasicForm.FormBaseEmpty
     {
+        Color colorComplete = Color.FromArgb(203, 230, 198);
+
         public enum TipoProceso
         {            
             RecepSample = 1,
@@ -101,7 +103,49 @@ namespace LimsProject
 
         void RetrieveData()
         {
-            gcPrepSample.DataSource = new BindingList<CPrep_samples>(new CPrep_samplesFactory().GetAll().Where(x => x.Date_creation > deDateIni.DateTime && x.Date_creation < deDateEnd.DateTime).ToList());
+            bool statusComplete = rgStatusComplete.SelectedIndex == 0 ? false : true;
+
+            if (rgPreparationSamples.SelectedIndex == 0) //orden de trabajo
+            {
+                gcPrepSample.DataSource =
+                    new BindingList<CPrep_samples>(new CPrep_samplesFactory()
+                        .GetAll()
+                        .Where(x => x.Date_creation > deDateIni.DateTime
+                            && x.Date_creation < deDateEnd.DateTime
+                            && x.Final_weight_gross == statusComplete)
+                            .OrderBy(x => x.Idrecep_sample_detail).ToList());
+            }
+            else if (rgPreparationSamples.SelectedIndex == 1) //D.Humedad
+            {
+                gcPrepSample.DataSource =
+                    new BindingList<CPrep_samples>(new CPrep_samplesFactory()
+                        .GetAll()
+                        .Where(x => x.Date_creation > deDateIni.DateTime
+                            && x.Date_creation < deDateEnd.DateTime
+                            && x.Final_moisture == statusComplete)
+                            .OrderBy(x => x.Idrecep_sample_detail).ToList());
+            }
+            else if (rgPreparationSamples.SelectedIndex == 2) //pesos rechazos
+            {
+                gcPrepSample.DataSource =
+                    new BindingList<CPrep_samples>(new CPrep_samplesFactory()
+                        .GetAll()
+                        .Where(x => x.Date_creation > deDateIni.DateTime
+                            && x.Date_creation < deDateEnd.DateTime
+                            && x.Final_reject == statusComplete)
+                            .OrderBy(x => x.Idrecep_sample_detail).ToList());
+            }
+            else if (rgPreparationSamples.SelectedIndex == 3) //muestras preparadas
+            {
+                gcPrepSample.DataSource =
+                    new BindingList<CPrep_samples>(new CPrep_samplesFactory()
+                        .GetAll()
+                        .Where(x => x.Date_creation > deDateIni.DateTime
+                            && x.Date_creation < deDateEnd.DateTime
+                            && x.Final_sample_prepared == statusComplete)
+                            .OrderBy(x => x.Idrecep_sample_detail).ToList());
+            }
+            
             gvPrepSample.BestFitColumns();
         }
 
@@ -134,10 +178,8 @@ namespace LimsProject
                     gcol_Flag_reject.Visible = true;
                     gcol_Flag_counter_sample.Visible = true;
 
-                    gcol_Input_sample_date.Visible = true;
-                    gcol_Input_sample_user.Visible = true;                    
-                    
-
+                    //gcol_Input_sample_date.Visible = true;
+                    //gcol_Input_sample_user.Visible = true;
                     break;
                 case TipoProceso.PesarRechazos:
                     // peso de rechazo para almacenamiento
@@ -147,8 +189,8 @@ namespace LimsProject
 
                     gcol_Weight_gross_reject.OwnerBand.Visible = true;
                     gcol_Weight_gross_reject.Visible = true;
-                    gcol_Weight_gross_reject_date.Visible = true;
-                    gcol_Weight_gross_reject_user.Visible = true;
+                    //gcol_Weight_gross_reject_date.Visible = true;
+                    //gcol_Weight_gross_reject_user.Visible = true;
                     break;
                 case TipoProceso.Humedad:
                     gcol_Weight_gross.Visible = false;
@@ -158,18 +200,18 @@ namespace LimsProject
                     // determinación de humedad
                     gcol_Weight_moisture.OwnerBand.Visible = true;
                     gcol_Weight_moisture.Visible = true;
-                    gcol_Weight_moisture_date.Visible = true;
-                    gcol_Weight_moisture_user.Visible = true;
+                    //gcol_Weight_moisture_date.Visible = true;
+                    //gcol_Weight_moisture_user.Visible = true;
 
                     gcol_Weight_dry.Visible = true;
-                    gcol_Weight_dry_date.Visible = true;
-                    gcol_Weight_dry_user.Visible = true;
+                    //gcol_Weight_dry_date.Visible = true;
+                    //gcol_Weight_dry_user.Visible = true;
 
                     gcol_Percent_moisture.Visible = true;
 
                     gcol_Moisture_reject.Visible = true;
-                    gcol_Moisture_reject_date.Visible = true;
-                    gcol_Moisture_reject_user.Visible = true;
+                    //gcol_Moisture_reject_date.Visible = true;
+                    //gcol_Moisture_reject_user.Visible = true;
                     break;
                 case TipoProceso.SalidaMuestreria:
                     gcol_Weight_gross.Visible = false;
@@ -178,12 +220,17 @@ namespace LimsProject
 
                     // marcar salida de muestra, contramuestra y rechazo
                     gcol_Output_date_sample.OwnerBand.Visible = true;
-                    gcol_Output_date_sample.Visible = true; // a ataque
-                    gcol_Output_user_sample.Visible = true; // a ataque
-                    gcol_Output_date_cs.Visible = true;     // contramuestra
-                    gcol_Output_user_cs.Visible = true;     // contramuestra
-                    gcol_Output_date_re.Visible = true;     // rechazo
-                    gcol_Output_user_re.Visible = true;     // rechazo
+
+                    gcol_Output_flag_sample.Visible = true;
+                    gcol_Output_flag_cs.Visible = true;
+                    gcol_Output_flag_re.Visible = true;
+
+                    //gcol_Output_date_sample.Visible = true; // a ataque
+                    //gcol_Output_user_sample.Visible = true; // a ataque
+                    //gcol_Output_date_cs.Visible = true;     // contramuestra
+                    //gcol_Output_user_cs.Visible = true;     // contramuestra
+                    //gcol_Output_date_re.Visible = true;     // rechazo
+                    //gcol_Output_user_re.Visible = true;     // rechazo
                     break;
                 case TipoProceso.Almacen:
                     gcol_Weight_gross.Visible = false;
@@ -203,7 +250,7 @@ namespace LimsProject
 
                     gcol_Store_output_date_re.Visible = true;
                     gcol_Store_output_user_re.Visible = true;
-                    break;                        
+                    break;
             }
         }
 
@@ -296,10 +343,9 @@ namespace LimsProject
                 // actualizar fecha entrada y usuario                                                                
                 CPrep_samples oPrep_sample = gvPrepSample.GetRow(e.RowHandle) as CPrep_samples;
                 oPrep_sample.Weight_gross_date = Comun.GetDate();
-                oPrep_sample.Weight_gross_user = Comun.GetUser();                
+                oPrep_sample.Weight_gross_user = Comun.GetUser();
+                SetComplete(oPrep_sample);
                 new CPrep_samplesFactory().Update(oPrep_sample);
-
-                //gvPrepSample.UpdateCurrentRow();
             }
             else if (e.Column == gcol_Weight_moisture)
             {
@@ -307,10 +353,11 @@ namespace LimsProject
                 CPrep_samples oPrep_sample = gvPrepSample.GetRow(e.RowHandle) as CPrep_samples;
                 if (oPrep_sample.Weight_moisture != null && oPrep_sample.Weight_dry != null
                     && oPrep_sample.Weight_dry > 0 && oPrep_sample.Weight_moisture > 0)
-                    oPrep_sample.Percent_moisture = (oPrep_sample.Weight_moisture - oPrep_sample.Weight_dry) / oPrep_sample.Weight_moisture;
+                    oPrep_sample.Percent_moisture = Math.Round(Convert.ToDecimal((oPrep_sample.Weight_moisture - oPrep_sample.Weight_dry) / oPrep_sample.Weight_moisture), 2);
 
                 oPrep_sample.Weight_moisture_date = Comun.GetDate();
                 oPrep_sample.Weight_moisture_user = Comun.GetUser();
+                SetComplete(oPrep_sample);
                 new CPrep_samplesFactory().Update(oPrep_sample);
             }
             else if (e.Column == gcol_Weight_dry)
@@ -321,12 +368,114 @@ namespace LimsProject
                 if (oPrep_sample.Weight_moisture != null && oPrep_sample.Weight_dry != null
                     && oPrep_sample.Weight_dry > 0 && oPrep_sample.Weight_moisture > 0)
                 {
-                    oPrep_sample.Percent_moisture = (oPrep_sample.Weight_moisture - oPrep_sample.Weight_dry) / oPrep_sample.Weight_moisture;
+                    oPrep_sample.Percent_moisture = Math.Round(Convert.ToDecimal((oPrep_sample.Weight_moisture - oPrep_sample.Weight_dry) / oPrep_sample.Weight_moisture), 2);
                     oPrep_sample.Weight_dry_date = Comun.GetDate();
                     oPrep_sample.Weight_dry_user = Comun.GetUser();
+                    SetComplete(oPrep_sample);
                     new CPrep_samplesFactory().Update(oPrep_sample);
                 }
             }
+            else if (e.Column == gcol_Weight_gross_reject)
+            {
+                // actualizar fecha de rechazo y usuario
+                CPrep_samples oPrep_sample = gvPrepSample.GetRow(e.RowHandle) as CPrep_samples;
+
+                oPrep_sample.Weight_gross_reject_date = Comun.GetDate();
+                oPrep_sample.Weight_gross_reject_user = Comun.GetUser();
+                SetComplete(oPrep_sample);
+                new CPrep_samplesFactory().Update(oPrep_sample);
+            }
+            else if (e.Column == gcol_Moisture_reject)
+            {
+                // actualizar fecha, usuario de humedad
+                CPrep_samples oPrep_sample = gvPrepSample.GetRow(e.RowHandle) as CPrep_samples;
+
+                oPrep_sample.Moisture_reject_date = Comun.GetDate();
+                oPrep_sample.Moisture_reject_user = Comun.GetUser();
+                SetComplete(oPrep_sample);
+                new CPrep_samplesFactory().Update(oPrep_sample);
+            }
+            else if (e.Column == gcol_Output_flag_sample)
+            {
+                // actualizar fecha, usuario en salida de muestra
+                CPrep_samples oPrep_sample = gvPrepSample.GetRow(e.RowHandle) as CPrep_samples;
+
+                oPrep_sample.Output_date_sample = Comun.GetDate();
+                oPrep_sample.Output_user_sample = Comun.GetUser();
+                SetComplete(oPrep_sample);
+                new CPrep_samplesFactory().Update(oPrep_sample);
+            }
+            else if (e.Column == gcol_Output_flag_cs)
+            {
+                // actualizar fecha, usuario en salida de contramuestra
+                CPrep_samples oPrep_sample = gvPrepSample.GetRow(e.RowHandle) as CPrep_samples;
+
+                oPrep_sample.Output_date_cs = Comun.GetDate();
+                oPrep_sample.Output_user_cs = Comun.GetUser();
+                SetComplete(oPrep_sample);
+                new CPrep_samplesFactory().Update(oPrep_sample);
+            }
+            else if (e.Column == gcol_Output_flag_re)
+            {
+                // actualizar fecha, usuario en salida de contramuestra
+                CPrep_samples oPrep_sample = gvPrepSample.GetRow(e.RowHandle) as CPrep_samples;
+
+                oPrep_sample.Output_date_re = Comun.GetDate();
+                oPrep_sample.Output_user_re = Comun.GetUser();
+                SetComplete(oPrep_sample);
+                new CPrep_samplesFactory().Update(oPrep_sample);
+            }
+        }
+
+        public void SetComplete(CPrep_samples prep_samples)
+        {
+            switch (Convert.ToInt32(rgPreparationSamples.EditValue))
+            {
+                case 1://recepsample
+                    if (prep_samples.Weight_gross != null)
+                        prep_samples.Final_weight_gross = true;
+                    break;
+                case 2://humedad
+                    if (prep_samples.Percent_moisture != null)
+                        prep_samples.Final_moisture = true;
+                    break;
+                case 3://salidaMuestreria
+                    if (Convert.ToBoolean(prep_samples.Output_flag_sample) && Convert.ToBoolean(prep_samples.Output_flag_cs)
+                        && Convert.ToBoolean(prep_samples.Output_flag_re))
+                        prep_samples.Final_sample_prepared = true;
+                    break;
+                case 4://pesarrechazos
+                    if (prep_samples.Weight_gross_reject != null)
+                        prep_samples.Final_reject = true;
+                    break;
+                case 5://almacen
+                    
+                    break;
+            }            
+        }
+
+        private void deDateIni_EditValueChanged(object sender, EventArgs e)
+        {
+            RetrieveData();
+        }
+
+        private void deDateEnd_EditValueChanged(object sender, EventArgs e)
+        {
+            RetrieveData();
+        }
+
+        private void gvPrepSample_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
+        {
+            // colorear las filas completadas
+            if (rgStatusComplete.SelectedIndex == 1)//completado
+                e.Appearance.BackColor = colorComplete;
+            else //pendiente
+                e.Appearance.BackColor = Color.White;
+        }
+
+        private void rgStatusComplete_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RetrieveData();
         }
 
         
