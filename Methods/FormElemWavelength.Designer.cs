@@ -42,8 +42,8 @@
             this.gcol_Lineality_axial = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gcol_Lineality_radial = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.cbElement1 = new LimsProject.cbElement();
-            this.label1 = new System.Windows.Forms.Label();
             this.btImportar = new DevExpress.XtraEditors.SimpleButton();
+            this.ckElement = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.paTitle)).BeginInit();
             this.paTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.paBottom)).BeginInit();
@@ -55,6 +55,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcElemWavelength)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvElemWavelength)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbElement1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckElement.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // laTitle
@@ -79,8 +80,8 @@
             // 
             // paTop
             // 
+            this.paTop.Controls.Add(this.ckElement);
             this.paTop.Controls.Add(this.btImportar);
-            this.paTop.Controls.Add(this.label1);
             this.paTop.Controls.Add(this.cbElement1);
             this.paTop.Size = new System.Drawing.Size(803, 35);
             // 
@@ -208,11 +209,18 @@
             // 
             // cbElement1
             // 
-            this.cbElement1.Location = new System.Drawing.Point(80, 9);
+            this.cbElement1.Enabled = false;
+            this.cbElement1.Location = new System.Drawing.Point(94, 5);
             this.cbElement1.Name = "cbElement1";
             this.cbElement1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cbElement1.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Idelement", "", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Cod_element"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Idelement", "", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Cod_element"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Idelement", "", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Cod_element"),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Idelement", "", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Cod_element"),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Idelement", "", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None),
@@ -222,23 +230,25 @@
             this.cbElement1.Properties.ShowHeader = false;
             this.cbElement1.Size = new System.Drawing.Size(120, 20);
             this.cbElement1.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Elemento:";
+            this.cbElement1.EditValueChanged += new System.EventHandler(this.cbElement1_EditValueChanged);
             // 
             // btImportar
             // 
-            this.btImportar.Location = new System.Drawing.Point(604, 6);
+            this.btImportar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btImportar.Location = new System.Drawing.Point(688, 6);
             this.btImportar.Name = "btImportar";
             this.btImportar.Size = new System.Drawing.Size(87, 23);
             this.btImportar.TabIndex = 2;
             this.btImportar.Text = "Sincronizar ICP";
+            // 
+            // ckElement
+            // 
+            this.ckElement.Location = new System.Drawing.Point(13, 7);
+            this.ckElement.Name = "ckElement";
+            this.ckElement.Properties.Caption = "Elemento";
+            this.ckElement.Size = new System.Drawing.Size(75, 18);
+            this.ckElement.TabIndex = 3;
+            this.ckElement.CheckedChanged += new System.EventHandler(this.ckElement_CheckedChanged);
             // 
             // FormElemWavelength
             // 
@@ -255,11 +265,11 @@
             this.paCenter.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.paTop)).EndInit();
             this.paTop.ResumeLayout(false);
-            this.paTop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcElemWavelength)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvElemWavelength)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbElement1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckElement.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -280,7 +290,7 @@
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gcol_Idl_axial;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gcol_Idl_radial;
         private cbElement cbElement1;
-        private System.Windows.Forms.Label label1;
         private DevExpress.XtraEditors.SimpleButton btImportar;
+        private DevExpress.XtraEditors.CheckEdit ckElement;
     }
 }

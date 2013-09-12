@@ -844,6 +844,13 @@ namespace LimsProject
                                 oPrep_samples.Flag_60celsius = Has60GradesElement;
                                 oPrep_samples.Date_creation = Comun.GetDate();
                                 oPrep_samples.Moisture_reject = false;
+                                oPrep_samples.Final_moisture = 0;
+                                oPrep_samples.Final_reject = 0;
+                                oPrep_samples.Final_sample_prepared = 0;
+                                oPrep_samples.Final_weight_gross = 0;
+                                oPrep_samples.Output_flag_sample = false;
+                                oPrep_samples.Output_flag_cs = false;
+                                oPrep_samples.Output_flag_re = false;
 
                                 CPrep_samplesFactory faPrep_samples = new CPrep_samplesFactory();
                                 if (!faPrep_samples.Update(oPrep_samples))

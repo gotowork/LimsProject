@@ -184,22 +184,23 @@
     <Compile Include="cbMethodIpc.Designer.cs">
       <DependentUpon>cbMethodIpc.cs</DependentUpon>
     </Compile>
+    <Compile Include="CFormats.cs" />
+    <Compile Include="Methods\UcGravimetria.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Methods\UcGravimetria.Designer.cs">
+      <DependentUpon>UcGravimetria.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\cbElement.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="UserControls\cbElement.Designer.cs">
       <DependentUpon>cbElement.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormElementWavelength.cs">
+    <Compile Include="Methods\FormElemWavelength.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormElementWavelength.Designer.cs">
-      <DependentUpon>FormElementWavelength.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormElemWavelength.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormElemWavelength.Designer.cs">
+    <Compile Include="Methods\FormElemWavelength.Designer.cs">
       <DependentUpon>FormElemWavelength.cs</DependentUpon>
     </Compile>
     <Compile Include="Mant\FormPrepSamples.cs">
@@ -615,10 +616,10 @@
     <Compile Include="Solutions\UcCalibStd.Designer.cs">
       <DependentUpon>UcCalibStd.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="FormElementWavelength.resx">
-      <DependentUpon>FormElementWavelength.cs</DependentUpon>
+    <EmbeddedResource Include="Methods\UcGravimetria.resx">
+      <DependentUpon>UcGravimetria.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormElemWavelength.resx">
+    <EmbeddedResource Include="Methods\FormElemWavelength.resx">
       <DependentUpon>FormElemWavelength.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mant\FormPrepSamples.resx">

@@ -154,6 +154,7 @@
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.xtraTabPage38 = new DevExpress.XtraTab.XtraTabPage();
+            this.xtraTabPage33 = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabControl2 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage7 = new DevExpress.XtraTab.XtraTabPage();
             this.tbLawMri = new DevExpress.XtraEditors.TextEdit();
@@ -167,7 +168,6 @@
             this.tbReproducibility = new DevExpress.XtraEditors.SpinEdit();
             this.xtraTabPage8 = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabPage10 = new DevExpress.XtraTab.XtraTabPage();
-            this.xtraTabPage33 = new DevExpress.XtraTab.XtraTabPage();
             ((System.ComponentModel.ISupportInitialize)(this.deStdSolDatePrep)).BeginInit();
             this.deStdSolDatePrep.SuspendLayout();
             this.xtraTabPage2.SuspendLayout();
@@ -241,7 +241,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.tbNum_samples.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            this.xtraTabPage38.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl2)).BeginInit();
             this.xtraTabControl2.SuspendLayout();
             this.xtraTabPage7.SuspendLayout();
@@ -270,7 +269,7 @@
             this.deStdSolDatePrep.Name = "deStdSolDatePrep";
             this.deStdSolDatePrep.PaintStyleName = "PropertyView";
             this.deStdSolDatePrep.SelectedTabPage = this.xtraTabPage2;
-            this.deStdSolDatePrep.Size = new System.Drawing.Size(723, 372);
+            this.deStdSolDatePrep.Size = new System.Drawing.Size(723, 416);
             this.deStdSolDatePrep.TabIndex = 1;
             this.deStdSolDatePrep.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage2,
@@ -1315,6 +1314,7 @@
             // 
             // xtraTabPage4
             // 
+            this.xtraTabPage4.Controls.Add(this.xtraTabControl2);
             this.xtraTabPage4.Controls.Add(this.groupControl2);
             this.xtraTabPage4.Controls.Add(this.groupControl1);
             this.xtraTabPage4.Controls.Add(this.deStdDatePreparation);
@@ -1326,7 +1326,7 @@
             this.xtraTabPage4.Controls.Add(this.deStdDateExpiration);
             this.xtraTabPage4.Controls.Add(this.cbStdSolStatus);
             this.xtraTabPage4.Name = "xtraTabPage4";
-            this.xtraTabPage4.Size = new System.Drawing.Size(721, 351);
+            this.xtraTabPage4.Size = new System.Drawing.Size(721, 395);
             this.xtraTabPage4.Text = "Control de calidad";
             // 
             // groupControl2
@@ -1544,7 +1544,7 @@
             this.ckStdSolIntermTwo.Location = new System.Drawing.Point(148, 66);
             this.ckStdSolIntermTwo.Name = "ckStdSolIntermTwo";
             this.ckStdSolIntermTwo.Properties.Caption = "Solución intermedia 2";
-            this.ckStdSolIntermTwo.Size = new System.Drawing.Size(126, 19);
+            this.ckStdSolIntermTwo.Size = new System.Drawing.Size(126, 18);
             this.ckStdSolIntermTwo.TabIndex = 35;
             this.ckStdSolIntermTwo.CheckedChanged += new System.EventHandler(this.ckStdSolIntermTwo_CheckedChanged);
             // 
@@ -1553,7 +1553,7 @@
             this.ckStdSolIntermOne.Location = new System.Drawing.Point(148, 44);
             this.ckStdSolIntermOne.Name = "ckStdSolIntermOne";
             this.ckStdSolIntermOne.Properties.Caption = "Solución intermedia 1";
-            this.ckStdSolIntermOne.Size = new System.Drawing.Size(126, 19);
+            this.ckStdSolIntermOne.Size = new System.Drawing.Size(126, 18);
             this.ckStdSolIntermOne.TabIndex = 35;
             this.ckStdSolIntermOne.CheckedChanged += new System.EventHandler(this.ckStdSolIntermOne_CheckedChanged);
             // 
@@ -1894,18 +1894,23 @@
             // 
             // xtraTabPage38
             // 
-            this.xtraTabPage38.Controls.Add(this.xtraTabControl2);
             this.xtraTabPage38.Name = "xtraTabPage38";
             this.xtraTabPage38.Size = new System.Drawing.Size(721, 351);
             this.xtraTabPage38.Text = "MR";
             // 
+            // xtraTabPage33
+            // 
+            this.xtraTabPage33.Name = "xtraTabPage33";
+            this.xtraTabPage33.Size = new System.Drawing.Size(721, 351);
+            this.xtraTabPage33.Text = "Preparación de muestra";
+            // 
             // xtraTabControl2
             // 
-            this.xtraTabControl2.Location = new System.Drawing.Point(7, 5);
+            this.xtraTabControl2.Location = new System.Drawing.Point(17, 282);
             this.xtraTabControl2.Name = "xtraTabControl2";
             this.xtraTabControl2.SelectedTabPage = this.xtraTabPage7;
-            this.xtraTabControl2.Size = new System.Drawing.Size(526, 130);
-            this.xtraTabControl2.TabIndex = 2;
+            this.xtraTabControl2.Size = new System.Drawing.Size(526, 105);
+            this.xtraTabControl2.TabIndex = 46;
             this.xtraTabControl2.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage7,
             this.xtraTabPage8,
@@ -1924,7 +1929,7 @@
             this.xtraTabPage7.Controls.Add(this.label12);
             this.xtraTabPage7.Controls.Add(this.tbReproducibility);
             this.xtraTabPage7.Name = "xtraTabPage7";
-            this.xtraTabPage7.Size = new System.Drawing.Size(517, 100);
+            this.xtraTabPage7.Size = new System.Drawing.Size(517, 75);
             this.xtraTabPage7.Text = "Material de referncia";
             // 
             // tbLawMri
@@ -1949,7 +1954,6 @@
             this.cbMaterialRef.Properties.ShowHeader = false;
             this.cbMaterialRef.Size = new System.Drawing.Size(100, 20);
             this.cbMaterialRef.TabIndex = 1;
-            this.cbMaterialRef.EditValueChanged += new System.EventHandler(this.cbMaterialRef_EditValueChanged);
             // 
             // tbBlk_max
             // 
@@ -2036,19 +2040,13 @@
             this.xtraTabPage10.Size = new System.Drawing.Size(517, 100);
             this.xtraTabPage10.Text = "Fortificacion de blancos";
             // 
-            // xtraTabPage33
-            // 
-            this.xtraTabPage33.Name = "xtraTabPage33";
-            this.xtraTabPage33.Size = new System.Drawing.Size(721, 351);
-            this.xtraTabPage33.Text = "Preparación de muestra";
-            // 
             // UcAA
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.deStdSolDatePrep);
             this.Name = "UcAA";
-            this.Size = new System.Drawing.Size(723, 372);
+            this.Size = new System.Drawing.Size(723, 416);
             ((System.ComponentModel.ISupportInitialize)(this.deStdSolDatePrep)).EndInit();
             this.deStdSolDatePrep.ResumeLayout(false);
             this.xtraTabPage2.ResumeLayout(false);
@@ -2130,7 +2128,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.tbNum_samples.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            this.xtraTabPage38.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl2)).EndInit();
             this.xtraTabControl2.ResumeLayout(false);
             this.xtraTabPage7.ResumeLayout(false);
@@ -2271,6 +2268,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage38;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage33;
         private DevExpress.XtraTab.XtraTabControl xtraTabControl2;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage7;
         private DevExpress.XtraEditors.TextEdit tbLawMri;
@@ -2284,6 +2282,5 @@
         private DevExpress.XtraEditors.SpinEdit tbReproducibility;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage8;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage10;
-        private DevExpress.XtraTab.XtraTabPage xtraTabPage33;
     }
 }

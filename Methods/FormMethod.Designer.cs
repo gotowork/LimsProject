@@ -51,10 +51,11 @@
             this.label36 = new System.Windows.Forms.Label();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gluCod_method = new DevExpress.XtraEditors.GridLookUpEdit();
+            this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.repElement = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.repTypeSample = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.repTypeAnalysis = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gcMet_Idtemplate_method = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcMet_Cod_template_method = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcMet_Abbreviation = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -62,7 +63,6 @@
             this.gcMet_Idelement = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcMet_Type_analisys = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcMet_Cod_type_sample = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.paTitleSearch.SuspendLayout();
             this.paTopBasicButtons.SuspendLayout();
             this.paTopSearch.SuspendLayout();
@@ -89,12 +89,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.cbElement.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbRepetition.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gluCod_method.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repElement)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repTypeSample)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repTypeAnalysis)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.repElement)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repTypeSample)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repTypeAnalysis)).BeginInit();
             this.SuspendLayout();
             // 
             // imageList1
@@ -350,7 +350,7 @@
             this.ckRecognized.Location = new System.Drawing.Point(225, 35);
             this.ckRecognized.Name = "ckRecognized";
             this.ckRecognized.Properties.Caption = "Método Acreditado";
-            this.ckRecognized.Size = new System.Drawing.Size(121, 19);
+            this.ckRecognized.Size = new System.Drawing.Size(121, 18);
             this.ckRecognized.TabIndex = 5;
             // 
             // cbDigestion
@@ -492,6 +492,36 @@
             this.gluCod_method.InvalidValue += new DevExpress.XtraEditors.Controls.InvalidValueExceptionEventHandler(this.gluCod_method_InvalidValue);
             this.gluCod_method.Validating += new System.ComponentModel.CancelEventHandler(this.gluCod_method_Validating);
             // 
+            // gridLookUpEdit1View
+            // 
+            this.gridLookUpEdit1View.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 8F);
+            this.gridLookUpEdit1View.Appearance.HeaderPanel.Options.UseFont = true;
+            this.gridLookUpEdit1View.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 8F);
+            this.gridLookUpEdit1View.Appearance.Row.Options.UseFont = true;
+            this.gridLookUpEdit1View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gcMet_Idtemplate_method,
+            this.gcMet_Cod_template_method,
+            this.gcMet_Abbreviation,
+            this.gcMet_Title,
+            this.gcMet_Idelement,
+            this.gcMet_Type_analisys,
+            this.gcMet_Cod_type_sample});
+            this.gridLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridLookUpEdit1View.Name = "gridLookUpEdit1View";
+            this.gridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
+            // 
+            // panelControl2
+            // 
+            this.panelControl2.Controls.Add(this.gluCod_method);
+            this.panelControl2.Controls.Add(this.label36);
+            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl2.Location = new System.Drawing.Point(0, 0);
+            this.panelControl2.Name = "panelControl2";
+            this.panelControl2.Size = new System.Drawing.Size(776, 36);
+            this.panelControl2.TabIndex = 15;
+            this.panelControl2.Text = "panelControl2";
+            // 
             // repElement
             // 
             this.repElement.AutoHeight = false;
@@ -521,25 +551,6 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("IdType_Analysis"),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Den_Type_Analysis")});
             this.repTypeAnalysis.Name = "repTypeAnalysis";
-            // 
-            // gridLookUpEdit1View
-            // 
-            this.gridLookUpEdit1View.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 8F);
-            this.gridLookUpEdit1View.Appearance.HeaderPanel.Options.UseFont = true;
-            this.gridLookUpEdit1View.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 8F);
-            this.gridLookUpEdit1View.Appearance.Row.Options.UseFont = true;
-            this.gridLookUpEdit1View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gcMet_Idtemplate_method,
-            this.gcMet_Cod_template_method,
-            this.gcMet_Abbreviation,
-            this.gcMet_Title,
-            this.gcMet_Idelement,
-            this.gcMet_Type_analisys,
-            this.gcMet_Cod_type_sample});
-            this.gridLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridLookUpEdit1View.Name = "gridLookUpEdit1View";
-            this.gridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
             // 
             // gcMet_Idtemplate_method
             // 
@@ -606,17 +617,6 @@
             this.gcMet_Cod_type_sample.VisibleIndex = 5;
             this.gcMet_Cod_type_sample.Width = 64;
             // 
-            // panelControl2
-            // 
-            this.panelControl2.Controls.Add(this.gluCod_method);
-            this.panelControl2.Controls.Add(this.label36);
-            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl2.Location = new System.Drawing.Point(0, 0);
-            this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(776, 36);
-            this.panelControl2.TabIndex = 15;
-            this.panelControl2.Text = "panelControl2";
-            // 
             // FormMethod
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -654,13 +654,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.cbElement.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbRepetition.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gluCod_method.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repElement)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repTypeSample)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repTypeAnalysis)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             this.panelControl2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.repElement)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repTypeSample)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repTypeAnalysis)).EndInit();
             this.ResumeLayout(false);
 
         }

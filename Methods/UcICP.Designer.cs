@@ -33,9 +33,7 @@
             this.gcCol_Elemento = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcCol_Longitud = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gcCol_IDL = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcCol_MDL = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gcCol_Linealidad = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcCol_Ldr_aux = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcCol_Num_decimal = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcCol_STD1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -160,7 +158,7 @@
             this.gcMethodIcp.Location = new System.Drawing.Point(355, 22);
             this.gcMethodIcp.MainView = this.gvMethodIcp;
             this.gcMethodIcp.Name = "gcMethodIcp";
-            this.gcMethodIcp.Size = new System.Drawing.Size(513, 564);
+            this.gcMethodIcp.Size = new System.Drawing.Size(582, 564);
             this.gcMethodIcp.TabIndex = 0;
             this.gcMethodIcp.UseEmbeddedNavigator = true;
             this.gcMethodIcp.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -172,9 +170,7 @@
             this.gcCol_Elemento,
             this.gcCol_Longitud,
             this.gridColumn1,
-            this.gcCol_IDL,
             this.gcCol_MDL,
-            this.gcCol_Linealidad,
             this.gcCol_Ldr_aux,
             this.gcCol_Num_decimal,
             this.gcCol_STD1,
@@ -213,14 +209,6 @@
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 14;
             // 
-            // gcCol_IDL
-            // 
-            this.gcCol_IDL.Caption = "IDL";
-            this.gcCol_IDL.FieldName = "Idl";
-            this.gcCol_IDL.Name = "gcCol_IDL";
-            this.gcCol_IDL.Visible = true;
-            this.gcCol_IDL.VisibleIndex = 2;
-            // 
             // gcCol_MDL
             // 
             this.gcCol_MDL.Caption = "MDL";
@@ -228,14 +216,6 @@
             this.gcCol_MDL.Name = "gcCol_MDL";
             this.gcCol_MDL.Visible = true;
             this.gcCol_MDL.VisibleIndex = 3;
-            // 
-            // gcCol_Linealidad
-            // 
-            this.gcCol_Linealidad.Caption = "Linealidad (ldr)";
-            this.gcCol_Linealidad.FieldName = "Ldr";
-            this.gcCol_Linealidad.Name = "gcCol_Linealidad";
-            this.gcCol_Linealidad.Visible = true;
-            this.gcCol_Linealidad.VisibleIndex = 4;
             // 
             // gcCol_Ldr_aux
             // 
@@ -438,7 +418,7 @@
             this.tabExpResultados.Controls.Add(this.label2);
             this.tabExpResultados.Controls.Add(this.label5);
             this.tabExpResultados.Name = "tabExpResultados";
-            this.tabExpResultados.Size = new System.Drawing.Size(335, 532);
+            this.tabExpResultados.Size = new System.Drawing.Size(334, 536);
             this.tabExpResultados.Text = "Resultados";
             // 
             // tabExpBlancoReactivo
@@ -449,7 +429,7 @@
             this.tabExpBlancoReactivo.Controls.Add(this.panelControl3);
             this.tabExpBlancoReactivo.Controls.Add(this.panelControl1);
             this.tabExpBlancoReactivo.Name = "tabExpBlancoReactivo";
-            this.tabExpBlancoReactivo.Size = new System.Drawing.Size(335, 532);
+            this.tabExpBlancoReactivo.Size = new System.Drawing.Size(334, 536);
             this.tabExpBlancoReactivo.Text = "Blanco de reactivo";
             // 
             // panelControl6
@@ -896,7 +876,7 @@
             this.tabExpPesosLecturas.Controls.Add(this.tbAliquot);
             this.tabExpPesosLecturas.Controls.Add(this.tbVolumen);
             this.tabExpPesosLecturas.Name = "tabExpPesosLecturas";
-            this.tabExpPesosLecturas.Size = new System.Drawing.Size(335, 532);
+            this.tabExpPesosLecturas.Size = new System.Drawing.Size(334, 536);
             this.tabExpPesosLecturas.Text = "Pesos /lecturas";
             // 
             // ckDilution
@@ -986,7 +966,7 @@
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.PaintStyleName = "PropertyView";
             this.xtraTabControl1.SelectedTabPage = this.tpPesosLecturas;
-            this.xtraTabControl1.Size = new System.Drawing.Size(868, 22);
+            this.xtraTabControl1.Size = new System.Drawing.Size(937, 22);
             this.xtraTabControl1.TabIndex = 10;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.tpPesosLecturas,
@@ -999,25 +979,25 @@
             // tpPesosLecturas
             // 
             this.tpPesosLecturas.Name = "tpPesosLecturas";
-            this.tpPesosLecturas.Size = new System.Drawing.Size(866, 1);
+            this.tpPesosLecturas.Size = new System.Drawing.Size(935, 1);
             this.tpPesosLecturas.Text = "Pesos/lecturas";
             // 
             // tpResultados
             // 
             this.tpResultados.Name = "tpResultados";
-            this.tpResultados.Size = new System.Drawing.Size(862, 1);
+            this.tpResultados.Size = new System.Drawing.Size(866, 1);
             this.tpResultados.Text = "Resultados";
             // 
             // tpCalibraciones
             // 
             this.tpCalibraciones.Name = "tpCalibraciones";
-            this.tpCalibraciones.Size = new System.Drawing.Size(862, 1);
+            this.tpCalibraciones.Size = new System.Drawing.Size(866, 1);
             this.tpCalibraciones.Text = "Calibraciones";
             // 
             // tpControlCalidad
             // 
             this.tpControlCalidad.Name = "tpControlCalidad";
-            this.tpControlCalidad.Size = new System.Drawing.Size(862, 1);
+            this.tpControlCalidad.Size = new System.Drawing.Size(866, 1);
             this.tpControlCalidad.Text = "Control de calidad";
             // 
             // UcICP
@@ -1028,7 +1008,7 @@
             this.Controls.Add(this.expandablePanel1);
             this.Controls.Add(this.xtraTabControl1);
             this.Name = "UcICP";
-            this.Size = new System.Drawing.Size(868, 586);
+            this.Size = new System.Drawing.Size(937, 586);
             ((System.ComponentModel.ISupportInitialize)(this.gcMethodIcp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvMethodIcp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbUMResult.Properties)).EndInit();
@@ -1097,9 +1077,7 @@
         private DevExpress.XtraTab.XtraTabPage tpControlCalidad;
         private DevExpress.XtraGrid.Columns.GridColumn gcCol_Elemento;
         private DevExpress.XtraGrid.Columns.GridColumn gcCol_Longitud;
-        private DevExpress.XtraGrid.Columns.GridColumn gcCol_IDL;
         private DevExpress.XtraGrid.Columns.GridColumn gcCol_MDL;
-        private DevExpress.XtraGrid.Columns.GridColumn gcCol_Linealidad;
         private DevExpress.XtraGrid.Columns.GridColumn gcCol_Num_decimal;
         private DevExpress.XtraGrid.Columns.GridColumn gcCol_STD1;
         private DevExpress.XtraGrid.Columns.GridColumn gcCol_STD2;

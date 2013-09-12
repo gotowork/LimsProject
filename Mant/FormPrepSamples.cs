@@ -16,6 +16,7 @@ namespace LimsProject
     public partial class FormPrepSamples : LibraryBasicForm.FormBaseEmpty
     {
         Color colorComplete = Color.FromArgb(203, 230, 198);
+        bool flag_ini = false;
 
         public enum TipoProceso
         {            
@@ -72,8 +73,25 @@ namespace LimsProject
             #endregion
 
             rgPreparationSamples.SelectedIndex = 0;
+            rgStatusComplete.SelectedIndex = 0;
             deDateIni.DateTime = DateTime.Now.AddDays(-1);
             deDateEnd.DateTime = DateTime.Now;
+            
+            gcol_Weight_gross.DisplayFormat.FormatString = string.Empty;
+            gcol_Weight_gross.DisplayFormat.Format = new EmptyKgCustomFormatter();
+            gcol_Weight_gross.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+
+            gcol_Weight_dry.DisplayFormat.FormatString = string.Empty;
+            gcol_Weight_dry.DisplayFormat.Format = new EmptyKgCustomFormatter();
+            gcol_Weight_dry.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+
+            gcol_Weight_moisture.DisplayFormat.FormatString = string.Empty;
+            gcol_Weight_moisture.DisplayFormat.Format = new EmptyKgCustomFormatter();
+            gcol_Weight_moisture.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+
+            gcol_Weight_gross_reject.DisplayFormat.FormatString = string.Empty;
+            gcol_Weight_gross_reject.DisplayFormat.Format = new EmptyKgCustomFormatter();
+            gcol_Weight_gross_reject.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;            
 
             switch (Convert.ToInt32(rgPreparationSamples.EditValue))
             {
@@ -98,55 +116,31 @@ namespace LimsProject
             repCode.ValueMember = "Idrecep_sample_detail";
             repCode.DisplayMember = "Cod_sample";
 
+            flag_ini = true;
             RetrieveData();
         }
 
         void RetrieveData()
         {
-            bool statusComplete = rgStatusComplete.SelectedIndex == 0 ? false : true;
+            if (flag_ini)
+            {
+                int statusComplete = rgStatusComplete.SelectedIndex == 0 ? 1 : 2;
 
-            if (rgPreparationSamples.SelectedIndex == 0) //orden de trabajo
-            {
                 gcPrepSample.DataSource =
-                    new BindingList<CPrep_samples>(new CPrep_samplesFactory()
-                        .GetAll()
-                        .Where(x => x.Date_creation > deDateIni.DateTime
-                            && x.Date_creation < deDateEnd.DateTime
-                            && x.Final_weight_gross == statusComplete)
-                            .OrderBy(x => x.Idrecep_sample_detail).ToList());
+                        new BindingList<CPrep_samples>(new CPrep_samplesFactory()
+                            .GetAll()
+                            .Where(x => x.Date_creation > deDateIni.DateTime
+                                && x.Date_creation < deDateEnd.DateTime
+                                && (
+                                      ( rgPreparationSamples.SelectedIndex == 0 && ( (statusComplete == 1 && x.Final_weight_gross <= 1)     ||  (statusComplete == 2 && x.Final_weight_gross == 2) ) )
+                                    ||( rgPreparationSamples.SelectedIndex == 1 && ( (statusComplete == 1 && x.Final_moisture <= 1)         ||  (statusComplete == 2 && x.Final_moisture == 2) ) )
+                                    ||( rgPreparationSamples.SelectedIndex == 2 && ( (statusComplete == 1 && x.Final_reject <= 1)           ||  (statusComplete == 2 && x.Final_reject == 2) ) )
+                                    ||( rgPreparationSamples.SelectedIndex == 3 && ( (statusComplete == 1 && x.Final_sample_prepared <= 1)  ||  (statusComplete == 2 && x.Final_sample_prepared == 2) ) )
+                                    ))
+                                .OrderBy(x => x.Idrecep_sample_detail).ToList());                
+
+                gvPrepSample.BestFitColumns();
             }
-            else if (rgPreparationSamples.SelectedIndex == 1) //D.Humedad
-            {
-                gcPrepSample.DataSource =
-                    new BindingList<CPrep_samples>(new CPrep_samplesFactory()
-                        .GetAll()
-                        .Where(x => x.Date_creation > deDateIni.DateTime
-                            && x.Date_creation < deDateEnd.DateTime
-                            && x.Final_moisture == statusComplete)
-                            .OrderBy(x => x.Idrecep_sample_detail).ToList());
-            }
-            else if (rgPreparationSamples.SelectedIndex == 2) //pesos rechazos
-            {
-                gcPrepSample.DataSource =
-                    new BindingList<CPrep_samples>(new CPrep_samplesFactory()
-                        .GetAll()
-                        .Where(x => x.Date_creation > deDateIni.DateTime
-                            && x.Date_creation < deDateEnd.DateTime
-                            && x.Final_reject == statusComplete)
-                            .OrderBy(x => x.Idrecep_sample_detail).ToList());
-            }
-            else if (rgPreparationSamples.SelectedIndex == 3) //muestras preparadas
-            {
-                gcPrepSample.DataSource =
-                    new BindingList<CPrep_samples>(new CPrep_samplesFactory()
-                        .GetAll()
-                        .Where(x => x.Date_creation > deDateIni.DateTime
-                            && x.Date_creation < deDateEnd.DateTime
-                            && x.Final_sample_prepared == statusComplete)
-                            .OrderBy(x => x.Idrecep_sample_detail).ToList());
-            }
-            
-            gvPrepSample.BestFitColumns();
         }
 
         void ShowColumns(TipoProceso tipoProceso)
@@ -177,6 +171,7 @@ namespace LimsProject
                     gcol_Flag_60celsius.Visible = true;
                     gcol_Flag_reject.Visible = true;
                     gcol_Flag_counter_sample.Visible = true;
+                    gcol_Observation1.Visible = true;
 
                     //gcol_Input_sample_date.Visible = true;
                     //gcol_Input_sample_user.Visible = true;
@@ -224,6 +219,7 @@ namespace LimsProject
                     gcol_Output_flag_sample.Visible = true;
                     gcol_Output_flag_cs.Visible = true;
                     gcol_Output_flag_re.Visible = true;
+                    gcol_Observation2.Visible = true;
 
                     //gcol_Output_date_sample.Visible = true; // a ataque
                     //gcol_Output_user_sample.Visible = true; // a ataque
@@ -425,6 +421,11 @@ namespace LimsProject
                 SetComplete(oPrep_sample);
                 new CPrep_samplesFactory().Update(oPrep_sample);
             }
+            else if (e.Column == gcol_Observation1 || e.Column == gcol_Observation2)
+            {
+                CPrep_samples oPrep_sample = gvPrepSample.GetRow(e.RowHandle) as CPrep_samples;
+                new CPrep_samplesFactory().Update(oPrep_sample);
+            }
         }
 
         public void SetComplete(CPrep_samples prep_samples)
@@ -433,20 +434,20 @@ namespace LimsProject
             {
                 case 1://recepsample
                     if (prep_samples.Weight_gross != null)
-                        prep_samples.Final_weight_gross = true;
+                        prep_samples.Final_weight_gross = 1;
                     break;
                 case 2://humedad
                     if (prep_samples.Percent_moisture != null)
-                        prep_samples.Final_moisture = true;
+                        prep_samples.Final_moisture = 1;
                     break;
                 case 3://salidaMuestreria
                     if (Convert.ToBoolean(prep_samples.Output_flag_sample) && Convert.ToBoolean(prep_samples.Output_flag_cs)
                         && Convert.ToBoolean(prep_samples.Output_flag_re))
-                        prep_samples.Final_sample_prepared = true;
+                        prep_samples.Final_sample_prepared = 1;
                     break;
                 case 4://pesarrechazos
                     if (prep_samples.Weight_gross_reject != null)
-                        prep_samples.Final_reject = true;
+                        prep_samples.Final_reject = 1;
                     break;
                 case 5://almacen
                     
@@ -467,15 +468,63 @@ namespace LimsProject
         private void gvPrepSample_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
         {
             // colorear las filas completadas
-            if (rgStatusComplete.SelectedIndex == 1)//completado
-                e.Appearance.BackColor = colorComplete;
-            else //pendiente
-                e.Appearance.BackColor = Color.White;
+            CPrep_samples oPrep_sample = gvPrepSample.GetRow(e.RowHandle) as CPrep_samples;
+            if (rgStatusComplete.SelectedIndex == 0)//pendiente (1)
+            {
+                if (
+                       (rgPreparationSamples.SelectedIndex == 0 && oPrep_sample.Final_weight_gross == 1)
+                    || (rgPreparationSamples.SelectedIndex == 1 && oPrep_sample.Final_moisture == 1)
+                    || (rgPreparationSamples.SelectedIndex == 2 && oPrep_sample.Final_reject == 1)
+                    || (rgPreparationSamples.SelectedIndex == 3 && oPrep_sample.Final_sample_prepared == 1)
+                    )
+                    e.Appearance.BackColor = colorComplete;
+                else
+                    e.Appearance.BackColor = Color.White;
+            }
+            else //Completado (2)
+                e.Appearance.BackColor = Color.NavajoWhite;
+
+            e.Appearance.ForeColor = Color.Black;
         }
 
         private void rgStatusComplete_SelectedIndexChanged(object sender, EventArgs e)
         {
             RetrieveData();
+        }
+
+        private void ucSign1_OnSign(bool login)
+        {
+            if (login)
+            {                
+                // recorrer todos los estados (1) y actualizar a (2)
+
+                foreach (CPrep_samples item in gcPrepSample.DataSource as BindingList<CPrep_samples>)
+                {
+                    if (rgPreparationSamples.SelectedIndex == 0 && item.Final_weight_gross == 1)
+                    {
+                        item.Final_weight_gross = 2;
+                        new CPrep_samplesFactory().Update(item);
+                    }
+                    else if (rgPreparationSamples.SelectedIndex == 1 && item.Final_moisture == 1)
+                    {
+                        item.Final_moisture = 2;
+                        new CPrep_samplesFactory().Update(item);
+                    }
+                    else if (rgPreparationSamples.SelectedIndex == 2 && item.Final_reject == 1)
+                    {
+                        item.Final_reject = 2;
+                        new CPrep_samplesFactory().Update(item);
+                    }
+                    else if (rgPreparationSamples.SelectedIndex == 3 && item.Final_sample_prepared == 1)
+                    {
+                        item.Final_sample_prepared = 2;
+                        new CPrep_samplesFactory().Update(item);
+                    }
+                }
+
+                RetrieveData();                
+            }            
+            ucSign1.Clear();
         }
 
         

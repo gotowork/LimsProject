@@ -269,12 +269,12 @@
             this.btImportar.Text = "Importar";
             this.btImportar.Click += new System.EventHandler(this.btImportar_Click);
             // 
-            // FormTestImportICP
+            // FormImportICP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(748, 413);
-            this.Name = "FormTestImportICP";
+            this.Name = "FormImportICP";
             this.Text = "Importar desde Icp";
             ((System.ComponentModel.ISupportInitialize)(this.paTitle)).EndInit();
             this.paTitle.ResumeLayout(false);

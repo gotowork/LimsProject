@@ -21,5 +21,16 @@ namespace LimsProject
         {
             cbElement1.Bind();
         }
+
+        private void ckElement_CheckedChanged(object sender, EventArgs e)
+        {
+            cbElement1.Enabled = ckElement.Checked;
+        }
+
+        private void cbElement1_EditValueChanged(object sender, EventArgs e)
+        {
+            //conectar con icp según filtro de elemento
+
+        }
     }
 }

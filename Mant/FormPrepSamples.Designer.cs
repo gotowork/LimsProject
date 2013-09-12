@@ -282,7 +282,7 @@
             // 
             // gcol_Weight_gross
             // 
-            this.gcol_Weight_gross.Caption = "Peso bruto";
+            this.gcol_Weight_gross.Caption = "Peso bruto(kg)";
             this.gcol_Weight_gross.FieldName = "Weight_gross";
             this.gcol_Weight_gross.Name = "gcol_Weight_gross";
             this.gcol_Weight_gross.OptionsFilter.AllowFilter = false;
@@ -339,6 +339,7 @@
             this.gcol_Flag_counter_sample.FieldName = "Flag_counter_sample";
             this.gcol_Flag_counter_sample.Name = "gcol_Flag_counter_sample";
             this.gcol_Flag_counter_sample.OptionsColumn.AllowEdit = false;
+            this.gcol_Flag_counter_sample.OptionsFilter.AllowFilter = false;
             this.gcol_Flag_counter_sample.Visible = true;
             this.gcol_Flag_counter_sample.Width = 26;
             // 
@@ -349,6 +350,7 @@
             this.gcol_Flag_humidity_analysis.FieldName = "Flag_humidity_analysis";
             this.gcol_Flag_humidity_analysis.Name = "gcol_Flag_humidity_analysis";
             this.gcol_Flag_humidity_analysis.OptionsColumn.AllowEdit = false;
+            this.gcol_Flag_humidity_analysis.OptionsFilter.AllowFilter = false;
             this.gcol_Flag_humidity_analysis.Visible = true;
             this.gcol_Flag_humidity_analysis.Width = 20;
             // 
@@ -359,6 +361,7 @@
             this.gcol_Flag_reject.FieldName = "Flag_reject";
             this.gcol_Flag_reject.Name = "gcol_Flag_reject";
             this.gcol_Flag_reject.OptionsColumn.AllowEdit = false;
+            this.gcol_Flag_reject.OptionsFilter.AllowFilter = false;
             this.gcol_Flag_reject.Visible = true;
             this.gcol_Flag_reject.Width = 20;
             // 
@@ -413,7 +416,7 @@
             // 
             // gcol_Weight_moisture
             // 
-            this.gcol_Weight_moisture.Caption = "Peso Húmedo";
+            this.gcol_Weight_moisture.Caption = "Peso Húmedo (kg)";
             this.gcol_Weight_moisture.FieldName = "Weight_moisture";
             this.gcol_Weight_moisture.Name = "gcol_Weight_moisture";
             this.gcol_Weight_moisture.OptionsFilter.AllowFilter = false;
@@ -438,7 +441,7 @@
             // 
             // gcol_Weight_dry
             // 
-            this.gcol_Weight_dry.Caption = "Peso Seco";
+            this.gcol_Weight_dry.Caption = "Peso Seco (kg)";
             this.gcol_Weight_dry.FieldName = "Weight_dry";
             this.gcol_Weight_dry.Name = "gcol_Weight_dry";
             this.gcol_Weight_dry.OptionsFilter.AllowFilter = false;
@@ -464,6 +467,8 @@
             // gcol_Percent_moisture
             // 
             this.gcol_Percent_moisture.Caption = "Porcentaje";
+            this.gcol_Percent_moisture.DisplayFormat.FormatString = "p";
+            this.gcol_Percent_moisture.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gcol_Percent_moisture.FieldName = "Percent_moisture";
             this.gcol_Percent_moisture.Name = "gcol_Percent_moisture";
             this.gcol_Percent_moisture.OptionsFilter.AllowFilter = false;
@@ -565,7 +570,7 @@
             // 
             // gcol_Weight_gross_reject
             // 
-            this.gcol_Weight_gross_reject.Caption = "Peso Rechazo";
+            this.gcol_Weight_gross_reject.Caption = "Peso Rechazo (kg)";
             this.gcol_Weight_gross_reject.FieldName = "Weight_gross_reject";
             this.gcol_Weight_gross_reject.Name = "gcol_Weight_gross_reject";
             this.gcol_Weight_gross_reject.Visible = true;
@@ -736,6 +741,7 @@
             // 
             // rgPreparationSamples
             // 
+            this.rgPreparationSamples.EditValue = 1D;
             this.rgPreparationSamples.Location = new System.Drawing.Point(219, 5);
             this.rgPreparationSamples.Name = "rgPreparationSamples";
             this.rgPreparationSamples.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
@@ -801,6 +807,7 @@
             this.ucSign1.Size = new System.Drawing.Size(158, 40);
             this.ucSign1.TabIndex = 0;
             this.ucSign1.Title = "";
+            this.ucSign1.OnSign += new LimsProject.sign(this.ucSign1_OnSign);
             // 
             // FormPrepSamples
             // 

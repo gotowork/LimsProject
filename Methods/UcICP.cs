@@ -360,10 +360,8 @@ namespace LimsProject
                 expandablePanel1.Visible = true;
             }
             else if (page == tpResultados)
-            {                
-                gcCol_IDL.VisibleIndex = 100;
-                gcCol_MDL.VisibleIndex = 100;
-                gcCol_Linealidad.VisibleIndex = 100;
+            {                                
+                gcCol_MDL.VisibleIndex = 100;                
                 gcCol_Limite_inferior_MD.VisibleIndex = 100;
                 gcCol_Limite_inferior_MT.VisibleIndex = 100;
                 gcCol_Limite_superior.VisibleIndex = 100;
@@ -389,7 +387,6 @@ namespace LimsProject
         private void ckLFB_CheckedChanged(object sender, EventArgs e)
         {
             ShowColumns(xtraTabControl1.SelectedTabPage);
-
         }
 
         private void ckLFM_CheckedChanged(object sender, EventArgs e)
@@ -397,7 +394,6 @@ namespace LimsProject
             ShowColumns(xtraTabControl1.SelectedTabPage);
         }
         
-
         private void gcSampleControl_EmbeddedNavigator_ButtonClick(object sender, DevExpress.XtraEditors.NavigatorButtonClickEventArgs e)
         {
             if (e.Button.ButtonType == DevExpress.XtraEditors.NavigatorButtonType.Append)
