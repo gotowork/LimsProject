@@ -182,7 +182,8 @@ namespace LimsProject
             fmMatrixGroup,
             fmMatrixItem,
             fmDecree,
-            fmPreparationSamples
+            fmPreparationSamples,
+            fmCompound
         }
 
         public enum ReportStatus
@@ -336,6 +337,11 @@ namespace LimsProject
                     FormPrepSamples fmPreparationSamples = new FormPrepSamples();
                     fmPreparationSamples.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
                     fmPreparationSamples.Show();
+                    break;
+                case Formulario.fmCompound:
+                    FormCompound fmcompound = new FormCompound();
+                    fmcompound.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+                    fmcompound.Show();
                     break;
             }
         }

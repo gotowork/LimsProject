@@ -185,11 +185,23 @@
       <DependentUpon>cbMethodIpc.cs</DependentUpon>
     </Compile>
     <Compile Include="CFormats.cs" />
-    <Compile Include="Methods\UcGravimetria.cs">
+    <Compile Include="FormCompound.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCompound.Designer.cs">
+      <DependentUpon>FormCompound.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mant\FormFactorEstequiometrico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mant\FormFactorEstequiometrico.Designer.cs">
+      <DependentUpon>FormFactorEstequiometrico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Methods\UcGR.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Methods\UcGravimetria.Designer.cs">
-      <DependentUpon>UcGravimetria.cs</DependentUpon>
+    <Compile Include="Methods\UcGR.Designer.cs">
+      <DependentUpon>UcGR.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\cbElement.cs">
       <SubType>Component</SubType>
@@ -551,6 +563,18 @@
     <Compile Include="Methods\UcSampleControl.Designer.cs">
       <DependentUpon>UcSampleControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\cbUnitMeasure.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserControls\cbUnitMeasure.Designer.cs">
+      <DependentUpon>cbUnitMeasure.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\cbMR.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserControls\cbMR.Designer.cs">
+      <DependentUpon>cbMR.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UcFilterPrice.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -616,8 +640,14 @@
     <Compile Include="Solutions\UcCalibStd.Designer.cs">
       <DependentUpon>UcCalibStd.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Methods\UcGravimetria.resx">
-      <DependentUpon>UcGravimetria.cs</DependentUpon>
+    <EmbeddedResource Include="FormCompound.resx">
+      <DependentUpon>FormCompound.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mant\FormFactorEstequiometrico.resx">
+      <DependentUpon>FormFactorEstequiometrico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Methods\UcGR.resx">
+      <DependentUpon>UcGR.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Methods\FormElemWavelength.resx">
       <DependentUpon>FormElemWavelength.cs</DependentUpon>
@@ -802,6 +832,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\cbElement.resx">
       <DependentUpon>cbElement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\cbUnitMeasure.resx">
+      <DependentUpon>cbUnitMeasure.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\cbMR.resx">
+      <DependentUpon>cbMR.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UcFilterPrice.resx">
       <DependentUpon>UcFilterPrice.cs</DependentUpon>

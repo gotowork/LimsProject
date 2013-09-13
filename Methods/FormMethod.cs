@@ -17,7 +17,7 @@ namespace LimsProject
 
         UcAA oucAA = new UcAA();
         UcICP oucICP = new UcICP();
-        UcGravimetria oucGravimetria = new UcGravimetria();
+        UcGR oucGravimetria = new UcGR();
         UcHumidityAnalysis oucHA = new UcHumidityAnalysis();
 
         #endregion
@@ -494,8 +494,8 @@ namespace LimsProject
                     case '2':
                         break;
                     case '3':
-                        //if (!oucGravimetria.Son_Datos_Correctos())
-                        //    return false;
+                        if (!oucGravimetria.Son_Datos_Correctos())
+                            return false;
                         break;
                     case '4':
                         if (!oucICP.Son_Datos_Correctos())
@@ -524,7 +524,7 @@ namespace LimsProject
                     case '2':
                         break;
                     case '3':
-                        //oucGravimetria.SaveTypeAnalysis(IDTemplate_Method);
+                        oucGravimetria.SaveTypeAnalysis(IDTemplate_Method);
                         break;
                     case '4':
                         oucICP.SaveTypeAnalysis(IDTemplate_Method);
@@ -565,11 +565,11 @@ namespace LimsProject
                     case '2':                        
                         break;
                     case '3':                    
-                        //paSpecificMethod.Controls.Add(oucGravimetria);
-                        //oucGravimetria.Dock = DockStyle.Fill;
-                        //oucGravimetria.IDElement = cbElement.EditValue == null ? Convert.ToInt16(null) : Convert.ToInt16(cbElement.EditValue);
-                        //oucGravimetria.IDTemplate_Method = IDTemplate_Method;
-                        //oucGravimetria.RetrieveTypeAnalysis();
+                        paSpecificMethod.Controls.Add(oucGravimetria);
+                        oucGravimetria.Dock = DockStyle.Fill;
+                        oucGravimetria.IDElement = cbElement.EditValue == null ? Convert.ToInt16(null) : Convert.ToInt16(cbElement.EditValue);
+                        oucGravimetria.IDTemplate_Method = IDTemplate_Method;
+                        oucGravimetria.RetrieveTypeAnalysis();
 
                         cbElement.Enabled = true;
                         break;

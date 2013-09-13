@@ -31,19 +31,19 @@
             this.gcElemWavelength = new DevExpress.XtraGrid.GridControl();
             this.gvElemWavelength = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
             this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gcol_Element_wavelength = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gcol_Idelement_wavelength = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gcol_Idelement = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gcol_Wavelength = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gcol_Lineorder = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand4 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gcol_Idl_axial = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gcol_Idl_radial = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand3 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gcol_Lineality_axial = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gcol_Lineality_radial = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.cbElement1 = new LimsProject.cbElement();
-            this.btImportar = new DevExpress.XtraEditors.SimpleButton();
+            this.btSync = new DevExpress.XtraEditors.SimpleButton();
             this.ckElement = new DevExpress.XtraEditors.CheckEdit();
+            this.cbElement1 = new LimsProject.cbElement();
             ((System.ComponentModel.ISupportInitialize)(this.paTitle)).BeginInit();
             this.paTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.paBottom)).BeginInit();
@@ -54,8 +54,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcElemWavelength)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvElemWavelength)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbElement1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ckElement.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbElement1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // laTitle
@@ -80,9 +80,9 @@
             // 
             // paTop
             // 
-            this.paTop.Controls.Add(this.ckElement);
-            this.paTop.Controls.Add(this.btImportar);
             this.paTop.Controls.Add(this.cbElement1);
+            this.paTop.Controls.Add(this.ckElement);
+            this.paTop.Controls.Add(this.btSync);
             this.paTop.Size = new System.Drawing.Size(803, 35);
             // 
             // panelControl1
@@ -110,8 +110,8 @@
             this.gvElemWavelength.Columns.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn[] {
             this.gcol_Idelement_wavelength,
             this.gcol_Idelement,
+            this.gcol_Element_wavelength,
             this.gcol_Wavelength,
-            this.gcol_Lineorder,
             this.gcol_Idl_axial,
             this.gcol_Idl_radial,
             this.gcol_Lineality_axial,
@@ -119,15 +119,23 @@
             this.gvElemWavelength.GridControl = this.gcElemWavelength;
             this.gvElemWavelength.Name = "gvElemWavelength";
             this.gvElemWavelength.OptionsView.ShowGroupPanel = false;
+            this.gvElemWavelength.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.gvElemWavelength_RowCellStyle);
             // 
             // gridBand1
             // 
+            this.gridBand1.Columns.Add(this.gcol_Element_wavelength);
             this.gridBand1.Columns.Add(this.gcol_Idelement_wavelength);
             this.gridBand1.Columns.Add(this.gcol_Idelement);
             this.gridBand1.Columns.Add(this.gcol_Wavelength);
-            this.gridBand1.Columns.Add(this.gcol_Lineorder);
             this.gridBand1.Name = "gridBand1";
-            this.gridBand1.Width = 224;
+            this.gridBand1.Width = 75;
+            // 
+            // gcol_Element_wavelength
+            // 
+            this.gcol_Element_wavelength.Caption = "Elem-Longitud";
+            this.gcol_Element_wavelength.FieldName = "Element_wavelength";
+            this.gcol_Element_wavelength.Name = "gcol_Element_wavelength";
+            this.gcol_Element_wavelength.Visible = true;
             // 
             // gcol_Idelement_wavelength
             // 
@@ -140,7 +148,6 @@
             this.gcol_Idelement.Caption = "Elemento";
             this.gcol_Idelement.FieldName = "Idelement";
             this.gcol_Idelement.Name = "gcol_Idelement";
-            this.gcol_Idelement.Visible = true;
             this.gcol_Idelement.Width = 74;
             // 
             // gcol_Wavelength
@@ -148,16 +155,7 @@
             this.gcol_Wavelength.Caption = "Long. Onda";
             this.gcol_Wavelength.FieldName = "Wavelength";
             this.gcol_Wavelength.Name = "gcol_Wavelength";
-            this.gcol_Wavelength.Visible = true;
             this.gcol_Wavelength.Width = 98;
-            // 
-            // gcol_Lineorder
-            // 
-            this.gcol_Lineorder.Caption = "Línea";
-            this.gcol_Lineorder.FieldName = "Lineorder";
-            this.gcol_Lineorder.Name = "gcol_Lineorder";
-            this.gcol_Lineorder.Visible = true;
-            this.gcol_Lineorder.Width = 52;
             // 
             // gridBand4
             // 
@@ -207,48 +205,35 @@
             this.gcol_Lineality_radial.Visible = true;
             this.gcol_Lineality_radial.Width = 45;
             // 
-            // cbElement1
+            // btSync
             // 
-            this.cbElement1.Enabled = false;
-            this.cbElement1.Location = new System.Drawing.Point(94, 5);
-            this.cbElement1.Name = "cbElement1";
-            this.cbElement1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbElement1.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Idelement", "", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Cod_element"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Idelement", "", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Cod_element"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Idelement", "", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Cod_element"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Idelement", "", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Cod_element"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Idelement", "", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Cod_element", "", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None)});
-            this.cbElement1.Properties.NullText = "Seleccionar";
-            this.cbElement1.Properties.ShowFooter = false;
-            this.cbElement1.Properties.ShowHeader = false;
-            this.cbElement1.Size = new System.Drawing.Size(120, 20);
-            this.cbElement1.TabIndex = 0;
-            this.cbElement1.EditValueChanged += new System.EventHandler(this.cbElement1_EditValueChanged);
-            // 
-            // btImportar
-            // 
-            this.btImportar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btImportar.Location = new System.Drawing.Point(688, 6);
-            this.btImportar.Name = "btImportar";
-            this.btImportar.Size = new System.Drawing.Size(87, 23);
-            this.btImportar.TabIndex = 2;
-            this.btImportar.Text = "Sincronizar ICP";
+            this.btSync.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btSync.Location = new System.Drawing.Point(688, 6);
+            this.btSync.Name = "btSync";
+            this.btSync.Size = new System.Drawing.Size(87, 23);
+            this.btSync.TabIndex = 2;
+            this.btSync.Text = "Sincronizar ICP";
+            this.btSync.Click += new System.EventHandler(this.btSync_Click);
             // 
             // ckElement
             // 
             this.ckElement.Location = new System.Drawing.Point(13, 7);
             this.ckElement.Name = "ckElement";
             this.ckElement.Properties.Caption = "Elemento";
-            this.ckElement.Size = new System.Drawing.Size(75, 18);
+            this.ckElement.Size = new System.Drawing.Size(75, 19);
             this.ckElement.TabIndex = 3;
             this.ckElement.CheckedChanged += new System.EventHandler(this.ckElement_CheckedChanged);
+            // 
+            // cbElement1
+            // 
+            this.cbElement1.Enabled = false;
+            this.cbElement1.Location = new System.Drawing.Point(94, 7);
+            this.cbElement1.Name = "cbElement1";
+            this.cbElement1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbElement1.Size = new System.Drawing.Size(133, 20);
+            this.cbElement1.TabIndex = 4;
+            this.cbElement1.EditValueChanged += new System.EventHandler(this.cbElement1_EditValueChanged);
             // 
             // FormElemWavelength
             // 
@@ -268,8 +253,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcElemWavelength)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvElemWavelength)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbElement1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ckElement.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbElement1.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -282,15 +267,15 @@
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gcol_Idelement_wavelength;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gcol_Idelement;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gcol_Wavelength;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gcol_Lineorder;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand3;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gcol_Lineality_axial;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gcol_Lineality_radial;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand4;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gcol_Idl_axial;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gcol_Idl_radial;
-        private cbElement cbElement1;
-        private DevExpress.XtraEditors.SimpleButton btImportar;
+        private DevExpress.XtraEditors.SimpleButton btSync;
         private DevExpress.XtraEditors.CheckEdit ckElement;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gcol_Element_wavelength;
+        private cbElement cbElement1;
     }
 }

@@ -12,9 +12,9 @@ using LimsProject.BusinessLayer.Modules;
 
 namespace LimsProject
 {
-    public partial class cbElement : DevExpress.XtraEditors.LookUpEdit
+    public partial class cbUnitMeasure : DevExpress.XtraEditors.LookUpEdit
     {
-        public cbElement()
+        public cbUnitMeasure()
         {
             InitializeComponent();            
         }
@@ -26,19 +26,21 @@ namespace LimsProject
 
         void Init()
         {
-            this.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo() { FieldName = "Idelement", Visible = false });
-            this.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo() { FieldName = "Cod_element", Visible = true });
+            this.Properties.Columns.Clear();
+            this.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo() { FieldName = "Idunit", Visible = false });
+            this.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo() { FieldName = "Name_unit", Visible = true });
             this.Properties.ShowHeader = false;
             this.Properties.ShowFooter = false;
-            this.Properties.NullText = "Seleccionar";            
+            this.Properties.NullText = "Seleccionar";
+            
         }
 
         public void Bind()
         {
             Init();
-            this.Properties.DataSource = new CElementFactory().GetAll();
-            this.Properties.ValueMember = "Idelement";
-            this.Properties.DisplayMember = "Cod_element";
+            this.Properties.DataSource = new CMeasurement_unitFactory().GetAll();
+            this.Properties.ValueMember = "Idunit";
+            this.Properties.DisplayMember = "Name_unit";
         }
     }
 }

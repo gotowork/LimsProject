@@ -84,6 +84,7 @@
             this.barMdiChildrenListItem1 = new DevExpress.XtraBars.BarMdiChildrenListItem();
             this.expandablePanel1 = new DevComponents.DotNetBar.ExpandablePanel();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
+            this.nbiCompuestos = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             this.expandablePanel1.SuspendLayout();
@@ -91,7 +92,7 @@
             // 
             // navBarControl1
             // 
-            this.navBarControl1.ActiveGroup = this.grProcess;
+            this.navBarControl1.ActiveGroup = this.grMant;
             this.navBarControl1.BackColor = System.Drawing.Color.Transparent;
             this.navBarControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.navBarControl1.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
@@ -120,7 +121,8 @@
             this.nbiGroupMatrix,
             this.nbiItemMatrix,
             this.nbiDecrees,
-            this.nbiPrueba});
+            this.nbiPrueba,
+            this.nbiCompuestos});
             this.navBarControl1.Location = new System.Drawing.Point(0, 26);
             this.navBarControl1.LookAndFeel.SkinName = "Money Twins";
             this.navBarControl1.Name = "navBarControl1";
@@ -133,7 +135,6 @@
             // grProcess
             // 
             this.grProcess.Caption = "Procesos";
-            this.grProcess.Expanded = true;
             this.grProcess.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.nbiPrueba),
             new DevExpress.XtraNavBar.NavBarItemLink(this.nbiSolution),
@@ -189,7 +190,9 @@
             // grMant
             // 
             this.grMant.Caption = "Mantenimientos";
+            this.grMant.Expanded = true;
             this.grMant.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            new DevExpress.XtraNavBar.NavBarItemLink(this.nbiCompuestos),
             new DevExpress.XtraNavBar.NavBarItemLink(this.nbiDecrees),
             new DevExpress.XtraNavBar.NavBarItemLink(this.nbiItemMatrix),
             new DevExpress.XtraNavBar.NavBarItemLink(this.nbiGroupMatrix),
@@ -534,6 +537,12 @@
             // 
             this.defaultLookAndFeel1.LookAndFeel.SkinName = "Lilian";
             // 
+            // nbiCompuestos
+            // 
+            this.nbiCompuestos.Caption = "Compuestos";
+            this.nbiCompuestos.Name = "nbiCompuestos";
+            this.nbiCompuestos.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbiCompuestos_LinkClicked);
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -614,6 +623,7 @@
         private DevExpress.XtraNavBar.NavBarItem nbiGroupMatrix;
         private DevExpress.XtraNavBar.NavBarItem nbiDecrees;
         private DevExpress.XtraNavBar.NavBarItem nbiPrueba;
+        private DevExpress.XtraNavBar.NavBarItem nbiCompuestos;
 
     }
 }

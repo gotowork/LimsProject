@@ -208,6 +208,11 @@ namespace LimsProject
             Comun.OpenForm(Comun.Formulario.fmPreparationSamples);
         }
 
+        private void nbiCompuestos_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            Comun.OpenForm(Comun.Formulario.fmCompound);
+        }
+
         
 
     }
