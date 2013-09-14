@@ -19,6 +19,7 @@ namespace LimsProject
         UcICP oucICP = new UcICP();
         UcGR oucGravimetria = new UcGR();
         UcHumidityAnalysis oucHA = new UcHumidityAnalysis();
+        UcVC oucVC = new UcVC();
 
         #endregion
 
@@ -492,6 +493,8 @@ namespace LimsProject
                             return false;
                         break;
                     case '2':
+                        if (!oucVC.Son_Datos_Correctos())
+                            return false;
                         break;
                     case '3':
                         if (!oucGravimetria.Son_Datos_Correctos())
@@ -522,6 +525,7 @@ namespace LimsProject
                         oucAA.SaveTypeAnalysis(IDTemplate_Method);
                         break;
                     case '2':
+                        oucVC.SaveTypeAnalysis(IDTemplate_Method);
                         break;
                     case '3':
                         oucGravimetria.SaveTypeAnalysis(IDTemplate_Method);
@@ -562,7 +566,14 @@ namespace LimsProject
 
                         cbElement.Enabled = true;
                         break;
-                    case '2':                        
+                    case '2':    
+                        paSpecificMethod.Controls.Add(oucVC);
+                        oucVC.Dock = DockStyle.Fill;
+                        oucVC.IDElement = cbElement.EditValue == null ? Convert.ToInt16(null) : Convert.ToInt16(cbElement.EditValue);
+                        oucVC.IDTemplate_Method = IDTemplate_Method;
+                        oucVC.RetrieveTypeAnalysis();
+
+                        cbElement.Enabled = true;
                         break;
                     case '3':                    
                         paSpecificMethod.Controls.Add(oucGravimetria);
@@ -712,8 +723,12 @@ namespace LimsProject
                             oucAA.RefreshByElement(IDElement);                        
                         break;
                     case '2':
+                        if (paSpecificMethod.Controls.Count > 0)
+                            oucVC.RefreshByElement(IDElement);
                         break;
                     case '3':
+                        if (paSpecificMethod.Controls.Count > 0)
+                            oucGravimetria.RefreshByElement(IDElement);
                         break;                    
                     case '5':
                         break;

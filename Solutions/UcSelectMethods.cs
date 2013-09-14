@@ -105,8 +105,8 @@ namespace LimsProject
                 cbModifHead.EditValue = group_solution.Idreactive_modif;
 
                 // --- elemento, mr pattern, medio y modif
-                // getLstMethods(group_solution)
-                lstTemplate = modSolution.GetMethodsByMrcPattern(group_solution);
+                //TODO
+                //lstTemplate = modSolution.GetMethodsByMrcPattern(group_solution);
                 gcMethods.DataSource = lstTemplate;
             }
             // Soluciones intermedias 1 y 2 y estandares de verificación.

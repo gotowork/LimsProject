@@ -178,6 +178,30 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="cbCustomSolutionPatron.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="cbCustomSolutionPatron.Designer.cs">
+      <DependentUpon>cbCustomSolutionPatron.cs</DependentUpon>
+    </Compile>
+    <Compile Include="cbReactive.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="cbReactive.Designer.cs">
+      <DependentUpon>cbReactive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="cbCustomSolutionMrc.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="cbCustomSolutionMrc.Designer.cs">
+      <DependentUpon>cbCustomSolutionMrc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\cbMethod.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserControls\cbMethod.Designer.cs">
+      <DependentUpon>cbMethod.cs</DependentUpon>
+    </Compile>
     <Compile Include="cbMethodIpc.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -185,10 +209,10 @@
       <DependentUpon>cbMethodIpc.cs</DependentUpon>
     </Compile>
     <Compile Include="CFormats.cs" />
-    <Compile Include="FormCompound.cs">
+    <Compile Include="Mant\FormCompound.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormCompound.Designer.cs">
+    <Compile Include="Mant\FormCompound.Designer.cs">
       <DependentUpon>FormCompound.cs</DependentUpon>
     </Compile>
     <Compile Include="Mant\FormFactorEstequiometrico.cs">
@@ -197,11 +221,41 @@
     <Compile Include="Mant\FormFactorEstequiometrico.Designer.cs">
       <DependentUpon>FormFactorEstequiometrico.cs</DependentUpon>
     </Compile>
+    <Compile Include="Methods\UcVC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Methods\UcVC.Designer.cs">
+      <DependentUpon>UcVC.cs</DependentUpon>
+    </Compile>
     <Compile Include="Methods\UcGR.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Methods\UcGR.Designer.cs">
       <DependentUpon>UcGR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Solutions\FormSolutions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Solutions\FormSolutions.Designer.cs">
+      <DependentUpon>FormSolutions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Solutions\UcSelectMethods.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Solutions\UcSelectMethods.designer.cs">
+      <DependentUpon>UcSelectMethods.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Solutions\UcSolInterm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Solutions\UcSolInterm.Designer.cs">
+      <DependentUpon>UcSolInterm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Solutions\ucTreeSolution.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Solutions\ucTreeSolution.Designer.cs">
+      <DependentUpon>ucTreeSolution.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\cbElement.cs">
       <SubType>Component</SubType>
@@ -220,12 +274,6 @@
     </Compile>
     <Compile Include="Mant\FormPrepSamples.Designer.cs">
       <DependentUpon>FormPrepSamples.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormQaqcHU.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormQaqcHU.Designer.cs">
-      <DependentUpon>FormQaqcHU.cs</DependentUpon>
     </Compile>
     <Compile Include="Qaqc\FormImportICP.cs">
       <SubType>Form</SubType>
@@ -330,12 +378,6 @@
     <Compile Include="Solutions\FormSelMethods.Designer.cs">
       <DependentUpon>FormSelMethods.cs</DependentUpon>
     </Compile>
-    <Compile Include="Solutions\FormSolutions.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Solutions\FormSolutions.Designer.cs">
-      <DependentUpon>FormSolutions.cs</DependentUpon>
-    </Compile>
     <Compile Include="Solutions\FormTitration.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -400,12 +442,6 @@
     </Compile>
     <Compile Include="Qaqc\FormNewQaQc.designer.cs">
       <DependentUpon>FormNewQaQc.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Temp\FormPreparationSamples.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Temp\FormPreparationSamples.Designer.cs">
-      <DependentUpon>FormPreparationSamples.cs</DependentUpon>
     </Compile>
     <Compile Include="RegReception\FormAssignMassive.cs">
       <SubType>Form</SubType>
@@ -598,23 +634,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Solutions\UcSelectMethods.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Solutions\UcSelectMethods.Designer.cs">
-      <DependentUpon>UcSelectMethods.cs</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\UcSign.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControls\UcSign.designer.cs">
       <DependentUpon>UcSign.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Solutions\UcSolInterm.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Solutions\UcSolInterm.Designer.cs">
-      <DependentUpon>UcSolInterm.cs</DependentUpon>
     </Compile>
     <Compile Include="Solutions\UcTitration.cs">
       <SubType>UserControl</SubType>
@@ -640,11 +664,14 @@
     <Compile Include="Solutions\UcCalibStd.Designer.cs">
       <DependentUpon>UcCalibStd.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="FormCompound.resx">
+    <EmbeddedResource Include="Mant\FormCompound.resx">
       <DependentUpon>FormCompound.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mant\FormFactorEstequiometrico.resx">
       <DependentUpon>FormFactorEstequiometrico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Methods\UcVC.resx">
+      <DependentUpon>UcVC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Methods\UcGR.resx">
       <DependentUpon>UcGR.cs</DependentUpon>
@@ -655,9 +682,6 @@
     <EmbeddedResource Include="Mant\FormPrepSamples.resx">
       <DependentUpon>FormPrepSamples.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormQaqcHU.resx">
-      <DependentUpon>FormQaqcHU.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Methods\UcHumidityAnalysis.resx">
       <DependentUpon>UcHumidityAnalysis.cs</DependentUpon>
     </EmbeddedResource>
@@ -666,6 +690,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Methods\UcAA.resx">
       <DependentUpon>UcAA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Solutions\FormSolutions.resx">
+      <DependentUpon>FormSolutions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Solutions\UcSelectMethods.resx">
+      <DependentUpon>UcSelectMethods.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Solutions\UcSolInterm.resx">
+      <DependentUpon>UcSolInterm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UcOtherMethods.resx">
       <DependentUpon>UcOtherMethods.cs</DependentUpon>
@@ -720,9 +753,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Qaqc\FormNewQaQc.resx">
       <DependentUpon>FormNewQaQc.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Temp\FormPreparationSamples.resx">
-      <DependentUpon>FormPreparationSamples.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RegReception\FormAssignMassive.resx">
       <DependentUpon>FormAssignMassive.cs</DependentUpon>
@@ -790,9 +820,6 @@
     <EmbeddedResource Include="Solutions\FormSelMethods.resx">
       <DependentUpon>FormSelMethods.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Solutions\FormSolutions.resx">
-      <DependentUpon>FormSolutions.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Solutions\FormTitration.resx">
       <DependentUpon>FormTitration.cs</DependentUpon>
     </EmbeddedResource>
@@ -824,11 +851,11 @@
     <EmbeddedResource Include="Security\FormUser.resx">
       <DependentUpon>FormUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Solutions\UcSelectMethods.resx">
-      <DependentUpon>UcSelectMethods.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Methods\UcSampleControl.resx">
       <DependentUpon>UcSampleControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Solutions\ucTreeSolution.resx">
+      <DependentUpon>ucTreeSolution.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\cbElement.resx">
       <DependentUpon>cbElement.cs</DependentUpon>
@@ -850,9 +877,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UcSign.resx">
       <DependentUpon>UcSign.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Solutions\UcSolInterm.resx">
-      <DependentUpon>UcSolInterm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Solutions\UcTitration.resx">
       <DependentUpon>UcTitration.cs</DependentUpon>

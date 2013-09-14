@@ -14,7 +14,7 @@ namespace LimsProject
 {
     public delegate void signSolInterm(CGroup_solution e);
 
-    public partial class UcSolInterm : UserControl
+    public partial class UcSolIntermV2 : UserControl
     {
         CGroup_solution group_solution = null;
         ModSolInterm modSolInterm = new ModSolInterm();
@@ -28,7 +28,6 @@ namespace LimsProject
         TreeListNode nodeSolutionInProcess = null;
         
         BindingList<CCustom_method_solution> LstTemplate_method { get; set; }
-        short? Idelement { get; set; }
 
         public event signSolInterm onSignSolInterm;
 
@@ -39,29 +38,52 @@ namespace LimsProject
             }
         }
 
-        public UcSolInterm()
+        public UcSolIntermV2()
         {
             InitializeComponent();
         }
 
-        public void Init(short pIdelement)
+        public void Init(CGroup_solution p_group_solution)
         {
-            //seleccionar métodos
-            Idelement = pIdelement;
-            cbMethod1.Bind(pIdelement);
-            ucTreeSolution.typeSolution[] param = { ucTreeSolution.typeSolution.SolInterm1, ucTreeSolution.typeSolution.SolInterm2, ucTreeSolution.typeSolution.StdVerif };
-            ucTreeSolution1.InitTree(param);
+            group_solution = p_group_solution;            
+
+            if (p_group_solution.Idtemplate_method != null)
+                template_method_aa = 
+                    new CTemplate_method_aaFactory()
+                    .GetByPrimaryKey(new CTemplate_method_aaKeys(Convert.ToInt32(p_group_solution.Idtemplate_method)));            
+
             InitCombos();
             InitHeader();
             InitTreeSolution();
             ShowStatusButtons();
-        }        
+        }
+
+        public void Init(CGroup_solution p_group_solution, BindingList<CCustom_method_solution> lstTemplate_method)
+        {
+            group_solution = p_group_solution;
+            LstTemplate_method = lstTemplate_method;
+
+            if (p_group_solution.Idtemplate_method != null)
+                template_method_aa =
+                    new CTemplate_method_aaFactory()
+                    .GetByPrimaryKey(new CTemplate_method_aaKeys(Convert.ToInt32(p_group_solution.Idtemplate_method)));
+
+            InitCombos();
+            InitHeader();
+            InitTreeSolution();
+        }
 
         void InitCombos()
         {
             List<CReactive> lstReactive = new CReactiveFactory().GetAll();
-            cbMedium.Bind();
-            cbModif.Bind();
+
+            cbMedium.Properties.DataSource = lstReactive;
+            cbMedium.Properties.ValueMember = "Idreactive";
+            cbMedium.Properties.DisplayMember = "Reactive_name";
+
+            cbModif.Properties.DataSource = lstReactive;
+            cbModif.Properties.ValueMember = "Idreactive";
+            cbModif.Properties.DisplayMember = "Reactive_name";
 
             repReactive.DataSource = lstReactive;
             repReactive.ValueMember = "Idreactive";
@@ -74,8 +96,10 @@ namespace LimsProject
 
         void InitHeader()
         {
-            cbMedium.Bind();
-            cbModif.Bind();
+            cbTypeSolPatron.EditValue = group_solution.Type_pattern;
+            cbMedium.EditValue = group_solution.Idreactive_medium;
+            cbModif.EditValue = group_solution.Idreactive_modif;            
+            tbConcentPattern.Text = template_method_aa.Std_concentration.ToString();
         }
 
         void InitTreeSolution()
@@ -510,7 +534,7 @@ namespace LimsProject
         }
 
         public void Clear()
-        {
+        {                        
             treeSolInterm.ClearNodes();
             cbMedium.EditValue = null;
             cbModif.EditValue = null;
@@ -730,7 +754,7 @@ namespace LimsProject
             if (cbTypeSolPatron.SelectedIndex == 0)
             {
                 ModSolution oModSolution = new ModSolution();
-                cbMrpattern.Properties.DataSource = oModSolution.GetLstMrc(Convert.ToInt16(Idelement));
+                cbMrpattern.Properties.DataSource = oModSolution.GetLstMrc(Convert.ToInt16(group_solution.Idelement));
                 cbMrpattern.Properties.DisplayMember = "Name";
                 cbMrpattern.Properties.ValueMember = "Idmr_detail";
 
@@ -739,12 +763,14 @@ namespace LimsProject
             if (cbTypeSolPatron.SelectedIndex == 1)
             {
                 ModSolution oModSolution = new ModSolution();
-                cbMrpattern.Properties.DataSource = oModSolution.GetLstPatron(Convert.ToInt16(Idelement));
+                cbMrpattern.Properties.DataSource = oModSolution.GetLstPatron(Convert.ToInt16(group_solution.Idelement));
                 cbMrpattern.Properties.DisplayMember = "Name";
                 cbMrpattern.Properties.ValueMember = "Idmr_detail";
 
                 cbMrpattern.EditValue = null;
-            }            
+            }
+
+            cbMrpattern.EditValue = group_solution.Idmr_detail;
         }
 
         private void repVolumen_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
@@ -754,19 +780,6 @@ namespace LimsProject
             {
                 e.Cancel = true;
             }
-        }
-
-        private void cbMethod1_EditValueChanged(object sender, EventArgs e)
-        {
-            // obtener modif y medium filtrado por cod template
-            CTemplate_method_aa oTemplate_method_aa = new CTemplate_method_aaFactory().GetByPrimaryKey(new CTemplate_method_aaKeys(Convert.ToInt32(cbMethod1.EditValue)));
-
-            if (oTemplate_method_aa != null)
-            {
-                cbMedium.EditValue = oTemplate_method_aa.Medium;
-                cbModif.EditValue = oTemplate_method_aa.Modif;
-                cbTypeSolPatron.EditValue = oTemplate_method_aa.Type_pattern;
-            }            
         }
 
         

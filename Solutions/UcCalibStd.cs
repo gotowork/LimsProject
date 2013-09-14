@@ -88,10 +88,7 @@ namespace LimsProject
             CReactiveFactory faReactive = new CReactiveFactory();
             List<CReactive> lstReactive = faReactive.GetAll();
 
-            lstReactive.Add(new CReactive() { Idreactive = 0, Reactive_name = "---", Chemical_formula = "---" });
-
-            deDateIni.DateTime = Convert.ToDateTime(group_solution.Date_ini);
-            deDateEnd.DateTime = Convert.ToDateTime(group_solution.Date_end);
+            lstReactive.Add(new CReactive() { Idreactive = 0, Reactive_name = "---", Chemical_formula = "---" });            
 
             cbMedium.Properties.DataSource = lstReactive;
             cbMedium.Properties.ValueMember = "Idreactive";
@@ -99,10 +96,7 @@ namespace LimsProject
 
             cbModif.Properties.DataSource = lstReactive;
             cbModif.Properties.ValueMember = "Idreactive";
-            cbModif.Properties.DisplayMember = "Reactive_name";
-            
-            idreactive_medium = group_solution.Idreactive_medium;
-            idreactive_modif = group_solution.Idreactive_modif;
+            cbModif.Properties.DisplayMember = "Reactive_name";                        
 
             LstAllCalibs = oModCalibStd.GetCustomCalibStd(group_solution, lstTemplate_method);
 
@@ -308,17 +302,7 @@ namespace LimsProject
             CGroup_solutionFactory faGroup_solution = new CGroup_solutionFactory();
 
             CGroup_solution NewGroup_solution = new CGroup_solution();
-            NewGroup_solution.Idelement = group_solution.Idelement;
-            NewGroup_solution.Idmr_detail = group_solution.Idmr_detail;
-            //NewGroup_solution.Idsolution_pattern = group_solution.Idsolution_pattern;
-            NewGroup_solution.Idreactive_medium = group_solution.Idreactive_medium;
-            NewGroup_solution.Idreactive_modif = group_solution.Idreactive_modif;
-            NewGroup_solution.Flag_selected_methods = true;
-            NewGroup_solution.Flag_sign_calib = false;
-            NewGroup_solution.Type_pattern = group_solution.Type_pattern;
-            NewGroup_solution.Type_solution = group_solution.Type_solution;
-            NewGroup_solution.Flag_close_calib = false;
-            NewGroup_solution.Idgroup_solution_previus = group_solution.Idgroup_solution;
+            NewGroup_solution.Idelement = group_solution.Idelement;            
 
             bool result = false;
             if (!(result = faGroup_solution.Update(NewGroup_solution)))
@@ -327,16 +311,7 @@ namespace LimsProject
             ModSolution oModSolution = new ModSolution();
             ModCorrelatives oModCorrelatives = new ModCorrelatives();
             if (result)
-            {
-                if (group_solution.Type_solution == 1)
-                    NewGroup_solution.Cod_solution = oModCorrelatives.GetCorrelative(ModCorrelatives.Correlative.EstandarCalibracion);
-                if (group_solution.Type_solution == 2)
-                    NewGroup_solution.Cod_solution = oModCorrelatives.GetCorrelative(ModCorrelatives.Correlative.EstandarVerificacion);
-                if (group_solution.Type_solution == 3)
-                    NewGroup_solution.Cod_solution = oModCorrelatives.GetCorrelative(ModCorrelatives.Correlative.SolucionIntermedia);
-                if (group_solution.Type_solution == 4)
-                    NewGroup_solution.Cod_solution = oModCorrelatives.GetCorrelative(ModCorrelatives.Correlative.SolucionTitulante);
-
+            {                
                 if (faGroup_solution.Update(NewGroup_solution))
                 {
                     group_solution.Flag_close_calib = true;

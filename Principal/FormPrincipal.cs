@@ -213,6 +213,11 @@ namespace LimsProject
             Comun.OpenForm(Comun.Formulario.fmCompound);
         }
 
+        private void nbiFactorEstequ_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            Comun.OpenForm(Comun.Formulario.fmFactorEstequ);
+        }
+
         
 
     }

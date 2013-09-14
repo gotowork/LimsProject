@@ -99,6 +99,8 @@
             this.gvCompound.GridControl = this.gcCompound;
             this.gvCompound.Name = "gvCompound";
             this.gvCompound.OptionsView.ShowGroupPanel = false;
+            this.gvCompound.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.gvCompound_InvalidRowException);
+            this.gvCompound.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gvCompound_ValidateRow);
             // 
             // gcol_Idcompound
             // 

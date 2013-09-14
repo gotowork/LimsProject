@@ -1,6 +1,6 @@
 ﻿namespace LimsProject
 {
-    partial class UcGR
+    partial class UcVC
     {
         /// <summary> 
         /// Variable del diseñador requerida.
@@ -107,10 +107,6 @@
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.cbPrecipitado = new DevExpress.XtraEditors.LookUpEdit();
-            this.tbPrecipitadoFactor = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.deDate_allowed_error.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbWeight_incertitude.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbWeight.Properties)).BeginInit();
@@ -152,14 +148,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.tbNum_samples.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbPrecipitado.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbPrecipitadoFactor.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // deDate_allowed_error
             // 
             this.deDate_allowed_error.EditValue = null;
-            this.deDate_allowed_error.Location = new System.Drawing.Point(258, 190);
+            this.deDate_allowed_error.Location = new System.Drawing.Point(258, 182);
             this.deDate_allowed_error.Name = "deDate_allowed_error";
             this.deDate_allowed_error.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -170,7 +164,7 @@
             // 
             this.label38.AutoSize = true;
             this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label38.Location = new System.Drawing.Point(258, 176);
+            this.label38.Location = new System.Drawing.Point(258, 168);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(78, 13);
             this.label38.TabIndex = 4;
@@ -189,7 +183,7 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(96, 193);
+            this.label20.Location = new System.Drawing.Point(96, 185);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(77, 13);
             this.label20.TabIndex = 4;
@@ -222,7 +216,7 @@
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(102, 171);
+            this.label21.Location = new System.Drawing.Point(102, 163);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(71, 13);
             this.label21.TabIndex = 5;
@@ -249,7 +243,7 @@
             0,
             0,
             0});
-            this.tbReason_rep.Location = new System.Drawing.Point(180, 168);
+            this.tbReason_rep.Location = new System.Drawing.Point(180, 160);
             this.tbReason_rep.Name = "tbReason_rep";
             this.tbReason_rep.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
@@ -277,7 +271,7 @@
             0,
             0,
             0});
-            this.tbError_allowed.Location = new System.Drawing.Point(180, 190);
+            this.tbError_allowed.Location = new System.Drawing.Point(180, 182);
             this.tbError_allowed.Name = "tbError_allowed";
             this.tbError_allowed.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
@@ -305,7 +299,7 @@
             // label117
             // 
             this.label117.AutoSize = true;
-            this.label117.Location = new System.Drawing.Point(48, 215);
+            this.label117.Location = new System.Drawing.Point(48, 207);
             this.label117.Name = "label117";
             this.label117.Size = new System.Drawing.Size(125, 13);
             this.label117.TabIndex = 12;
@@ -327,7 +321,7 @@
             0,
             0,
             0});
-            this.tbLimit_samples.Location = new System.Drawing.Point(180, 212);
+            this.tbLimit_samples.Location = new System.Drawing.Point(180, 204);
             this.tbLimit_samples.Name = "tbLimit_samples";
             this.tbLimit_samples.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
@@ -807,19 +801,15 @@
             // 
             // xtraTabPage1
             // 
-            this.xtraTabPage1.Controls.Add(this.tbPrecipitadoFactor);
-            this.xtraTabPage1.Controls.Add(this.cbPrecipitado);
             this.xtraTabPage1.Controls.Add(this.label37);
             this.xtraTabPage1.Controls.Add(this.deDate_allowed_error);
             this.xtraTabPage1.Controls.Add(this.tbReading_min);
-            this.xtraTabPage1.Controls.Add(this.label8);
             this.xtraTabPage1.Controls.Add(this.label38);
             this.xtraTabPage1.Controls.Add(this.tbReading_max);
             this.xtraTabPage1.Controls.Add(this.tbLimit_samples);
             this.xtraTabPage1.Controls.Add(this.label20);
             this.xtraTabPage1.Controls.Add(this.label7);
             this.xtraTabPage1.Controls.Add(this.tbWeight_incertitude);
-            this.xtraTabPage1.Controls.Add(this.label5);
             this.xtraTabPage1.Controls.Add(this.label22);
             this.xtraTabPage1.Controls.Add(this.label117);
             this.xtraTabPage1.Controls.Add(this.label21);
@@ -1104,56 +1094,12 @@
             this.gridColumn6.Visible = true;
             this.gridColumn6.VisibleIndex = 2;
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(300, 112);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(36, 13);
-            this.label8.TabIndex = 4;
-            this.label8.Text = "Factor";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(102, 130);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(63, 13);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "Precipitado:";
-            // 
-            // cbPrecipitado
-            // 
-            this.cbPrecipitado.Location = new System.Drawing.Point(180, 127);
-            this.cbPrecipitado.Name = "cbPrecipitado";
-            this.cbPrecipitado.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbPrecipitado.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Idfactor_estequiometrico", "", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name_compound"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Factor", "Factor", 20, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None)});
-            this.cbPrecipitado.Properties.NullText = "Seleccionar";
-            this.cbPrecipitado.Properties.ShowFooter = false;
-            this.cbPrecipitado.Properties.ShowHeader = false;
-            this.cbPrecipitado.Size = new System.Drawing.Size(113, 20);
-            this.cbPrecipitado.TabIndex = 19;
-            this.cbPrecipitado.EditValueChanged += new System.EventHandler(this.cbPrecipitado_EditValueChanged);
-            // 
-            // tbPrecipitadoFactor
-            // 
-            this.tbPrecipitadoFactor.Location = new System.Drawing.Point(299, 127);
-            this.tbPrecipitadoFactor.Name = "tbPrecipitadoFactor";
-            this.tbPrecipitadoFactor.Properties.ReadOnly = true;
-            this.tbPrecipitadoFactor.Size = new System.Drawing.Size(83, 20);
-            this.tbPrecipitadoFactor.TabIndex = 20;
-            // 
-            // UcGR
+            // UcVC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.xtraTabControl1);
-            this.Name = "UcGR";
+            this.Name = "UcVC";
             this.Size = new System.Drawing.Size(539, 403);
             ((System.ComponentModel.ISupportInitialize)(this.deDate_allowed_error.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbWeight_incertitude.Properties)).EndInit();
@@ -1203,8 +1149,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.tbNum_samples.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbPrecipitado.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbPrecipitadoFactor.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1290,9 +1234,5 @@
         private System.Windows.Forms.RadioButton rbSamplesFortification;
         private System.Windows.Forms.RadioButton rbMR;
         private cbUnitMeasure cbUnit_result;
-        private DevExpress.XtraEditors.TextEdit tbPrecipitadoFactor;
-        private DevExpress.XtraEditors.LookUpEdit cbPrecipitado;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label5;
     }
 }

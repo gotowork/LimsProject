@@ -106,6 +106,19 @@
             this.label126 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.xtraTabPage4 = new DevExpress.XtraTab.XtraTabPage();
+            this.xtraTabControl2 = new DevExpress.XtraTab.XtraTabControl();
+            this.xtraTabPage7 = new DevExpress.XtraTab.XtraTabPage();
+            this.tbLawMri = new DevExpress.XtraEditors.TextEdit();
+            this.cbMaterialRef = new DevExpress.XtraEditors.LookUpEdit();
+            this.tbBlk_max = new DevExpress.XtraEditors.SpinEdit();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.tbReproducibility = new DevExpress.XtraEditors.SpinEdit();
+            this.xtraTabPage8 = new DevExpress.XtraTab.XtraTabPage();
+            this.xtraTabPage10 = new DevExpress.XtraTab.XtraTabPage();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
             this.tbMediumStdVerif = new DevExpress.XtraEditors.SpinEdit();
@@ -153,21 +166,6 @@
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.xtraTabPage38 = new DevExpress.XtraTab.XtraTabPage();
-            this.xtraTabPage33 = new DevExpress.XtraTab.XtraTabPage();
-            this.xtraTabControl2 = new DevExpress.XtraTab.XtraTabControl();
-            this.xtraTabPage7 = new DevExpress.XtraTab.XtraTabPage();
-            this.tbLawMri = new DevExpress.XtraEditors.TextEdit();
-            this.cbMaterialRef = new DevExpress.XtraEditors.LookUpEdit();
-            this.tbBlk_max = new DevExpress.XtraEditors.SpinEdit();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.tbReproducibility = new DevExpress.XtraEditors.SpinEdit();
-            this.xtraTabPage8 = new DevExpress.XtraTab.XtraTabPage();
-            this.xtraTabPage10 = new DevExpress.XtraTab.XtraTabPage();
             ((System.ComponentModel.ISupportInitialize)(this.deStdSolDatePrep)).BeginInit();
             this.deStdSolDatePrep.SuspendLayout();
             this.xtraTabPage2.SuspendLayout();
@@ -210,6 +208,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.tbMediumConc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbRexp2.Properties)).BeginInit();
             this.xtraTabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl2)).BeginInit();
+            this.xtraTabControl2.SuspendLayout();
+            this.xtraTabPage7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbLawMri.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbMaterialRef.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbBlk_max.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbReproducibility.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
@@ -241,13 +246,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.tbNum_samples.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl2)).BeginInit();
-            this.xtraTabControl2.SuspendLayout();
-            this.xtraTabPage7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tbLawMri.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbMaterialRef.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbBlk_max.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbReproducibility.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // deStdSolDatePrep
@@ -276,9 +274,7 @@
             this.xtraTabPage5,
             this.xtraTabPage6,
             this.xtraTabPage4,
-            this.xtraTabPage32,
-            this.xtraTabPage38,
-            this.xtraTabPage33});
+            this.xtraTabPage32});
             this.deStdSolDatePrep.Text = "Material de Referenci";
             // 
             // xtraTabPage2
@@ -308,7 +304,7 @@
             this.xtraTabPage2.Controls.Add(this.tbReading_max);
             this.xtraTabPage2.Controls.Add(this.tbReading_min);
             this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(721, 351);
+            this.xtraTabPage2.Size = new System.Drawing.Size(721, 395);
             this.xtraTabPage2.Text = "Pesos/Lecturas";
             // 
             // deDate_allowed_error
@@ -606,7 +602,7 @@
             this.xtraTabPage5.Controls.Add(this.tbLaw_limit_bottom);
             this.xtraTabPage5.Controls.Add(this.label17);
             this.xtraTabPage5.Name = "xtraTabPage5";
-            this.xtraTabPage5.Size = new System.Drawing.Size(721, 351);
+            this.xtraTabPage5.Size = new System.Drawing.Size(721, 395);
             this.xtraTabPage5.Text = "Resultados";
             // 
             // tbSymbol
@@ -777,7 +773,7 @@
             this.xtraTabPage6.Controls.Add(this.label126);
             this.xtraTabPage6.Controls.Add(this.label26);
             this.xtraTabPage6.Name = "xtraTabPage6";
-            this.xtraTabPage6.Size = new System.Drawing.Size(721, 351);
+            this.xtraTabPage6.Size = new System.Drawing.Size(721, 395);
             this.xtraTabPage6.Text = "Calibraciones";
             // 
             // ckSolInterm
@@ -1329,6 +1325,142 @@
             this.xtraTabPage4.Size = new System.Drawing.Size(721, 395);
             this.xtraTabPage4.Text = "Control de calidad";
             // 
+            // xtraTabControl2
+            // 
+            this.xtraTabControl2.Location = new System.Drawing.Point(17, 282);
+            this.xtraTabControl2.Name = "xtraTabControl2";
+            this.xtraTabControl2.SelectedTabPage = this.xtraTabPage7;
+            this.xtraTabControl2.Size = new System.Drawing.Size(526, 105);
+            this.xtraTabControl2.TabIndex = 46;
+            this.xtraTabControl2.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.xtraTabPage7,
+            this.xtraTabPage8,
+            this.xtraTabPage10});
+            this.xtraTabControl2.Text = "xtraTabControl2";
+            // 
+            // xtraTabPage7
+            // 
+            this.xtraTabPage7.Controls.Add(this.tbLawMri);
+            this.xtraTabPage7.Controls.Add(this.cbMaterialRef);
+            this.xtraTabPage7.Controls.Add(this.tbBlk_max);
+            this.xtraTabPage7.Controls.Add(this.label23);
+            this.xtraTabPage7.Controls.Add(this.label14);
+            this.xtraTabPage7.Controls.Add(this.label30);
+            this.xtraTabPage7.Controls.Add(this.label29);
+            this.xtraTabPage7.Controls.Add(this.label12);
+            this.xtraTabPage7.Controls.Add(this.tbReproducibility);
+            this.xtraTabPage7.Name = "xtraTabPage7";
+            this.xtraTabPage7.Size = new System.Drawing.Size(517, 75);
+            this.xtraTabPage7.Text = "Material de referncia";
+            // 
+            // tbLawMri
+            // 
+            this.tbLawMri.Location = new System.Drawing.Point(181, 24);
+            this.tbLawMri.Name = "tbLawMri";
+            this.tbLawMri.Properties.ReadOnly = true;
+            this.tbLawMri.Size = new System.Drawing.Size(57, 20);
+            this.tbLawMri.TabIndex = 17;
+            // 
+            // cbMaterialRef
+            // 
+            this.cbMaterialRef.Location = new System.Drawing.Point(76, 24);
+            this.cbMaterialRef.Name = "cbMaterialRef";
+            this.cbMaterialRef.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbMaterialRef.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Idmr_detail", "", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Cod_mr")});
+            this.cbMaterialRef.Properties.NullText = "Seleccionar";
+            this.cbMaterialRef.Properties.ShowFooter = false;
+            this.cbMaterialRef.Properties.ShowHeader = false;
+            this.cbMaterialRef.Size = new System.Drawing.Size(100, 20);
+            this.cbMaterialRef.TabIndex = 1;
+            // 
+            // tbBlk_max
+            // 
+            this.tbBlk_max.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.tbBlk_max.Location = new System.Drawing.Point(76, 48);
+            this.tbBlk_max.Name = "tbBlk_max";
+            this.tbBlk_max.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.tbBlk_max.Size = new System.Drawing.Size(100, 20);
+            this.tbBlk_max.TabIndex = 3;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(244, 26);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(21, 13);
+            this.label23.TabIndex = 12;
+            this.label23.Text = "+/-";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(3, 27);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(67, 13);
+            this.label14.TabIndex = 12;
+            this.label14.Text = "Material Ref:";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(262, 8);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(86, 13);
+            this.label30.TabIndex = 12;
+            this.label30.Text = "Reproducibilidad";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(193, 8);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(24, 13);
+            this.label29.TabIndex = 12;
+            this.label29.Text = "Ley";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(7, 51);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(31, 13);
+            this.label12.TabIndex = 12;
+            this.label12.Text = "LRB:";
+            // 
+            // tbReproducibility
+            // 
+            this.tbReproducibility.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.tbReproducibility.Location = new System.Drawing.Point(265, 24);
+            this.tbReproducibility.Name = "tbReproducibility";
+            this.tbReproducibility.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.tbReproducibility.Size = new System.Drawing.Size(75, 20);
+            this.tbReproducibility.TabIndex = 2;
+            // 
+            // xtraTabPage8
+            // 
+            this.xtraTabPage8.Name = "xtraTabPage8";
+            this.xtraTabPage8.Size = new System.Drawing.Size(517, 75);
+            this.xtraTabPage8.Text = "Adicion de estandares";
+            // 
+            // xtraTabPage10
+            // 
+            this.xtraTabPage10.Name = "xtraTabPage10";
+            this.xtraTabPage10.Size = new System.Drawing.Size(517, 75);
+            this.xtraTabPage10.Text = "Fortificacion de blancos";
+            // 
             // groupControl2
             // 
             this.groupControl2.Controls.Add(this.groupControl3);
@@ -1544,7 +1676,7 @@
             this.ckStdSolIntermTwo.Location = new System.Drawing.Point(148, 66);
             this.ckStdSolIntermTwo.Name = "ckStdSolIntermTwo";
             this.ckStdSolIntermTwo.Properties.Caption = "Solución intermedia 2";
-            this.ckStdSolIntermTwo.Size = new System.Drawing.Size(126, 18);
+            this.ckStdSolIntermTwo.Size = new System.Drawing.Size(126, 19);
             this.ckStdSolIntermTwo.TabIndex = 35;
             this.ckStdSolIntermTwo.CheckedChanged += new System.EventHandler(this.ckStdSolIntermTwo_CheckedChanged);
             // 
@@ -1553,7 +1685,7 @@
             this.ckStdSolIntermOne.Location = new System.Drawing.Point(148, 44);
             this.ckStdSolIntermOne.Name = "ckStdSolIntermOne";
             this.ckStdSolIntermOne.Properties.Caption = "Solución intermedia 1";
-            this.ckStdSolIntermOne.Size = new System.Drawing.Size(126, 18);
+            this.ckStdSolIntermOne.Size = new System.Drawing.Size(126, 19);
             this.ckStdSolIntermOne.TabIndex = 35;
             this.ckStdSolIntermOne.CheckedChanged += new System.EventHandler(this.ckStdSolIntermOne_CheckedChanged);
             // 
@@ -1785,7 +1917,7 @@
             this.xtraTabPage32.Controls.Add(this.tbNum_samples);
             this.xtraTabPage32.Controls.Add(this.gridControl1);
             this.xtraTabPage32.Name = "xtraTabPage32";
-            this.xtraTabPage32.Size = new System.Drawing.Size(721, 351);
+            this.xtraTabPage32.Size = new System.Drawing.Size(721, 395);
             this.xtraTabPage32.Text = "Observaciones";
             // 
             // label116
@@ -1892,154 +2024,6 @@
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 2;
             // 
-            // xtraTabPage38
-            // 
-            this.xtraTabPage38.Name = "xtraTabPage38";
-            this.xtraTabPage38.Size = new System.Drawing.Size(721, 351);
-            this.xtraTabPage38.Text = "MR";
-            // 
-            // xtraTabPage33
-            // 
-            this.xtraTabPage33.Name = "xtraTabPage33";
-            this.xtraTabPage33.Size = new System.Drawing.Size(721, 351);
-            this.xtraTabPage33.Text = "Preparación de muestra";
-            // 
-            // xtraTabControl2
-            // 
-            this.xtraTabControl2.Location = new System.Drawing.Point(17, 282);
-            this.xtraTabControl2.Name = "xtraTabControl2";
-            this.xtraTabControl2.SelectedTabPage = this.xtraTabPage7;
-            this.xtraTabControl2.Size = new System.Drawing.Size(526, 105);
-            this.xtraTabControl2.TabIndex = 46;
-            this.xtraTabControl2.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
-            this.xtraTabPage7,
-            this.xtraTabPage8,
-            this.xtraTabPage10});
-            this.xtraTabControl2.Text = "xtraTabControl2";
-            // 
-            // xtraTabPage7
-            // 
-            this.xtraTabPage7.Controls.Add(this.tbLawMri);
-            this.xtraTabPage7.Controls.Add(this.cbMaterialRef);
-            this.xtraTabPage7.Controls.Add(this.tbBlk_max);
-            this.xtraTabPage7.Controls.Add(this.label23);
-            this.xtraTabPage7.Controls.Add(this.label14);
-            this.xtraTabPage7.Controls.Add(this.label30);
-            this.xtraTabPage7.Controls.Add(this.label29);
-            this.xtraTabPage7.Controls.Add(this.label12);
-            this.xtraTabPage7.Controls.Add(this.tbReproducibility);
-            this.xtraTabPage7.Name = "xtraTabPage7";
-            this.xtraTabPage7.Size = new System.Drawing.Size(517, 75);
-            this.xtraTabPage7.Text = "Material de referncia";
-            // 
-            // tbLawMri
-            // 
-            this.tbLawMri.Location = new System.Drawing.Point(181, 24);
-            this.tbLawMri.Name = "tbLawMri";
-            this.tbLawMri.Properties.ReadOnly = true;
-            this.tbLawMri.Size = new System.Drawing.Size(57, 20);
-            this.tbLawMri.TabIndex = 17;
-            // 
-            // cbMaterialRef
-            // 
-            this.cbMaterialRef.Location = new System.Drawing.Point(76, 24);
-            this.cbMaterialRef.Name = "cbMaterialRef";
-            this.cbMaterialRef.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbMaterialRef.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Idmr_detail", "", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Cod_mr")});
-            this.cbMaterialRef.Properties.NullText = "Seleccionar";
-            this.cbMaterialRef.Properties.ShowFooter = false;
-            this.cbMaterialRef.Properties.ShowHeader = false;
-            this.cbMaterialRef.Size = new System.Drawing.Size(100, 20);
-            this.cbMaterialRef.TabIndex = 1;
-            // 
-            // tbBlk_max
-            // 
-            this.tbBlk_max.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.tbBlk_max.Location = new System.Drawing.Point(76, 48);
-            this.tbBlk_max.Name = "tbBlk_max";
-            this.tbBlk_max.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.tbBlk_max.Size = new System.Drawing.Size(100, 20);
-            this.tbBlk_max.TabIndex = 3;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(244, 26);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(21, 13);
-            this.label23.TabIndex = 12;
-            this.label23.Text = "+/-";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(3, 27);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(67, 13);
-            this.label14.TabIndex = 12;
-            this.label14.Text = "Material Ref:";
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(262, 8);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(86, 13);
-            this.label30.TabIndex = 12;
-            this.label30.Text = "Reproducibilidad";
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(193, 8);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(24, 13);
-            this.label29.TabIndex = 12;
-            this.label29.Text = "Ley";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(7, 51);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(31, 13);
-            this.label12.TabIndex = 12;
-            this.label12.Text = "LRB:";
-            // 
-            // tbReproducibility
-            // 
-            this.tbReproducibility.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.tbReproducibility.Location = new System.Drawing.Point(265, 24);
-            this.tbReproducibility.Name = "tbReproducibility";
-            this.tbReproducibility.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.tbReproducibility.Size = new System.Drawing.Size(75, 20);
-            this.tbReproducibility.TabIndex = 2;
-            // 
-            // xtraTabPage8
-            // 
-            this.xtraTabPage8.Name = "xtraTabPage8";
-            this.xtraTabPage8.Size = new System.Drawing.Size(517, 100);
-            this.xtraTabPage8.Text = "Adicion de estandares";
-            // 
-            // xtraTabPage10
-            // 
-            this.xtraTabPage10.Name = "xtraTabPage10";
-            this.xtraTabPage10.Size = new System.Drawing.Size(517, 100);
-            this.xtraTabPage10.Text = "Fortificacion de blancos";
-            // 
             // UcAA
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2093,6 +2077,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.tbRexp2.Properties)).EndInit();
             this.xtraTabPage4.ResumeLayout(false);
             this.xtraTabPage4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl2)).EndInit();
+            this.xtraTabControl2.ResumeLayout(false);
+            this.xtraTabPage7.ResumeLayout(false);
+            this.xtraTabPage7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbLawMri.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbMaterialRef.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbBlk_max.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbReproducibility.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
             this.groupControl2.PerformLayout();
@@ -2128,14 +2120,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.tbNum_samples.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl2)).EndInit();
-            this.xtraTabControl2.ResumeLayout(false);
-            this.xtraTabPage7.ResumeLayout(false);
-            this.xtraTabPage7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tbLawMri.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbMaterialRef.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbBlk_max.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbReproducibility.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2267,8 +2251,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
-        private DevExpress.XtraTab.XtraTabPage xtraTabPage38;
-        private DevExpress.XtraTab.XtraTabPage xtraTabPage33;
         private DevExpress.XtraTab.XtraTabControl xtraTabControl2;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage7;
         private DevExpress.XtraEditors.TextEdit tbLawMri;

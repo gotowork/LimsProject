@@ -41,37 +41,6 @@ namespace LimsProject
         {
             ModSolution modSolution = new ModSolution();
             List<CCustom_method_solution> lstMethod = new List<CCustom_method_solution>();
-
-            // Estandares de calibración.
-            if (group_solution.Type_solution == 1)
-            {
-                // --- elemento, mr pattern, medio y modif
-                // getLstMethods(group_solution)
-                lstMethod = modSolution.GetMethodsByMrcPattern(group_solution).ToList();
-            }
-            // Soluciones intermedias 1 y 2 y estandares de verificación.
-            else if (group_solution.Type_solution == 2
-                || group_solution.Type_solution == 3
-                || group_solution.Type_solution == 4)
-            {
-                // elemento, mr pattern, sol intermedia (1 ó 2 implicito)
-                // getLstMethods(group_solution, type_solution_intermedia)
-                lstMethod = modSolution.GetMethodsBySolInterm(group_solution, currentTypeSol).ToList();
-            }
-
-            // Crear nueva lista de métodos
-            lstMethodMini = new BindingList<CMethodMini>(
-                (from m in lstMethod
-                 select new CMethodMini
-                 {
-                     Sel = m.Idtemplate_method == group_solution.Idtemplate_method ? true : false,
-                     Idtemplate_method = m.Idtemplate_method,
-                     Cod_template_method = m.Cod_template_method,
-                     Title = m.Title,                     
-                 }).ToList());
-
-            gcMethods.DataSource = lstMethodMini;            
-
         }
 
         private void repSel_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)

@@ -183,7 +183,8 @@ namespace LimsProject
             fmMatrixItem,
             fmDecree,
             fmPreparationSamples,
-            fmCompound
+            fmCompound,
+            fmFactorEstequ
         }
 
         public enum ReportStatus
@@ -342,6 +343,11 @@ namespace LimsProject
                     FormCompound fmcompound = new FormCompound();
                     fmcompound.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
                     fmcompound.Show();
+                    break;
+                case Formulario.fmFactorEstequ:
+                    FormFactorEstequiometrico fmFactorEstequ = new FormFactorEstequiometrico();
+                    fmFactorEstequ.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+                    fmFactorEstequ.Show();
                     break;
             }
         }

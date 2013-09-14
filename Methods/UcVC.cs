@@ -12,17 +12,17 @@ using LimsProject.BusinessLayer.Modules;
 
 namespace LimsProject
 {
-    public partial class UcGR : UserControl
+    public partial class UcVC : UserControl
     {
         public int? IDTemplate_Method { get; set; }
         CTemplate_method oTemplate_Method = new CTemplate_method();
-        public short? IDElement { get; set; }        
+        public short? IDElement { get; set; }
 
-        public UcGR()
+        public UcVC()
         {
             InitializeComponent();
-        }        
-
+        }
+        
         public void RefreshByElement(short? idelement)
         {
             var query =
@@ -34,11 +34,7 @@ namespace LimsProject
                      Idfactor_estequiometrico = Convert.ToInt32(n.Idfactor_estequiometrico),
                      m.Name_compound,
                      Factor = Convert.ToDecimal(n.Factor)
-                 }).ToList();
-
-            cbPrecipitado.Properties.DataSource = query;
-            cbPrecipitado.Properties.ValueMember = "Idfactor_estequiometrico";
-            cbPrecipitado.Properties.DisplayMember = "Name_compound";
+                 }).ToList();            
         }
 
         public void InitData()
@@ -152,12 +148,7 @@ namespace LimsProject
                     Comun.Send_message("Métodos", TypeMsg.error, "Error: No se ingreso un valor al campo reproducibilidad en la muestra fortificada.");
                     return false;
                 }
-            }
-            if (cbPrecipitado.EditValue == null)
-            {
-                Comun.Send_message("Métodos", TypeMsg.error, "Error: No se ingreso el precipitado.");
-                return false;
-            }
+            }            
             return true;
         }
 
@@ -170,68 +161,66 @@ namespace LimsProject
                 // --- recuperate head 
                 if (IDTemplate_Method != null && IDTemplate_Method > 0)
                 {
-                    CTemplate_method_gr oTemplate_method_gr = new CTemplate_method_gr();
-                    CTemplate_method_grFactory faTemplate_method_aa = new CTemplate_method_grFactory();
-                    oTemplate_method_gr = faTemplate_method_aa.GetByPrimaryKey(new CTemplate_method_grKeys(Convert.ToInt32(IDTemplate_Method)));
+                    CTemplate_method_vc oTemplate_method_vc = new CTemplate_method_vc();
+                    CTemplate_method_vcFactory faTemplate_method_aa = new CTemplate_method_vcFactory();
+                    oTemplate_method_vc = faTemplate_method_aa.GetByPrimaryKey(new CTemplate_method_vcKeys(Convert.ToInt32(IDTemplate_Method)));
 
-                    if (oTemplate_method_gr != null)
+                    if (oTemplate_method_vc != null)
                     {
-                        oTemplate_method_gr.Idtemplate_method = Convert.ToInt32(IDTemplate_Method);
-                        cbUnit_result.EditValue = oTemplate_method_gr.Idunit_result;
-                        tbNum_samples.Value = Convert.ToDecimal(oTemplate_method_gr.Num_samples);
-                        tbNum_days.Value = Convert.ToDecimal(oTemplate_method_gr.Num_days);
-                        tbLimit_samples.Value = Convert.ToInt16(oTemplate_method_gr.Limit_samples);
-                        tbWeight.Value = Convert.ToDecimal(oTemplate_method_gr.Weight);
-                        tbWeight_incertitude.Value = Convert.ToDecimal(oTemplate_method_gr.Weight_incertitude);
-                        tbReading_min.Value = Convert.ToDecimal(oTemplate_method_gr.Reading_min);
-                        tbReading_max.Value = Convert.ToDecimal(oTemplate_method_gr.Reading_max);
-                        tbReason_rep.Value = Convert.ToDecimal(oTemplate_method_gr.Reason_rep);
-                        tbError_allowed.Value = Convert.ToDecimal(oTemplate_method_gr.Error_allowed);
-                        tbSymbol.Text = oTemplate_method_gr.Symbol;
-                        tbLaw_limit_bottom.Value = Convert.ToDecimal(oTemplate_method_gr.Law_limit_bottom);
-                        tbLaw_limit_top.Value = Convert.ToDecimal(oTemplate_method_gr.Law_limit_top);
-                        tbNum_decimal.Value = Convert.ToDecimal(oTemplate_method_gr.Num_decimal);
-                        deDate_allowed_error.DateTime = Convert.ToDateTime(oTemplate_method_gr.Date_allowed_error);
+                        oTemplate_method_vc.Idtemplate_method = Convert.ToInt32(IDTemplate_Method);
+                        cbUnit_result.EditValue = oTemplate_method_vc.Idunit_result;
+                        tbNum_samples.Value = Convert.ToDecimal(oTemplate_method_vc.Num_samples);
+                        tbNum_days.Value = Convert.ToDecimal(oTemplate_method_vc.Num_days);
+                        tbLimit_samples.Value = Convert.ToInt16(oTemplate_method_vc.Limit_samples);
+                        tbWeight.Value = Convert.ToDecimal(oTemplate_method_vc.Weight);
+                        tbWeight_incertitude.Value = Convert.ToDecimal(oTemplate_method_vc.Weight_incertitude);
+                        tbReading_min.Value = Convert.ToDecimal(oTemplate_method_vc.Reading_min);
+                        tbReading_max.Value = Convert.ToDecimal(oTemplate_method_vc.Reading_max);
+                        tbReason_rep.Value = Convert.ToDecimal(oTemplate_method_vc.Reason_rep);
+                        tbError_allowed.Value = Convert.ToDecimal(oTemplate_method_vc.Error_allowed);
+                        tbSymbol.Text = oTemplate_method_vc.Symbol;
+                        tbLaw_limit_bottom.Value = Convert.ToDecimal(oTemplate_method_vc.Law_limit_bottom);
+                        tbLaw_limit_top.Value = Convert.ToDecimal(oTemplate_method_vc.Law_limit_top);
+                        tbNum_decimal.Value = Convert.ToDecimal(oTemplate_method_vc.Num_decimal);
+                        deDate_allowed_error.DateTime = Convert.ToDateTime(oTemplate_method_vc.Date_allowed_error);
 
-                        tbNum_days.Value = Convert.ToInt16(oTemplate_method_gr.Num_days);
-                        tbNum_samples.Value = Convert.ToInt16(oTemplate_method_gr.Num_samples);
-                        cbUnit_result.EditValue = oTemplate_method_gr.Idunit_result;
-                        tbLimit_samples.EditValue = oTemplate_method_gr.Limit_samples;
+                        tbNum_days.Value = Convert.ToInt16(oTemplate_method_vc.Num_days);
+                        tbNum_samples.Value = Convert.ToInt16(oTemplate_method_vc.Num_samples);
+                        cbUnit_result.EditValue = oTemplate_method_vc.Idunit_result;
+                        tbLimit_samples.EditValue = oTemplate_method_vc.Limit_samples;
 
                         rbMR.Checked = false;
                         rbSamplesFortification.Checked = false;
                         rbBlkFortification.Checked = false;
 
-                        rbMR.Checked = Convert.ToBoolean(oTemplate_method_gr.Flag_mr);
-                        rbSamplesFortification.Checked = Convert.ToBoolean(oTemplate_method_gr.Flagsamfortify);
-                        rbBlkFortification.Checked = Convert.ToBoolean(oTemplate_method_gr.Flagblkfortify);
+                        rbMR.Checked = Convert.ToBoolean(oTemplate_method_vc.Flag_mr);
+                        rbSamplesFortification.Checked = Convert.ToBoolean(oTemplate_method_vc.Flagsamfortify);
+                        rbBlkFortification.Checked = Convert.ToBoolean(oTemplate_method_vc.Flagblkfortify);
 
-                        //paMaterialReference.Enabled = Convert.ToBoolean(oTemplate_method_gr.Flag_mr);
-                        //paBlkFortification.Enabled = Convert.ToBoolean(oTemplate_method_gr.Flagblkfortify);
-                        //paSampleFortification.Enabled = Convert.ToBoolean(oTemplate_method_gr.Flagsamfortify);
+                        //paMaterialReference.Enabled = Convert.ToBoolean(oTemplate_method_vc.Flag_mr);
+                        //paBlkFortification.Enabled = Convert.ToBoolean(oTemplate_method_vc.Flagblkfortify);
+                        //paSampleFortification.Enabled = Convert.ToBoolean(oTemplate_method_vc.Flagsamfortify);
 
                         if (paMaterialReference.Enabled)
                         {
-                            tbReproducibility.Value = Convert.ToDecimal(oTemplate_method_gr.Reproducibility);
-                            cbMaterialRef.EditValue = oTemplate_method_gr.Idmr_detail;
-                            tbBlk_max.Value = Convert.ToDecimal(oTemplate_method_gr.Blk_max);
+                            tbReproducibility.Value = Convert.ToDecimal(oTemplate_method_vc.Reproducibility);
+                            cbMaterialRef.EditValue = oTemplate_method_vc.Idmr_detail;
+                            tbBlk_max.Value = Convert.ToDecimal(oTemplate_method_vc.Blk_max);
                         }
 
                         if (paBlkFortification.Enabled)
                         {
-                            tbBlkFortiSolution.Value = Convert.ToDecimal(oTemplate_method_gr.Blkfortisol);
-                            tbBlkFortiAliquot.Value = Convert.ToDecimal(oTemplate_method_gr.Blkfortialiquot);
-                            tbBlkFortiReproducibility.Value = Convert.ToDecimal(oTemplate_method_gr.Blkfortireproducibility);
+                            tbBlkFortiSolution.Value = Convert.ToDecimal(oTemplate_method_vc.Blkfortisol);
+                            tbBlkFortiAliquot.Value = Convert.ToDecimal(oTemplate_method_vc.Blkfortialiquot);
+                            tbBlkFortiReproducibility.Value = Convert.ToDecimal(oTemplate_method_vc.Blkfortireproducibility);
                         }
 
                         if (paSampleFortification.Enabled)
                         {
-                            tbSamFortiSolution.Value = Convert.ToDecimal(oTemplate_method_gr.Samfortisol);
-                            tbSamFortiAliquot.Value = Convert.ToDecimal(oTemplate_method_gr.Samfortialiquot);
-                            tbSamFortiReproducibility.Value = Convert.ToDecimal(oTemplate_method_gr.Samfortireproducibility);
-                        }
-
-                        cbPrecipitado.EditValue = oTemplate_method_gr.Idfactor_estequiometrico;
+                            tbSamFortiSolution.Value = Convert.ToDecimal(oTemplate_method_vc.Samfortisol);
+                            tbSamFortiAliquot.Value = Convert.ToDecimal(oTemplate_method_vc.Samfortialiquot);
+                            tbSamFortiReproducibility.Value = Convert.ToDecimal(oTemplate_method_vc.Samfortireproducibility);
+                        }                        
                     }
                     else
                     {
@@ -248,64 +237,62 @@ namespace LimsProject
 
         public bool SaveTypeAnalysis(int? pIdtemplate_method)
         {
-            CTemplate_method_grFactory faTemplate_method_gr = new CTemplate_method_grFactory();
+            CTemplate_method_vcFactory faTemplate_method_gr = new CTemplate_method_vcFactory();
             IDTemplate_Method = pIdtemplate_method;
 
             if (IDTemplate_Method != null && IDTemplate_Method > 0)
             {
                 bool result_template_method_aa = false;
-                CTemplate_method_gr oTemplate_method_gr = new CTemplate_method_gr();
+                CTemplate_method_vc oTemplate_method_vc = new CTemplate_method_vc();
 
-                oTemplate_method_gr.Idtemplate_method = Convert.ToInt32(IDTemplate_Method);
-                oTemplate_method_gr.Weight = tbWeight.Value;
-                oTemplate_method_gr.Weight_incertitude = tbWeight_incertitude.Value;                
-                oTemplate_method_gr.Reading_min = tbReading_min.Value;
-                oTemplate_method_gr.Reading_max = tbReading_max.Value;                
-                oTemplate_method_gr.Reason_rep = tbReason_rep.Value;
-                oTemplate_method_gr.Error_allowed = tbError_allowed.Value;
-                oTemplate_method_gr.Symbol = tbSymbol.Text;
-                oTemplate_method_gr.Law_limit_bottom = tbLaw_limit_bottom.Value;
-                oTemplate_method_gr.Law_limit_top = tbLaw_limit_top.Value;
+                oTemplate_method_vc.Idtemplate_method = Convert.ToInt32(IDTemplate_Method);
+                oTemplate_method_vc.Weight = tbWeight.Value;
+                oTemplate_method_vc.Weight_incertitude = tbWeight_incertitude.Value;                
+                oTemplate_method_vc.Reading_min = tbReading_min.Value;
+                oTemplate_method_vc.Reading_max = tbReading_max.Value;                
+                oTemplate_method_vc.Reason_rep = tbReason_rep.Value;
+                oTemplate_method_vc.Error_allowed = tbError_allowed.Value;
+                oTemplate_method_vc.Symbol = tbSymbol.Text;
+                oTemplate_method_vc.Law_limit_bottom = tbLaw_limit_bottom.Value;
+                oTemplate_method_vc.Law_limit_top = tbLaw_limit_top.Value;
                 
-                oTemplate_method_gr.Num_decimal = Convert.ToInt16(tbNum_decimal.Value);
-                oTemplate_method_gr.Date_allowed_error = Convert.ToDateTime(deDate_allowed_error.EditValue);
+                oTemplate_method_vc.Num_decimal = Convert.ToInt16(tbNum_decimal.Value);
+                oTemplate_method_vc.Date_allowed_error = Convert.ToDateTime(deDate_allowed_error.EditValue);
 
-                oTemplate_method_gr.Idunit_result = Convert.ToInt16(cbUnit_result.EditValue);
-                oTemplate_method_gr.Num_days = Convert.ToInt16(tbNum_days.Value);
-                oTemplate_method_gr.Num_samples = Convert.ToInt16(tbNum_samples.Value);
-                oTemplate_method_gr.Limit_samples = Convert.ToInt16(tbLimit_samples.Value);
+                oTemplate_method_vc.Idunit_result = Convert.ToInt16(cbUnit_result.EditValue);
+                oTemplate_method_vc.Num_days = Convert.ToInt16(tbNum_days.Value);
+                oTemplate_method_vc.Num_samples = Convert.ToInt16(tbNum_samples.Value);
+                oTemplate_method_vc.Limit_samples = Convert.ToInt16(tbLimit_samples.Value);                
 
-                oTemplate_method_gr.Idfactor_estequiometrico = Convert.ToInt32(cbPrecipitado.EditValue);
-
-                oTemplate_method_gr.Flag_mr = paMaterialReference.Enabled;
+                oTemplate_method_vc.Flag_mr = paMaterialReference.Enabled;
                 if (paMaterialReference.Enabled)
                 {                    
-                    oTemplate_method_gr.Idmr_detail = Convert.ToInt16(cbMaterialRef.EditValue);
-                    oTemplate_method_gr.Blk_max = tbBlk_max.Value;
-                    oTemplate_method_gr.Reason_rep = tbReason_rep.Value;
-                    oTemplate_method_gr.Reproducibility = tbReproducibility.Value;
+                    oTemplate_method_vc.Idmr_detail = Convert.ToInt16(cbMaterialRef.EditValue);
+                    oTemplate_method_vc.Blk_max = tbBlk_max.Value;
+                    oTemplate_method_vc.Reason_rep = tbReason_rep.Value;
+                    oTemplate_method_vc.Reproducibility = tbReproducibility.Value;
                 }
 
-                oTemplate_method_gr.Flagblkfortify = paBlkFortification.Enabled;
+                oTemplate_method_vc.Flagblkfortify = paBlkFortification.Enabled;
                 if (paBlkFortification.Enabled)
                 {                    
-                    oTemplate_method_gr.Blkfortisol = tbBlkFortiSolution.Value;
-                    oTemplate_method_gr.Blkfortialiquot = tbBlkFortiAliquot.Value;
-                    oTemplate_method_gr.Blkfortireproducibility = tbBlkFortiReproducibility.Value;
+                    oTemplate_method_vc.Blkfortisol = tbBlkFortiSolution.Value;
+                    oTemplate_method_vc.Blkfortialiquot = tbBlkFortiAliquot.Value;
+                    oTemplate_method_vc.Blkfortireproducibility = tbBlkFortiReproducibility.Value;
                 }
 
-                oTemplate_method_gr.Flagsamfortify = paSampleFortification.Enabled;
+                oTemplate_method_vc.Flagsamfortify = paSampleFortification.Enabled;
                 if (paSampleFortification.Enabled)
                 {                    
-                    oTemplate_method_gr.Samfortisol = tbSamFortiSolution.Value;
-                    oTemplate_method_gr.Samfortialiquot = tbSamFortiAliquot.Value;
-                    oTemplate_method_gr.Samfortireproducibility = tbSamFortiReproducibility.Value;
+                    oTemplate_method_vc.Samfortisol = tbSamFortiSolution.Value;
+                    oTemplate_method_vc.Samfortialiquot = tbSamFortiAliquot.Value;
+                    oTemplate_method_vc.Samfortireproducibility = tbSamFortiReproducibility.Value;
                 }
 
-                if (!(result_template_method_aa = faTemplate_method_gr.Update(oTemplate_method_gr)))
+                if (!(result_template_method_aa = faTemplate_method_gr.Update(oTemplate_method_vc)))
                 {
-                    oTemplate_method_gr.Date_allowed_error = DateTime.Now;
-                    result_template_method_aa = faTemplate_method_gr.Insert(oTemplate_method_gr);
+                    oTemplate_method_vc.Date_allowed_error = DateTime.Now;
+                    result_template_method_aa = faTemplate_method_gr.Insert(oTemplate_method_vc);
                 }
 
                 
@@ -344,7 +331,6 @@ namespace LimsProject
             tbSamFortiSolution.Value = 0;
             tbSamFortiAliquot.Value = 0;
             tbSamFortiReproducibility.Value = 0;
-            cbPrecipitado.EditValue = null;
 
             rbMR.Checked = false;
             rbSamplesFortification.Checked = false;
@@ -384,15 +370,6 @@ namespace LimsProject
                 tbBlkFortiReproducibility.Value = 0;
                 tbBlkFortiAliquot.Value = 0;
             }
-        }
-
-        private void cbPrecipitado_EditValueChanged(object sender, EventArgs e)
-        {
-            int idFactorEsteq = Convert.ToInt32(cbPrecipitado.EditValue);
-            tbPrecipitadoFactor.Text = 
-                new CFactor_estequiometricoFactory()
-                .GetByPrimaryKey(new CFactor_estequiometricoKeys(idFactorEsteq))
-                .Factor.ToString();
-        }
+        }        
     }
 }

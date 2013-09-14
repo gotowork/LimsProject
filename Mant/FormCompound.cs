@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using LimsProject.BusinessLayer;
 using LimsProject.BusinessLayer.Modules;
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraGrid.Columns;
 
 namespace LimsProject
 {
@@ -90,6 +92,27 @@ namespace LimsProject
         private void btCancel_Click(object sender, EventArgs e)
         {
             Recuperar_Registro();
+        }
+
+        private void gvCompound_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
+        {
+            GridView view = sender as GridView;            
+            //Get the value of the first column
+            string name = view.GetRowCellValue(e.RowHandle, gcol_Name_compound).ToString();
+            int idcompound = Convert.ToInt32(view.GetRowCellValue(e.RowHandle, gcol_Idcompound));
+
+            BindingList<CCompound> lst = gcCompound.DataSource as BindingList<CCompound>;
+            if (lst.ToList().Exists(x => x.Name_compound.Trim().ToUpper() == name.Trim().ToUpper() && x.Idcompound != idcompound))
+            {
+                e.Valid = false;
+                view.SetColumnError(gcol_Name_compound, "El nombre de compuesto es duplicado.");
+            }            
+        }
+
+        private void gvCompound_InvalidRowException(object sender, DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventArgs e)
+        {
+            //Suppress displaying the error message box
+            e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction;
         }
     }
 }
