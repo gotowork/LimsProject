@@ -31,6 +31,21 @@ namespace LimsProject
         short? Idelement { get; set; }
 
         public event signSolInterm onSignSolInterm;
+        
+        DevExpress.XtraTreeList.Nodes.TreeListNode treeSolInterm1;
+        DevExpress.XtraTreeList.Nodes.TreeListNode treeSolInterm2;
+        DevExpress.XtraTreeList.Nodes.TreeListNode treeStdVerif;        
+                
+        public int TypeSolution;
+
+        public enum typeSolution
+        {
+            StdCalib = 1,
+            SolInterm1 = 2,
+            SolInterm2 = 3,
+            StdVerif = 4,
+            SolTitration = 5
+        }
 
         TreeListNode NodePatternRoot
         {
@@ -48,14 +63,78 @@ namespace LimsProject
         {
             //seleccionar métodos
             Idelement = pIdelement;
-            cbMethod1.Bind(pIdelement);
-            ucTreeSolution.typeSolution[] param = { ucTreeSolution.typeSolution.SolInterm1, ucTreeSolution.typeSolution.SolInterm2, ucTreeSolution.typeSolution.StdVerif };
-            ucTreeSolution1.InitTree(param);
+            cbMethod1.Bind(pIdelement);            
+            InitTreeLeft();
             InitCombos();
             InitHeader();
             InitTreeSolution();
-            ShowStatusButtons();
-        }        
+            
+        }
+
+        public void InitTreeLeft()
+        {
+            treeSolInterm1 = treeSolution.Nodes[0];
+            treeSolInterm2 = treeSolution.Nodes[1];
+            treeStdVerif = treeSolution.Nodes[2];
+
+            // --- solutions                        
+            treeSolInterm1.Tag = Convert.ToInt32(typeSolution.SolInterm1);
+            treeSolInterm2.Tag = Convert.ToInt32(typeSolution.SolInterm2);
+            treeStdVerif.Tag = Convert.ToInt32(typeSolution.StdVerif);            
+                                    
+            ModSolution oModSolution = new ModSolution();
+            CGroup_solutionFactory faGroup_solution = new CGroup_solutionFactory();
+            List<CGroup_solution> lstGroup_solution =
+                faGroup_solution
+                .GetAll()
+                .Where(x => x.Type_solution == Convert.ToInt32(typeSolution.SolInterm1)
+                    || x.Type_solution == Convert.ToInt32(typeSolution.SolInterm2)
+                    || x.Type_solution == Convert.ToInt32(typeSolution.StdVerif)).ToList();
+
+            // 1:SC, 2:SI-1, 3:SI-2, 4:EV, 5:ST
+            foreach (var item in lstGroup_solution)
+            {                
+                // solución intermedia 1, 2 y estandar de verificación
+                if (item.Type_solution == 2 || item.Type_solution == 3 || item.Type_solution == 4) // --- agregar filas de la tabla de soluciones (intermedias)
+                {
+                    // --- agregar soluciones intermedia-1
+                    List<CSolution> lstSolInterm1 = oModSolution.GetLstSolInterm1ByGroup(item.Idgroup_solution);
+                    foreach (CSolution solution in lstSolInterm1)
+                    {
+                        object[] obj = { solution.Cod_solution, solution.Idgroup_solution, item.Idmr_detail };
+                        TreeListNode node = treeSolution.AppendNode(obj, treeSolInterm1);
+                        node.Tag = treeSolInterm1.Tag;
+                        node.ImageIndex = 1;
+                        node.SelectImageIndex = 1;
+                    }
+
+                    // --- agregar soluciones intermedia-2
+                    List<CSolution> lstSolInterm2 = oModSolution.GetLstSolInterm2ByGroup(item.Idgroup_solution);
+                    foreach (CSolution solution in lstSolInterm2)
+                    {
+                        object[] obj = { solution.Cod_solution, solution.Idgroup_solution, item.Idmr_detail };
+                        TreeListNode node = treeSolution.AppendNode(obj, treeSolInterm2);
+                        node.Tag = treeSolInterm2.Tag;
+                        node.ImageIndex = 1;
+                        node.SelectImageIndex = 1;
+                    }
+
+                    // --- agregar estandares de verificación
+                    List<CSolution> lstStdVerif = oModSolution.GetLstStdVerifByGroup(item.Idgroup_solution);
+
+                    foreach (CSolution solution in lstStdVerif)
+                    {
+                        object[] obj = { solution.Cod_solution, solution.Idgroup_solution, item.Idmr_detail };
+                        TreeListNode node = treeSolution.AppendNode(obj, treeStdVerif);
+                        node.Tag = treeStdVerif.Tag;
+                        node.ImageIndex = 2;
+                        node.SelectImageIndex = 2;
+                    }
+                }             
+            }
+
+            treeSolution.ExpandAll();
+        }
 
         void InitCombos()
         {
@@ -82,8 +161,7 @@ namespace LimsProject
         {
             lstSolution = modSolInterm.GetLstSolution(group_solution);
             treeSolInterm.DataSource = lstSolution;
-            treeSolInterm.ExpandAll();
-            ShowStatusButtons();
+            treeSolInterm.ExpandAll();            
         }
 
         /// <summary>
@@ -759,13 +837,15 @@ namespace LimsProject
         private void cbMethod1_EditValueChanged(object sender, EventArgs e)
         {
             // obtener modif y medium filtrado por cod template
-            CTemplate_method_aa oTemplate_method_aa = new CTemplate_method_aaFactory().GetByPrimaryKey(new CTemplate_method_aaKeys(Convert.ToInt32(cbMethod1.EditValue)));
+            template_method_aa = new CTemplate_method_aaFactory().GetByPrimaryKey(new CTemplate_method_aaKeys(Convert.ToInt32(cbMethod1.EditValue)));
 
-            if (oTemplate_method_aa != null)
+            if (template_method_aa != null)
             {
-                cbMedium.EditValue = oTemplate_method_aa.Medium;
-                cbModif.EditValue = oTemplate_method_aa.Modif;
-                cbTypeSolPatron.EditValue = oTemplate_method_aa.Type_pattern;
+                cbMedium.EditValue = template_method_aa.Medium;
+                cbModif.EditValue = template_method_aa.Modif;
+                cbTypeSolPatron.EditValue = template_method_aa.Type_pattern;
+
+                ShowStatusButtons();
             }            
         }
 

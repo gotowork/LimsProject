@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraTreeList.StyleFormatConditions.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraTreeList.StyleFormatConditions.StyleFormatCondition();
-            DevExpress.XtraTreeList.StyleFormatConditions.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraTreeList.StyleFormatConditions.StyleFormatCondition();
+            DevExpress.XtraTreeList.StyleFormatConditions.StyleFormatCondition styleFormatCondition3 = new DevExpress.XtraTreeList.StyleFormatConditions.StyleFormatCondition();
+            DevExpress.XtraTreeList.StyleFormatConditions.StyleFormatCondition styleFormatCondition4 = new DevExpress.XtraTreeList.StyleFormatConditions.StyleFormatCondition();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcSolInterm));
             this.tcol_Solution_status = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.repStatusSolution = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
@@ -62,7 +62,6 @@
             this.tcol_Concat_methods = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.tcol_Idsolution = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.tcol_Type_sol = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.tbUnd = new DevExpress.XtraEditors.TextEdit();
@@ -80,8 +79,13 @@
             this.cbMethod1 = new LimsProject.cbMethod();
             this.treeListColumn2 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeListColumn3 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.ucTreeSolution1 = new LimsProject.ucTreeSolution();
             this.expandablePanel1 = new DevComponents.DotNetBar.ExpandablePanel();
+            this.treeSolution = new DevExpress.XtraTreeList.TreeList();
+            this.treeListColumn1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn4 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn5 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn6 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.repStatusSolution)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
@@ -106,6 +110,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.cbMedium.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbMethod1.Properties)).BeginInit();
             this.expandablePanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.treeSolution)).BeginInit();
             this.SuspendLayout();
             // 
             // tcol_Solution_status
@@ -289,25 +294,25 @@
             this.tcol_Idsolution,
             this.tcol_Type_sol});
             this.treeSolInterm.Dock = System.Windows.Forms.DockStyle.Fill;
-            styleFormatCondition1.Appearance.BackColor = System.Drawing.Color.White;
-            styleFormatCondition1.Appearance.BackColor2 = System.Drawing.Color.White;
-            styleFormatCondition1.Appearance.ForeColor = System.Drawing.Color.Silver;
-            styleFormatCondition1.Appearance.Options.UseBackColor = true;
-            styleFormatCondition1.Appearance.Options.UseForeColor = true;
-            styleFormatCondition1.ApplyToRow = true;
-            styleFormatCondition1.Column = this.tcol_Solution_status;
-            styleFormatCondition1.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-            styleFormatCondition1.Value1 = false;
-            styleFormatCondition2.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            styleFormatCondition2.Appearance.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            styleFormatCondition2.Appearance.Options.UseBackColor = true;
-            styleFormatCondition2.ApplyToRow = true;
-            styleFormatCondition2.Column = this.tcol_Solution_status;
-            styleFormatCondition2.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-            styleFormatCondition2.Value1 = "true";
+            styleFormatCondition3.Appearance.BackColor = System.Drawing.Color.White;
+            styleFormatCondition3.Appearance.BackColor2 = System.Drawing.Color.White;
+            styleFormatCondition3.Appearance.ForeColor = System.Drawing.Color.Silver;
+            styleFormatCondition3.Appearance.Options.UseBackColor = true;
+            styleFormatCondition3.Appearance.Options.UseForeColor = true;
+            styleFormatCondition3.ApplyToRow = true;
+            styleFormatCondition3.Column = this.tcol_Solution_status;
+            styleFormatCondition3.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+            styleFormatCondition3.Value1 = false;
+            styleFormatCondition4.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            styleFormatCondition4.Appearance.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            styleFormatCondition4.Appearance.Options.UseBackColor = true;
+            styleFormatCondition4.ApplyToRow = true;
+            styleFormatCondition4.Column = this.tcol_Solution_status;
+            styleFormatCondition4.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+            styleFormatCondition4.Value1 = "true";
             this.treeSolInterm.FormatConditions.AddRange(new DevExpress.XtraTreeList.StyleFormatConditions.StyleFormatCondition[] {
-            styleFormatCondition1,
-            styleFormatCondition2});
+            styleFormatCondition3,
+            styleFormatCondition4});
             this.treeSolInterm.ImageIndexFieldName = "Image_index";
             this.treeSolInterm.KeyFieldName = "Id";
             this.treeSolInterm.Location = new System.Drawing.Point(166, 99);
@@ -323,7 +328,6 @@
             this.redDate,
             this.repUser,
             this.repVolumen});
-            this.treeSolInterm.SelectImageList = this.imageList1;
             this.treeSolInterm.Size = new System.Drawing.Size(681, 290);
             this.treeSolInterm.TabIndex = 1;
             this.treeSolInterm.CellValueChanged += new DevExpress.XtraTreeList.CellValueChangedEventHandler(this.treeSolInterm_CellValueChanged);
@@ -507,13 +511,6 @@
             this.tcol_Type_sol.FieldName = "Type_sol";
             this.tcol_Type_sol.Name = "tcol_Type_sol";
             // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "fiola.png");
-            this.imageList1.Images.SetKeyName(1, "fiola_ver.png");
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -694,18 +691,10 @@
             this.treeListColumn3.FieldName = "Parentid";
             this.treeListColumn3.Name = "treeListColumn3";
             // 
-            // ucTreeSolution1
-            // 
-            this.ucTreeSolution1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucTreeSolution1.Location = new System.Drawing.Point(0, 26);
-            this.ucTreeSolution1.Name = "ucTreeSolution1";
-            this.ucTreeSolution1.Size = new System.Drawing.Size(166, 431);
-            this.ucTreeSolution1.TabIndex = 37;
-            // 
             // expandablePanel1
             // 
             this.expandablePanel1.CollapseDirection = DevComponents.DotNetBar.eCollapseDirection.LeftToRight;
-            this.expandablePanel1.Controls.Add(this.ucTreeSolution1);
+            this.expandablePanel1.Controls.Add(this.treeSolution);
             this.expandablePanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.expandablePanel1.Location = new System.Drawing.Point(0, 0);
             this.expandablePanel1.Name = "expandablePanel1";
@@ -713,6 +702,79 @@
             this.expandablePanel1.TabIndex = 38;
             this.expandablePanel1.Text = "expandablePanel1";
             this.expandablePanel1.TitleText = "Title Bar";
+            // 
+            // treeSolution
+            // 
+            this.treeSolution.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
+            this.treeListColumn1,
+            this.treeListColumn4,
+            this.treeListColumn5,
+            this.treeListColumn6});
+            this.treeSolution.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeSolution.Location = new System.Drawing.Point(0, 26);
+            this.treeSolution.Name = "treeSolution";
+            this.treeSolution.BeginUnboundLoad();
+            this.treeSolution.AppendNode(new object[] {
+            "Solución Intermedia 1",
+            null,
+            null,
+            null}, -1);
+            this.treeSolution.AppendNode(new object[] {
+            "Solución Intermedia 2",
+            null,
+            null,
+            null}, -1);
+            this.treeSolution.AppendNode(new object[] {
+            "Estandar de Verificación",
+            null,
+            null,
+            null}, -1);
+            this.treeSolution.EndUnboundLoad();
+            this.treeSolution.OptionsBehavior.KeepSelectedOnClick = false;
+            this.treeSolution.OptionsBehavior.PopulateServiceColumns = true;
+            this.treeSolution.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.treeSolution.OptionsView.ShowFocusedFrame = false;
+            this.treeSolution.OptionsView.ShowHorzLines = false;
+            this.treeSolution.OptionsView.ShowIndicator = false;
+            this.treeSolution.SelectImageList = this.imageList1;
+            this.treeSolution.Size = new System.Drawing.Size(166, 431);
+            this.treeSolution.TabIndex = 2;
+            // 
+            // treeListColumn1
+            // 
+            this.treeListColumn1.Caption = "Nombre";
+            this.treeListColumn1.FieldName = "Nombre";
+            this.treeListColumn1.MinWidth = 46;
+            this.treeListColumn1.Name = "treeListColumn1";
+            this.treeListColumn1.OptionsColumn.AllowEdit = false;
+            this.treeListColumn1.VisibleIndex = 0;
+            this.treeListColumn1.Width = 106;
+            // 
+            // treeListColumn4
+            // 
+            this.treeListColumn4.Caption = "Idgroup_solution";
+            this.treeListColumn4.FieldName = "Idgroup_solution";
+            this.treeListColumn4.Name = "treeListColumn4";
+            // 
+            // treeListColumn5
+            // 
+            this.treeListColumn5.Caption = "Idmr_detail";
+            this.treeListColumn5.FieldName = "Idmr_detail";
+            this.treeListColumn5.Name = "treeListColumn5";
+            // 
+            // treeListColumn6
+            // 
+            this.treeListColumn6.Caption = "Idsolution_pattern";
+            this.treeListColumn6.FieldName = "Idsolution_pattern";
+            this.treeListColumn6.Name = "treeListColumn6";
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "fiola_group.png");
+            this.imageList1.Images.SetKeyName(1, "fiola.png");
+            this.imageList1.Images.SetKeyName(2, "fiola_ver.png");
             // 
             // UcSolInterm
             // 
@@ -749,6 +811,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.cbMedium.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbMethod1.Properties)).EndInit();
             this.expandablePanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.treeSolution)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -798,12 +861,16 @@
         private DevExpress.XtraTreeList.Columns.TreeListColumn tcol_Idsolution;
         private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repVolumen;
         private DevExpress.XtraTreeList.Columns.TreeListColumn tcol_Type_sol;
-        private System.Windows.Forms.ImageList imageList1;
         private DevExpress.XtraEditors.PanelControl panelControl2;
-        private ucTreeSolution ucTreeSolution1;
         private DevComponents.DotNetBar.ExpandablePanel expandablePanel1;
         private cbMethod cbMethod1;
         private cbReactive cbModif;
         private cbReactive cbMedium;
+        private DevExpress.XtraTreeList.TreeList treeSolution;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn1;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn4;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn5;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn6;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }

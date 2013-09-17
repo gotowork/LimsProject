@@ -46,7 +46,7 @@
             this.treeListColumn2,
             this.treeListColumn3,
             this.treeListColumn4});
-            this.treeSolution.Location = new System.Drawing.Point(3, 78);
+            this.treeSolution.Location = new System.Drawing.Point(3, 31);
             this.treeSolution.Name = "treeSolution";
             this.treeSolution.BeginUnboundLoad();
             this.treeSolution.AppendNode(new object[] {
@@ -82,7 +82,7 @@
             this.treeSolution.OptionsView.ShowHorzLines = false;
             this.treeSolution.OptionsView.ShowIndicator = false;
             this.treeSolution.SelectImageList = this.imageList1;
-            this.treeSolution.Size = new System.Drawing.Size(176, 327);
+            this.treeSolution.Size = new System.Drawing.Size(173, 351);
             this.treeSolution.TabIndex = 1;
             // 
             // treeListColumn1

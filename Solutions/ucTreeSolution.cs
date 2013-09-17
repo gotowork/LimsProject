@@ -49,14 +49,14 @@ namespace LimsProject
             treeSolInterm1 = treeSolution.Nodes[1].Clone() as TreeListNode;
             treeSolInterm2 = treeSolution.Nodes[2].Clone() as TreeListNode;
             treeStdVerif = treeSolution.Nodes[3].Clone() as TreeListNode;
-            treeSolTitration = treeSolution.Nodes[4].Clone() as TreeListNode;            
+            treeSolTitration = treeSolution.Nodes[4].Clone() as TreeListNode;
 
             // --- solutions            
             treeStdCalib.Tag = Convert.ToInt32(typeSolution.StdCalib);
             treeSolInterm1.Tag = Convert.ToInt32(typeSolution.SolInterm1);
             treeSolInterm2.Tag = Convert.ToInt32(typeSolution.SolInterm2);
             treeStdVerif.Tag = Convert.ToInt32(typeSolution.StdVerif);
-            treeSolTitration.Tag = Convert.ToInt32(typeSolution.SolTitration);           
+            treeSolTitration.Tag = Convert.ToInt32(typeSolution.SolTitration);
 
             treeSolution.Nodes.Clear();            
 
