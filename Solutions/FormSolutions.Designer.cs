@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSolutions));
-            LimsProject.BusinessLayer.CGroup_solution cGroup_solution3 = new LimsProject.BusinessLayer.CGroup_solution();
+            LimsProject.BusinessLayer.CGroup_solution cGroup_solution1 = new LimsProject.BusinessLayer.CGroup_solution();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.tabMain = new DevExpress.XtraTab.XtraTabControl();
             this.tabSupCalib = new DevExpress.XtraTab.XtraTabPage();
@@ -161,23 +161,23 @@
             this.ucCalibStd1.Date_init = new System.DateTime(((long)(0)));
             this.ucCalibStd1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ucCalibStd1.Enabled = false;
-            cGroup_solution3.Cod_solution = null;
-            cGroup_solution3.Date_end = null;
-            cGroup_solution3.Date_ini = null;
-            cGroup_solution3.Date_sign_calib = null;
-            cGroup_solution3.Flag_close_calib = null;
-            cGroup_solution3.Flag_selected_methods = null;
-            cGroup_solution3.Flag_sign_calib = null;
-            cGroup_solution3.Idelement = null;
-            cGroup_solution3.Idgroup_solution = 0;
-            cGroup_solution3.Idmr_detail = null;
-            cGroup_solution3.Idreactive_medium = null;
-            cGroup_solution3.Idreactive_modif = null;
-            cGroup_solution3.Idtemplate_method = null;
-            cGroup_solution3.Type_pattern = null;
-            cGroup_solution3.Type_solution = null;
-            cGroup_solution3.User_sign_calib = null;
-            this.ucCalibStd1.Group_solution = cGroup_solution3;
+            cGroup_solution1.Cod_solution = null;
+            cGroup_solution1.Date_end = null;
+            cGroup_solution1.Date_ini = null;
+            cGroup_solution1.Date_sign_calib = null;
+            cGroup_solution1.Flag_close_calib = null;
+            cGroup_solution1.Flag_selected_methods = null;
+            cGroup_solution1.Flag_sign_calib = null;
+            cGroup_solution1.Idelement = null;
+            cGroup_solution1.Idgroup_solution = 0;
+            cGroup_solution1.Idmr_detail = null;
+            cGroup_solution1.Idreactive_medium = null;
+            cGroup_solution1.Idreactive_modif = null;
+            cGroup_solution1.Idtemplate_method = null;
+            cGroup_solution1.Type_pattern = null;
+            cGroup_solution1.Type_solution = null;
+            cGroup_solution1.User_sign_calib = null;
+            this.ucCalibStd1.Group_solution = cGroup_solution1;
             this.ucCalibStd1.Location = new System.Drawing.Point(0, 0);
             this.ucCalibStd1.Name = "ucCalibStd1";
             this.ucCalibStd1.Size = new System.Drawing.Size(1032, 400);
@@ -186,14 +186,14 @@
             // tabMethodCalib
             // 
             this.tabMethodCalib.Name = "tabMethodCalib";
-            this.tabMethodCalib.Size = new System.Drawing.Size(262, 4);
+            this.tabMethodCalib.Size = new System.Drawing.Size(262, 60);
             this.tabMethodCalib.Text = "Métodos Agrupables";
             // 
             // tabSupTitration
             // 
             this.tabSupTitration.Controls.Add(this.xtraTabControl2);
             this.tabSupTitration.Name = "tabSupTitration";
-            this.tabSupTitration.Size = new System.Drawing.Size(271, 34);
+            this.tabSupTitration.Size = new System.Drawing.Size(271, 90);
             this.tabSupTitration.Text = "Titulación de Soluciones";
             // 
             // xtraTabControl2
@@ -202,7 +202,7 @@
             this.xtraTabControl2.Location = new System.Drawing.Point(0, 0);
             this.xtraTabControl2.Name = "xtraTabControl2";
             this.xtraTabControl2.SelectedTabPage = this.xtraTabPage4;
-            this.xtraTabControl2.Size = new System.Drawing.Size(271, 34);
+            this.xtraTabControl2.Size = new System.Drawing.Size(271, 90);
             this.xtraTabControl2.TabIndex = 2;
             this.xtraTabControl2.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage5,
@@ -214,7 +214,7 @@
             this.xtraTabPage4.Controls.Add(this.ucTitration1);
             this.xtraTabPage4.Name = "xtraTabPage4";
             this.xtraTabPage4.PageEnabled = false;
-            this.xtraTabPage4.Size = new System.Drawing.Size(262, 4);
+            this.xtraTabPage4.Size = new System.Drawing.Size(262, 60);
             this.xtraTabPage4.Text = "Titulacion";
             // 
             // ucTitration1
@@ -223,7 +223,7 @@
             this.ucTitration1.Iduser = 0;
             this.ucTitration1.Location = new System.Drawing.Point(0, 0);
             this.ucTitration1.Name = "ucTitration1";
-            this.ucTitration1.Size = new System.Drawing.Size(262, 4);
+            this.ucTitration1.Size = new System.Drawing.Size(262, 60);
             this.ucTitration1.Solution = null;
             this.ucTitration1.TabIndex = 0;
             this.ucTitration1.Titration_main = null;
@@ -231,14 +231,14 @@
             // xtraTabPage5
             // 
             this.xtraTabPage5.Name = "xtraTabPage5";
-            this.xtraTabPage5.Size = new System.Drawing.Size(262, 4);
+            this.xtraTabPage5.Size = new System.Drawing.Size(262, 60);
             this.xtraTabPage5.Text = "Métodos Agrupables";
             // 
             // tabSupSolInterm
             // 
             this.tabSupSolInterm.Controls.Add(this.ucSolInterm1);
             this.tabSupSolInterm.Name = "tabSupSolInterm";
-            this.tabSupSolInterm.Size = new System.Drawing.Size(1041, 430);
+            this.tabSupSolInterm.Size = new System.Drawing.Size(271, 90);
             this.tabSupSolInterm.Text = "Soluciones Intermedias";
             // 
             // ucSolInterm1
@@ -246,7 +246,7 @@
             this.ucSolInterm1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ucSolInterm1.Location = new System.Drawing.Point(0, 0);
             this.ucSolInterm1.Name = "ucSolInterm1";
-            this.ucSolInterm1.Size = new System.Drawing.Size(1041, 430);
+            this.ucSolInterm1.Size = new System.Drawing.Size(271, 90);
             this.ucSolInterm1.TabIndex = 0;
             // 
             // cbElement

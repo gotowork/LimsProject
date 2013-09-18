@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
             this.navBarControl1 = new DevExpress.XtraNavBar.NavBarControl();
             this.grMant = new DevExpress.XtraNavBar.NavBarGroup();
+            this.nbiFactorEstequ = new DevExpress.XtraNavBar.NavBarItem();
             this.nbiCompuestos = new DevExpress.XtraNavBar.NavBarItem();
             this.nbiDecrees = new DevExpress.XtraNavBar.NavBarItem();
             this.nbiItemMatrix = new DevExpress.XtraNavBar.NavBarItem();
@@ -85,7 +86,6 @@
             this.barMdiChildrenListItem1 = new DevExpress.XtraBars.BarMdiChildrenListItem();
             this.expandablePanel1 = new DevComponents.DotNetBar.ExpandablePanel();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
-            this.nbiFactorEstequ = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             this.expandablePanel1.SuspendLayout();
@@ -93,7 +93,7 @@
             // 
             // navBarControl1
             // 
-            this.navBarControl1.ActiveGroup = this.grMant;
+            this.navBarControl1.ActiveGroup = this.grProcess;
             this.navBarControl1.BackColor = System.Drawing.Color.Transparent;
             this.navBarControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.navBarControl1.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
@@ -137,7 +137,6 @@
             // grMant
             // 
             this.grMant.Caption = "Mantenimientos";
-            this.grMant.Expanded = true;
             this.grMant.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.nbiFactorEstequ),
             new DevExpress.XtraNavBar.NavBarItemLink(this.nbiCompuestos),
@@ -156,6 +155,12 @@
             new DevExpress.XtraNavBar.NavBarItemLink(this.nbiCorrelative),
             new DevExpress.XtraNavBar.NavBarItemLink(this.nbiReactive)});
             this.grMant.Name = "grMant";
+            // 
+            // nbiFactorEstequ
+            // 
+            this.nbiFactorEstequ.Caption = "Factores Estequiométricos";
+            this.nbiFactorEstequ.Name = "nbiFactorEstequ";
+            this.nbiFactorEstequ.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbiFactorEstequ_LinkClicked);
             // 
             // nbiCompuestos
             // 
@@ -252,6 +257,7 @@
             // grProcess
             // 
             this.grProcess.Caption = "Procesos";
+            this.grProcess.Expanded = true;
             this.grProcess.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.nbiPrueba),
             new DevExpress.XtraNavBar.NavBarItemLink(this.nbiSolution),
@@ -270,7 +276,7 @@
             // 
             // nbiSolution
             // 
-            this.nbiSolution.Caption = "Preparación de soluciones";
+            this.nbiSolution.Caption = "Soluciones Intermedias";
             this.nbiSolution.Name = "nbiSolution";
             this.nbiSolution.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbiSolution_LinkClicked);
             // 
@@ -545,12 +551,6 @@
             // defaultLookAndFeel1
             // 
             this.defaultLookAndFeel1.LookAndFeel.SkinName = "Lilian";
-            // 
-            // nbiFactorEstequ
-            // 
-            this.nbiFactorEstequ.Caption = "Factores Estequiométricos";
-            this.nbiFactorEstequ.Name = "nbiFactorEstequ";
-            this.nbiFactorEstequ.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbiFactorEstequ_LinkClicked);
             // 
             // FormPrincipal
             // 

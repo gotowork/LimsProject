@@ -35,10 +35,8 @@
             this.tcol_Solution_status = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.repStatusSolution = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.btStdVerif = new DevExpress.XtraEditors.SimpleButton();
-            this.btSolInterm1 = new DevExpress.XtraEditors.SimpleButton();
-            this.btSolInterm2 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.ucSign1 = new LimsProject.UcSign();
             this.treeSolInterm = new DevExpress.XtraTreeList.TreeList();
@@ -60,8 +58,14 @@
             this.tcol_Prepared_by = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.repUser = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.tcol_Concat_methods = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.repBtOpenMethods = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.tcol_Idsolution = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.tcol_Type_sol = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.cmsAddSolution = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.btNewSolInt1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.btNewSolInt2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.btNewSolStdVer = new System.Windows.Forms.ToolStripMenuItem();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.tbUnd = new DevExpress.XtraEditors.TextEdit();
@@ -85,12 +89,9 @@
             this.treeListColumn4 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeListColumn5 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeListColumn6 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.repStatusSolution)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
-            this.groupControl1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.treeSolInterm)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repVolumen)).BeginInit();
@@ -98,6 +99,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.repReactiveValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.redDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repUser)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repBtOpenMethods)).BeginInit();
+            this.cmsAddSolution.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbUnd.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbConcentPattern.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbMrpattern.Properties)).BeginInit();
@@ -133,71 +136,44 @@
             // 
             // panelControl1
             // 
-            this.panelControl1.Controls.Add(this.groupControl1);
+            this.panelControl1.Controls.Add(this.simpleButton2);
+            this.panelControl1.Controls.Add(this.simpleButton1);
             this.panelControl1.Controls.Add(this.panel1);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl1.Location = new System.Drawing.Point(166, 389);
+            this.panelControl1.Location = new System.Drawing.Point(0, 406);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(681, 68);
+            this.panelControl1.Size = new System.Drawing.Size(847, 51);
             this.panelControl1.TabIndex = 0;
             this.panelControl1.Text = "paBottom";
             // 
-            // groupControl1
+            // simpleButton2
             // 
-            this.groupControl1.Controls.Add(this.btStdVerif);
-            this.groupControl1.Controls.Add(this.btSolInterm1);
-            this.groupControl1.Controls.Add(this.btSolInterm2);
-            this.groupControl1.Location = new System.Drawing.Point(9, 4);
-            this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(250, 58);
-            this.groupControl1.TabIndex = 9;
-            this.groupControl1.Text = "Agregar";
+            this.simpleButton2.Location = new System.Drawing.Point(78, 6);
+            this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.Size = new System.Drawing.Size(55, 23);
+            this.simpleButton2.TabIndex = 9;
+            this.simpleButton2.Text = "Nuevo";
             // 
-            // btStdVerif
+            // simpleButton1
             // 
-            this.btStdVerif.Appearance.Options.UseTextOptions = true;
-            this.btStdVerif.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.btStdVerif.Location = new System.Drawing.Point(168, 20);
-            this.btStdVerif.Name = "btStdVerif";
-            this.btStdVerif.Size = new System.Drawing.Size(75, 35);
-            this.btStdVerif.TabIndex = 3;
-            this.btStdVerif.Text = "Estandar de Verificación";
-            this.btStdVerif.Click += new System.EventHandler(this.btStdVerf1_Click);
-            // 
-            // btSolInterm1
-            // 
-            this.btSolInterm1.Appearance.Options.UseTextOptions = true;
-            this.btSolInterm1.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.btSolInterm1.Location = new System.Drawing.Point(5, 20);
-            this.btSolInterm1.Name = "btSolInterm1";
-            this.btSolInterm1.Size = new System.Drawing.Size(76, 35);
-            this.btSolInterm1.TabIndex = 5;
-            this.btSolInterm1.Text = "Solución Intermedia 1";
-            this.btSolInterm1.Click += new System.EventHandler(this.btSolInterm1_Click);
-            // 
-            // btSolInterm2
-            // 
-            this.btSolInterm2.Appearance.Options.UseTextOptions = true;
-            this.btSolInterm2.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.btSolInterm2.Location = new System.Drawing.Point(87, 20);
-            this.btSolInterm2.Name = "btSolInterm2";
-            this.btSolInterm2.Size = new System.Drawing.Size(75, 35);
-            this.btSolInterm2.TabIndex = 4;
-            this.btSolInterm2.Text = "Solución Intermedia 2";
-            this.btSolInterm2.Click += new System.EventHandler(this.btSolInterm2_Click);
+            this.simpleButton1.Location = new System.Drawing.Point(12, 6);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(60, 23);
+            this.simpleButton1.TabIndex = 9;
+            this.simpleButton1.Text = "Guardar";
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.ucSign1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(508, 2);
+            this.panel1.Location = new System.Drawing.Point(674, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(171, 64);
+            this.panel1.Size = new System.Drawing.Size(171, 47);
             this.panel1.TabIndex = 8;
             // 
             // ucSign1
             // 
-            this.ucSign1.Location = new System.Drawing.Point(7, 12);
+            this.ucSign1.Location = new System.Drawing.Point(7, 4);
             this.ucSign1.Margin = new System.Windows.Forms.Padding(0);
             this.ucSign1.Name = "ucSign1";
             this.ucSign1.Pwd = null;
@@ -293,6 +269,7 @@
             this.tcol_Concat_methods,
             this.tcol_Idsolution,
             this.tcol_Type_sol});
+            this.treeSolInterm.ContextMenuStrip = this.cmsAddSolution;
             this.treeSolInterm.Dock = System.Windows.Forms.DockStyle.Fill;
             styleFormatCondition3.Appearance.BackColor = System.Drawing.Color.White;
             styleFormatCondition3.Appearance.BackColor2 = System.Drawing.Color.White;
@@ -327,10 +304,13 @@
             this.repReactiveValue,
             this.redDate,
             this.repUser,
-            this.repVolumen});
-            this.treeSolInterm.Size = new System.Drawing.Size(681, 290);
+            this.repVolumen,
+            this.repBtOpenMethods});
+            this.treeSolInterm.SelectImageList = this.imageList1;
+            this.treeSolInterm.Size = new System.Drawing.Size(681, 307);
             this.treeSolInterm.TabIndex = 1;
             this.treeSolInterm.CellValueChanged += new DevExpress.XtraTreeList.CellValueChangedEventHandler(this.treeSolInterm_CellValueChanged);
+            this.treeSolInterm.MouseDown += new System.Windows.Forms.MouseEventHandler(this.treeSolInterm_MouseDown);
             // 
             // tcol_Cod_solution
             // 
@@ -495,9 +475,17 @@
             // tcol_Concat_methods
             // 
             this.tcol_Concat_methods.Caption = "Métodos";
+            this.tcol_Concat_methods.ColumnEdit = this.repBtOpenMethods;
             this.tcol_Concat_methods.FieldName = "Concat_cod_methods";
             this.tcol_Concat_methods.Name = "tcol_Concat_methods";
-            this.tcol_Concat_methods.VisibleIndex = 12;
+            // 
+            // repBtOpenMethods
+            // 
+            this.repBtOpenMethods.AutoHeight = false;
+            this.repBtOpenMethods.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.repBtOpenMethods.Name = "repBtOpenMethods";
+            this.repBtOpenMethods.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repBtOpenMethods_ButtonClick);
             // 
             // tcol_Idsolution
             // 
@@ -511,10 +499,48 @@
             this.tcol_Type_sol.FieldName = "Type_sol";
             this.tcol_Type_sol.Name = "tcol_Type_sol";
             // 
+            // cmsAddSolution
+            // 
+            this.cmsAddSolution.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btNewSolInt1,
+            this.btNewSolInt2,
+            this.btNewSolStdVer});
+            this.cmsAddSolution.Name = "cmsAddSolution";
+            this.cmsAddSolution.Size = new System.Drawing.Size(239, 70);
+            // 
+            // btNewSolInt1
+            // 
+            this.btNewSolInt1.Name = "btNewSolInt1";
+            this.btNewSolInt1.Size = new System.Drawing.Size(238, 22);
+            this.btNewSolInt1.Text = "Nueva Solución Intermedia 1";
+            this.btNewSolInt1.Click += new System.EventHandler(this.btNewSolInt1_Click);
+            // 
+            // btNewSolInt2
+            // 
+            this.btNewSolInt2.Name = "btNewSolInt2";
+            this.btNewSolInt2.Size = new System.Drawing.Size(238, 22);
+            this.btNewSolInt2.Text = "Nueva Solución Intermedia 2";
+            this.btNewSolInt2.Click += new System.EventHandler(this.btNewSolInt2_Click);
+            // 
+            // btNewSolStdVer
+            // 
+            this.btNewSolStdVer.Name = "btNewSolStdVer";
+            this.btNewSolStdVer.Size = new System.Drawing.Size(238, 22);
+            this.btNewSolStdVer.Text = "Nuevo Estandar de Verificación";
+            this.btNewSolStdVer.Click += new System.EventHandler(this.btNewSolStdVer_Click);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "fiola_group.png");
+            this.imageList1.Images.SetKeyName(1, "fiola.png");
+            this.imageList1.Images.SetKeyName(2, "fiola_ver.png");
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(307, 9);
+            this.label1.Location = new System.Drawing.Point(305, 7);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(27, 13);
             this.label1.TabIndex = 22;
@@ -523,7 +549,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(222, 9);
+            this.label5.Location = new System.Drawing.Point(220, 7);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(76, 13);
             this.label5.TabIndex = 22;
@@ -569,7 +595,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(133, 9);
+            this.label13.Location = new System.Drawing.Point(131, 7);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(46, 13);
             this.label13.TabIndex = 27;
@@ -578,7 +604,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(14, 9);
+            this.label14.Location = new System.Drawing.Point(12, 7);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(63, 13);
             this.label14.TabIndex = 27;
@@ -587,7 +613,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(364, 9);
+            this.label15.Location = new System.Drawing.Point(362, 7);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(39, 13);
             this.label15.TabIndex = 21;
@@ -596,7 +622,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(492, 9);
+            this.label16.Location = new System.Drawing.Point(490, 7);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(36, 13);
             this.label16.TabIndex = 20;
@@ -622,15 +648,16 @@
             this.paHeader.Controls.Add(this.panelControl2);
             this.paHeader.Controls.Add(this.cbMethod1);
             this.paHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.paHeader.Location = new System.Drawing.Point(166, 0);
+            this.paHeader.Location = new System.Drawing.Point(0, 0);
             this.paHeader.Name = "paHeader";
             this.paHeader.Padding = new System.Windows.Forms.Padding(10);
-            this.paHeader.Size = new System.Drawing.Size(681, 99);
+            this.paHeader.Size = new System.Drawing.Size(847, 99);
             this.paHeader.TabIndex = 36;
             this.paHeader.Text = "panelControl2";
             // 
             // panelControl2
             // 
+            this.panelControl2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl2.Controls.Add(this.cbModif);
             this.panelControl2.Controls.Add(this.cbMedium);
             this.panelControl2.Controls.Add(this.cbTypeSolPatron);
@@ -646,7 +673,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl2.Location = new System.Drawing.Point(12, 32);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(657, 55);
+            this.panelControl2.Size = new System.Drawing.Size(823, 55);
             this.panelControl2.TabIndex = 32;
             this.panelControl2.Text = "panelControl2";
             // 
@@ -675,7 +702,7 @@
             this.cbMethod1.Name = "cbMethod1";
             this.cbMethod1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbMethod1.Size = new System.Drawing.Size(657, 20);
+            this.cbMethod1.Size = new System.Drawing.Size(823, 20);
             this.cbMethod1.TabIndex = 33;
             this.cbMethod1.EditValueChanged += new System.EventHandler(this.cbMethod1_EditValueChanged);
             // 
@@ -696,9 +723,9 @@
             this.expandablePanel1.CollapseDirection = DevComponents.DotNetBar.eCollapseDirection.LeftToRight;
             this.expandablePanel1.Controls.Add(this.treeSolution);
             this.expandablePanel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.expandablePanel1.Location = new System.Drawing.Point(0, 0);
+            this.expandablePanel1.Location = new System.Drawing.Point(0, 99);
             this.expandablePanel1.Name = "expandablePanel1";
-            this.expandablePanel1.Size = new System.Drawing.Size(166, 457);
+            this.expandablePanel1.Size = new System.Drawing.Size(166, 307);
             this.expandablePanel1.TabIndex = 38;
             this.expandablePanel1.Text = "expandablePanel1";
             this.expandablePanel1.TitleText = "Title Bar";
@@ -737,7 +764,7 @@
             this.treeSolution.OptionsView.ShowHorzLines = false;
             this.treeSolution.OptionsView.ShowIndicator = false;
             this.treeSolution.SelectImageList = this.imageList1;
-            this.treeSolution.Size = new System.Drawing.Size(166, 431);
+            this.treeSolution.Size = new System.Drawing.Size(166, 281);
             this.treeSolution.TabIndex = 2;
             // 
             // treeListColumn1
@@ -768,29 +795,19 @@
             this.treeListColumn6.FieldName = "Idsolution_pattern";
             this.treeListColumn6.Name = "treeListColumn6";
             // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "fiola_group.png");
-            this.imageList1.Images.SetKeyName(1, "fiola.png");
-            this.imageList1.Images.SetKeyName(2, "fiola_ver.png");
-            // 
             // UcSolInterm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.treeSolInterm);
+            this.Controls.Add(this.expandablePanel1);
             this.Controls.Add(this.paHeader);
             this.Controls.Add(this.panelControl1);
-            this.Controls.Add(this.expandablePanel1);
             this.Name = "UcSolInterm";
             this.Size = new System.Drawing.Size(847, 457);
             ((System.ComponentModel.ISupportInitialize)(this.repStatusSolution)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
-            this.groupControl1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.treeSolInterm)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repVolumen)).EndInit();
@@ -798,6 +815,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.repReactiveValue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.redDate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repUser)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repBtOpenMethods)).EndInit();
+            this.cmsAddSolution.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tbUnd.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbConcentPattern.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbMrpattern.Properties)).EndInit();
@@ -820,9 +839,6 @@
 
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private UcSign ucSign1;
-        private DevExpress.XtraEditors.SimpleButton btStdVerif;
-        private DevExpress.XtraEditors.SimpleButton btSolInterm2;
-        private DevExpress.XtraEditors.SimpleButton btSolInterm1;
         private DevExpress.XtraTreeList.TreeList treeSolInterm;
         private DevExpress.XtraTreeList.Columns.TreeListColumn tcol_Cod_solution;
         private DevExpress.XtraTreeList.Columns.TreeListColumn tcol_Nombre;
@@ -850,7 +866,6 @@
         private DevExpress.XtraTreeList.Columns.TreeListColumn tcol_Solution_status;
         private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn2;
         private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn3;
-        private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox repStatusSolution;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repReactive;
         private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repReactiveValue;
@@ -872,5 +887,12 @@
         private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn5;
         private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn6;
         private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.ContextMenuStrip cmsAddSolution;
+        private System.Windows.Forms.ToolStripMenuItem btNewSolInt1;
+        private System.Windows.Forms.ToolStripMenuItem btNewSolInt2;
+        private System.Windows.Forms.ToolStripMenuItem btNewSolStdVer;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repBtOpenMethods;
+        private DevExpress.XtraEditors.SimpleButton simpleButton2;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
     }
 }

@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using LimsProject.BusinessLayer;
 using LimsProject.BusinessLayer.Modules;
@@ -13,9 +14,7 @@ using DevExpress.XtraTreeList;
 
 namespace LimsProject
 {
-    public delegate void signSolInterm(CGroup_solution e);
-
-    public partial class UcSolInterm : UserControl
+    public partial class FormSolInterm : LibraryBasicForm.FormBaseEmpty
     {
         CGroup_solution group_solution = null;
         ModSolInterm modSolInterm = new ModSolInterm();
@@ -24,16 +23,16 @@ namespace LimsProject
         CTemplate_method_aa template_method_aa = new CTemplate_method_aa();
 
         TreeListNode nodeSolutionInProcess = null;
-        
+
         BindingList<CCustom_method_solution> LstTemplate_method { get; set; }
         short? Idelement { get; set; }
 
         public event signSolInterm onSignSolInterm;
-        
+
         DevExpress.XtraTreeList.Nodes.TreeListNode treeSolInterm1;
         DevExpress.XtraTreeList.Nodes.TreeListNode treeSolInterm2;
-        DevExpress.XtraTreeList.Nodes.TreeListNode treeStdVerif;        
-                
+        DevExpress.XtraTreeList.Nodes.TreeListNode treeStdVerif;
+
         public int TypeSolution;
 
         public enum typeSolution
@@ -47,26 +46,91 @@ namespace LimsProject
 
         TreeListNode NodePatternRoot
         {
-            get {
+            get
+            {
                 return treeSolInterm.Nodes[0];
             }
         }
 
-        public UcSolInterm()
+        public FormSolInterm()
         {
             InitializeComponent();
+        }
+
+        private void treeSolInterm_CellValueChanged(object sender, DevExpress.XtraTreeList.CellValueChangedEventArgs e)
+        {
+            /*
+            Solidos
+            -------
+            1: Alicuota = volumen*concentracion/concentracion patron
+
+            Líquidos
+            --------
+            1: Alicuota = volumen/(concentracion patron/concentracion)  */
+
+            // Hacer el cálculo 
+            // Si es el patrón de solución es muestra terminal entonces verificar 
+            // antes si es sólido o líquido
+            // 
+            try
+            {
+                if (e.Node.Level == 0)
+                {
+                    // Muestra patron es terminal
+                    if (IsSolidSolutionPattern()) // sólido
+                        e.Node["Aliquot"] = Convert.ToDecimal(e.Node["Volumen"]) * Convert.ToDecimal(e.Node["Concentration"]) / template_method_aa.Std_concentration;
+                    else // líquido
+                        e.Node["Aliquot"] = Convert.ToDecimal(e.Node["Volumen"]) / (template_method_aa.Std_concentration / Convert.ToDecimal(e.Node["Concentration"]));
+                }
+                else if (e.Node.Level >= 1) // solucion intermedia 
+                {
+                    // solución intermedia 1 o 2 es terminal
+                    // determinar la concentración
+                    decimal parentConcentration = Convert.ToDecimal(e.Node.ParentNode["Concentration"]);
+
+                    e.Node["Aliquot"] = Convert.ToDecimal(e.Node["Volumen"]) / Convert.ToDecimal(e.Node["Concentration"]) / parentConcentration;
+                }
+            }
+            catch (Exception ex)
+            {
+                Comun.Send_message("Soluciones", TypeMsg.error, ex.Message);
+            }
+        }
+
+        bool IsSolidSolutionPattern()
+        {
+            CMr_detail oMr_detail =
+                new CMr_detailFactory()
+                .GetByPrimaryKey(new CMr_detailKeys(Convert.ToInt16(template_method_aa.Std_mrorpattern)));
+
+            CMr oMr = new CMrFactory().GetByPrimaryKey(new CMrKeys(Convert.ToInt16(oMr_detail.Idmr)));
+
+            return Convert.ToBoolean(oMr.Solid);
+        }
+
+        private void cbMethod1_EditValueChanged(object sender, EventArgs e)
+        {
+            // obtener modif y medium filtrado por cod template
+            template_method_aa = new CTemplate_method_aaFactory().GetByPrimaryKey(new CTemplate_method_aaKeys(Convert.ToInt32(cbMethod1.EditValue)));
+
+            if (template_method_aa != null)
+            {
+                cbMedium.EditValue = template_method_aa.Medium;
+                cbModif.EditValue = template_method_aa.Modif;
+                cbTypeSolPatron.EditValue = template_method_aa.Type_pattern;
+            }  
         }
 
         public void Init(short pIdelement)
         {
             //seleccionar métodos
             Idelement = pIdelement;
-            cbMethod1.Bind(pIdelement);            
+            cbMethod1.Bind(pIdelement);
             InitTreeLeft();
             InitCombos();
             InitHeader();
             InitTreeSolution();
-            
+
         }
 
         public void InitTreeLeft()
@@ -78,8 +142,8 @@ namespace LimsProject
             // --- solutions                        
             treeSolInterm1.Tag = Convert.ToInt32(typeSolution.SolInterm1);
             treeSolInterm2.Tag = Convert.ToInt32(typeSolution.SolInterm2);
-            treeStdVerif.Tag = Convert.ToInt32(typeSolution.StdVerif);            
-                                    
+            treeStdVerif.Tag = Convert.ToInt32(typeSolution.StdVerif);
+
             ModSolution oModSolution = new ModSolution();
             CGroup_solutionFactory faGroup_solution = new CGroup_solutionFactory();
             List<CGroup_solution> lstGroup_solution =
@@ -91,7 +155,7 @@ namespace LimsProject
 
             // 1:SC, 2:SI-1, 3:SI-2, 4:EV, 5:ST
             foreach (var item in lstGroup_solution)
-            {                
+            {
                 // solución intermedia 1, 2 y estandar de verificación
                 if (item.Type_solution == 2 || item.Type_solution == 3 || item.Type_solution == 4) // --- agregar filas de la tabla de soluciones (intermedias)
                 {
@@ -128,7 +192,7 @@ namespace LimsProject
                         node.ImageIndex = 2;
                         node.SelectImageIndex = 2;
                     }
-                }             
+                }
             }
 
             treeSolution.ExpandAll();
@@ -164,12 +228,12 @@ namespace LimsProject
 
             //
             treeSolInterm.DataSource = lstSolution;
-            treeSolInterm.ExpandAll();            
-        }                      
+            treeSolInterm.ExpandAll();
+        }
 
         CSolution GetActiveFirstSolution()
         {
-            if (lstSolution.Exists(c=> c.Type_sol == 1 && c.Solution_status == true))
+            if (lstSolution.Exists(c => c.Type_sol == 1 && c.Solution_status == true))
             {
                 return lstSolution.First(c => c.Type_sol == 1 && c.Solution_status == true);
             }
@@ -260,7 +324,7 @@ namespace LimsProject
 
                 SetButtonsInProcess();
             }
-            else            
+            else
                 new FormMessage("Agregar solución", "No es posible agregar. Existe una solución intermedia 1 en proceso.", true, false).ShowDialog();
         }
 
@@ -301,12 +365,12 @@ namespace LimsProject
                 treeSolInterm.DataSource = new BindingList<CSolution>(lstSolution);
                 treeSolInterm.ExpandAll();
 
-                SetButtonsInProcess();                                
+                SetButtonsInProcess();
             }
             else
                 new FormMessage("Agregar solución", "No es posible agregar. Existe una solución intermedia 2 en proceso", true, false).ShowDialog();
         }
-        
+
         //void AddStdInRootSolution()
         //{
         //    // --- añadir dentro de una solución intermedia 1 o 2
@@ -465,7 +529,7 @@ namespace LimsProject
         }
 
         void SetButtonsInProcess()
-        {            
+        {
             FindNodeInProcess();
         }
 
@@ -494,25 +558,14 @@ namespace LimsProject
             int max = 0;
 
             if (lstSolution.Count > 0)
-                max = Convert.ToInt32(lstSolution.Max(c=> c.Id));
+                max = Convert.ToInt32(lstSolution.Max(c => c.Id));
 
             return max;
-        }
-
-        bool IsSolidSolutionPattern()
-        {
-            CMr_detail oMr_detail =
-                new CMr_detailFactory()
-                .GetByPrimaryKey(new CMr_detailKeys(Convert.ToInt16(template_method_aa.Std_mrorpattern)));
-
-            CMr oMr = new CMrFactory().GetByPrimaryKey(new CMrKeys(Convert.ToInt16(oMr_detail.Idmr)));
-
-            return Convert.ToBoolean(oMr.Solid);
-        }
+        }        
 
         bool IsSolutionInterm1(TreeListNode node)
         {
-            if (lstSolution.Exists(c=> c.Id == Convert.ToInt32(node["Id"]) && c.Type_sol == 1 && c.Solution_status == true))
+            if (lstSolution.Exists(c => c.Id == Convert.ToInt32(node["Id"]) && c.Type_sol == 1 && c.Solution_status == true))
                 return true;
             return false;
         }
@@ -552,178 +605,6 @@ namespace LimsProject
             cbModif.EditValue = null;
         }
 
-        private void treeSolInterm_CellValueChanged(object sender, DevExpress.XtraTreeList.CellValueChangedEventArgs e)
-        {
-            /*
-            Solidos
-            -------
-            1: Alicuota = volumen*concentracion/concentracion patron
-
-            Líquidos
-            --------
-            1: Alicuota = volumen/(concentracion patron/concentracion)  */
-
-            // Hacer el cálculo 
-            // Si es el patrón de solución es muestra terminal entonces verificar 
-            // antes si es sólido o líquido
-            // 
-            try
-            {
-                if (e.Node.Level == 0)
-                {
-                    // Muestra patron es terminal
-                    if (IsSolidSolutionPattern()) // sólido
-                        e.Node["Aliquot"] = Convert.ToDecimal(e.Node["Volumen"]) * Convert.ToDecimal(e.Node["Concentration"]) / template_method_aa.Std_concentration;
-                    else // líquido
-                        e.Node["Aliquot"] = Convert.ToDecimal(e.Node["Volumen"]) / (template_method_aa.Std_concentration / Convert.ToDecimal(e.Node["Concentration"]));
-                }
-                else if (e.Node.Level >= 1) // solucion intermedia 
-                {
-                    // solución intermedia 1 o 2 es terminal
-                    // determinar la concentración
-                    decimal parentConcentration = Convert.ToDecimal(e.Node.ParentNode["Concentration"]);
-
-                    e.Node["Aliquot"] = Convert.ToDecimal(e.Node["Volumen"]) / Convert.ToDecimal(e.Node["Concentration"]) / parentConcentration;
-                }
-            }
-            catch (Exception ex)
-            {
-                Comun.Send_message("Soluciones", TypeMsg.error, ex.Message);
-            }
-        }
-
-        private void ucSign1_OnSign(bool login)
-        {
-            if (login)
-            {
-                if (nodeSolutionInProcess != null)
-                {
-                    ///si el nuevo nodo seleccionado es un estandar de verificación
-                    ///reasignar el tipo de solucion intermedia de su solución padre
-                    int type_sol = Convert.ToInt32(nodeSolutionInProcess["Type_sol"]);
-
-                    if (type_sol == 3 || type_sol == 4)
-                    {
-                        if (nodeSolutionInProcess.Level == 1)
-                            type_sol = 1;
-                        if (nodeSolutionInProcess.Level == 2)
-                            type_sol = 2;
-                    }
-
-                    FormSelMethods fmSelMethods = new FormSelMethods(group_solution, type_sol);
-
-                    if (fmSelMethods.ShowDialog() == DialogResult.OK)
-                    {
-                        // --- guardar grupo de solución
-                        CGroup_solutionFactory fagroup_solution = new CGroup_solutionFactory();
-                        bool result = false;
-
-                        if (!(result = fagroup_solution.Update(group_solution)))
-                            result = fagroup_solution.Insert(group_solution);
-
-                        // --- guardando soluciones
-                        if (result)
-                        {
-                            // --- guardar los cambios en las soluciones
-                            CSolutionFactory faSolution = new CSolutionFactory();
-                            bool result_solution = false;
-                            for (int i = 0; i < lstSolution.Count; i++)
-                            {
-                                result_solution = false;
-
-                                if (lstSolution[i].Idsolution == 0)
-                                {
-                                    #region Grabar metodos a nueva solución ingresada
-
-                                    lstSolution[i].Idgroup_solution = group_solution.Idgroup_solution;
-                                    lstSolution[i].Cod_solution = null;
-
-                                    if (!(result_solution = faSolution.Update(lstSolution[i])))
-                                        result_solution = faSolution.Insert(lstSolution[i]);
-
-                                    // --- asignar un correlativo dependiendo del tipo de solución
-                                    // 1:solución intermedia1, 2:solución intermedia 2, 3:estandar de verificación
-                                    if (result_solution)
-                                    {
-                                        ModCorrelatives oModCorrelatives = new ModCorrelatives();
-                                        if (lstSolution[i].Type_sol == 1 || lstSolution[i].Type_sol == 2)
-                                            lstSolution[i].Cod_solution = oModCorrelatives.GetCorrelative(ModCorrelatives.Correlative.SolucionIntermedia);
-                                        else if (lstSolution[i].Type_sol == 3 || lstSolution[i].Type_sol == 4)
-                                            lstSolution[i].Cod_solution = oModCorrelatives.GetCorrelative(ModCorrelatives.Correlative.EstandarVerificacion);
-
-                                        faSolution.Update(lstSolution[i]);
-                                    }
-
-                                    if (result_solution)
-                                    {
-                                        // --- grabar métodos de la solución
-                                        CSolution_methodsFactory faSolution_methods = new CSolution_methodsFactory();
-                                        CSolution_methods oSolution_methods = new CSolution_methods();
-                                        string concatMethods = "";
-                                        bool result_solution_method = false;
-
-                                        // --- grabar linkeo de solución y métodos
-                                        foreach (CMethodMini item in fmSelMethods.LstMethodMini)
-                                        {
-                                            if (item.Sel)
-                                            {
-                                                // indexar método a la solución
-                                                oSolution_methods = new CSolution_methods();
-                                                oSolution_methods.Idsolution = lstSolution[i].Idsolution;
-                                                oSolution_methods.Idtemplate_method = item.Idtemplate_method;
-                                                oSolution_methods.Status = true;
-
-                                                if (!(result_solution_method = faSolution_methods.Update(oSolution_methods)))
-                                                    result_solution_method = faSolution_methods.Insert(oSolution_methods);
-
-                                                // concatenar método 
-                                                concatMethods += concatMethods.Trim().Length == 0 ? item.Cod_template_method : ", " + item.Cod_template_method;
-                                            }
-                                        }
-
-                                        // asignar concatenado de métodos seleccionados al campo de la solucion[i]
-                                        lstSolution[i].Concat_cod_methods = concatMethods;
-                                        faSolution.Update(lstSolution[i]);
-                                    }
-                                    #endregion
-                                }
-                            }
-
-                            treeSolInterm.DataSource = lstSolution;                            
-
-                            new FormMessage("Guardado", "Guardado correctamente.", true, false).ShowDialog();
-
-                            ucSign1.Clear();
-                            treeSolInterm.ExpandAll();
-                        }
-
-                        onSignSolInterm(group_solution);
-
-                        StatusSave = true;
-
-                    }
-                }
-                else
-                {
-                    ///No existe ningún nodo en proceso, entonces los cambios
-                    ///fueron sobre el estado de las soluciones
-                    ///
-                    CSolutionFactory faSolution = new CSolutionFactory();
-                    for (int i = 0; i < lstSolution.Count; i++)                    
-                        faSolution.Update(lstSolution[i]);
-                    
-                    treeSolInterm.DataSource = lstSolution;
-
-                    new FormMessage("Guardado", "Guardado correctamente.", true, false).ShowDialog();
-                    ucSign1.Clear();
-                    treeSolInterm.ExpandAll();
-
-                    onSignSolInterm(group_solution);
-                }
-            }
-            else 
-                new FormMessage("Error", "Contraseña incorrecta.", true, false).ShowDialog();
-        }
 
         private void cbTypeSolPatron_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -745,7 +626,7 @@ namespace LimsProject
                 cbMrpattern.Properties.ValueMember = "Idmr_detail";
 
                 cbMrpattern.EditValue = null;
-            }            
+            }
         }
 
         private void repVolumen_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
@@ -755,19 +636,6 @@ namespace LimsProject
             {
                 e.Cancel = true;
             }
-        }
-
-        private void cbMethod1_EditValueChanged(object sender, EventArgs e)
-        {
-            // obtener modif y medium filtrado por cod template
-            template_method_aa = new CTemplate_method_aaFactory().GetByPrimaryKey(new CTemplate_method_aaKeys(Convert.ToInt32(cbMethod1.EditValue)));
-
-            if (template_method_aa != null)
-            {
-                cbMedium.EditValue = template_method_aa.Medium;
-                cbModif.EditValue = template_method_aa.Modif;
-                cbTypeSolPatron.EditValue = template_method_aa.Type_pattern;
-            }            
         }
 
         private void btNewSolution_Click(object sender, EventArgs e)
@@ -787,10 +655,10 @@ namespace LimsProject
             if (ht != null && ht.Node != null)
             {
                 tree.FocusedNode = ht.Node;
-                
+
                 // determinar que tipo de solucion es el nodo seleccionado
                 int typeSol = Convert.ToInt32(tree.FocusedNode["Type_sol"]);
-                
+
                 // habilitar los botones en popup
                 btNewSolInt1.Enabled = false;
                 btNewSolInt2.Enabled = false;
@@ -804,7 +672,7 @@ namespace LimsProject
                     btNewSolStdVer.Enabled = true;
                 }
                 else if (typeSol == 2) // solución intermedia 2
-                { 
+                {
                     //habilitar solucion intermedia 2
                     btNewSolStdVer.Enabled = true;
                 }
@@ -823,7 +691,7 @@ namespace LimsProject
         }
 
         private void btNewSolInt1_Click(object sender, EventArgs e)
-        {            
+        {
             AddFirstSolution();
             StatusSave = false;
         }
@@ -845,10 +713,21 @@ namespace LimsProject
             FormSelMethods fmSelMethods = new FormSelMethods();
             if (fmSelMethods.ShowDialog() == DialogResult.OK)
             {
- 
+
             }
         }
 
-        
+        private void FormSolInterm_Load(object sender, EventArgs e)
+        {
+            cbElement1.Bind();
+            cbMedium.Bind();
+            cbModif.Bind();            
+        }
+
+        private void cbElement1_EditValueChanged(object sender, EventArgs e)
+        {
+            Init(Convert.ToInt16(cbElement1.EditValue));
+        }
+
     }
 }

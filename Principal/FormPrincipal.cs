@@ -147,10 +147,10 @@ namespace LimsProject
 
         private void nbiSolution_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            FormSolutions ofmSolutions = new FormSolutions();
+            FormSolInterm fmSolInterm = new FormSolInterm();
             //ofmSolutions.MdiParent = this;
             //ofmSolutions.WindowState = FormWindowState.Maximized;
-            ofmSolutions.Show();
+            fmSolInterm.Show();
         }
 
         private void nbiTypeSolution_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)

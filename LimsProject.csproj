@@ -196,6 +196,12 @@
     <Compile Include="cbCustomSolutionMrc.Designer.cs">
       <DependentUpon>cbCustomSolutionMrc.cs</DependentUpon>
     </Compile>
+    <Compile Include="Solutions\FormSolInterm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Solutions\FormSolInterm.Designer.cs">
+      <DependentUpon>FormSolInterm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\cbMethod.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -691,6 +697,9 @@
     <EmbeddedResource Include="Methods\UcAA.resx">
       <DependentUpon>UcAA.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Solutions\FormSolInterm.resx">
+      <DependentUpon>FormSolInterm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Solutions\FormSolutions.resx">
       <DependentUpon>FormSolutions.cs</DependentUpon>
     </EmbeddedResource>
@@ -933,7 +942,6 @@
     <None Include="Resources\avatar.jpg" />
     <None Include="Resources\avatar1.png" />
     <None Include="Resources\find.png" />
-    <Content Include="Resource\titlebar.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\LibraryBasicForm\LibraryBasicForm\LibraryBasicForm.csproj">
