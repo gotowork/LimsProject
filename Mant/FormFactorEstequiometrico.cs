@@ -61,7 +61,7 @@ namespace LimsProject
             }
             catch (Exception ex)
             {
-                Comun.Send_message("Factores estequiométricos", TypeMsg.error, ex.Message);
+                ComunForm.Send_message("Factores estequiométricos", TypeMsg.error, ex.Message);
                 return true;
             }
         }
@@ -74,17 +74,17 @@ namespace LimsProject
                 i++;
                 if (item.Idelement == null)
                 {
-                    Comun.Send_message("Factores estequiométricos", TypeMsg.error, "No se seleccionó el elemento en la fila "+ i.ToString());
+                    ComunForm.Send_message("Factores estequiométricos", TypeMsg.error, "No se seleccionó el elemento en la fila "+ i.ToString());
                     return false;
                 }
                 if (item.Idcompound == null)
                 {
-                    Comun.Send_message("Factores estequiométricos", TypeMsg.error, "No se seleccionó el compuesto en la fila " + i.ToString());
+                    ComunForm.Send_message("Factores estequiométricos", TypeMsg.error, "No se seleccionó el compuesto en la fila " + i.ToString());
                     return false;
                 }
                 if (item.Factor == 0)
                 {
-                    Comun.Send_message("Factores estequiométricos", TypeMsg.error, "No se ingresó el factor en la fila " + i.ToString());
+                    ComunForm.Send_message("Factores estequiométricos", TypeMsg.error, "No se ingresó el factor en la fila " + i.ToString());
                     return false;
                 }
             }

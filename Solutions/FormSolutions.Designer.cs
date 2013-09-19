@@ -44,7 +44,6 @@
             this.ucTitration1 = new LimsProject.UcTitration();
             this.xtraTabPage5 = new DevExpress.XtraTab.XtraTabPage();
             this.tabSupSolInterm = new DevExpress.XtraTab.XtraTabPage();
-            this.ucSolInterm1 = new LimsProject.UcSolInterm();
             this.cbElement = new DevExpress.XtraEditors.LookUpEdit();
             this.label2 = new System.Windows.Forms.Label();
             this.treeListColumn16 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
@@ -236,18 +235,9 @@
             // 
             // tabSupSolInterm
             // 
-            this.tabSupSolInterm.Controls.Add(this.ucSolInterm1);
             this.tabSupSolInterm.Name = "tabSupSolInterm";
             this.tabSupSolInterm.Size = new System.Drawing.Size(271, 90);
             this.tabSupSolInterm.Text = "Soluciones Intermedias";
-            // 
-            // ucSolInterm1
-            // 
-            this.ucSolInterm1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucSolInterm1.Location = new System.Drawing.Point(0, 0);
-            this.ucSolInterm1.Name = "ucSolInterm1";
-            this.ucSolInterm1.Size = new System.Drawing.Size(271, 90);
-            this.ucSolInterm1.TabIndex = 0;
             // 
             // cbElement
             // 
@@ -351,7 +341,7 @@
         private DevExpress.XtraTab.XtraTabPage xtraTabPage5;
         private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn16;
         private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn17;
-        private UcSolInterm ucSolInterm1;
+        
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ImageList imageList1;
     }

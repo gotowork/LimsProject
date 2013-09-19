@@ -141,7 +141,7 @@ namespace LimsProject
             }
             catch (Exception ex)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, ex.Message);
+                ComunForm.Send_message(this.Text, TypeMsg.error, ex.Message);
             }
             #endregion 
         }
@@ -154,27 +154,27 @@ namespace LimsProject
         {
             if (gluCod_method.EditValue == null)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Error: no se admite el código de método vacio.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Error: no se admite el código de método vacio.");
                 return false;
             }
             if (tbAbreviation.Text == "")
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Error: no se admite una abreviatura de método vacia.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Error: no se admite una abreviatura de método vacia.");
                 return false;
             }            
             if (cbDigestion.EditValue == null)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Error: no se ha seleccionado el campo digestion.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Error: no se ha seleccionado el campo digestion.");
                 return false;
             }
             if (cbElement.EditValue == null)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Error: no se ha seleccionado el campo elemento.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Error: no se ha seleccionado el campo elemento.");
                 return false;
             }
             if (cbTypeSample.EditValue == null)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Error: no se ha seleccionado el campo tipo de muestra.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Error: no se ha seleccionado el campo tipo de muestra.");
                 return false;
             }
             if (!Son_Datos_Correctos_TypeAnalysis())
@@ -206,7 +206,7 @@ namespace LimsProject
             }
             catch(Exception ex)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, ex.Message);
+                ComunForm.Send_message(this.Text, TypeMsg.error, ex.Message);
                 return false;
             }            
         }
@@ -291,7 +291,7 @@ namespace LimsProject
             }
             catch (Exception ex)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, ex.Message);
+                ComunForm.Send_message(this.Text, TypeMsg.error, ex.Message);
             }
         }
 
@@ -427,7 +427,7 @@ namespace LimsProject
             }
             catch (Exception ex)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, ex.Message);
+                ComunForm.Send_message(this.Text, TypeMsg.error, ex.Message);
                 return false;
             }
         }        

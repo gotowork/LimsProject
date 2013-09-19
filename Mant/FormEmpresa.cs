@@ -54,17 +54,17 @@ namespace LimsProject
         {            
             if (cbTypeCompany.EditValue == null)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Error: falta especificar el tipo de empresa.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Error: falta especificar el tipo de empresa.");
                 return false;
             }
             if (tbClientRuc.Text.Trim().Length > 0 && tbClientRuc.Text.Length != 11)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Error: No se especificó el ruc del cliente correctamente.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Error: No se especificó el ruc del cliente correctamente.");
                 return false;
             }
             if (tbClientEmail.Text.Trim().Length > 0 && !Comun.ValidateMail(tbClientEmail.Text))
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Error: Al ingresar el correo electrónico.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Error: Al ingresar el correo electrónico.");
                 return false;
             }
             return true;
@@ -183,10 +183,5 @@ namespace LimsProject
         #endregion        
 
     }
-
-    public class ProviderType
-    {
-        public char Id { get; set; }
-        public string Name { get; set; }
-    }
+    
 }

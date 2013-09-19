@@ -73,10 +73,7 @@ namespace LimsProject
                 /// seleccionada
                 ///1:SC, 2:SI-1, 3:SI-2, 4:EV, 5:ST
                 ///  
-                    
-           
-                ///pasar como parametro el elemento, cada método administra de una forma particular
-                ucSolInterm1.Init(Convert.ToInt16(cbElement.EditValue));
+                                               
             }
         }
     }

@@ -77,59 +77,59 @@ namespace LimsProject
         {
             if (tbName.Text.Trim().Length == 0)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Debe especificar un nombre al decreto.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Debe especificar un nombre al decreto.");
                 return false;
             }
             if (meDescription.Text.Trim().Length == 0)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Debe especificar una descripción al decreto.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Debe especificar una descripción al decreto.");
                 return false;
             }
             if (tbCumple.Text.Trim().Length == 0)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Debe especificar un texto para el campo \"cumple\"");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Debe especificar un texto para el campo \"cumple\"");
                 return false;
             }
             if (tbNoCumple.Text.Trim().Length == 0)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Debe especificar un texto para el campo \"no cumple\"");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Debe especificar un texto para el campo \"no cumple\"");
                 return false;
             }
             if (tbCumpleOnlytest.Text.Trim().Length == 0)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Debe especificar un texto para el campo \"cumple solo los ensayos\"");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Debe especificar un texto para el campo \"cumple solo los ensayos\"");
                 return false;
             }
             if (meConclusion.Text.Trim().Length == 0)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Debe especificar un texto para el campo \"conclusión\"");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Debe especificar un texto para el campo \"conclusión\"");
                 return false;
             }
             foreach (CDecree_detail item in gcDecree.DataSource as BindingList<CDecree_detail>)
             {
                 if (item.Idcondition == null)
                 {
-                    Comun.Send_message(this.Text, TypeMsg.error, "En el detalle: falta especificar la columna condición.");
+                    ComunForm.Send_message(this.Text, TypeMsg.error, "En el detalle: falta especificar la columna condición.");
                     return false;
                 }
                 if (item.Idtemplate_method == null)
                 {
-                    Comun.Send_message(this.Text, TypeMsg.error, "En el detalle: falta especificar la columna método.");
+                    ComunForm.Send_message(this.Text, TypeMsg.error, "En el detalle: falta especificar la columna método.");
                     return false;
                 }
                 if (item.Idunit == null)
                 {
-                    Comun.Send_message(this.Text, TypeMsg.error, "En el detalle: falta especificar la columna unidad de medida.");
+                    ComunForm.Send_message(this.Text, TypeMsg.error, "En el detalle: falta especificar la columna unidad de medida.");
                     return false;
                 }
                 if (item.Parameter.Trim().Length == 0)
                 {
-                    Comun.Send_message(this.Text, TypeMsg.error, "En el detalle: falta especificar la columna parámetro.");
+                    ComunForm.Send_message(this.Text, TypeMsg.error, "En el detalle: falta especificar la columna parámetro.");
                     return false;
                 }
                 if (item.Idcondition <= 6 && item.Valor1.Trim().Length == 0)
                 {
-                    Comun.Send_message(this.Text, TypeMsg.error, "En el detalle: falta especificar la columna valor");
+                    ComunForm.Send_message(this.Text, TypeMsg.error, "En el detalle: falta especificar la columna valor");
                     return false;
                 }
                 if (item.Idcondition == 7 && !(item.Valor1 != null && item.Valor2 != null && item.Valor1.Trim().Length != 0 && item.Valor2.Trim().Length != 0))
@@ -138,7 +138,7 @@ namespace LimsProject
 
                     if (!(decimal.TryParse(item.Valor1, out v1) && decimal.TryParse(item.Valor2, out v2)))
                     {
-                        Comun.Send_message(this.Text, TypeMsg.error, "En el detalle: falta especificar correctamente en los campos para la condición \"entre\"");
+                        ComunForm.Send_message(this.Text, TypeMsg.error, "En el detalle: falta especificar correctamente en los campos para la condición \"entre\"");
                         return false;
                     }
                 }

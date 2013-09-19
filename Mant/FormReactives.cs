@@ -64,12 +64,12 @@ namespace LimsProject
         {
             if (tbName.Text.Trim().Length == 0)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Error: no ingreso una fórmula correctamente.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Error: no ingreso una fórmula correctamente.");
                 return false;
             }
             if (tbWeightMolecular.Value == 0)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Error: no ingreso el valor molecular.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Error: no ingreso el valor molecular.");
                 return false;
             }
             return true;

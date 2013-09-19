@@ -10,7 +10,7 @@ using LibraryBasicForm;
 
 namespace LimsProject
 {
-    public delegate void ShowForm(Comun.Formulario form);
+    public delegate void ShowForm(ComunForm.Formulario form);
 
     public delegate void CallMasterSearch();
 
@@ -26,22 +26,22 @@ namespace LimsProject
         private void Form4_Load(object sender, EventArgs e)
         {
             FormLogin fmLogin = new FormLogin();
-            Comun.Even_show_user += Comun_Even_show_user;
+            ComunForm.Even_show_user += ComunForm_Even_show_user;
 
             if (fmLogin.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                Comun.Even_show_action += Comun_Even_show_action;
+                ComunForm.Even_show_action += ComunForm_Even_show_action;
 
                 expandablePanel1.Visible = true;
             }
         }
 
-        void Comun_Even_show_user(string user)
+        void ComunForm_Even_show_user(string user)
         {
             barUsuario.Caption = user;
         }
 
-        void Comun_Even_show_action(string module, TypeMsg type_msg, string msg_action)
+        void ComunForm_Even_show_action(string module, TypeMsg type_msg, string msg_action)
         {
             if (type_msg == TypeMsg.error)
                 MessageBox.Show(msg_action, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -55,7 +55,7 @@ namespace LimsProject
                 baritemAccion.ImageIndex = 0;
         }
 
-        void FormPrincipal_delegado(Comun.Formulario form)
+        void FormPrincipal_delegado(ComunForm.Formulario form)
         {
             throw new NotImplementedException();
         }        
@@ -70,17 +70,17 @@ namespace LimsProject
 
         private void nbiDigestion_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            Comun.OpenForm(Comun.Formulario.fmDigestion);
+            ComunForm.OpenForm(ComunForm.Formulario.fmDigestion);
         }
 
         private void nbiElement_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            Comun.OpenForm(Comun.Formulario.fmElement);
+            ComunForm.OpenForm(ComunForm.Formulario.fmElement);
         }
 
         private void nbiTypeSample_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            Comun.OpenForm(Comun.Formulario.fmTypeSample);
+            ComunForm.OpenForm(ComunForm.Formulario.fmTypeSample);
         }
 
         private void nbiReception_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
@@ -101,27 +101,27 @@ namespace LimsProject
 
         private void nbiDescSample_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            Comun.OpenForm(Comun.Formulario.fmDescriptionSample);
+            ComunForm.OpenForm(ComunForm.Formulario.fmDescriptionSample);
         }
 
         private void nbiClient_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            Comun.OpenForm(Comun.Formulario.fmEmpresa);
+            ComunForm.OpenForm(ComunForm.Formulario.fmEmpresa);
         }
 
         private void nbiMeasurement_unit_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            Comun.OpenForm(Comun.Formulario.fmMeasurementUnit);
+            ComunForm.OpenForm(ComunForm.Formulario.fmMeasurementUnit);
         }
 
         private void nbiConvertUM_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            Comun.OpenForm(Comun.Formulario.fmConvertionUM);
+            ComunForm.OpenForm(ComunForm.Formulario.fmConvertionUM);
         }
 
         private void nbiCorrelative_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            Comun.OpenForm(Comun.Formulario.fmCorrelative);
+            ComunForm.OpenForm(ComunForm.Formulario.fmCorrelative);
         }
 
         private void nbiMaterialReference_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
@@ -142,7 +142,7 @@ namespace LimsProject
 
         private void nbiUsers_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            Comun.OpenForm(Comun.Formulario.fmUser);
+            ComunForm.OpenForm(ComunForm.Formulario.fmUser);
         }
 
         private void nbiSolution_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
@@ -155,7 +155,7 @@ namespace LimsProject
 
         private void nbiTypeSolution_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            Comun.OpenForm(Comun.Formulario.fmTypeSolution);
+            ComunForm.OpenForm(ComunForm.Formulario.fmTypeSolution);
         }
 
         private void nbiAuthorizations_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
@@ -168,7 +168,7 @@ namespace LimsProject
 
         private void nbiReactive_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            Comun.OpenForm(Comun.Formulario.fmReactive);
+            ComunForm.OpenForm(ComunForm.Formulario.fmReactive);
         }
 
         private void btFind_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -190,32 +190,32 @@ namespace LimsProject
 
         private void nbiItemMatrix_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            Comun.OpenForm(Comun.Formulario.fmMatrixItem);
+            ComunForm.OpenForm(ComunForm.Formulario.fmMatrixItem);
         }
 
         private void nbiGroupMatrix_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            Comun.OpenForm(Comun.Formulario.fmMatrixGroup);
+            ComunForm.OpenForm(ComunForm.Formulario.fmMatrixGroup);
         }
 
         private void nbiDecrees_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            Comun.OpenForm(Comun.Formulario.fmDecree);
+            ComunForm.OpenForm(ComunForm.Formulario.fmDecree);
         }
 
         private void nbiPrueba_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            Comun.OpenForm(Comun.Formulario.fmPreparationSamples);
+            ComunForm.OpenForm(ComunForm.Formulario.fmPreparationSamples);
         }
 
         private void nbiCompuestos_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            Comun.OpenForm(Comun.Formulario.fmCompound);
+            ComunForm.OpenForm(ComunForm.Formulario.fmCompound);
         }
 
         private void nbiFactorEstequ_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            Comun.OpenForm(Comun.Formulario.fmFactorEstequ);
+            ComunForm.OpenForm(ComunForm.Formulario.fmFactorEstequ);
         }
 
         

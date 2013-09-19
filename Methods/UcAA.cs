@@ -67,7 +67,7 @@ namespace LimsProject
             }
             catch (Exception ex)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, ex.Message);
+                ComunForm.Send_message(this.Text, TypeMsg.error, ex.Message);
             }
             #endregion
         }
@@ -76,100 +76,100 @@ namespace LimsProject
         {            
             if (tbSymbol.Text == "")
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Error: no se admite un simbolo de método vacio.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Error: no se admite un simbolo de método vacio.");
                 return false;
             }            
             if (cbUnit_result.EditValue == null)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Error: no se ha seleccionado una unidad de medida.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Error: no se ha seleccionado una unidad de medida.");
                 return false;
             }
             if (cbUnit_calib.EditValue == null)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Error: no se ha seleccionado una unidad de medida de calibración");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Error: no se ha seleccionado una unidad de medida de calibración");
                 return false;
             }
             if (cbMaterialRef.EditValue == null)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Error: no se ha seleccionado un material de referencia.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Error: no se ha seleccionado un material de referencia.");
                 return false;
             }
             if (Convert.ToDecimal(tbDilution2.EditValue) <= 0 || Convert.ToDecimal(tbDilution3.EditValue) <= 0)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Error: No es posible asignar el botón '0' como valor de dilución.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Error: No es posible asignar el botón '0' como valor de dilución.");
                 return false;
             }
             if (Convert.ToDecimal(tbDilution2.EditValue) == 1
                 && Convert.ToDecimal(tbDilution3.EditValue) >= 0
                 && Convert.ToDecimal(tbDilution3.EditValue) != 1)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Error: Si tiene dilución 3 no puede obviar la dilución 2.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Error: Si tiene dilución 3 no puede obviar la dilución 2.");
                 return false;
             }
             if (Convert.ToInt32(tbLimit_samples.EditValue) <= 0)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Error:El valor del límite de muestras debe ser mayor a 0.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Error:El valor del límite de muestras debe ser mayor a 0.");
                 return false;
             }
             if (Convert.ToInt32(tbNum_days.EditValue) <= 0)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Error: El valor del 'Número de días debe ser mayor a 0'.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Error: El valor del 'Número de días debe ser mayor a 0'.");
                 return false;
             }
             if (Convert.ToInt32(tbNum_samples.EditValue) <= 0)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Error: El valor del 'Número de muestras debe ser mayor a 0'.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Error: El valor del 'Número de muestras debe ser mayor a 0'.");
                 return false;
             }
             if (tbRexp2.Value <= 0)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Error: el valor de R2 debe ser mayor a 0.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Error: el valor de R2 debe ser mayor a 0.");
                 return false;
             }
             if (cbTypePattern.EditValue == null)// && cbMrcOrPattern.EditValue == null)//if (cbTypePattern.EditValue != null && cbMrcOrPattern.EditValue == null)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Error: No ha seleccionado el valor del Mr o Patrón.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Error: No ha seleccionado el valor del Mr o Patrón.");
                 return false;
             }
             if (ckSolInterm.Checked && cbSolIntermType.EditValue == null)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Error: No ha seleccionado la solución intermedia.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Error: No ha seleccionado la solución intermedia.");
                 return false;
             }
             if (ckSolInterm.Checked && cbSolIntermType.EditValue != null
                 && (tbSolIntermConcen.Text.Trim().Length == 0 || tbSolIntermConcen.Value == 0))
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Error: No ingresado laconcentración para la solución intermedia.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Error: No ingresado laconcentración para la solución intermedia.");
                 return false;
             }
             if ((cbMedium.EditValue != null || Convert.ToInt32(cbMedium.EditValue) != 0) && tbMediumConc.Value == 0)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Error: No ha ingresado la concentración del medio.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Error: No ha ingresado la concentración del medio.");
                 return false;
             }
             if ((cbModif.EditValue != null || Convert.ToInt32(cbModif.EditValue) != 0) && tbModifConc.Value == 0)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Error: No ha ingresado la concentración del modificador.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Error: No ha ingresado la concentración del modificador.");
                 return false;
             }
             if (tbValidity_calib.Value == 0)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Error: No ha ingresado la validez de calibración.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Error: No ha ingresado la validez de calibración.");
                 return false;
             }
             if (cbStdType_pattern.EditValue == null) //if (cbStdType_pattern.EditValue != null && cbStdMrcOrPattern.EditValue == null)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Error: No ha ingresado el patrón de solución.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Error: No ha ingresado el patrón de solución.");
                 return false;
             }
             if (ckStdSolIntermOne.Checked && Convert.ToInt32(tbStdConcenOne.EditValue) < 0)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Error: El valor de la solución intermedia 1 no es correcta.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Error: El valor de la solución intermedia 1 no es correcta.");
                 return false;
             }
             if (ckStdSolIntermTwo.Checked && Convert.ToInt32(tbStdConcenTwo.EditValue) < 0)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Error: El valor de la solución intermedia 2 no es correcta.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Error: El valor de la solución intermedia 2 no es correcta.");
                 return false;
             }
             return true;
@@ -303,7 +303,7 @@ namespace LimsProject
             }
             catch (Exception ex)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, ex.Message);
+                ComunForm.Send_message(this.Text, TypeMsg.error, ex.Message);
             }
         }
 
@@ -517,7 +517,8 @@ namespace LimsProject
                 {
                     ModSolution oModSolution = new ModSolution();
 
-                    cbMrcOrPattern.Properties.DataSource = oModSolution.GetLstMrc(Convert.ToInt16(IDElement));
+                    //TODO=MR
+                    //cbMrcOrPattern.Properties.DataSource =  oModSolution.GetLstMrc(Convert.ToInt16(IDElement));
                     cbMrcOrPattern.Properties.DisplayMember = "Name";
                     cbMrcOrPattern.Properties.ValueMember = "Idmr_detail";
 
@@ -531,8 +532,8 @@ namespace LimsProject
                 if (IDElement != null)
                 {
                     ModSolution oModSolution = new ModSolution();
-
-                    cbMrcOrPattern.Properties.DataSource = oModSolution.GetLstPatron(Convert.ToInt16(IDElement));
+                    //TODO=MR
+                    //cbMrcOrPattern.Properties.DataSource = oModSolution.GetLstPatron(Convert.ToInt16(IDElement));
                     cbMrcOrPattern.Properties.DisplayMember = "Name";
                     cbMrcOrPattern.Properties.ValueMember = "Idmr_detail";
 
@@ -546,8 +547,8 @@ namespace LimsProject
                 if (IDElement != null)
                 {
                     ModSolution oModSolution = new ModSolution();
-
-                    cbMrcOrPattern.Properties.DataSource = oModSolution.GetLstSolutions(Convert.ToInt16(IDElement));
+                    //TODO=MR
+                    //cbMrcOrPattern.Properties.DataSource = oModSolution.GetLstSolutions(Convert.ToInt16(IDElement));
                     cbMrcOrPattern.Properties.DisplayMember = "Name";
                     cbMrcOrPattern.Properties.ValueMember = "Idsolution";
 
@@ -600,8 +601,8 @@ namespace LimsProject
                 if (IDElement != null)
                 {
                     ModSolution oModSolution = new ModSolution();
-
-                    cbStdMrcOrPattern.Properties.DataSource = oModSolution.GetLstMrc(Convert.ToInt16(IDElement));
+                    //TODO=MR
+                    //cbStdMrcOrPattern.Properties.DataSource = oModSolution.GetLstMrc(Convert.ToInt16(IDElement));
                     cbStdMrcOrPattern.Properties.DisplayMember = "Name";
                     cbStdMrcOrPattern.Properties.ValueMember = "Idmr_detail";
                     cbStdMrcOrPattern.EditValue = null;
@@ -614,8 +615,8 @@ namespace LimsProject
                 if (IDElement != null)
                 {
                     ModSolution oModSolution = new ModSolution();
-
-                    cbStdMrcOrPattern.Properties.DataSource = oModSolution.GetLstPatron(Convert.ToInt16(IDElement));
+                    //TODO=MR
+                    //cbStdMrcOrPattern.Properties.DataSource = oModSolution.GetLstPatron(Convert.ToInt16(IDElement));
                     cbStdMrcOrPattern.Properties.DisplayMember = "Name";
                     cbStdMrcOrPattern.Properties.ValueMember = "Idmr_detail";
 
@@ -628,8 +629,7 @@ namespace LimsProject
             {
                 if (IDElement != null)
                 {
-                    ModSolution oModSolution = new ModSolution();
-
+                    ModSolution oModSolution = new ModSolution();                    
                     cbStdMrcOrPattern.Properties.DataSource = oModSolution.GetLstSolutions(Convert.ToInt16(IDElement));
                     cbStdMrcOrPattern.Properties.DisplayMember = "Name";
                     cbStdMrcOrPattern.Properties.ValueMember = "Idsolution";
@@ -675,12 +675,8 @@ namespace LimsProject
             {
                 if (IDElement != null)
                 {
-                    ModSolution oModSolution = new ModSolution();
-
-                    cbMrcOrPattern.Properties.DataSource = oModSolution.GetLstMrc(Convert.ToInt16(IDElement));
-                    cbMrcOrPattern.Properties.DisplayMember = "Name";
-                    cbMrcOrPattern.Properties.ValueMember = "Idmr_detail";
-
+                    cbMrcOrPattern.Bind(Comun.TypeMr.Certificado, Convert.ToInt16(IDElement));
+                    
                     cbMrcOrPattern.EditValue = null;
 
                     tbConcentration.Text = "";
@@ -690,11 +686,7 @@ namespace LimsProject
             {
                 if (IDElement != null)
                 {
-                    ModSolution oModSolution = new ModSolution();
-
-                    cbMrcOrPattern.Properties.DataSource = oModSolution.GetLstPatron(Convert.ToInt16(IDElement));
-                    cbMrcOrPattern.Properties.DisplayMember = "Name";
-                    cbMrcOrPattern.Properties.ValueMember = "Idmr_detail";
+                    cbMrcOrPattern.Bind(Comun.TypeMr.SolucionPatron, Convert.ToInt16(IDElement));                    
 
                     cbMrcOrPattern.EditValue = null;
 
@@ -822,11 +814,8 @@ namespace LimsProject
 
         public void RefreshByElement(short pIdelement)
         {
-            IDElement = pIdelement;
-            Methods oMethods = new Methods();
-            cbMaterialRef.Properties.DataSource = oMethods.GetByElement(Convert.ToInt16(IDElement));
-            cbMaterialRef.Properties.DisplayMember = "Cod_mr";
-            cbMaterialRef.Properties.ValueMember = "Idmr_detail";
+            IDElement = pIdelement;            
+            cbMaterialRef.Bind(Convert.ToInt16(IDElement));
         }
 
         public Comun.MethodSaveProperty GetResultTestAA()

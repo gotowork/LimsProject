@@ -508,7 +508,7 @@ namespace LimsProject
 
                     ChangeStatusControls();
 
-                    Comun.Send_message(this.Text, TypeMsg.ok, "");
+                    ComunForm.Send_message(this.Text, TypeMsg.ok, "");
 
                     return true;
                 }
@@ -569,7 +569,7 @@ namespace LimsProject
                 // --- save head      
                 if (!result_company)
                 {
-                    Comun.Send_message(this.Text, TypeMsg.error, "Error al guardar cliente, no se pudo completar la operación.");
+                    ComunForm.Send_message(this.Text, TypeMsg.error, "Error al guardar cliente, no se pudo completar la operación.");
                     return false;
                 }
                                 
@@ -614,7 +614,7 @@ namespace LimsProject
 
                 if (!result_recep_sample)
                 {                
-                    Comun.Send_message(this.Text, TypeMsg.error, "Error al guardar datos en recepción, no se pudo completar la operación.");
+                    ComunForm.Send_message(this.Text, TypeMsg.error, "Error al guardar datos en recepción, no se pudo completar la operación.");
                     return false;
                 }
 
@@ -1223,12 +1223,12 @@ namespace LimsProject
             // --- master: validate combos and textbox
             if (cbTypeSample.EditValue == null)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Error: El tipo de muestra no puede ser vacio.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Error: El tipo de muestra no puede ser vacio.");
                 return false;
             }
             //if (cbCompany.EditValue == null)
             //{
-            //    Comun.Send_message(this.Text, TypeMsg.error, "Error: El nombre del cliente no puede ser vacio.");
+            //    ComunForm.Send_message(this.Text, TypeMsg.error, "Error: El nombre del cliente no puede ser vacio.");
             //    return false;
             //}            
             if (!AreRightContacts())
@@ -1246,7 +1246,7 @@ namespace LimsProject
             //}
             if (gvContact.RowCount == 0)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Error: no agregó ningún solicitante o contacto.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Error: no agregó ningún solicitante o contacto.");
                 return false;
             }
             // --- details: validate the grid of samples
@@ -1259,17 +1259,17 @@ namespace LimsProject
             {
                 if (deResult.Text.Trim() == "")
                 {
-                    Comun.Send_message(this.Text, TypeMsg.error, "Error: la fecha de resultado no puede ser vacía.");
+                    ComunForm.Send_message(this.Text, TypeMsg.error, "Error: la fecha de resultado no puede ser vacía.");
                     return false;
                 }
                 if (deHourResult.Text.Trim() == "")
                 {
-                    Comun.Send_message(this.Text, TypeMsg.error, "Error: la hora de resultado no puede ser vacía.");
+                    ComunForm.Send_message(this.Text, TypeMsg.error, "Error: la hora de resultado no puede ser vacía.");
                     return false;
                 }
                 if (!AreRightDispatch())
                 {
-                    Comun.Send_message(this.Text, TypeMsg.error, "Error: debe seleccionar al menos un tipo de envío.");
+                    ComunForm.Send_message(this.Text, TypeMsg.error, "Error: debe seleccionar al menos un tipo de envío.");
                     return false;
                 }
             }            
@@ -1303,7 +1303,7 @@ namespace LimsProject
             }
             if (!ExistPetitioner)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Error:no se incluyó al solicitante.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Error:no se incluyó al solicitante.");
                 return false;
             }
 
@@ -1312,13 +1312,13 @@ namespace LimsProject
             {
                 if (gvContact.GetRowCellValue(i, gcCon_Allname) == DBNull.Value || gvContact.GetRowCellValue(i, gcCon_Allname) == null)
                 {
-                    Comun.Send_message(this.Text, TypeMsg.error, "Error:no se ingreso el nombre del contacto.");
+                    ComunForm.Send_message(this.Text, TypeMsg.error, "Error:no se ingreso el nombre del contacto.");
                     return false;
                 }
 
                 if (gvContact.GetRowCellValue(i, gcCon_Allname).ToString().Trim() == "")
                 {
-                    Comun.Send_message(this.Text, TypeMsg.error, "Error:no se ingreso el nombre del contacto.");
+                    ComunForm.Send_message(this.Text, TypeMsg.error, "Error:no se ingreso el nombre del contacto.");
                     return false;
                 }
                 bool mail = false;
@@ -1338,7 +1338,7 @@ namespace LimsProject
 
                 if (!mail && !phone && !cellphone)
                 {
-                    Comun.Send_message(this.Text, TypeMsg.error, "Error:no se ingreso, datos de comunicación con el contacto.");
+                    ComunForm.Send_message(this.Text, TypeMsg.error, "Error:no se ingreso, datos de comunicación con el contacto.");
                     return false;
                 } */               
             }
@@ -1350,7 +1350,7 @@ namespace LimsProject
             for (int i = 0; i < gvContact.RowCount; i++)
                 if (gvContact.GetRowCellValue(i, gcCon_Mail).ToString().Trim().Length > 0)
                     return true;
-            Comun.Send_message(this.Text, TypeMsg.error, "Error:no se encontró ningún correo electrónico.");
+            ComunForm.Send_message(this.Text, TypeMsg.error, "Error:no se encontró ningún correo electrónico.");
             return false;
         }
 
@@ -1363,7 +1363,7 @@ namespace LimsProject
             {
                 if (!Comun.ValidateMail(gvContact.GetRowCellValue(i, gcCon_Mail).ToString()))
                 {
-                    Comun.Send_message(this.Text, TypeMsg.error, "Error: error de escritura en el email [" + gvContact.GetRowCellValue(i, gcCon_Mail).ToString() + "]");
+                    ComunForm.Send_message(this.Text, TypeMsg.error, "Error: error de escritura en el email [" + gvContact.GetRowCellValue(i, gcCon_Mail).ToString() + "]");
                     contact_mail = false;
                     break;
                 }
@@ -1593,7 +1593,7 @@ namespace LimsProject
             }
             catch (Exception ex)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, ex.Message);
+                ComunForm.Send_message(this.Text, TypeMsg.error, ex.Message);
             }
         }
 
@@ -1611,7 +1611,7 @@ namespace LimsProject
 
                     if (lstResult.Count() > 0)
                     {
-                        Comun.Send_message(this.Text, TypeMsg.error, "Error. Alguna de las celdas seleccionadas ya fue reportado en un informe parcial.");
+                        ComunForm.Send_message(this.Text, TypeMsg.error, "Error. Alguna de las celdas seleccionadas ya fue reportado en un informe parcial.");
                         return true;
                     }
                 }
@@ -1627,9 +1627,9 @@ namespace LimsProject
                     || gvReception.GetRowCellValue(cell.RowHandle, cell.Column).ToString().Contains('-'))
                 {
                     if (gvReception.GetRowCellValue(cell.RowHandle, cell.Column).ToString().Trim() == "")
-                        Comun.Send_message(this.Text, TypeMsg.error, "Error. Se seleccionó una celda que aún no tiene resultado.");
+                        ComunForm.Send_message(this.Text, TypeMsg.error, "Error. Se seleccionó una celda que aún no tiene resultado.");
                     if (gvReception.GetRowCellValue(cell.RowHandle, cell.Column).ToString().Contains('-'))
-                        Comun.Send_message(this.Text, TypeMsg.error, "Error. Se seleccionó una celda que no tiene ensayo.");
+                        ComunForm.Send_message(this.Text, TypeMsg.error, "Error. Se seleccionó una celda que no tiene ensayo.");
                     return true;
 
                 }
@@ -1654,7 +1654,7 @@ namespace LimsProject
             {
                 if (gvReception.GetRowCellValue(item.row, item.col).ToString().Trim() == "")
                 {
-                    Comun.Send_message(this.Text, TypeMsg.error, "No es posible reportar, los resultados no estan completos.");
+                    ComunForm.Send_message(this.Text, TypeMsg.error, "No es posible reportar, los resultados no estan completos.");
                     result = false;
                     break;
                 }
@@ -2037,7 +2037,7 @@ namespace LimsProject
                 if (gvReception.GetRowCellValue(i, gcRec_Description) == null
                     || gvReception.GetRowCellValue(i, gcRec_Description).ToString().Trim().Length == 0)
                 {
-                    Comun.Send_message(this.Text, TypeMsg.error, "No se seleccionó una descripción en la fila "+(i+1).ToString());
+                    ComunForm.Send_message(this.Text, TypeMsg.error, "No se seleccionó una descripción en la fila "+(i+1).ToString());
                     return false;
                 }
                 if (typeModuleOpen == typeModule.RegisterReception)
@@ -2045,24 +2045,24 @@ namespace LimsProject
                     if (gvReception.GetRowCellValue(i, gcRec_Procedence) == null
                         || gvReception.GetRowCellValue(i, gcRec_Procedence).ToString().Trim().Length == 0)
                     {
-                        Comun.Send_message(this.Text, TypeMsg.error, "No se ingresó nombre de procedencia en la fila " + (i + 1).ToString());
+                        ComunForm.Send_message(this.Text, TypeMsg.error, "No se ingresó nombre de procedencia en la fila " + (i + 1).ToString());
                         return false;
                     }
                 }
                 if (gvReception.GetRowCellValue(i, gcRec_Type_Sample) == null)
                 {
-                    Comun.Send_message(this.Text, TypeMsg.error, "No se seleccionó una tipo de muestra en la fila "+(i+1).ToString());
+                    ComunForm.Send_message(this.Text, TypeMsg.error, "No se seleccionó una tipo de muestra en la fila "+(i+1).ToString());
                     return false;
                 }
                 if (gvReception.GetRowCellValue(i, gcRec_NameSample) == null 
                     || gvReception.GetRowCellValue(i, gcRec_NameSample).ToString().Length == 0)
                 {
-                    Comun.Send_message(this.Text, TypeMsg.error, "No se asignó un nombre de muestra a la fila " + (i+1).ToString());
+                    ComunForm.Send_message(this.Text, TypeMsg.error, "No se asignó un nombre de muestra a la fila " + (i+1).ToString());
                     return false;
                 }
                 if (gvReception.GetRowCellValue(i, gcRec_CantKg).ToString().Trim().Length == 0)
                 {
-                    Comun.Send_message(this.Text, TypeMsg.error, "No se ingresó correctamente la cantidad de kilogramos en la fila " + (i+1).ToString());
+                    ComunForm.Send_message(this.Text, TypeMsg.error, "No se ingresó correctamente la cantidad de kilogramos en la fila " + (i+1).ToString());
                     return false;
                 }
             }

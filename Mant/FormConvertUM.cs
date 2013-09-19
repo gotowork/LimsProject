@@ -91,7 +91,7 @@ namespace LimsProject
                     || gvConvertionUM.GetRowCellValue(i, gcUmc_factor) == null)
                 {
                     string error = "Error: En la fila {0} se requiere llenar todos los campos.";
-                    Comun.Send_message(this.Text, TypeMsg.error, string.Format(error, i.ToString()));
+                    ComunForm.Send_message(this.Text, TypeMsg.error, string.Format(error, i.ToString()));
                     return false;
                 }
             }

@@ -28,12 +28,12 @@ namespace LimsProject
             {
                 if (item.Name_group.Trim().Length == 0)
                 {
-                    Comun.Send_message(this.Text, TypeMsg.error, "Error al escribir nombre de grupo.");
+                    ComunForm.Send_message(this.Text, TypeMsg.error, "Error al escribir nombre de grupo.");
                     return false;                    
                 }
                 if (item.Sigla.Trim().Length == 0)
                 {
-                    Comun.Send_message(this.Text, TypeMsg.error, "Error al escribir sigla.");
+                    ComunForm.Send_message(this.Text, TypeMsg.error, "Error al escribir sigla.");
                     return false;
                 }
             }

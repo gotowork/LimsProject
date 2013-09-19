@@ -54,7 +54,7 @@ namespace LimsProject
             if (AreUserAndPwdRight())
             {
                 this.DialogResult = DialogResult.OK;
-                Comun.Send_user();
+                ComunForm.Send_user();
             }
             else
             {

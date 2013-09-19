@@ -178,23 +178,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="cbCustomSolutionPatron.cs">
+    <Compile Include="ComunClass\ComunForm.cs" />
+    <Compile Include="UserControls\cbReactive.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="cbCustomSolutionPatron.Designer.cs">
-      <DependentUpon>cbCustomSolutionPatron.cs</DependentUpon>
-    </Compile>
-    <Compile Include="cbReactive.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="cbReactive.Designer.cs">
+    <Compile Include="UserControls\cbReactive.Designer.cs">
       <DependentUpon>cbReactive.cs</DependentUpon>
-    </Compile>
-    <Compile Include="cbCustomSolutionMrc.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="cbCustomSolutionMrc.Designer.cs">
-      <DependentUpon>cbCustomSolutionMrc.cs</DependentUpon>
     </Compile>
     <Compile Include="Solutions\FormSolInterm.cs">
       <SubType>Form</SubType>
@@ -250,12 +239,6 @@
     </Compile>
     <Compile Include="Solutions\UcSelectMethods.designer.cs">
       <DependentUpon>UcSelectMethods.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Solutions\UcSolInterm.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Solutions\UcSolInterm.Designer.cs">
-      <DependentUpon>UcSolInterm.cs</DependentUpon>
     </Compile>
     <Compile Include="Solutions\ucTreeSolution.cs">
       <SubType>UserControl</SubType>
@@ -396,7 +379,6 @@
     <Compile Include="Solutions\FormTypeSolution.Designer.cs">
       <DependentUpon>FormTypeSolution.cs</DependentUpon>
     </Compile>
-    <Compile Include="ComunClass\Comun.cs" />
     <Compile Include="Methods\CUtilMethod.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -705,9 +687,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Solutions\UcSelectMethods.resx">
       <DependentUpon>UcSelectMethods.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Solutions\UcSolInterm.resx">
-      <DependentUpon>UcSolInterm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UcOtherMethods.resx">
       <DependentUpon>UcOtherMethods.cs</DependentUpon>

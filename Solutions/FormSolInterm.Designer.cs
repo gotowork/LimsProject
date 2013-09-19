@@ -35,22 +35,22 @@
             this.tcol_Solution_status = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.repStatusSolution = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
             this.paHeader = new DevExpress.XtraEditors.PanelControl();
-            this.cbElement1 = new LimsProject.cbElement();
-            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.cbModif = new LimsProject.cbReactive();
             this.cbMedium = new LimsProject.cbReactive();
-            this.cbTypeSolPatron = new DevExpress.XtraEditors.ImageComboBoxEdit();
+            this.cbMrpattern = new LimsProject.cbMR();
             this.label1 = new System.Windows.Forms.Label();
+            this.cbElement1 = new LimsProject.cbElement();
             this.label16 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.tbUnd = new DevExpress.XtraEditors.TextEdit();
-            this.tbConcentPattern = new DevExpress.XtraEditors.TextEdit();
-            this.label14 = new System.Windows.Forms.Label();
-            this.cbMrpattern = new DevExpress.XtraEditors.LookUpEdit();
-            this.label13 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.tbUnd = new DevExpress.XtraEditors.TextEdit();
+            this.cbTypeSolPatron = new DevExpress.XtraEditors.ImageComboBoxEdit();
+            this.tbConcentPattern = new DevExpress.XtraEditors.TextEdit();
             this.cbMethod1 = new LimsProject.cbMethod();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.expandablePanel1 = new DevComponents.DotNetBar.ExpandablePanel();
             this.treeSolution = new DevExpress.XtraTreeList.TreeList();
             this.treeListColumn1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
@@ -96,15 +96,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.repStatusSolution)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.paHeader)).BeginInit();
             this.paHeader.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cbElement1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
-            this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbModif.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbMedium.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbTypeSolPatron.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbUnd.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbConcentPattern.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbMrpattern.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbElement1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbUnd.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbTypeSolPatron.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbConcentPattern.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbMethod1.Properties)).BeginInit();
             this.expandablePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.treeSolution)).BeginInit();
@@ -120,20 +118,20 @@
             // 
             // laTitle
             // 
-            this.laTitle.Size = new System.Drawing.Size(659, 431);
+            this.laTitle.Size = new System.Drawing.Size(988, 431);
             // 
             // paTitle
             // 
             this.paTitle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.paTitle.Location = new System.Drawing.Point(0, 26);
-            this.paTitle.Size = new System.Drawing.Size(663, 435);
+            this.paTitle.Size = new System.Drawing.Size(992, 435);
             this.paTitle.Visible = false;
             // 
             // paBottom
             // 
             this.paBottom.Controls.Add(this.ucSign1);
             this.paBottom.Location = new System.Drawing.Point(0, 415);
-            this.paBottom.Size = new System.Drawing.Size(663, 46);
+            this.paBottom.Size = new System.Drawing.Size(992, 46);
             // 
             // paCenter
             // 
@@ -141,17 +139,17 @@
             this.paCenter.Controls.Add(this.paHeader);
             this.paCenter.Controls.Add(this.expandablePanel1);
             this.paCenter.Location = new System.Drawing.Point(0, 58);
-            this.paCenter.Size = new System.Drawing.Size(663, 357);
+            this.paCenter.Size = new System.Drawing.Size(992, 357);
             // 
             // paTop
             // 
             this.paTop.Location = new System.Drawing.Point(0, 26);
-            this.paTop.Size = new System.Drawing.Size(663, 32);
+            this.paTop.Size = new System.Drawing.Size(992, 32);
             this.paTop.Visible = false;
             // 
             // panelControl1
             // 
-            this.panelControl1.Size = new System.Drawing.Size(663, 26);
+            this.panelControl1.Size = new System.Drawing.Size(992, 26);
             this.panelControl1.Visible = false;
             // 
             // tcol_Solution_status
@@ -174,176 +172,132 @@
             // 
             // paHeader
             // 
+            this.paHeader.Controls.Add(this.cbModif);
+            this.paHeader.Controls.Add(this.cbMedium);
+            this.paHeader.Controls.Add(this.cbMrpattern);
+            this.paHeader.Controls.Add(this.label1);
             this.paHeader.Controls.Add(this.cbElement1);
-            this.paHeader.Controls.Add(this.panelControl2);
+            this.paHeader.Controls.Add(this.label16);
+            this.paHeader.Controls.Add(this.label5);
+            this.paHeader.Controls.Add(this.label3);
+            this.paHeader.Controls.Add(this.label15);
             this.paHeader.Controls.Add(this.label2);
+            this.paHeader.Controls.Add(this.tbUnd);
+            this.paHeader.Controls.Add(this.cbTypeSolPatron);
+            this.paHeader.Controls.Add(this.tbConcentPattern);
             this.paHeader.Controls.Add(this.cbMethod1);
+            this.paHeader.Controls.Add(this.label14);
+            this.paHeader.Controls.Add(this.label13);
             this.paHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.paHeader.Location = new System.Drawing.Point(168, 2);
             this.paHeader.Name = "paHeader";
             this.paHeader.Padding = new System.Windows.Forms.Padding(10);
-            this.paHeader.Size = new System.Drawing.Size(493, 99);
+            this.paHeader.Size = new System.Drawing.Size(822, 77);
             this.paHeader.TabIndex = 37;
             this.paHeader.Text = "panelControl2";
             // 
-            // cbElement1
-            // 
-            this.cbElement1.Location = new System.Drawing.Point(65, 12);
-            this.cbElement1.Name = "cbElement1";
-            this.cbElement1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbElement1.Size = new System.Drawing.Size(100, 20);
-            this.cbElement1.TabIndex = 0;
-            this.cbElement1.EditValueChanged += new System.EventHandler(this.cbElement1_EditValueChanged);
-            // 
-            // panelControl2
-            // 
-            this.panelControl2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl2.Controls.Add(this.cbModif);
-            this.panelControl2.Controls.Add(this.cbMedium);
-            this.panelControl2.Controls.Add(this.cbTypeSolPatron);
-            this.panelControl2.Controls.Add(this.label1);
-            this.panelControl2.Controls.Add(this.label16);
-            this.panelControl2.Controls.Add(this.label5);
-            this.panelControl2.Controls.Add(this.label15);
-            this.panelControl2.Controls.Add(this.tbUnd);
-            this.panelControl2.Controls.Add(this.tbConcentPattern);
-            this.panelControl2.Controls.Add(this.label14);
-            this.panelControl2.Controls.Add(this.cbMrpattern);
-            this.panelControl2.Controls.Add(this.label13);
-            this.panelControl2.Location = new System.Drawing.Point(15, 36);
-            this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(603, 55);
-            this.panelControl2.TabIndex = 32;
-            this.panelControl2.Text = "panelControl2";
-            // 
             // cbModif
             // 
-            this.cbModif.Location = new System.Drawing.Point(480, 25);
+            this.cbModif.Location = new System.Drawing.Point(486, 45);
             this.cbModif.Name = "cbModif";
+            this.cbModif.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.cbModif.Properties.Appearance.Options.UseBackColor = true;
             this.cbModif.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, DevExpress.Utils.HorzAlignment.Center, null)});
+            this.cbModif.Properties.NullText = "";
+            this.cbModif.Properties.ReadOnly = true;
+            this.cbModif.Properties.ShowDropDown = DevExpress.XtraEditors.Controls.ShowDropDown.Never;
             this.cbModif.Size = new System.Drawing.Size(112, 20);
             this.cbModif.TabIndex = 32;
+            this.cbModif.TabStop = false;
             // 
             // cbMedium
             // 
-            this.cbMedium.Location = new System.Drawing.Point(352, 25);
+            this.cbMedium.Location = new System.Drawing.Point(297, 45);
             this.cbMedium.Name = "cbMedium";
+            this.cbMedium.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.cbMedium.Properties.Appearance.Options.UseBackColor = true;
             this.cbMedium.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, DevExpress.Utils.HorzAlignment.Center, null)});
+            this.cbMedium.Properties.NullText = "";
+            this.cbMedium.Properties.ReadOnly = true;
+            this.cbMedium.Properties.ShowDropDown = DevExpress.XtraEditors.Controls.ShowDropDown.Never;
             this.cbMedium.Size = new System.Drawing.Size(112, 20);
             this.cbMedium.TabIndex = 31;
+            this.cbMedium.TabStop = false;
             // 
-            // cbTypeSolPatron
+            // cbMrpattern
             // 
-            this.cbTypeSolPatron.Location = new System.Drawing.Point(8, 25);
-            this.cbTypeSolPatron.Name = "cbTypeSolPatron";
-            this.cbTypeSolPatron.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.cbTypeSolPatron.Properties.Appearance.Options.UseFont = true;
-            this.cbTypeSolPatron.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.cbMrpattern.Location = new System.Drawing.Point(694, 22);
+            this.cbMrpattern.Name = "cbMrpattern";
+            this.cbMrpattern.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbTypeSolPatron.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("MRC", 1, -1),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Sol. Patron", 2, -1)});
-            this.cbTypeSolPatron.Size = new System.Drawing.Size(100, 20);
-            this.cbTypeSolPatron.TabIndex = 28;
+            this.cbMrpattern.Properties.NullText = "Seleccionar";
+            this.cbMrpattern.Size = new System.Drawing.Size(100, 20);
+            this.cbMrpattern.TabIndex = 2;
+            this.cbMrpattern.EditValueChanged += new System.EventHandler(this.cbMrpattern_EditValueChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(305, 7);
+            this.label1.Location = new System.Drawing.Point(189, 48);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(27, 13);
+            this.label1.Size = new System.Drawing.Size(30, 13);
             this.label1.TabIndex = 22;
-            this.label1.Text = "Und";
+            this.label1.Text = "Und:";
+            // 
+            // cbElement1
+            // 
+            this.cbElement1.Location = new System.Drawing.Point(15, 22);
+            this.cbElement1.Name = "cbElement1";
+            this.cbElement1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbElement1.Size = new System.Drawing.Size(95, 20);
+            this.cbElement1.TabIndex = 0;
+            this.cbElement1.EditValueChanged += new System.EventHandler(this.cbElement1_EditValueChanged);
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(490, 7);
+            this.label16.Location = new System.Drawing.Point(415, 48);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(36, 13);
+            this.label16.Size = new System.Drawing.Size(65, 13);
             this.label16.TabIndex = 20;
-            this.label16.Text = "Modif:";
+            this.label16.Text = "Modificador:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(220, 7);
+            this.label5.Location = new System.Drawing.Point(16, 48);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(76, 13);
+            this.label5.Size = new System.Drawing.Size(79, 13);
             this.label5.TabIndex = 22;
-            this.label5.Text = "Concentración";
+            this.label5.Text = "Concentración:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(120, 6);
+            this.label3.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.label3.Name = "label3";
+            this.label3.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
+            this.label3.Size = new System.Drawing.Size(46, 15);
+            this.label3.TabIndex = 34;
+            this.label3.Text = "Método:";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(362, 7);
+            this.label15.Location = new System.Drawing.Point(252, 48);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(39, 13);
             this.label15.TabIndex = 21;
             this.label15.Text = "Medio:";
             // 
-            // tbUnd
-            // 
-            this.tbUnd.Location = new System.Drawing.Point(308, 25);
-            this.tbUnd.Name = "tbUnd";
-            this.tbUnd.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.tbUnd.Properties.Appearance.Options.UseFont = true;
-            this.tbUnd.Size = new System.Drawing.Size(24, 20);
-            this.tbUnd.TabIndex = 30;
-            // 
-            // tbConcentPattern
-            // 
-            this.tbConcentPattern.EditValue = "";
-            this.tbConcentPattern.Location = new System.Drawing.Point(220, 25);
-            this.tbConcentPattern.Name = "tbConcentPattern";
-            this.tbConcentPattern.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.tbConcentPattern.Properties.Appearance.Options.UseFont = true;
-            this.tbConcentPattern.Size = new System.Drawing.Size(85, 20);
-            this.tbConcentPattern.TabIndex = 30;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(12, 7);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(63, 13);
-            this.label14.TabIndex = 27;
-            this.label14.Text = "Tipo de MR";
-            // 
-            // cbMrpattern
-            // 
-            this.cbMrpattern.Location = new System.Drawing.Point(114, 25);
-            this.cbMrpattern.Name = "cbMrpattern";
-            this.cbMrpattern.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.cbMrpattern.Properties.Appearance.Options.UseFont = true;
-            this.cbMrpattern.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbMrpattern.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Idmr_detail", "", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Idsolution", "", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None)});
-            this.cbMrpattern.Properties.NullText = "Seleccionar";
-            this.cbMrpattern.Properties.ShowFooter = false;
-            this.cbMrpattern.Properties.ShowHeader = false;
-            this.cbMrpattern.Size = new System.Drawing.Size(100, 20);
-            this.cbMrpattern.TabIndex = 26;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(131, 7);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(46, 13);
-            this.label13.TabIndex = 27;
-            this.label13.Text = "Cod MR";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 12);
+            this.label2.Location = new System.Drawing.Point(18, 4);
             this.label2.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.label2.Name = "label2";
             this.label2.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
@@ -351,15 +305,75 @@
             this.label2.TabIndex = 34;
             this.label2.Text = "Elemento:";
             // 
+            // tbUnd
+            // 
+            this.tbUnd.Location = new System.Drawing.Point(222, 45);
+            this.tbUnd.Name = "tbUnd";
+            this.tbUnd.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.tbUnd.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.tbUnd.Properties.Appearance.Options.UseBackColor = true;
+            this.tbUnd.Properties.Appearance.Options.UseFont = true;
+            this.tbUnd.Size = new System.Drawing.Size(24, 20);
+            this.tbUnd.TabIndex = 30;
+            this.tbUnd.TabStop = false;
+            // 
+            // cbTypeSolPatron
+            // 
+            this.cbTypeSolPatron.Location = new System.Drawing.Point(592, 22);
+            this.cbTypeSolPatron.Name = "cbTypeSolPatron";
+            this.cbTypeSolPatron.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, DevExpress.Utils.HorzAlignment.Center, null)});
+            this.cbTypeSolPatron.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("MRC", 1, -1),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Sol. Patron", 2, -1)});
+            this.cbTypeSolPatron.Properties.ReadOnly = true;
+            this.cbTypeSolPatron.Properties.ShowDropDown = DevExpress.XtraEditors.Controls.ShowDropDown.Never;
+            this.cbTypeSolPatron.Size = new System.Drawing.Size(100, 20);
+            this.cbTypeSolPatron.TabIndex = 28;
+            this.cbTypeSolPatron.TabStop = false;
+            this.cbTypeSolPatron.SelectedIndexChanged += new System.EventHandler(this.cbTypeSolPatron_SelectedIndexChanged);
+            // 
+            // tbConcentPattern
+            // 
+            this.tbConcentPattern.EditValue = "";
+            this.tbConcentPattern.Location = new System.Drawing.Point(98, 45);
+            this.tbConcentPattern.Name = "tbConcentPattern";
+            this.tbConcentPattern.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.tbConcentPattern.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.tbConcentPattern.Properties.Appearance.Options.UseBackColor = true;
+            this.tbConcentPattern.Properties.Appearance.Options.UseFont = true;
+            this.tbConcentPattern.Size = new System.Drawing.Size(85, 20);
+            this.tbConcentPattern.TabIndex = 30;
+            this.tbConcentPattern.TabStop = false;
+            // 
             // cbMethod1
             // 
-            this.cbMethod1.Location = new System.Drawing.Point(166, 12);
+            this.cbMethod1.Location = new System.Drawing.Point(116, 22);
             this.cbMethod1.Name = "cbMethod1";
             this.cbMethod1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbMethod1.Size = new System.Drawing.Size(481, 20);
-            this.cbMethod1.TabIndex = 33;
+            this.cbMethod1.Properties.NullText = "Seleccionar";
+            this.cbMethod1.Size = new System.Drawing.Size(470, 20);
+            this.cbMethod1.TabIndex = 1;
             this.cbMethod1.EditValueChanged += new System.EventHandler(this.cbMethod1_EditValueChanged);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(595, 4);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(63, 13);
+            this.label14.TabIndex = 27;
+            this.label14.Text = "Tipo de MR";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(698, 4);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(75, 13);
+            this.label13.TabIndex = 27;
+            this.label13.Text = "Codigo de MR";
             // 
             // expandablePanel1
             // 
@@ -556,7 +570,7 @@
             styleFormatCondition2});
             this.treeSolInterm.ImageIndexFieldName = "Image_index";
             this.treeSolInterm.KeyFieldName = "Id";
-            this.treeSolInterm.Location = new System.Drawing.Point(168, 101);
+            this.treeSolInterm.Location = new System.Drawing.Point(168, 79);
             this.treeSolInterm.Name = "treeSolInterm";
             this.treeSolInterm.OptionsView.AutoWidth = false;
             this.treeSolInterm.OptionsView.EnableAppearanceEvenRow = true;
@@ -571,7 +585,7 @@
             this.repVolumen,
             this.repBtOpenMethods});
             this.treeSolInterm.SelectImageList = this.imageList1;
-            this.treeSolInterm.Size = new System.Drawing.Size(493, 254);
+            this.treeSolInterm.Size = new System.Drawing.Size(822, 276);
             this.treeSolInterm.TabIndex = 40;
             this.treeSolInterm.CellValueChanged += new DevExpress.XtraTreeList.CellValueChangedEventHandler(this.treeSolInterm_CellValueChanged);
             this.treeSolInterm.MouseDown += new System.Windows.Forms.MouseEventHandler(this.treeSolInterm_MouseDown);
@@ -722,6 +736,7 @@
             this.tcol_Prepared_by.FieldName = "Prepared_by";
             this.tcol_Prepared_by.Name = "tcol_Prepared_by";
             this.tcol_Prepared_by.VisibleIndex = 11;
+            this.tcol_Prepared_by.Width = 85;
             // 
             // repUser
             // 
@@ -737,17 +752,21 @@
             // 
             // tcol_Concat_methods
             // 
-            this.tcol_Concat_methods.Caption = "Métodos";
+            this.tcol_Concat_methods.Caption = "Metodos";
             this.tcol_Concat_methods.ColumnEdit = this.repBtOpenMethods;
             this.tcol_Concat_methods.FieldName = "Concat_cod_methods";
             this.tcol_Concat_methods.Name = "tcol_Concat_methods";
+            this.tcol_Concat_methods.VisibleIndex = 12;
+            this.tcol_Concat_methods.Width = 56;
             // 
             // repBtOpenMethods
             // 
             this.repBtOpenMethods.AutoHeight = false;
             this.repBtOpenMethods.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Ver", -1, true, true, false, DevExpress.Utils.HorzAlignment.Center, null)});
             this.repBtOpenMethods.Name = "repBtOpenMethods";
+            this.repBtOpenMethods.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.repBtOpenMethods.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repBtOpenMethods_ButtonClick_1);
             // 
             // tcol_Idsolution
             // 
@@ -793,19 +812,21 @@
             // 
             // ucSign1
             // 
-            this.ucSign1.Location = new System.Drawing.Point(496, 3);
+            this.ucSign1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ucSign1.Location = new System.Drawing.Point(829, 4);
             this.ucSign1.Margin = new System.Windows.Forms.Padding(0);
             this.ucSign1.Name = "ucSign1";
             this.ucSign1.Pwd = null;
             this.ucSign1.Size = new System.Drawing.Size(158, 40);
             this.ucSign1.TabIndex = 7;
             this.ucSign1.Title = "";
+            this.ucSign1.OnSign += new LimsProject.sign(this.ucSign1_OnSign);
             // 
             // FormSolInterm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(663, 461);
+            this.ClientSize = new System.Drawing.Size(992, 461);
             this.Name = "FormSolInterm";
             this.Text = "Soluciones Intermedias";
             this.Load += new System.EventHandler(this.FormSolInterm_Load);
@@ -826,16 +847,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.paHeader)).EndInit();
             this.paHeader.ResumeLayout(false);
             this.paHeader.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cbElement1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
-            this.panelControl2.ResumeLayout(false);
-            this.panelControl2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbModif.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbMedium.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbTypeSolPatron.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbUnd.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbConcentPattern.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbMrpattern.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbElement1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbUnd.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbTypeSolPatron.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbConcentPattern.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbMethod1.Properties)).EndInit();
             this.expandablePanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.treeSolution)).EndInit();
@@ -854,7 +872,6 @@
         #endregion
 
         private DevExpress.XtraEditors.PanelControl paHeader;
-        private DevExpress.XtraEditors.PanelControl panelControl2;
         private cbReactive cbModif;
         private cbReactive cbMedium;
         private DevExpress.XtraEditors.ImageComboBoxEdit cbTypeSolPatron;
@@ -865,7 +882,6 @@
         private DevExpress.XtraEditors.TextEdit tbUnd;
         private DevExpress.XtraEditors.TextEdit tbConcentPattern;
         private System.Windows.Forms.Label label14;
-        private DevExpress.XtraEditors.LookUpEdit cbMrpattern;
         private System.Windows.Forms.Label label13;
         private cbMethod cbMethod1;
         private DevComponents.DotNetBar.ExpandablePanel expandablePanel1;
@@ -906,6 +922,8 @@
         private System.Windows.Forms.ToolStripMenuItem btNewSolStdVer;
         private System.Windows.Forms.ImageList imageList1;
         private cbElement cbElement1;
+        private cbMR cbMrpattern;
+        private System.Windows.Forms.Label label3;
 
     }
 }

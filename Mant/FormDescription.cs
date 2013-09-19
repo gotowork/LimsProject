@@ -79,12 +79,12 @@ namespace LimsProject
         {
             if (tbCode.Text.Trim() == "")
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Error: No se admite el campo código vacio.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Error: No se admite el campo código vacio.");
                 return false;
             }
             if (tbDescription.Text.Trim() == "")
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Error: No se admite el campo descripción vacio.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Error: No se admite el campo descripción vacio.");
                 return false;
             }
             return true;

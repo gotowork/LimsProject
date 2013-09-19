@@ -37,7 +37,7 @@ namespace LimsProject
             }
             catch (Exception ex)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, ex.Message);
+                ComunForm.Send_message(this.Text, TypeMsg.error, ex.Message);
             }
             #endregion
         }
@@ -46,12 +46,12 @@ namespace LimsProject
         {
             if (tbSymbol.Text.Trim().Length == 0)
             {
-                Comun.Send_message("Analisis de Humedad", TypeMsg.error, "No se ingreso el simbolo del análisis");
+                ComunForm.Send_message("Analisis de Humedad", TypeMsg.error, "No se ingreso el simbolo del análisis");
                 return false;
             }
             if (cbUnit_result.EditValue == null)
             {
-                Comun.Send_message("Analisis de Humedad", TypeMsg.error, "No se ingresó la unidad de medida.");
+                ComunForm.Send_message("Analisis de Humedad", TypeMsg.error, "No se ingresó la unidad de medida.");
                 return false;
             }
             return true;
@@ -84,7 +84,7 @@ namespace LimsProject
             }
             catch (Exception ex)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, ex.Message);
+                ComunForm.Send_message(this.Text, TypeMsg.error, ex.Message);
             }
         }
 

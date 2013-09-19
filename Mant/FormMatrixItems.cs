@@ -35,17 +35,17 @@ namespace LimsProject
             {
                 if (item.Description.Trim().Length == 0)
                 {
-                    Comun.Send_message(this.Text, TypeMsg.error, "Error al ingresar la descripción de un item.");
+                    ComunForm.Send_message(this.Text, TypeMsg.error, "Error al ingresar la descripción de un item.");
                     return false;
                 }
                 if (item.Name_item.Trim().Length == 0)
                 {
-                    Comun.Send_message(this.Text, TypeMsg.error, "Error al ingresar el nombre de la matriz.");
+                    ComunForm.Send_message(this.Text, TypeMsg.error, "Error al ingresar el nombre de la matriz.");
                     return false;
                 }
                 if (item.Idmatrix_group == null)
                 {
-                    Comun.Send_message(this.Text, TypeMsg.error, "Error al ingresar el grupo de la matriz");
+                    ComunForm.Send_message(this.Text, TypeMsg.error, "Error al ingresar el grupo de la matriz");
                     return false;
                 }
             }

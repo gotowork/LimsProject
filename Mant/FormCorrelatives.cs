@@ -82,7 +82,7 @@ namespace LimsProject
             }
             catch (Exception ex)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, ex.Message);
+                ComunForm.Send_message(this.Text, TypeMsg.error, ex.Message);
                 result = false;
             }
 
@@ -122,7 +122,7 @@ namespace LimsProject
         {
             if (!EsColumnPrefixRigth())
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Error la columna prefijo no puede ser vacia");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Error la columna prefijo no puede ser vacia");
                 return false;
             }
             return true;

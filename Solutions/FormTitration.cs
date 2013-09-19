@@ -201,7 +201,7 @@ namespace LimsProject
                 ucSignFactor.Title = "Analista 1";
             }
             else
-                Comun.Send_message(this.Text, TypeMsg.error, "No se pudo completar la operación.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "No se pudo completar la operación.");
         }
 
         private void cbShowPanel_SelectedValueChanged(object sender, EventArgs e)
@@ -245,7 +245,7 @@ namespace LimsProject
                     this.DialogResult = System.Windows.Forms.DialogResult.OK;
                 else
                 {
-                    Comun.Send_message(this.Text, TypeMsg.error, "Error de conexión.");
+                    ComunForm.Send_message(this.Text, TypeMsg.error, "Error de conexión.");
                     this.DialogResult = System.Windows.Forms.DialogResult.Cancel;
                 }
             }

@@ -19,15 +19,13 @@ namespace LimsProject
         CGroup_solution group_solution = null;
         ModSolInterm modSolInterm = new ModSolInterm();
         ModSolution modSolution = new ModSolution();
-        List<CSolution> lstSolution = new List<CSolution>();
+        List<CSolution_interm> lstSolution = new List<CSolution_interm>();
         CTemplate_method_aa template_method_aa = new CTemplate_method_aa();
 
         TreeListNode nodeSolutionInProcess = null;
 
         BindingList<CCustom_method_solution> LstTemplate_method { get; set; }
-        short? Idelement { get; set; }
-
-        public event signSolInterm onSignSolInterm;
+        short? Idelement { get; set; }        
 
         DevExpress.XtraTreeList.Nodes.TreeListNode treeSolInterm1;
         DevExpress.XtraTreeList.Nodes.TreeListNode treeSolInterm2;
@@ -93,7 +91,7 @@ namespace LimsProject
             }
             catch (Exception ex)
             {
-                Comun.Send_message("Soluciones", TypeMsg.error, ex.Message);
+                ComunForm.Send_message("Soluciones", TypeMsg.error, ex.Message);
             }
         }
 
@@ -117,6 +115,7 @@ namespace LimsProject
             {
                 cbMedium.EditValue = template_method_aa.Medium;
                 cbModif.EditValue = template_method_aa.Modif;
+                cbTypeSolPatron.EditValue = null;
                 cbTypeSolPatron.EditValue = template_method_aa.Type_pattern;
             }  
         }
@@ -130,70 +129,62 @@ namespace LimsProject
             InitCombos();
             InitHeader();
             InitTreeSolution();
-
         }
 
         public void InitTreeLeft()
         {
-            treeSolInterm1 = treeSolution.Nodes[0];
-            treeSolInterm2 = treeSolution.Nodes[1];
-            treeStdVerif = treeSolution.Nodes[2];
+            //treeSolInterm1 = treeSolution.Nodes[0];
+            //treeSolInterm2 = treeSolution.Nodes[1];
+            //treeStdVerif = treeSolution.Nodes[2];
 
-            // --- solutions                        
-            treeSolInterm1.Tag = Convert.ToInt32(typeSolution.SolInterm1);
-            treeSolInterm2.Tag = Convert.ToInt32(typeSolution.SolInterm2);
-            treeStdVerif.Tag = Convert.ToInt32(typeSolution.StdVerif);
+            //// --- solutions                        
+            //treeSolInterm1.Tag = Convert.ToInt32(typeSolution.SolInterm1);
+            //treeSolInterm2.Tag = Convert.ToInt32(typeSolution.SolInterm2);
+            //treeStdVerif.Tag = Convert.ToInt32(typeSolution.StdVerif);
 
-            ModSolution oModSolution = new ModSolution();
-            CGroup_solutionFactory faGroup_solution = new CGroup_solutionFactory();
-            List<CGroup_solution> lstGroup_solution =
-                faGroup_solution
-                .GetAll()
-                .Where(x => x.Type_solution == Convert.ToInt32(typeSolution.SolInterm1)
-                    || x.Type_solution == Convert.ToInt32(typeSolution.SolInterm2)
-                    || x.Type_solution == Convert.ToInt32(typeSolution.StdVerif)).ToList();
+            //ModSolution oModSolution = new ModSolution();
+            //CGroup_solutionFactory faGroup_solution = new CGroup_solutionFactory();
+            //List<CGroup_solution> lstGroup_solution =
+            //    faGroup_solution
+            //    .GetAll()
+            //    .Where(x => x.Type_solution == Convert.ToInt32(typeSolution.SolInterm1)
+            //        || x.Type_solution == Convert.ToInt32(typeSolution.SolInterm2)
+            //        || x.Type_solution == Convert.ToInt32(typeSolution.StdVerif)).ToList();
 
-            // 1:SC, 2:SI-1, 3:SI-2, 4:EV, 5:ST
-            foreach (var item in lstGroup_solution)
-            {
-                // solución intermedia 1, 2 y estandar de verificación
-                if (item.Type_solution == 2 || item.Type_solution == 3 || item.Type_solution == 4) // --- agregar filas de la tabla de soluciones (intermedias)
-                {
-                    // --- agregar soluciones intermedia-1
-                    List<CSolution> lstSolInterm1 = oModSolution.GetLstSolInterm1ByGroup(item.Idgroup_solution);
-                    foreach (CSolution solution in lstSolInterm1)
-                    {
-                        object[] obj = { solution.Cod_solution, solution.Idgroup_solution, item.Idmr_detail };
-                        TreeListNode node = treeSolution.AppendNode(obj, treeSolInterm1);
-                        node.Tag = treeSolInterm1.Tag;
-                        node.ImageIndex = 1;
-                        node.SelectImageIndex = 1;
-                    }
+            //// 1:SI-1, d:SI-2, 3:EV
+            //// --- agregar soluciones intermedia-1
+            //List<CSolution_interm> lstSolInterm1 = oModSolution.GetLstSolInterm1ByGroup(item.Idgroup_solution);
+            //foreach (CSolution_interm solution in lstSolInterm1)
+            //{
+            //    object[] obj = { solution.Cod_solution, solution.Idgroup_solution, item.Idmr_detail };
+            //    TreeListNode node = treeSolution.AppendNode(obj, treeSolInterm1);
+            //    node.Tag = treeSolInterm1.Tag;
+            //    node.ImageIndex = 1;
+            //    node.SelectImageIndex = 1;
+            //}
 
-                    // --- agregar soluciones intermedia-2
-                    List<CSolution> lstSolInterm2 = oModSolution.GetLstSolInterm2ByGroup(item.Idgroup_solution);
-                    foreach (CSolution solution in lstSolInterm2)
-                    {
-                        object[] obj = { solution.Cod_solution, solution.Idgroup_solution, item.Idmr_detail };
-                        TreeListNode node = treeSolution.AppendNode(obj, treeSolInterm2);
-                        node.Tag = treeSolInterm2.Tag;
-                        node.ImageIndex = 1;
-                        node.SelectImageIndex = 1;
-                    }
+            //// --- agregar soluciones intermedia-2
+            //List<CSolution_interm> lstSolInterm2 = oModSolution.GetLstSolInterm2ByGroup(item.Idgroup_solution);
+            //foreach (CSolution_interm solution in lstSolInterm2)
+            //{
+            //    object[] obj = { solution.Cod_solution, solution.Idgroup_solution, item.Idmr_detail };
+            //    TreeListNode node = treeSolution.AppendNode(obj, treeSolInterm2);
+            //    node.Tag = treeSolInterm2.Tag;
+            //    node.ImageIndex = 1;
+            //    node.SelectImageIndex = 1;
+            //}
 
-                    // --- agregar estandares de verificación
-                    List<CSolution> lstStdVerif = oModSolution.GetLstStdVerifByGroup(item.Idgroup_solution);
+            //// --- agregar estandares de verificación
+            //List<CSolution_interm> lstStdVerif = oModSolution.GetLstStdVerifByGroup(item.Idgroup_solution);
 
-                    foreach (CSolution solution in lstStdVerif)
-                    {
-                        object[] obj = { solution.Cod_solution, solution.Idgroup_solution, item.Idmr_detail };
-                        TreeListNode node = treeSolution.AppendNode(obj, treeStdVerif);
-                        node.Tag = treeStdVerif.Tag;
-                        node.ImageIndex = 2;
-                        node.SelectImageIndex = 2;
-                    }
-                }
-            }
+            //foreach (CSolution_interm solution in lstStdVerif)
+            //{
+            //    object[] obj = { solution.Cod_solution, solution.Idgroup_solution, item.Idmr_detail };
+            //    TreeListNode node = treeSolution.AppendNode(obj, treeStdVerif);
+            //    node.Tag = treeStdVerif.Tag;
+            //    node.ImageIndex = 2;
+            //    node.SelectImageIndex = 2;
+            //}
 
             treeSolution.ExpandAll();
         }
@@ -224,14 +215,14 @@ namespace LimsProject
             //filtrar soluciones por elemento  y tipo de solucion
             //modSolInterm.GetLstSolution(idelement, type_pattern_solution)
             //lstSolution = modSolInterm.GetLstSolution(group_solution);
-            lstSolution = modSolInterm.GetLstSolution(Idelement, TypeSolution);
+            lstSolution = modSolInterm.GetLstSolution(Idelement, Comun.TypePatternMr.SolucionPatron);
 
             //
             treeSolInterm.DataSource = lstSolution;
             treeSolInterm.ExpandAll();
         }
 
-        CSolution GetActiveFirstSolution()
+        CSolution_interm GetActiveFirstSolution()
         {
             if (lstSolution.Exists(c => c.Type_sol == 1 && c.Solution_status == true))
             {
@@ -240,7 +231,7 @@ namespace LimsProject
             return null;
         }
 
-        CSolution GetActiveSecondSolution()
+        CSolution_interm GetActiveSecondSolution()
         {
             if (lstSolution.Exists(c => c.Type_sol == 2 && c.Solution_status == true))
             {
@@ -249,7 +240,7 @@ namespace LimsProject
             return null;
         }
 
-        CSolution GetActiveStdVerification(CSolution parent)
+        CSolution_interm GetActiveStdVerification(CSolution_interm parent)
         {
             if (lstSolution.Exists(c => c.Type_sol == 3 && c.Solution_status == true && c.Parentid == parent.Id))
             {
@@ -258,14 +249,14 @@ namespace LimsProject
             return null;
         }
 
-        CSolution GetActiveStdVerification1()
+        CSolution_interm GetActiveStdVerification1()
         {
             if (lstSolution.Exists(c => c.Type_sol == 3 && c.Solution_status == true))
                 return lstSolution.First(c => c.Type_sol == 3 && c.Solution_status == true);
             return null;
         }
 
-        CSolution GetActiveStdVerification2()
+        CSolution_interm GetActiveStdVerification2()
         {
             if (lstSolution.Exists(c => c.Type_sol == 4 && c.Solution_status == true))
                 return lstSolution.First(c => c.Type_sol == 4 && c.Solution_status == true);
@@ -290,13 +281,13 @@ namespace LimsProject
         void AddFirstSolution()
         {
             // --- si existe una solución preguntar
-            if (!lstSolution.Exists(c => c.Idsolution == 0 && c.Solution_status == true && c.Type_sol == 1))
-            {
+            if (!lstSolution.Exists(c => c.Idsolution_interm == 0 && c.Solution_status == true && c.Type_sol == 1))
+            {                
                 // --- añadir en la raiz
                 lstSolution.Add(
-                    new CSolution
+                    new CSolution_interm
                     {
-                        Idsolution = 0,
+                        Idsolution_interm = 0,
                         Id = GetMaxCorrelativeNode() + 1,
                         Parentid = 0,
                         Cod_solution = "Nueva solución intermedia 1", //modSolution.GetCorrelative(ModSolution.Correlative.SolucionIntermedia),
@@ -313,13 +304,15 @@ namespace LimsProject
                         Concentration = template_method_aa.Std_concentration_sol1,
                         Aliquot = 0,
                         Solution_status = true,
-                        Idreactive_medium = Convert.ToInt32(cbMedium.EditValue),
-                        Idreactive_modif = Convert.ToInt32(cbModif.EditValue),
+                        Idreactive_medium = cbMedium.EditValue == null ? Comun.NullInt32 : Convert.ToInt32(cbMedium.EditValue),
+                        Idreactive_modif = cbModif.EditValue == null ? Comun.NullInt32 : Convert.ToInt32(cbModif.EditValue),
                         Reactive_medium_value = GetMedium(1),
+                        Root_type_pattern = Convert.ToInt32(cbTypeSolPatron.EditValue),
+                        Root_idmr_detail = Convert.ToInt16(cbMrpattern.EditValue),
                         Image_index = 1
                     });
 
-                treeSolInterm.DataSource = new BindingList<CSolution>(lstSolution);
+                treeSolInterm.DataSource = new BindingList<CSolution_interm>(lstSolution);
                 treeSolInterm.ExpandAll();
 
                 SetButtonsInProcess();
@@ -330,16 +323,16 @@ namespace LimsProject
 
         void AddSecondSolution()
         {
-            if (!lstSolution.Exists(c => c.Idsolution == 0 && c.Solution_status == true && c.Type_sol == 2))
+            if (!lstSolution.Exists(c => c.Idsolution_interm == 0 && c.Solution_status == true && c.Type_sol == 2))
             {
 
-                CSolution firstSolution = GetActiveFirstSolution();
+                CSolution_interm firstSolution = GetActiveFirstSolution();
 
                 // --- añadir dentro de una solución intermedia 1
                 lstSolution.Add(
-                    new CSolution
+                    new CSolution_interm
                     {
-                        Idsolution = 0,
+                        Idsolution_interm = 0,
                         Id = GetMaxCorrelativeNode() + 1,
                         Parentid = firstSolution.Id,
                         Cod_solution = "Nueva solución intermedia 2", //modSolution.GetCorrelative(ModSolution.Correlative.SolucionIntermedia),
@@ -356,133 +349,22 @@ namespace LimsProject
                         Volumen = 0,
                         Concentration = template_method_aa.Std_concentration_sol2,
                         Aliquot = 0,
-                        Idreactive_medium = Convert.ToInt32(cbMedium.EditValue),
-                        Idreactive_modif = Convert.ToInt32(cbModif.EditValue),
+                        Idreactive_medium = cbMedium.EditValue == null ? Comun.NullInt32 : Convert.ToInt32(cbMedium.EditValue),
+                        Idreactive_modif = cbModif.EditValue == null ? Comun.NullInt32 : Convert.ToInt32(cbModif.EditValue),
                         Reactive_medium_value = GetMedium(2),
+                        Root_type_pattern = Convert.ToInt32(cbTypeSolPatron.EditValue),
+                        Root_idmr_detail = Convert.ToInt16(cbMrpattern.EditValue),
                         Image_index = 1
                     });
 
-                treeSolInterm.DataSource = new BindingList<CSolution>(lstSolution);
+                treeSolInterm.DataSource = new BindingList<CSolution_interm>(lstSolution);
                 treeSolInterm.ExpandAll();
 
                 SetButtonsInProcess();
             }
             else
                 new FormMessage("Agregar solución", "No es posible agregar. Existe una solución intermedia 2 en proceso", true, false).ShowDialog();
-        }
-
-        //void AddStdInRootSolution()
-        //{
-        //    // --- añadir dentro de una solución intermedia 1 o 2
-        //    //modificar los campos según la configuración del estandar de verificación.
-
-        //    lstSolution.Add(
-        //        new CSolution
-        //        {
-        //            Idsolution = 0,
-        //            Id = GetMaxCorrelativeNode() + 1,
-        //            Parentid = 0,
-        //            Cod_solution = "Nuevo estandar", //modSolution.GetCorrelative(ModSolution.Correlative.EstandarVerificacion),
-        //            Date_begin = DateTime.Now,
-        //            Date_end = DateTime.Now.AddMonths(new CSettings().GetNumMonthSolInterm()),
-        //            Idelement = Idelement,
-        //            Lote = "",
-        //            Observation = "",
-        //            Prepared_by = Comun.User_system.Iduser,
-        //            Purity = 0,
-        //            Solution_name = "",
-        //            Solution_status = true,
-        //            Type_sol = 5,
-        //            Volumen = 0,
-        //            Concentration = template_method_aa.Std_verif,
-        //            Aliquot = 0,
-        //            Idreactive_medium = Convert.ToInt32(cbMedium.EditValue),
-        //            Idreactive_modif = Convert.ToInt32(cbModif.EditValue),
-        //            Reactive_medium_value = GetMedium(3),
-        //            Image_index = 1
-        //        });
-
-        //    treeSolInterm.DataSource = new BindingList<CSolution>(lstSolution);
-        //    treeSolInterm.ExpandAll();
-
-        //    SetButtonsInProcess();
-        //}
-
-        //void AddStdInFistSolution()
-        //{
-        //    // --- añadir dentro de una solución intermedia 1 o 2
-        //    //modificar los campos según la configuración del estandar de verificación.
-        //    int someId = Convert.ToInt32(GetActiveFirstSolution().Id);
-
-        //    lstSolution.Add(
-        //        new CSolution
-        //        {
-        //            Idsolution = 0,
-        //            Id = GetMaxCorrelativeNode() + 1,
-        //            Parentid = someId,
-        //            Cod_solution = "Nuevo estandar", //modSolution.GetCorrelative(ModSolution.Correlative.EstandarVerificacion),
-        //            Date_begin = DateTime.Now,
-        //            Date_end = DateTime.Now.AddMonths(new CSettings().GetNumMonthSolInterm()),
-        //            Idelement = Idelement,
-        //            Lote = "",
-        //            Observation = "",
-        //            Prepared_by = Comun.User_system.Iduser,
-        //            Purity = 0,
-        //            Solution_name = "",
-        //            Solution_status = true,
-        //            Type_sol = 3,
-        //            Volumen = 0,
-        //            Concentration = template_method_aa.Std_verif,
-        //            Aliquot = 0,
-        //            Idreactive_medium = Convert.ToInt32(cbMedium.EditValue),
-        //            Idreactive_modif = Convert.ToInt32(cbModif.EditValue),
-        //            Reactive_medium_value = GetMedium(3),
-        //            Image_index = 1
-        //        });
-
-        //    treeSolInterm.DataSource = new BindingList<CSolution>(lstSolution);
-        //    treeSolInterm.ExpandAll();
-
-        //    SetButtonsInProcess();
-        //}
-
-        //void AddStdInSecondSolution()
-        //{
-        //    // --- añadir dentro de una solución intermedia 1 o 2
-        //    //modificar los campos según la configuración del estandar de verificación.
-        //    int someId = Convert.ToInt32(GetActiveSecondSolution().Id);
-
-        //    lstSolution.Add(
-        //        new CSolution
-        //        {
-        //            Idsolution = 0,
-        //            Id = GetMaxCorrelativeNode() + 1,
-        //            Parentid = someId,
-        //            Cod_solution = "Nuevo estandar", //modSolution.GetCorrelative(ModSolution.Correlative.EstandarVerificacion),
-        //            Date_begin = DateTime.Now,
-        //            Date_end = DateTime.Now.AddMonths(new CSettings().GetNumMonthSolInterm()),
-        //            Idelement = Idelement,
-        //            Lote = "",
-        //            Observation = "",
-        //            Prepared_by = Comun.User_system.Iduser,
-        //            Purity = 0,
-        //            Solution_name = "",
-        //            Solution_status = true,
-        //            Type_sol = 4,
-        //            Volumen = 0,
-        //            Concentration = template_method_aa.Std_verif,
-        //            Aliquot = 0,
-        //            Idreactive_medium = Convert.ToInt32(cbMedium.EditValue),
-        //            Idreactive_modif = Convert.ToInt32(cbModif.EditValue),
-        //            Reactive_medium_value = GetMedium(3),
-        //            Image_index = 1
-        //        });
-
-        //    treeSolInterm.DataSource = new BindingList<CSolution>(lstSolution);
-        //    treeSolInterm.ExpandAll();
-
-        //    SetButtonsInProcess();            
-        //}
+        }        
 
         void AddStdSolution()
         {
@@ -497,9 +379,9 @@ namespace LimsProject
                 parentId = Convert.ToInt32(tree.FocusedNode["Id"]);
 
             lstSolution.Add(
-                new CSolution
+                new CSolution_interm
                 {
-                    Idsolution = 0,
+                    Idsolution_interm = 0,
                     Id = GetMaxCorrelativeNode() + 1,
                     Parentid = parentId,
                     Cod_solution = "Nuevo estandar", //modSolution.GetCorrelative(ModSolution.Correlative.EstandarVerificacion),
@@ -516,13 +398,15 @@ namespace LimsProject
                     Volumen = 0,
                     Concentration = template_method_aa.Std_verif,
                     Aliquot = 0,
-                    Idreactive_medium = Convert.ToInt32(cbMedium.EditValue),
-                    Idreactive_modif = Convert.ToInt32(cbModif.EditValue),
+                    Idreactive_medium = cbMedium.EditValue == null ? Comun.NullInt32 : Convert.ToInt32(cbMedium.EditValue),
+                    Idreactive_modif = cbModif.EditValue == null ? Comun.NullInt32 : Convert.ToInt32(cbModif.EditValue),
                     Reactive_medium_value = GetMedium(3),
+                    Root_type_pattern = Convert.ToInt32(cbTypeSolPatron.EditValue),
+                    Root_idmr_detail = Convert.ToInt16(cbMrpattern.EditValue),
                     Image_index = 2
                 });
 
-            treeSolInterm.DataSource = new BindingList<CSolution>(lstSolution);
+            treeSolInterm.DataSource = new BindingList<CSolution_interm>(lstSolution);
             treeSolInterm.ExpandAll();
 
             SetButtonsInProcess();
@@ -609,23 +493,20 @@ namespace LimsProject
         private void cbTypeSolPatron_SelectedIndexChanged(object sender, EventArgs e)
         {
             // --- mostrar mrc o patron de soluciones
-            if (cbTypeSolPatron.SelectedIndex == 0)
+            if (cbTypeSolPatron.EditValue != null)
             {
-                ModSolution oModSolution = new ModSolution();
-                cbMrpattern.Properties.DataSource = oModSolution.GetLstMrc(Convert.ToInt16(Idelement));
-                cbMrpattern.Properties.DisplayMember = "Name";
-                cbMrpattern.Properties.ValueMember = "Idmr_detail";
-
-                cbMrpattern.EditValue = null;
-            }
-            if (cbTypeSolPatron.SelectedIndex == 1)
-            {
-                ModSolution oModSolution = new ModSolution();
-                cbMrpattern.Properties.DataSource = oModSolution.GetLstPatron(Convert.ToInt16(Idelement));
-                cbMrpattern.Properties.DisplayMember = "Name";
-                cbMrpattern.Properties.ValueMember = "Idmr_detail";
-
-                cbMrpattern.EditValue = null;
+                if (cbTypeSolPatron.SelectedIndex == 0)
+                {
+                    cbMrpattern.Bind(Comun.TypeMr.Certificado, Convert.ToInt16(Idelement));
+                    cbMrpattern.EditValue = null;
+                    
+                }
+                if (cbTypeSolPatron.SelectedIndex == 1)
+                {
+                    cbMrpattern.Bind(Comun.TypeMr.SolucionPatron, Convert.ToInt16(Idelement));
+                    cbMrpattern.EditValue = null;
+                    
+                }
             }
         }
 
@@ -644,8 +525,7 @@ namespace LimsProject
 
             AddFirstSolution();
         }
-
-        bool StatusSave = true;
+        
         TreeList tree;
 
         private void treeSolInterm_MouseDown(object sender, MouseEventArgs e)
@@ -663,18 +543,22 @@ namespace LimsProject
                 btNewSolInt1.Enabled = false;
                 btNewSolInt2.Enabled = false;
                 btNewSolStdVer.Enabled = false;
-                if (typeSol == 1) // solucion intermedia 1
-                {
-                    //habilitar solucion intermedia 2
-                    btNewSolInt2.Enabled = true;
 
-                    //habilitar el estandar de verificacion 
-                    btNewSolStdVer.Enabled = true;
-                }
-                else if (typeSol == 2) // solución intermedia 2
+                if (nodeSolutionInProcess == null)
                 {
-                    //habilitar solucion intermedia 2
-                    btNewSolStdVer.Enabled = true;
+                    if (typeSol == 1) // solucion intermedia 1
+                    {
+                        //habilitar solucion intermedia 2
+                        btNewSolInt2.Enabled = true;
+
+                        //habilitar el estandar de verificacion 
+                        btNewSolStdVer.Enabled = true;
+                    }
+                    else if (typeSol == 2) // solución intermedia 2
+                    {
+                        //habilitar solucion intermedia 2
+                        btNewSolStdVer.Enabled = true;
+                    }
                 }
             }
             else if (ht != null && ht.Node == null)
@@ -684,28 +568,27 @@ namespace LimsProject
                 btNewSolInt1.Enabled = false;
                 btNewSolInt2.Enabled = false;
                 btNewSolStdVer.Enabled = false;
-
-                // habilitar el boton agregar solución
-                btNewSolInt1.Enabled = true;
+                if (nodeSolutionInProcess == null)
+                {
+                    // habilitar el boton agregar solución
+                    btNewSolInt1.Enabled = true;
+                }
             }
         }
 
         private void btNewSolInt1_Click(object sender, EventArgs e)
         {
-            AddFirstSolution();
-            StatusSave = false;
+            AddFirstSolution();            
         }
 
         private void btNewSolInt2_Click(object sender, EventArgs e)
         {
-            AddSecondSolution();
-            StatusSave = false;
+            AddSecondSolution();            
         }
 
         private void btNewSolStdVer_Click(object sender, EventArgs e)
         {
-            AddStdSolution();
-            StatusSave = false;
+            AddStdSolution();            
         }
 
         private void repBtOpenMethods_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -729,5 +612,91 @@ namespace LimsProject
             Init(Convert.ToInt16(cbElement1.EditValue));
         }
 
+        private void ucSign1_OnSign(bool login)
+        {
+            if (login)
+            {
+                if (nodeSolutionInProcess != null)
+                {                    
+                    // --- guardando soluciones
+                    // --- guardar los cambios en las soluciones
+                    CSolution_intermFactory faSolution = new CSolution_intermFactory();
+                    bool result_solution = false;
+                    for (int i = 0; i < lstSolution.Count; i++)
+                    {
+                        result_solution = false;
+
+                        if (lstSolution[i].Idsolution_interm == 0)
+                        {                            
+                            lstSolution[i].Cod_solution = null;
+
+                            if (!(result_solution = faSolution.Update(lstSolution[i])))
+                                result_solution = faSolution.Insert(lstSolution[i]);
+
+                            // --- asignar un correlativo dependiendo del tipo de solución
+                            // 1:solución intermedia1, 2:solución intermedia 2, 3:estandar de verificación
+                            if (result_solution)
+                            {                                
+                                ModCorrelatives oModCorrelatives = new ModCorrelatives();
+                                if (lstSolution[i].Type_sol == 1 || lstSolution[i].Type_sol == 2)
+                                    lstSolution[i].Cod_solution = oModCorrelatives.GetCorrelative(ModCorrelatives.Correlative.SolucionIntermedia);
+                                else if (lstSolution[i].Type_sol == 3 || lstSolution[i].Type_sol == 4)
+                                    lstSolution[i].Cod_solution = oModCorrelatives.GetCorrelative(ModCorrelatives.Correlative.EstandarVerificacion);
+
+                                faSolution.Update(lstSolution[i]);
+
+                                nodeSolutionInProcess = null;
+                            }                           
+                        }
+                    }                    
+                    treeSolInterm.DataSource = lstSolution;
+
+                    new FormMessage("Guardado", "Guardado correctamente.", true, false).ShowDialog();
+
+                    ucSign1.Clear();
+                    treeSolInterm.ExpandAll();
+                }
+                else
+                {
+                    ///No existe ningún nodo en proceso, entonces los cambios
+                    ///fueron sobre el estado de las soluciones
+                    ///
+                    CSolution_intermFactory faSolution = new CSolution_intermFactory();
+                    for (int i = 0; i < lstSolution.Count; i++)
+                        faSolution.Update(lstSolution[i]);
+
+                    treeSolInterm.DataSource = lstSolution;
+
+                    new FormMessage("Guardado", "Guardado correctamente.", true, false).ShowDialog();
+                    ucSign1.Clear();
+                    treeSolInterm.ExpandAll();                    
+                }
+            }
+            else
+                new FormMessage("Error", "Contraseña incorrecta.", true, false).ShowDialog();
+        }
+
+        private void cbMrpattern_EditValueChanged(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(cbTypeSolPatron.EditValue) == 1)
+            {
+                lstSolution = modSolInterm.GetLstSolution(Idelement, Comun.TypePatternMr.MrCertificado);
+                treeSolInterm.DataSource = lstSolution;
+            }
+            if (Convert.ToInt32(cbTypeSolPatron.EditValue) == 2)
+            {
+                lstSolution = modSolInterm.GetLstSolution(Idelement, Comun.TypePatternMr.SolucionPatron);
+                treeSolInterm.DataSource = lstSolution;
+            }
+
+            treeSolInterm.ExpandAll();
+        }
+
+        private void repBtOpenMethods_ButtonClick_1(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            // abrir ventana de metodos
+            FormSelMethods fmSelMethods = new FormSelMethods();
+            fmSelMethods.ShowDialog();
+        }
     }
 }

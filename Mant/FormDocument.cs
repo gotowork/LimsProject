@@ -255,7 +255,7 @@ namespace LimsProject
                 Modify_file_name(name_file);
             }
             catch (Exception ex){
-                Comun.Send_message(this.Text, TypeMsg.error, ex.Message);
+                ComunForm.Send_message(this.Text, TypeMsg.error, ex.Message);
             }
         }
 
@@ -356,7 +356,7 @@ namespace LimsProject
             }
             catch (Exception ex)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, ex.Message);
+                ComunForm.Send_message(this.Text, TypeMsg.error, ex.Message);
             }
         }
 

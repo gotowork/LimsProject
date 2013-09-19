@@ -875,11 +875,11 @@ namespace LimsProject
 
                 paAuthorization.Visible = false;
 
-                Comun.Send_message(this.Text, TypeMsg.ok, "");
+                ComunForm.Send_message(this.Text, TypeMsg.ok, "");
             }
             catch (Exception ex)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, ex.Message);
+                ComunForm.Send_message(this.Text, TypeMsg.error, ex.Message);
             }
         }
 
@@ -922,7 +922,7 @@ namespace LimsProject
                         paAuthorization.Visible = false;
                         ucSign1.Clear();
 
-                        Comun.Send_message(this.Text, TypeMsg.ok, "");
+                        ComunForm.Send_message(this.Text, TypeMsg.ok, "");
                     }
                     else
                     {
@@ -935,7 +935,7 @@ namespace LimsProject
                         paAuthorization.Visible = false;
                         ucSign1.Clear();
 
-                        Comun.Send_message(this.Text, TypeMsg.ok, "");
+                        ComunForm.Send_message(this.Text, TypeMsg.ok, "");
                     }
                 }
                 else
@@ -943,7 +943,7 @@ namespace LimsProject
             }
             catch (Exception ex)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, ex.Message);
+                ComunForm.Send_message(this.Text, TypeMsg.error, ex.Message);
             }
         } 
 

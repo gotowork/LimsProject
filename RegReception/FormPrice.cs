@@ -223,38 +223,38 @@ namespace LimsProject
         {
             if (cbTypeSample.EditValue == null)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "No se especificó ningún tipo de muestra.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "No se especificó ningún tipo de muestra.");
                 return false;
             }
             if (LstPrice_version_detail.Count == 0)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "No se agregó ningún item.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "No se agregó ningún item.");
                 return false;
             }
             if (tbNumDaysValid.Value == 0)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "No se especificó el número de días de validez.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "No se especificó el número de días de validez.");
                 return false;
             }
             if (dtParams.Rows[0]["Saludo"].ToString().Trim().Length == 0)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "No se especificó el párrafo inicial en el documento.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "No se especificó el párrafo inicial en el documento.");
                 return false;
             }
             if (dtParams.Rows[0]["Despedida"].ToString().Trim().Length == 0)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "No se especificó el párrafo final en el documento.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "No se especificó el párrafo final en el documento.");
                 return false;
             }
             if (dtParams.Rows[0]["Empresa"].ToString().Trim().Length == 0
                 || dtParams.Rows[0]["Atencion"].ToString().Trim().Length == 0)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "No se especificó la empresa o atención en el documento.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "No se especificó la empresa o atención en el documento.");
                 return false;
             }
             if (AreContactRight())
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "No se permite agregar más de un contacto de atención.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "No se permite agregar más de un contacto de atención.");
                 return false;
             }
             return true;
@@ -1032,7 +1032,7 @@ namespace LimsProject
                     }
                     catch
                     {
-                        Comun.Send_message(this.Text, TypeMsg.error, "Error: el archivo no existe");
+                        ComunForm.Send_message(this.Text, TypeMsg.error, "Error: el archivo no existe");
                     }
                 }
             }
@@ -1059,7 +1059,7 @@ namespace LimsProject
             foreach (CItemCopy item in this)
             {
                 //copiar item
-                if (Comun.CopyAndSaveFile(item.Source_file, item.Destiny_directory, item.Filename))
+                if (ComunForm.CopyAndSaveFile(item.Source_file, item.Destiny_directory, item.Filename))
                 {
                     CPrice_attach price_attach = new CPrice_attach();
                     price_attach.Idprice = price_version.Idprice;

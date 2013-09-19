@@ -75,17 +75,17 @@ namespace LimsProject
         {
  	        if (tbNameUnit.Text.Trim() == "")
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Error: no se admite el campo nombre vacio.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Error: no se admite el campo nombre vacio.");
                 return false;
             }
             if (tbDescription.Text.Trim() == "")
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Error: no se admite el campo descripción en vacio.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Error: no se admite el campo descripción en vacio.");
                 return false;
             }
             if (cbConcentration_unit.EditValue == null)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Error: no se admite la unidad de concentración vacía.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Error: no se admite la unidad de concentración vacía.");
                 return false;
             }
             return true;

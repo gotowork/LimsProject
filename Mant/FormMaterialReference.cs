@@ -154,7 +154,7 @@ namespace LimsProject
             catch (Exception ex)
             {
                 result = false;
-                Comun.Send_message(this.Text, TypeMsg.error, ex.Message);
+                ComunForm.Send_message(this.Text, TypeMsg.error, ex.Message);
             }
             return result;
         }
@@ -216,22 +216,22 @@ namespace LimsProject
         {
             if (cbCodMR.EditValue == null)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Error: no se admite el código del mr vacio.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Error: no se admite el código del mr vacio.");
                 return false;
             }
             if (cbDescription.EditValue == null)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Error: no se admite la descripción vacia.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Error: no se admite la descripción vacia.");
                 return false;
             }
             if (cbTypeMr.EditValue == null)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Error: no se admite el tipo de material de referencia.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Error: no se admite el tipo de material de referencia.");
                 return false;
             }
             if (cbStatus.EditValue == null)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Error: no se seleccionó el estado de vigencia.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Error: no se seleccionó el estado de vigencia.");
                 return false;
             }
             if (!isDetailRight())
@@ -264,7 +264,7 @@ namespace LimsProject
                         if (gvMaterialReference.GetRowCellValue(i, gvMaterialReference.Columns[j]) == null)
                         {
                             string msg = "Error: No se seleccionó una opción en la fila {0}, columna {1}  ";
-                            Comun.Send_message(this.Text, TypeMsg.error, string.Format(msg, i.ToString(), gvMaterialReference.Columns[j].Caption));
+                            ComunForm.Send_message(this.Text, TypeMsg.error, string.Format(msg, i.ToString(), gvMaterialReference.Columns[j].Caption));
                             return false;
                         }
                     }

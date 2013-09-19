@@ -320,7 +320,7 @@ namespace LimsProject
                 }
             }
             catch (Exception ex) {
-                Comun.Send_message(this.Text, TypeMsg.error, ex.InnerException.ToString());
+                ComunForm.Send_message(this.Text, TypeMsg.error, ex.InnerException.ToString());
             }
         }
 
@@ -458,7 +458,7 @@ namespace LimsProject
             if (ckEnableRetest.Checked || tbObservation.Text.Trim().Length > 0)
                 evenCloseParent(System.Windows.Forms.DialogResult.OK);
             else
-                Comun.Send_message(this.Text, TypeMsg.error, "Para continuar debe ingresar una observación o habilitar un reensayo.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Para continuar debe ingresar una observación o habilitar un reensayo.");
         }
 
         private void tbCancelar_Click(object sender, EventArgs e)

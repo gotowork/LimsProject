@@ -64,17 +64,17 @@ namespace LimsProject
         {
             if (tbCode.Text == "")
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Error: no se admite el código vacio.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Error: no se admite el código vacio.");
                 return false;
             }
             if (tbName.Text == "")
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Error: no se admite el nombre vacio.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Error: no se admite el nombre vacio.");
                 return false;
             }
             if (tbPrefix.Text == "")
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Error: no se admite el prefijo vacio.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Error: no se admite el prefijo vacio.");
                 return false;
             }
             return true;

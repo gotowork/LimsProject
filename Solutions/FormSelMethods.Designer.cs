@@ -44,6 +44,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.paCenter)).BeginInit();
             this.paCenter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.paTop)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvMethods)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repSel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcMethods)).BeginInit();
@@ -57,6 +58,7 @@
             // paTitle
             // 
             this.paTitle.Size = new System.Drawing.Size(767, 37);
+            this.paTitle.Visible = false;
             // 
             // paBottom
             // 
@@ -68,14 +70,18 @@
             // paCenter
             // 
             this.paCenter.Controls.Add(this.gcMethods);
-            this.paCenter.Location = new System.Drawing.Point(0, 57);
-            this.paCenter.Size = new System.Drawing.Size(767, 251);
+            this.paCenter.Location = new System.Drawing.Point(0, 71);
+            this.paCenter.Size = new System.Drawing.Size(767, 237);
             // 
             // paTop
             // 
-            this.paTop.Location = new System.Drawing.Point(0, 37);
+            this.paTop.Location = new System.Drawing.Point(0, 51);
             this.paTop.Size = new System.Drawing.Size(767, 20);
             this.paTop.Visible = false;
+            // 
+            // panelControl1
+            // 
+            this.panelControl1.Size = new System.Drawing.Size(767, 14);
             // 
             // btOk
             // 
@@ -113,8 +119,6 @@
             this.gmet_Sel.FieldName = "Sel";
             this.gmet_Sel.Name = "gmet_Sel";
             this.gmet_Sel.OptionsColumn.FixedWidth = true;
-            this.gmet_Sel.Visible = true;
-            this.gmet_Sel.VisibleIndex = 0;
             this.gmet_Sel.Width = 53;
             // 
             // repSel
@@ -137,7 +141,7 @@
             this.gmet_Cod_template_method.Name = "gmet_Cod_template_method";
             this.gmet_Cod_template_method.OptionsColumn.FixedWidth = true;
             this.gmet_Cod_template_method.Visible = true;
-            this.gmet_Cod_template_method.VisibleIndex = 1;
+            this.gmet_Cod_template_method.VisibleIndex = 0;
             this.gmet_Cod_template_method.Width = 71;
             // 
             // gmet_Title
@@ -146,7 +150,7 @@
             this.gmet_Title.FieldName = "Title";
             this.gmet_Title.Name = "gmet_Title";
             this.gmet_Title.Visible = true;
-            this.gmet_Title.VisibleIndex = 2;
+            this.gmet_Title.VisibleIndex = 1;
             this.gmet_Title.Width = 618;
             // 
             // gcMethods
@@ -158,7 +162,7 @@
             this.gcMethods.Name = "gcMethods";
             this.gcMethods.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repSel});
-            this.gcMethods.Size = new System.Drawing.Size(763, 247);
+            this.gcMethods.Size = new System.Drawing.Size(763, 233);
             this.gcMethods.TabIndex = 0;
             this.gcMethods.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvMethods});
@@ -179,6 +183,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.paCenter)).EndInit();
             this.paCenter.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.paTop)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvMethods)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repSel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcMethods)).EndInit();

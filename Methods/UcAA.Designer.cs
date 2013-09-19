@@ -68,6 +68,7 @@
             this.tbLaw_limit_bottom = new DevExpress.XtraEditors.SpinEdit();
             this.label17 = new System.Windows.Forms.Label();
             this.xtraTabPage6 = new DevExpress.XtraTab.XtraTabPage();
+            this.cbMrcOrPattern = new LimsProject.cbMR();
             this.ckSolInterm = new DevExpress.XtraEditors.CheckEdit();
             this.cbTypePattern = new DevExpress.XtraEditors.ImageComboBoxEdit();
             this.cbSolStatus = new DevExpress.XtraEditors.ImageComboBoxEdit();
@@ -84,7 +85,6 @@
             this.gcCal_Aliquot = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcCal_Volumen = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cbSolIntermType = new DevExpress.XtraEditors.LookUpEdit();
-            this.cbMrcOrPattern = new DevExpress.XtraEditors.LookUpEdit();
             this.cbUnit_calib = new DevExpress.XtraEditors.LookUpEdit();
             this.label133 = new System.Windows.Forms.Label();
             this.label125 = new System.Windows.Forms.Label();
@@ -109,7 +109,6 @@
             this.xtraTabControl2 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage7 = new DevExpress.XtraTab.XtraTabPage();
             this.tbLawMri = new DevExpress.XtraEditors.TextEdit();
-            this.cbMaterialRef = new DevExpress.XtraEditors.LookUpEdit();
             this.tbBlk_max = new DevExpress.XtraEditors.SpinEdit();
             this.label23 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -166,6 +165,7 @@
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cbMaterialRef = new LimsProject.cbMR();
             ((System.ComponentModel.ISupportInitialize)(this.deStdSolDatePrep)).BeginInit();
             this.deStdSolDatePrep.SuspendLayout();
             this.xtraTabPage2.SuspendLayout();
@@ -189,6 +189,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.tbLaw_limit_top.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbLaw_limit_bottom.Properties)).BeginInit();
             this.xtraTabPage6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbMrcOrPattern.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ckSolInterm.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbTypePattern.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbSolStatus.Properties)).BeginInit();
@@ -200,7 +201,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcCalibracion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvCalibracion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbSolIntermType.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbMrcOrPattern.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbUnit_calib.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbModifConc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbValidity_calib.Properties)).BeginInit();
@@ -212,7 +212,6 @@
             this.xtraTabControl2.SuspendLayout();
             this.xtraTabPage7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbLawMri.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbMaterialRef.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbBlk_max.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbReproducibility.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
@@ -246,6 +245,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.tbNum_samples.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbMaterialRef.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // deStdSolDatePrep
@@ -741,6 +741,7 @@
             // 
             // xtraTabPage6
             // 
+            this.xtraTabPage6.Controls.Add(this.cbMrcOrPattern);
             this.xtraTabPage6.Controls.Add(this.ckSolInterm);
             this.xtraTabPage6.Controls.Add(this.cbTypePattern);
             this.xtraTabPage6.Controls.Add(this.cbSolStatus);
@@ -751,7 +752,6 @@
             this.xtraTabPage6.Controls.Add(this.cbMedium);
             this.xtraTabPage6.Controls.Add(this.gcCalibracion);
             this.xtraTabPage6.Controls.Add(this.cbSolIntermType);
-            this.xtraTabPage6.Controls.Add(this.cbMrcOrPattern);
             this.xtraTabPage6.Controls.Add(this.cbUnit_calib);
             this.xtraTabPage6.Controls.Add(this.label133);
             this.xtraTabPage6.Controls.Add(this.label125);
@@ -775,6 +775,15 @@
             this.xtraTabPage6.Name = "xtraTabPage6";
             this.xtraTabPage6.Size = new System.Drawing.Size(721, 395);
             this.xtraTabPage6.Text = "Calibraciones";
+            // 
+            // cbMrcOrPattern
+            // 
+            this.cbMrcOrPattern.Location = new System.Drawing.Point(169, 167);
+            this.cbMrcOrPattern.Name = "cbMrcOrPattern";
+            this.cbMrcOrPattern.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbMrcOrPattern.Size = new System.Drawing.Size(110, 20);
+            this.cbMrcOrPattern.TabIndex = 27;
             // 
             // ckSolInterm
             // 
@@ -1076,23 +1085,6 @@
             this.cbSolIntermType.Size = new System.Drawing.Size(110, 20);
             this.cbSolIntermType.TabIndex = 1;
             // 
-            // cbMrcOrPattern
-            // 
-            this.cbMrcOrPattern.Location = new System.Drawing.Point(169, 167);
-            this.cbMrcOrPattern.Name = "cbMrcOrPattern";
-            this.cbMrcOrPattern.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbMrcOrPattern.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Idmr_detail", "", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Idsolution", "", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None)});
-            this.cbMrcOrPattern.Properties.NullText = "Seleccionar";
-            this.cbMrcOrPattern.Properties.ShowFooter = false;
-            this.cbMrcOrPattern.Properties.ShowHeader = false;
-            this.cbMrcOrPattern.Size = new System.Drawing.Size(110, 20);
-            this.cbMrcOrPattern.TabIndex = 1;
-            this.cbMrcOrPattern.EditValueChanged += new System.EventHandler(this.cbMrcOrPattern_EditValueChanged);
-            // 
             // cbUnit_calib
             // 
             this.cbUnit_calib.Location = new System.Drawing.Point(61, 221);
@@ -1340,8 +1332,8 @@
             // 
             // xtraTabPage7
             // 
-            this.xtraTabPage7.Controls.Add(this.tbLawMri);
             this.xtraTabPage7.Controls.Add(this.cbMaterialRef);
+            this.xtraTabPage7.Controls.Add(this.tbLawMri);
             this.xtraTabPage7.Controls.Add(this.tbBlk_max);
             this.xtraTabPage7.Controls.Add(this.label23);
             this.xtraTabPage7.Controls.Add(this.label14);
@@ -1360,21 +1352,6 @@
             this.tbLawMri.Properties.ReadOnly = true;
             this.tbLawMri.Size = new System.Drawing.Size(57, 20);
             this.tbLawMri.TabIndex = 17;
-            // 
-            // cbMaterialRef
-            // 
-            this.cbMaterialRef.Location = new System.Drawing.Point(76, 24);
-            this.cbMaterialRef.Name = "cbMaterialRef";
-            this.cbMaterialRef.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbMaterialRef.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Idmr_detail", "", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Cod_mr")});
-            this.cbMaterialRef.Properties.NullText = "Seleccionar";
-            this.cbMaterialRef.Properties.ShowFooter = false;
-            this.cbMaterialRef.Properties.ShowHeader = false;
-            this.cbMaterialRef.Size = new System.Drawing.Size(100, 20);
-            this.cbMaterialRef.TabIndex = 1;
             // 
             // tbBlk_max
             // 
@@ -2024,6 +2001,16 @@
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 2;
             // 
+            // cbMaterialRef
+            // 
+            this.cbMaterialRef.Location = new System.Drawing.Point(76, 24);
+            this.cbMaterialRef.Name = "cbMaterialRef";
+            this.cbMaterialRef.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbMaterialRef.Size = new System.Drawing.Size(100, 20);
+            this.cbMaterialRef.TabIndex = 18;
+            this.cbMaterialRef.EditValueChanged += new System.EventHandler(this.cbMaterialRef_EditValueChanged);
+            // 
             // UcAA
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2057,6 +2044,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.tbLaw_limit_bottom.Properties)).EndInit();
             this.xtraTabPage6.ResumeLayout(false);
             this.xtraTabPage6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbMrcOrPattern.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ckSolInterm.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbTypePattern.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbSolStatus.Properties)).EndInit();
@@ -2068,7 +2056,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcCalibracion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvCalibracion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbSolIntermType.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbMrcOrPattern.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbUnit_calib.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbModifConc.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbValidity_calib.Properties)).EndInit();
@@ -2082,7 +2069,6 @@
             this.xtraTabPage7.ResumeLayout(false);
             this.xtraTabPage7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbLawMri.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbMaterialRef.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbBlk_max.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbReproducibility.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
@@ -2120,6 +2106,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.tbNum_samples.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbMaterialRef.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2182,7 +2169,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gcCal_Aliquot;
         private DevExpress.XtraGrid.Columns.GridColumn gcCal_Volumen;
         private DevExpress.XtraEditors.LookUpEdit cbSolIntermType;
-        private DevExpress.XtraEditors.LookUpEdit cbMrcOrPattern;
         private DevExpress.XtraEditors.LookUpEdit cbUnit_calib;
         private System.Windows.Forms.Label label133;
         private System.Windows.Forms.Label label125;
@@ -2254,7 +2240,6 @@
         private DevExpress.XtraTab.XtraTabControl xtraTabControl2;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage7;
         private DevExpress.XtraEditors.TextEdit tbLawMri;
-        private DevExpress.XtraEditors.LookUpEdit cbMaterialRef;
         private DevExpress.XtraEditors.SpinEdit tbBlk_max;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label14;
@@ -2264,5 +2249,7 @@
         private DevExpress.XtraEditors.SpinEdit tbReproducibility;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage8;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage10;
+        private cbMR cbMrcOrPattern;
+        private cbMR cbMaterialRef;
     }
 }

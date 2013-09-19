@@ -70,17 +70,17 @@ namespace LimsProject
         {
             if (Flag_new_user && (tbPwd.Text.Trim().Length == 0 || tbRepPwd.Text.Trim().Length == 0))
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Error: no ha ingresado una contraseña.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Error: no ha ingresado una contraseña.");
                 return false;
             }
             if(!ConfirmPwdRight())
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Error: las contraseñas no son iguales");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Error: las contraseñas no son iguales");
                 return false;
             }
             if (cbPerson.EditValue == null)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Error: el código de persona es diferente.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Error: el código de persona es diferente.");
                 return false;
             }
             return true;

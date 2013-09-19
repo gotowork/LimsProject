@@ -58,7 +58,7 @@ namespace LimsProject
             }
             catch (Exception ex)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, ex.Message);
+                ComunForm.Send_message(this.Text, TypeMsg.error, ex.Message);
             }
             #endregion
         }
@@ -67,49 +67,49 @@ namespace LimsProject
         {
             if (tbSymbol.Text == "")
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Error: no se admite un simbolo de método vacio.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Error: no se admite un simbolo de método vacio.");
                 return false;
             }
             if (cbUnit_result.EditValue == null)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Error: no se ha seleccionado una unidad de medida.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Error: no se ha seleccionado una unidad de medida.");
                 return false;
             }            
             if (cbMaterialRef.EditValue == null)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Error: no se ha seleccionado un material de referencia.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Error: no se ha seleccionado un material de referencia.");
                 return false;
             }            
             if (Convert.ToInt32(tbLimit_samples.EditValue) <= 0)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Error:El valor del límite de muestras debe ser mayor a 0.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Error:El valor del límite de muestras debe ser mayor a 0.");
                 return false;
             }
             if (Convert.ToInt32(tbNum_days.EditValue) <= 0)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Error: El valor del 'Número de días debe ser mayor a 0'.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Error: El valor del 'Número de días debe ser mayor a 0'.");
                 return false;
             }
             if (Convert.ToInt32(tbNum_samples.EditValue) <= 0)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Error: El valor del 'Número de muestras debe ser mayor a 0'.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Error: El valor del 'Número de muestras debe ser mayor a 0'.");
                 return false;
             }
             if (paMaterialReference.Enabled)
             {
                 if (cbMaterialRef.EditValue == null)
                 {
-                    Comun.Send_message("Métodos", TypeMsg.error, "Error: No se seleccionó el material de referencia");
+                    ComunForm.Send_message("Métodos", TypeMsg.error, "Error: No se seleccionó el material de referencia");
                     return false;
                 }
                 if (tbBlk_max.Value == 0)
                 {
-                    Comun.Send_message("Métodos", TypeMsg.error, "Error: No se ingreso un valor al campo LRB.");
+                    ComunForm.Send_message("Métodos", TypeMsg.error, "Error: No se ingreso un valor al campo LRB.");
                     return false;
                 }
                 if (tbReproducibility.Value == 0)
                 {
-                    Comun.Send_message("Métodos", TypeMsg.error, "Error: No se ingreso un valor al campo LRB.");
+                    ComunForm.Send_message("Métodos", TypeMsg.error, "Error: No se ingreso un valor al campo LRB.");
                     return false;
                 }
             }
@@ -117,17 +117,17 @@ namespace LimsProject
             {
                 if (tbBlkFortiSolution.Value == 0)
                 {
-                    Comun.Send_message("Métodos", TypeMsg.error, "Error: No se ingreso un valor al campo Solucion en el blanco fortificado.");
+                    ComunForm.Send_message("Métodos", TypeMsg.error, "Error: No se ingreso un valor al campo Solucion en el blanco fortificado.");
                     return false;
                 }
                 if (tbBlkFortiAliquot.Value == 0)
                 {
-                    Comun.Send_message("Métodos", TypeMsg.error, "Error: No se ingreso la alicuota en el blanco fortificado.");
+                    ComunForm.Send_message("Métodos", TypeMsg.error, "Error: No se ingreso la alicuota en el blanco fortificado.");
                     return false;
                 }
                 if (tbBlkFortiReproducibility.Value == 0)
                 {
-                    Comun.Send_message("Métodos", TypeMsg.error, "Error: No se ingreso el factor de reproducibilidad en el blanco de fortificación.");
+                    ComunForm.Send_message("Métodos", TypeMsg.error, "Error: No se ingreso el factor de reproducibilidad en el blanco de fortificación.");
                     return false;
                 }
             }
@@ -135,17 +135,17 @@ namespace LimsProject
             {
                 if (tbSamFortiSolution.Value == 0)
                 {
-                    Comun.Send_message("Métodos", TypeMsg.error, "Error: No se ingreso un valor al campo solucion en la muestra fortificada.");
+                    ComunForm.Send_message("Métodos", TypeMsg.error, "Error: No se ingreso un valor al campo solucion en la muestra fortificada.");
                     return false;
                 }
                 if (tbSamFortiAliquot.Value == 0)
                 {
-                    Comun.Send_message("Métodos", TypeMsg.error, "Error: No se ingreso un valor al campo alicuota en la muestra fortificada.");
+                    ComunForm.Send_message("Métodos", TypeMsg.error, "Error: No se ingreso un valor al campo alicuota en la muestra fortificada.");
                     return false;
                 }
                 if (tbSamFortiReproducibility.Value == 0)
                 {
-                    Comun.Send_message("Métodos", TypeMsg.error, "Error: No se ingreso un valor al campo reproducibilidad en la muestra fortificada.");
+                    ComunForm.Send_message("Métodos", TypeMsg.error, "Error: No se ingreso un valor al campo reproducibilidad en la muestra fortificada.");
                     return false;
                 }
             }            
@@ -231,7 +231,7 @@ namespace LimsProject
             }
             catch (Exception ex)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, ex.Message);
+                ComunForm.Send_message(this.Text, TypeMsg.error, ex.Message);
             }
         }
 

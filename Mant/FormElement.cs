@@ -45,7 +45,7 @@ namespace LimsProject
             CElementFactory faElement = new CElementFactory();
             if (!faElement.Update(oElement))
                 faElement.Insert(oElement);
-            Comun.Send_message(this.Text, TypeMsg.ok, "");
+            ComunForm.Send_message(this.Text, TypeMsg.ok, "");
             return true;
         }
 
@@ -54,14 +54,14 @@ namespace LimsProject
             List<CElement> lstElement = new CElementFactory().GetAll();
             if (tbCodElement.Text.Trim().Length == 0)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Error: el código de elemento no fue ingresado.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Error: el código de elemento no fue ingresado.");
                 return false;
             }
             if (lstElement
                 .Exists(c => c.Cod_element == tbCodElement.Text.Trim()
                     && c.Idelement != Idelement))
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Error: el código de elemento ya esta registrado.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Error: el código de elemento ya esta registrado.");
                 return false;
             }
             return true;

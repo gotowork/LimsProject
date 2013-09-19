@@ -50,12 +50,12 @@ namespace LimsProject
         {
             if (tbNameDigestion.Text.Trim() == "")
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Guardar: error no se admite el nombre de digestion vacio.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Guardar: error no se admite el nombre de digestion vacio.");
                 return false;
             }
             if (tbCodDigestion.Text.Trim() == "")
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Guardar: error no se admite el código de digestion vacio.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Guardar: error no se admite el código de digestion vacio.");
                 return false;
             }
             return true;

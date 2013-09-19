@@ -38,7 +38,15 @@ namespace LimsProject
         public void Bind(short idelement)
         {
             Init();
-            this.Properties.DataSource = new Methods().GetByElement(idelement);            
+            this.Properties.DataSource = new ModMaterialReference().GetBy_Element(idelement);
+            this.Properties.ValueMember = "Idmr_detail";
+            this.Properties.DisplayMember = "Cod_mr";
+        }
+
+        public void Bind(Comun.TypeMr typemr, short idelement)
+        {
+            Init();
+            this.Properties.DataSource = new ModMaterialReference().GetBy_TypeMr_And_Element(typemr, idelement);
             this.Properties.ValueMember = "Idmr_detail";
             this.Properties.DisplayMember = "Cod_mr";
         }

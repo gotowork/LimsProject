@@ -27,7 +27,7 @@ namespace LimsProject
             {
                 if (item.Name_compound.Trim().Length == 0)
                 {
-                    Comun.Send_message("Compuestos", TypeMsg.error, "Error al ingresar compuesto en fila ");
+                    ComunForm.Send_message("Compuestos", TypeMsg.error, "Error al ingresar compuesto en fila ");
                     return false;
                 }
             }
@@ -62,7 +62,7 @@ namespace LimsProject
             }
             catch (Exception ex)
             {
-                Comun.Send_message("Compuestos", TypeMsg.error, ex.Message);
+                ComunForm.Send_message("Compuestos", TypeMsg.error, ex.Message);
                 return false;
             }            
         }

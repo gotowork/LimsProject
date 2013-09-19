@@ -85,27 +85,27 @@ namespace LimsProject
         {
             if (tbCodSerie.Text.Trim().Length == 0)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Falta ingresar el código de periodo.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Falta ingresar el código de periodo.");
                 return false;
             }
             if (cbNomSerie.Text.Trim().Length == 0)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Falta ingresar el nombre del periodo.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Falta ingresar el nombre del periodo.");
                 return false;
             }
             if (deDateIni.Text.Length == 0)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Falta ingresar la fecha inicial");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Falta ingresar la fecha inicial");
                 return false;
             }
             if (deDateEnd.Text.Length == 0)
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Falta ingresar la fecha final.");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Falta ingresar la fecha final.");
                 return false;
             }
             if (new CSerieFactory().GetAll().Exists(c => c.Nom_serie == cbNomSerie.Text && c.Cod_serie != tbCodSerie.Text))
             {
-                Comun.Send_message(this.Text, TypeMsg.error, "Ya existe un periodo asignado a este código");
+                ComunForm.Send_message(this.Text, TypeMsg.error, "Ya existe un periodo asignado a este código");
                 return false;
             }
             return true;

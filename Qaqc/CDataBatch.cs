@@ -201,12 +201,12 @@ namespace LimsProject
 
                 if (reading1 <= oTemplate_method_aa.Reading_min || reading1 >= oTemplate_method_aa.Reading_max)
                 {
-                    Comun.Send_message("Formulario de QaQc", TypeMsg.error, "Error: la lectura esta fuera de los límites permitidos.");
+                    ComunForm.Send_message("Formulario de QaQc", TypeMsg.error, "Error: la lectura esta fuera de los límites permitidos.");
                     return false;
                 }
                 if (reading2 <= oTemplate_method_aa.Reading_min || reading2 >= oTemplate_method_aa.Reading_max)
                 {
-                    Comun.Send_message("Formulario de QaQc", TypeMsg.error, "Error: la lectura esta fuera de los límites permitidos.");
+                    ComunForm.Send_message("Formulario de QaQc", TypeMsg.error, "Error: la lectura esta fuera de los límites permitidos.");
                     return false;
                 }
             }
@@ -228,12 +228,12 @@ namespace LimsProject
 
                 if (law1 <= oTemplate_method_aa.Law_limit_bottom || law1 >= oTemplate_method_aa.Law_limit_top)
                 {
-                    Comun.Send_message("Formulario de QaQc", TypeMsg.error, "Error: la ley esta fuera de los límites permitidos.");
+                    ComunForm.Send_message("Formulario de QaQc", TypeMsg.error, "Error: la ley esta fuera de los límites permitidos.");
                     return false;
                 }
                 if (law2 <= oTemplate_method_aa.Law_limit_bottom || law1 >= oTemplate_method_aa.Law_limit_top)
                 {
-                    Comun.Send_message("Formulario de QaQc", TypeMsg.error, "Error: la ley esta fuera de los límites permitidos.");
+                    ComunForm.Send_message("Formulario de QaQc", TypeMsg.error, "Error: la ley esta fuera de los límites permitidos.");
                     return false;
                 }                
             }

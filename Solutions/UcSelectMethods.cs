@@ -215,7 +215,7 @@ namespace LimsProject
             {
                 ModSolution oModSolution = new ModSolution();
 
-                cbMrcOrPatternHeader.Properties.DataSource = oModSolution.GetLstMrc(Convert.ToInt16(group_solution.Idelement));
+                cbMrcOrPatternHeader.Properties.DataSource = new ModMaterialReference().GetBy_TypeMr_And_Element(Comun.TypeMr.Certificado, Convert.ToInt16(group_solution.Idelement));
                 cbMrcOrPatternHeader.Properties.DisplayMember = "Name";
                 cbMrcOrPatternHeader.Properties.ValueMember = "Idmr_detail";
                 cbMrcOrPatternHeader.EditValue = null;
@@ -227,7 +227,7 @@ namespace LimsProject
             {
                 ModSolution oModSolution = new ModSolution();
 
-                cbMrcOrPatternHeader.Properties.DataSource = oModSolution.GetLstPatron(Convert.ToInt16(group_solution.Idelement));
+                cbMrcOrPatternHeader.Properties.DataSource = new ModMaterialReference().GetBy_TypeMr_And_Element(Comun.TypeMr.SolucionPatron, Convert.ToInt16(group_solution.Idelement));
                 cbMrcOrPatternHeader.Properties.DisplayMember = "Name";
                 cbMrcOrPatternHeader.Properties.ValueMember = "Idmr_detail";
                 cbMrcOrPatternHeader.EditValue = null;
