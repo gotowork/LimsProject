@@ -39,7 +39,7 @@ namespace LimsProject
             var query =
                 (from m in new CElement_wavelengthFactory().GetAll()
                  from n in new CElementFactory().GetAll().Where(x => x.Idelement == m.Idelement)
-                 where (element != null || n.Cod_element == element)
+                 where (element == null || n.Cod_element == element)
                  select new
                  {
                      m.Idelement,
@@ -55,23 +55,40 @@ namespace LimsProject
 
             DataTable queryIcp = new ModIcp().GetElements(element);
 
+            var queryIcpElement =
+                (from p in queryIcp.AsEnumerable()
+                 join q in new CElementFactory().GetAll() on p.Field<string>("elementSymbol") equals q.Cod_element                 
+                 select new
+                 {
+                     Wavelength = p.Field<string>("wavelength"),
+                     elementSymbol = q.Cod_element,
+                     Idelement = q.Idelement,
+                     Element_wavelength = p.Field<string>("ElementName"),
+                     Idl_radial = SetValueView(p.Field<int>("Radial")),
+                     Idl_axial = SetValueView(p.Field<int>("Axial")),
+                     Lineality_radial = SetValueView(p.Field<int>("Radial")),
+                     Lineality_axial = SetValueView(p.Field<int>("Axial"))
+                 }).ToList();
+
             List<CElement_wavelength> lst =
-                (from t in queryIcp.AsEnumerable()
-                 join p in query on t.Field<string>("ElementName") equals p.Element_wavelength into tp
+                (from t in queryIcpElement
+                 join p in query on t.Element_wavelength equals p.Element_wavelength into tp
                  from q in tp.DefaultIfEmpty()
                  select new CElement_wavelength
                  {
-                     Idelement_wavelength = q == null ? Convert.ToInt32(null) : q.Idelement_wavelength,
-                     Idelement = q == null ? Convert.ToInt16(null) : q.Idelement,
-                     Wavelength = t.Field<string>("wavelength"),
-                     Element_wavelength = t.Field<string>("ElementName"),
-                     Idl_radial = q == null ? SetValueView(t.Field<int>("Radial")) : q.Idl_radial,
-                     Idl_axial = q == null ? SetValueView(t.Field<int>("Axial")) : q.Idl_axial,
-                     Lineality_radial = q == null ? SetValueView(t.Field<int>("Radial")) : q.Lineality_radial,
-                     Lineality_axial = q == null ? SetValueView(t.Field<int>("Axial")) : q.Lineality_axial
+                     Idelement_wavelength = q == null ? 0 : q.Idelement_wavelength,
+                     Idelement = t.Idelement,
+                     Wavelength = t.Wavelength,
+                     Element_wavelength = t.Element_wavelength,
+                     Idl_radial = t.Idl_radial,
+                     Idl_axial = t.Idl_axial,
+                     Lineality_radial = t.Lineality_radial,
+                     Lineality_axial = t.Lineality_axial
                  }).ToList();
 
-            gcElemWavelength.DataSource = lst;
+            gcElemWavelength.DataSource = new BindingList<CElement_wavelength>(lst);
+            
+            SaveData();
         }
 
         int? SetValueView(int value)
@@ -89,16 +106,25 @@ namespace LimsProject
                 //conectar con icp según filtro de elemento
                 ModIcp modIcp = new ModIcp();
                 DataTable dtElements = modIcp.GetElements(cbElement1.Text);
+
+                RetrieveData();
             }
         }
 
-        private void btSync_Click(object sender, EventArgs e)
+        void SaveData()
         {
-            //conectar con icp según filtro de elemento
-            //ModIcp modIcp = new ModIcp();
-            //string element = cbElement1.EditValue == null ? null : cbElement1.Text;
-            //DataTable dtElements = modIcp.GetElements(element);
-            RetrieveData();
+            //guardar las filas cuyo valor de idelement_wavelength sea igual a 0
+            foreach(CElement_wavelength item in gcElemWavelength.DataSource as BindingList<CElement_wavelength>)
+            {
+                if (item.Idelement_wavelength == 0)
+                {
+                    item.Status = true;
+                    item.Dateedit = Comun.GetDate();
+                    item.Useredit = Comun.GetUser();
+
+                    new CElement_wavelengthFactory().Insert(item);
+                }
+            }
         }
 
         private void gvElemWavelength_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)

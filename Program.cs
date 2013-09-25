@@ -21,8 +21,8 @@ namespace LimsProject
             //Application.Run(new FormCausasRechazo());
             //Application.Run(new FormConditions());
             //Application.Run(new FormPrepSamples());
-            Application.Run(new FormPrincipal());
-            //Application.Run(new FormTestImportICP());
+            //Application.Run(new FormPrincipal());
+            Application.Run(new FormElemWavelength());
             //Application.Run(new FormTestControlSample());
 
         }

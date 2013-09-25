@@ -12,10 +12,13 @@ using LimsProject.BusinessLayer.Modules;
 namespace LimsProject
 {
     public partial class FormSelMethods : LibraryBasicForm.FormBaseEmpty
-    {        
+    {
+        public int? Idsolution_interm { get; set; }        
+      
         public FormSelMethods()
         {
             InitializeComponent();
+            Idsolution_interm = null;
         }                
 
         private void repSel_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
@@ -25,6 +28,19 @@ namespace LimsProject
             //if (idtemplate_method == group_solution.Idtemplate_method)
             //    e.Cancel = true;
         }
+
+        void init()
+        {
+            if (Idsolution_interm != null)
+                gcMethods.DataSource = new ModSolInterm().GetLstTemplate_methodBySolution(Convert.ToInt32(Idsolution_interm));
+        }
+
+        private void FormSelMethods_Load(object sender, EventArgs e)
+        {
+            init();
+        }
+
+        
     }
 
     public class CMethodMini

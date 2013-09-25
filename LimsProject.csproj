@@ -179,6 +179,30 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ComunClass\ComunForm.cs" />
+    <Compile Include="UserControls\cbUser.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserControls\cbUser.Designer.cs">
+      <DependentUpon>cbUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\customDateEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserControls\customDateEdit.Designer.cs">
+      <DependentUpon>customDateEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\customSpinEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserControls\customSpinEdit.Designer.cs">
+      <DependentUpon>customSpinEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\customTextEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserControls\customTextEdit.Designer.cs">
+      <DependentUpon>customTextEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\cbReactive.cs">
       <SubType>Component</SubType>
     </Compile>

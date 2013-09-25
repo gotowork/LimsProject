@@ -29,35 +29,40 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSolInterm));
             DevExpress.XtraTreeList.StyleFormatConditions.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraTreeList.StyleFormatConditions.StyleFormatCondition();
             DevExpress.XtraTreeList.StyleFormatConditions.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraTreeList.StyleFormatConditions.StyleFormatCondition();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSolInterm));
             this.tcol_Solution_status = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.repStatusSolution = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
             this.paHeader = new DevExpress.XtraEditors.PanelControl();
-            this.cbModif = new LimsProject.cbReactive();
-            this.cbMedium = new LimsProject.cbReactive();
-            this.cbMrpattern = new LimsProject.cbMR();
+            this.gcSolutionChild = new DevExpress.XtraEditors.GroupControl();
+            this.laVigencia = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.tbParentMediumValue = new LimsProject.customSpinEdit();
+            this.cbParentMedium = new LimsProject.cbReactive();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.tbParentModifValue = new LimsProject.customSpinEdit();
+            this.cbParentModif = new LimsProject.cbReactive();
+            this.cbUser1 = new UserControls.cbUser();
+            this.deDateEnd = new LimsProject.customDateEdit();
+            this.deDateIni = new LimsProject.customDateEdit();
+            this.tbAliquot = new LimsProject.customSpinEdit();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.cbElement1 = new LimsProject.cbElement();
-            this.label16 = new System.Windows.Forms.Label();
+            this.ckAssignMethod = new DevExpress.XtraEditors.CheckEdit();
+            this.tbVolumen = new LimsProject.customSpinEdit();
             this.label5 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
+            this.tbConcentration = new LimsProject.customTextEdit();
             this.label2 = new System.Windows.Forms.Label();
-            this.tbUnd = new DevExpress.XtraEditors.TextEdit();
-            this.cbTypeSolPatron = new DevExpress.XtraEditors.ImageComboBoxEdit();
-            this.tbConcentPattern = new DevExpress.XtraEditors.TextEdit();
+            this.paSeparator = new DevExpress.XtraEditors.PanelControl();
+            this.gcSolutionParent = new DevExpress.XtraEditors.GroupControl();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tbParentConcentration = new LimsProject.customTextEdit();
+            this.cbElement1 = new LimsProject.cbElement();
             this.cbMethod1 = new LimsProject.cbMethod();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.expandablePanel1 = new DevComponents.DotNetBar.ExpandablePanel();
-            this.treeSolution = new DevExpress.XtraTreeList.TreeList();
-            this.treeListColumn1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.treeListColumn4 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.treeListColumn5 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.treeListColumn6 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.treeSolInterm = new DevExpress.XtraTreeList.TreeList();
             this.tcol_Cod_solution = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.tcol_Nombre = new DevExpress.XtraTreeList.Columns.TreeListColumn();
@@ -76,15 +81,31 @@
             this.tcol_Date_end = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.tcol_Prepared_by = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.repUser = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.tcol_Concat_methods = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.repBtOpenMethods = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.tcol_Flag_current_method = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.repAddMethod = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.tcol_Idsolution = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.tcol_Type_sol = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.tcol_ShowMethods = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.repBtOpenMethods = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.tcol_Root_type_pattern = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.tcol_Expired_status = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.cmsAddSolution = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.btNewSolInt1 = new System.Windows.Forms.ToolStripMenuItem();
             this.btNewSolInt2 = new System.Windows.Forms.ToolStripMenuItem();
             this.btNewSolStdVer = new System.Windows.Forms.ToolStripMenuItem();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.ucSign1 = new LimsProject.UcSign();
+            this.gcMethods = new DevExpress.XtraGrid.GridControl();
+            this.gvMethods = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gmet_Sel = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repSel = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.gmet_Idtemplate_method = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gmet_Cod_template_method = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gmet_Title = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.splitterControl1 = new DevExpress.XtraEditors.SplitterControl();
+            this.exPanel = new DevComponents.DotNetBar.ExpandablePanel();
+            this.ckDisabledSolution = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.paTitle)).BeginInit();
             this.paTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.paBottom)).BeginInit();
@@ -96,60 +117,83 @@
             ((System.ComponentModel.ISupportInitialize)(this.repStatusSolution)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.paHeader)).BeginInit();
             this.paHeader.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cbModif.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbMedium.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbMrpattern.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcSolutionChild)).BeginInit();
+            this.gcSolutionChild.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbParentMediumValue.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbParentMedium.Properties)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbParentModifValue.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbParentModif.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbUser1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deDateEnd.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deDateIni.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbAliquot.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckAssignMethod.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbVolumen.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbConcentration.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.paSeparator)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcSolutionParent)).BeginInit();
+            this.gcSolutionParent.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbParentConcentration.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbElement1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbUnd.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbTypeSolPatron.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbConcentPattern.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbMethod1.Properties)).BeginInit();
             this.expandablePanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.treeSolution)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.treeSolInterm)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repVolumen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repReactive)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repReactiveValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.redDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repUser)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repAddMethod)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repBtOpenMethods)).BeginInit();
             this.cmsAddSolution.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
+            this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gcMethods)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvMethods)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repSel)).BeginInit();
+            this.exPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ckDisabledSolution.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // laTitle
             // 
-            this.laTitle.Size = new System.Drawing.Size(988, 431);
+            this.laTitle.Size = new System.Drawing.Size(959, 487);
             // 
             // paTitle
             // 
             this.paTitle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.paTitle.Location = new System.Drawing.Point(0, 26);
-            this.paTitle.Size = new System.Drawing.Size(992, 435);
+            this.paTitle.Size = new System.Drawing.Size(963, 491);
             this.paTitle.Visible = false;
             // 
             // paBottom
             // 
             this.paBottom.Controls.Add(this.ucSign1);
-            this.paBottom.Location = new System.Drawing.Point(0, 415);
-            this.paBottom.Size = new System.Drawing.Size(992, 46);
+            this.paBottom.Location = new System.Drawing.Point(0, 471);
+            this.paBottom.Size = new System.Drawing.Size(963, 46);
             // 
             // paCenter
             // 
-            this.paCenter.Controls.Add(this.treeSolInterm);
+            this.paCenter.Controls.Add(this.gcMethods);
+            this.paCenter.Controls.Add(this.exPanel);
             this.paCenter.Controls.Add(this.paHeader);
+            this.paCenter.Controls.Add(this.splitterControl1);
             this.paCenter.Controls.Add(this.expandablePanel1);
-            this.paCenter.Location = new System.Drawing.Point(0, 58);
-            this.paCenter.Size = new System.Drawing.Size(992, 357);
+            this.paCenter.Location = new System.Drawing.Point(0, 46);
+            this.paCenter.Size = new System.Drawing.Size(963, 425);
             // 
             // paTop
             // 
             this.paTop.Location = new System.Drawing.Point(0, 26);
-            this.paTop.Size = new System.Drawing.Size(992, 32);
+            this.paTop.Padding = new System.Windows.Forms.Padding(10);
+            this.paTop.Size = new System.Drawing.Size(963, 20);
             this.paTop.Visible = false;
             // 
             // panelControl1
             // 
-            this.panelControl1.Size = new System.Drawing.Size(992, 26);
+            this.panelControl1.Size = new System.Drawing.Size(963, 26);
             this.panelControl1.Visible = false;
             // 
             // tcol_Solution_status
@@ -158,7 +202,6 @@
             this.tcol_Solution_status.ColumnEdit = this.repStatusSolution;
             this.tcol_Solution_status.FieldName = "Solution_status";
             this.tcol_Solution_status.Name = "tcol_Solution_status";
-            this.tcol_Solution_status.VisibleIndex = 10;
             // 
             // repStatusSolution
             // 
@@ -172,83 +215,325 @@
             // 
             // paHeader
             // 
-            this.paHeader.Controls.Add(this.cbModif);
-            this.paHeader.Controls.Add(this.cbMedium);
-            this.paHeader.Controls.Add(this.cbMrpattern);
-            this.paHeader.Controls.Add(this.label1);
-            this.paHeader.Controls.Add(this.cbElement1);
-            this.paHeader.Controls.Add(this.label16);
-            this.paHeader.Controls.Add(this.label5);
-            this.paHeader.Controls.Add(this.label3);
-            this.paHeader.Controls.Add(this.label15);
-            this.paHeader.Controls.Add(this.label2);
-            this.paHeader.Controls.Add(this.tbUnd);
-            this.paHeader.Controls.Add(this.cbTypeSolPatron);
-            this.paHeader.Controls.Add(this.tbConcentPattern);
-            this.paHeader.Controls.Add(this.cbMethod1);
-            this.paHeader.Controls.Add(this.label14);
-            this.paHeader.Controls.Add(this.label13);
+            this.paHeader.Controls.Add(this.gcSolutionChild);
+            this.paHeader.Controls.Add(this.paSeparator);
+            this.paHeader.Controls.Add(this.gcSolutionParent);
             this.paHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.paHeader.Location = new System.Drawing.Point(168, 2);
+            this.paHeader.Location = new System.Drawing.Point(301, 2);
             this.paHeader.Name = "paHeader";
             this.paHeader.Padding = new System.Windows.Forms.Padding(10);
-            this.paHeader.Size = new System.Drawing.Size(822, 77);
+            this.paHeader.Size = new System.Drawing.Size(660, 252);
             this.paHeader.TabIndex = 37;
             this.paHeader.Text = "panelControl2";
             // 
-            // cbModif
+            // gcSolutionChild
             // 
-            this.cbModif.Location = new System.Drawing.Point(486, 45);
-            this.cbModif.Name = "cbModif";
-            this.cbModif.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.cbModif.Properties.Appearance.Options.UseBackColor = true;
-            this.cbModif.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.gcSolutionChild.Controls.Add(this.laVigencia);
+            this.gcSolutionChild.Controls.Add(this.groupBox3);
+            this.gcSolutionChild.Controls.Add(this.groupBox2);
+            this.gcSolutionChild.Controls.Add(this.cbUser1);
+            this.gcSolutionChild.Controls.Add(this.deDateEnd);
+            this.gcSolutionChild.Controls.Add(this.deDateIni);
+            this.gcSolutionChild.Controls.Add(this.tbAliquot);
+            this.gcSolutionChild.Controls.Add(this.label8);
+            this.gcSolutionChild.Controls.Add(this.label7);
+            this.gcSolutionChild.Controls.Add(this.label6);
+            this.gcSolutionChild.Controls.Add(this.label1);
+            this.gcSolutionChild.Controls.Add(this.ckAssignMethod);
+            this.gcSolutionChild.Controls.Add(this.tbVolumen);
+            this.gcSolutionChild.Controls.Add(this.label5);
+            this.gcSolutionChild.Controls.Add(this.tbConcentration);
+            this.gcSolutionChild.Controls.Add(this.label2);
+            this.gcSolutionChild.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcSolutionChild.Location = new System.Drawing.Point(12, 77);
+            this.gcSolutionChild.Name = "gcSolutionChild";
+            this.gcSolutionChild.Size = new System.Drawing.Size(636, 163);
+            this.gcSolutionChild.TabIndex = 39;
+            this.gcSolutionChild.Text = "Solución Hijo";
+            // 
+            // laVigencia
+            // 
+            this.laVigencia.AutoSize = true;
+            this.laVigencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.laVigencia.ForeColor = System.Drawing.Color.Red;
+            this.laVigencia.Location = new System.Drawing.Point(396, 105);
+            this.laVigencia.Name = "laVigencia";
+            this.laVigencia.Size = new System.Drawing.Size(70, 13);
+            this.laVigencia.TabIndex = 34;
+            this.laVigencia.Text = "EXPIRADO";
+            this.laVigencia.Visible = false;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.tbParentMediumValue);
+            this.groupBox3.Controls.Add(this.cbParentMedium);
+            this.groupBox3.Location = new System.Drawing.Point(11, 23);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(194, 42);
+            this.groupBox3.TabIndex = 36;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Medio";
+            // 
+            // tbParentMediumValue
+            // 
+            this.tbParentMediumValue.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.tbParentMediumValue.Location = new System.Drawing.Point(120, 14);
+            this.tbParentMediumValue.Name = "tbParentMediumValue";
+            this.tbParentMediumValue.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.tbParentMediumValue.Properties.ReadOnly = true;
+            this.tbParentMediumValue.Size = new System.Drawing.Size(67, 20);
+            this.tbParentMediumValue.TabIndex = 35;
+            this.tbParentMediumValue.TabStop = false;
+            // 
+            // cbParentMedium
+            // 
+            this.cbParentMedium.Location = new System.Drawing.Point(5, 14);
+            this.cbParentMedium.Name = "cbParentMedium";
+            this.cbParentMedium.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.cbParentMedium.Properties.Appearance.Options.UseBackColor = true;
+            this.cbParentMedium.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, DevExpress.Utils.HorzAlignment.Center, null)});
-            this.cbModif.Properties.NullText = "";
-            this.cbModif.Properties.ReadOnly = true;
-            this.cbModif.Properties.ShowDropDown = DevExpress.XtraEditors.Controls.ShowDropDown.Never;
-            this.cbModif.Size = new System.Drawing.Size(112, 20);
-            this.cbModif.TabIndex = 32;
-            this.cbModif.TabStop = false;
+            this.cbParentMedium.Properties.NullText = "";
+            this.cbParentMedium.Properties.ReadOnly = true;
+            this.cbParentMedium.Properties.ShowDropDown = DevExpress.XtraEditors.Controls.ShowDropDown.Never;
+            this.cbParentMedium.Size = new System.Drawing.Size(112, 20);
+            this.cbParentMedium.TabIndex = 31;
+            this.cbParentMedium.TabStop = false;
             // 
-            // cbMedium
+            // groupBox2
             // 
-            this.cbMedium.Location = new System.Drawing.Point(297, 45);
-            this.cbMedium.Name = "cbMedium";
-            this.cbMedium.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.cbMedium.Properties.Appearance.Options.UseBackColor = true;
-            this.cbMedium.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.groupBox2.Controls.Add(this.tbParentModifValue);
+            this.groupBox2.Controls.Add(this.cbParentModif);
+            this.groupBox2.Location = new System.Drawing.Point(220, 23);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(193, 42);
+            this.groupBox2.TabIndex = 36;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Modificador";
+            // 
+            // tbParentModifValue
+            // 
+            this.tbParentModifValue.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.tbParentModifValue.Location = new System.Drawing.Point(121, 14);
+            this.tbParentModifValue.Name = "tbParentModifValue";
+            this.tbParentModifValue.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.tbParentModifValue.Properties.ReadOnly = true;
+            this.tbParentModifValue.Size = new System.Drawing.Size(65, 20);
+            this.tbParentModifValue.TabIndex = 35;
+            this.tbParentModifValue.TabStop = false;
+            // 
+            // cbParentModif
+            // 
+            this.cbParentModif.Location = new System.Drawing.Point(6, 14);
+            this.cbParentModif.Name = "cbParentModif";
+            this.cbParentModif.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.cbParentModif.Properties.Appearance.Options.UseBackColor = true;
+            this.cbParentModif.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, DevExpress.Utils.HorzAlignment.Center, null)});
-            this.cbMedium.Properties.NullText = "";
-            this.cbMedium.Properties.ReadOnly = true;
-            this.cbMedium.Properties.ShowDropDown = DevExpress.XtraEditors.Controls.ShowDropDown.Never;
-            this.cbMedium.Size = new System.Drawing.Size(112, 20);
-            this.cbMedium.TabIndex = 31;
-            this.cbMedium.TabStop = false;
+            this.cbParentModif.Properties.NullText = "";
+            this.cbParentModif.Properties.ReadOnly = true;
+            this.cbParentModif.Properties.ShowDropDown = DevExpress.XtraEditors.Controls.ShowDropDown.Never;
+            this.cbParentModif.Size = new System.Drawing.Size(112, 20);
+            this.cbParentModif.TabIndex = 32;
+            this.cbParentModif.TabStop = false;
             // 
-            // cbMrpattern
+            // cbUser1
             // 
-            this.cbMrpattern.Location = new System.Drawing.Point(694, 22);
-            this.cbMrpattern.Name = "cbMrpattern";
-            this.cbMrpattern.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.cbUser1.Location = new System.Drawing.Point(293, 135);
+            this.cbUser1.Name = "cbUser1";
+            this.cbUser1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, DevExpress.Utils.HorzAlignment.Center, null)});
+            this.cbUser1.Properties.NullText = "";
+            this.cbUser1.Properties.ReadOnly = true;
+            this.cbUser1.Properties.ShowDropDown = DevExpress.XtraEditors.Controls.ShowDropDown.Never;
+            this.cbUser1.Size = new System.Drawing.Size(100, 20);
+            this.cbUser1.TabIndex = 23;
+            // 
+            // deDateEnd
+            // 
+            this.deDateEnd.EditValue = null;
+            this.deDateEnd.Location = new System.Drawing.Point(293, 113);
+            this.deDateEnd.Name = "deDateEnd";
+            this.deDateEnd.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbMrpattern.Properties.NullText = "Seleccionar";
-            this.cbMrpattern.Size = new System.Drawing.Size(100, 20);
-            this.cbMrpattern.TabIndex = 2;
-            this.cbMrpattern.EditValueChanged += new System.EventHandler(this.cbMrpattern_EditValueChanged);
+            this.deDateEnd.Size = new System.Drawing.Size(100, 20);
+            this.deDateEnd.TabIndex = 22;
+            this.deDateEnd.EditValueChanged += new System.EventHandler(this.deDateEnd_EditValueChanged);
+            // 
+            // deDateIni
+            // 
+            this.deDateIni.EditValue = null;
+            this.deDateIni.Location = new System.Drawing.Point(293, 91);
+            this.deDateIni.Name = "deDateIni";
+            this.deDateIni.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.deDateIni.Size = new System.Drawing.Size(100, 20);
+            this.deDateIni.TabIndex = 22;
+            this.deDateIni.EditValueChanged += new System.EventHandler(this.deDateIni_EditValueChanged);
+            // 
+            // tbAliquot
+            // 
+            this.tbAliquot.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.tbAliquot.Location = new System.Drawing.Point(94, 135);
+            this.tbAliquot.Name = "tbAliquot";
+            this.tbAliquot.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, false, false, DevExpress.Utils.HorzAlignment.Center, null)});
+            this.tbAliquot.Properties.ReadOnly = true;
+            this.tbAliquot.Size = new System.Drawing.Size(76, 20);
+            this.tbAliquot.TabIndex = 3;
+            this.tbAliquot.TabStop = false;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(241, 138);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(46, 13);
+            this.label8.TabIndex = 21;
+            this.label8.Text = "Usuario:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(230, 116);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(57, 13);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "Fecha Fin:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(219, 94);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(68, 13);
+            this.label6.TabIndex = 21;
+            this.label6.Text = "Fecha Inicio:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(189, 48);
+            this.label1.Location = new System.Drawing.Point(12, 92);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(30, 13);
-            this.label1.TabIndex = 22;
-            this.label1.Text = "Und:";
+            this.label1.Size = new System.Drawing.Size(79, 13);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "Concentración:";
+            // 
+            // ckAssignMethod
+            // 
+            this.ckAssignMethod.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ckAssignMethod.Location = new System.Drawing.Point(480, 130);
+            this.ckAssignMethod.Name = "ckAssignMethod";
+            this.ckAssignMethod.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.ckAssignMethod.Properties.Appearance.ForeColor = System.Drawing.Color.ForestGreen;
+            this.ckAssignMethod.Properties.Appearance.Options.UseFont = true;
+            this.ckAssignMethod.Properties.Appearance.Options.UseForeColor = true;
+            this.ckAssignMethod.Properties.Caption = "Asignar al método";
+            this.ckAssignMethod.Size = new System.Drawing.Size(143, 21);
+            this.ckAssignMethod.TabIndex = 4;
+            // 
+            // tbVolumen
+            // 
+            this.tbVolumen.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.tbVolumen.Location = new System.Drawing.Point(94, 113);
+            this.tbVolumen.Name = "tbVolumen";
+            this.tbVolumen.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.tbVolumen.Size = new System.Drawing.Size(76, 20);
+            this.tbVolumen.TabIndex = 2;
+            this.tbVolumen.EditValueChanged += new System.EventHandler(this.tbVolumen_EditValueChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(42, 138);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(48, 13);
+            this.label5.TabIndex = 21;
+            this.label5.Text = "Alicuota:";
+            // 
+            // tbConcentration
+            // 
+            this.tbConcentration.Location = new System.Drawing.Point(94, 91);
+            this.tbConcentration.Name = "tbConcentration";
+            this.tbConcentration.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.tbConcentration.Properties.Appearance.Options.UseBackColor = true;
+            this.tbConcentration.Properties.ReadOnly = true;
+            this.tbConcentration.Size = new System.Drawing.Size(77, 20);
+            this.tbConcentration.TabIndex = 1;
+            this.tbConcentration.TabStop = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(39, 114);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(51, 13);
+            this.label2.TabIndex = 21;
+            this.label2.Text = "Volumen:";
+            // 
+            // paSeparator
+            // 
+            this.paSeparator.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.paSeparator.Dock = System.Windows.Forms.DockStyle.Top;
+            this.paSeparator.Location = new System.Drawing.Point(12, 67);
+            this.paSeparator.Name = "paSeparator";
+            this.paSeparator.Size = new System.Drawing.Size(636, 10);
+            this.paSeparator.TabIndex = 40;
+            this.paSeparator.Text = "panelControl4";
+            // 
+            // gcSolutionParent
+            // 
+            this.gcSolutionParent.Controls.Add(this.label3);
+            this.gcSolutionParent.Controls.Add(this.tbParentConcentration);
+            this.gcSolutionParent.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gcSolutionParent.Location = new System.Drawing.Point(12, 12);
+            this.gcSolutionParent.Name = "gcSolutionParent";
+            this.gcSolutionParent.Size = new System.Drawing.Size(636, 55);
+            this.gcSolutionParent.TabIndex = 39;
+            this.gcSolutionParent.Text = "Solucion Padre";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(19, 29);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(79, 13);
+            this.label3.TabIndex = 21;
+            this.label3.Text = "Concentración:";
+            // 
+            // tbParentConcentration
+            // 
+            this.tbParentConcentration.Location = new System.Drawing.Point(104, 26);
+            this.tbParentConcentration.Name = "tbParentConcentration";
+            this.tbParentConcentration.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.tbParentConcentration.Properties.Appearance.Options.UseBackColor = true;
+            this.tbParentConcentration.Properties.ReadOnly = true;
+            this.tbParentConcentration.Size = new System.Drawing.Size(100, 20);
+            this.tbParentConcentration.TabIndex = 33;
+            this.tbParentConcentration.TabStop = false;
             // 
             // cbElement1
             // 
-            this.cbElement1.Location = new System.Drawing.Point(15, 22);
+            this.cbElement1.Location = new System.Drawing.Point(9, 5);
             this.cbElement1.Name = "cbElement1";
             this.cbElement1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -256,280 +541,32 @@
             this.cbElement1.TabIndex = 0;
             this.cbElement1.EditValueChanged += new System.EventHandler(this.cbElement1_EditValueChanged);
             // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(415, 48);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(65, 13);
-            this.label16.TabIndex = 20;
-            this.label16.Text = "Modificador:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(16, 48);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(79, 13);
-            this.label5.TabIndex = 22;
-            this.label5.Text = "Concentración:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(120, 6);
-            this.label3.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.label3.Name = "label3";
-            this.label3.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            this.label3.Size = new System.Drawing.Size(46, 15);
-            this.label3.TabIndex = 34;
-            this.label3.Text = "Método:";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(252, 48);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(39, 13);
-            this.label15.TabIndex = 21;
-            this.label15.Text = "Medio:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 4);
-            this.label2.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.label2.Name = "label2";
-            this.label2.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            this.label2.Size = new System.Drawing.Size(54, 15);
-            this.label2.TabIndex = 34;
-            this.label2.Text = "Elemento:";
-            // 
-            // tbUnd
-            // 
-            this.tbUnd.Location = new System.Drawing.Point(222, 45);
-            this.tbUnd.Name = "tbUnd";
-            this.tbUnd.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.tbUnd.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.tbUnd.Properties.Appearance.Options.UseBackColor = true;
-            this.tbUnd.Properties.Appearance.Options.UseFont = true;
-            this.tbUnd.Size = new System.Drawing.Size(24, 20);
-            this.tbUnd.TabIndex = 30;
-            this.tbUnd.TabStop = false;
-            // 
-            // cbTypeSolPatron
-            // 
-            this.cbTypeSolPatron.Location = new System.Drawing.Point(592, 22);
-            this.cbTypeSolPatron.Name = "cbTypeSolPatron";
-            this.cbTypeSolPatron.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, DevExpress.Utils.HorzAlignment.Center, null)});
-            this.cbTypeSolPatron.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("MRC", 1, -1),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Sol. Patron", 2, -1)});
-            this.cbTypeSolPatron.Properties.ReadOnly = true;
-            this.cbTypeSolPatron.Properties.ShowDropDown = DevExpress.XtraEditors.Controls.ShowDropDown.Never;
-            this.cbTypeSolPatron.Size = new System.Drawing.Size(100, 20);
-            this.cbTypeSolPatron.TabIndex = 28;
-            this.cbTypeSolPatron.TabStop = false;
-            this.cbTypeSolPatron.SelectedIndexChanged += new System.EventHandler(this.cbTypeSolPatron_SelectedIndexChanged);
-            // 
-            // tbConcentPattern
-            // 
-            this.tbConcentPattern.EditValue = "";
-            this.tbConcentPattern.Location = new System.Drawing.Point(98, 45);
-            this.tbConcentPattern.Name = "tbConcentPattern";
-            this.tbConcentPattern.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.tbConcentPattern.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.tbConcentPattern.Properties.Appearance.Options.UseBackColor = true;
-            this.tbConcentPattern.Properties.Appearance.Options.UseFont = true;
-            this.tbConcentPattern.Size = new System.Drawing.Size(85, 20);
-            this.tbConcentPattern.TabIndex = 30;
-            this.tbConcentPattern.TabStop = false;
-            // 
             // cbMethod1
             // 
-            this.cbMethod1.Location = new System.Drawing.Point(116, 22);
+            this.cbMethod1.Location = new System.Drawing.Point(9, 27);
             this.cbMethod1.Name = "cbMethod1";
             this.cbMethod1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cbMethod1.Properties.NullText = "Seleccionar";
-            this.cbMethod1.Size = new System.Drawing.Size(470, 20);
+            this.cbMethod1.Size = new System.Drawing.Size(276, 20);
             this.cbMethod1.TabIndex = 1;
             this.cbMethod1.EditValueChanged += new System.EventHandler(this.cbMethod1_EditValueChanged);
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(595, 4);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(63, 13);
-            this.label14.TabIndex = 27;
-            this.label14.Text = "Tipo de MR";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(698, 4);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(75, 13);
-            this.label13.TabIndex = 27;
-            this.label13.Text = "Codigo de MR";
             // 
             // expandablePanel1
             // 
             this.expandablePanel1.CollapseDirection = DevComponents.DotNetBar.eCollapseDirection.LeftToRight;
-            this.expandablePanel1.Controls.Add(this.treeSolution);
+            this.expandablePanel1.Controls.Add(this.treeSolInterm);
+            this.expandablePanel1.Controls.Add(this.panelControl2);
             this.expandablePanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.expandablePanel1.Location = new System.Drawing.Point(2, 2);
             this.expandablePanel1.Name = "expandablePanel1";
-            this.expandablePanel1.Size = new System.Drawing.Size(166, 353);
+            this.expandablePanel1.Size = new System.Drawing.Size(293, 421);
             this.expandablePanel1.TabIndex = 39;
             this.expandablePanel1.Text = "expandablePanel1";
             this.expandablePanel1.TitleText = "Title Bar";
             // 
-            // treeSolution
-            // 
-            this.treeSolution.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
-            this.treeListColumn1,
-            this.treeListColumn4,
-            this.treeListColumn5,
-            this.treeListColumn6});
-            this.treeSolution.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeSolution.Location = new System.Drawing.Point(0, 26);
-            this.treeSolution.Name = "treeSolution";
-            this.treeSolution.BeginUnboundLoad();
-            this.treeSolution.AppendNode(new object[] {
-            "Solución Intermedia 1",
-            null,
-            null,
-            null}, -1);
-            this.treeSolution.AppendNode(new object[] {
-            "Solución Intermedia 2",
-            null,
-            null,
-            null}, -1);
-            this.treeSolution.AppendNode(new object[] {
-            "Estandar de Verificación",
-            null,
-            null,
-            null}, -1);
-            this.treeSolution.EndUnboundLoad();
-            this.treeSolution.OptionsBehavior.KeepSelectedOnClick = false;
-            this.treeSolution.OptionsBehavior.PopulateServiceColumns = true;
-            this.treeSolution.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.treeSolution.OptionsView.ShowFocusedFrame = false;
-            this.treeSolution.OptionsView.ShowHorzLines = false;
-            this.treeSolution.OptionsView.ShowIndicator = false;
-            this.treeSolution.SelectImageList = this.imageList1;
-            this.treeSolution.Size = new System.Drawing.Size(166, 327);
-            this.treeSolution.TabIndex = 2;
-            // 
-            // treeListColumn1
-            // 
-            this.treeListColumn1.Caption = "Nombre";
-            this.treeListColumn1.FieldName = "Nombre";
-            this.treeListColumn1.MinWidth = 46;
-            this.treeListColumn1.Name = "treeListColumn1";
-            this.treeListColumn1.OptionsColumn.AllowEdit = false;
-            this.treeListColumn1.VisibleIndex = 0;
-            this.treeListColumn1.Width = 106;
-            // 
-            // treeListColumn4
-            // 
-            this.treeListColumn4.Caption = "Idgroup_solution";
-            this.treeListColumn4.FieldName = "Idgroup_solution";
-            this.treeListColumn4.Name = "treeListColumn4";
-            // 
-            // treeListColumn5
-            // 
-            this.treeListColumn5.Caption = "Idmr_detail";
-            this.treeListColumn5.FieldName = "Idmr_detail";
-            this.treeListColumn5.Name = "treeListColumn5";
-            // 
-            // treeListColumn6
-            // 
-            this.treeListColumn6.Caption = "Idsolution_pattern";
-            this.treeListColumn6.FieldName = "Idsolution_pattern";
-            this.treeListColumn6.Name = "treeListColumn6";
-            // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "fiola_group.png");
-            this.imageList1.Images.SetKeyName(1, "fiola.png");
-            this.imageList1.Images.SetKeyName(2, "fiola_ver.png");
-            // 
             // treeSolInterm
             // 
-            this.treeSolInterm.Appearance.Empty.BackColor = System.Drawing.Color.White;
-            this.treeSolInterm.Appearance.Empty.Options.UseBackColor = true;
-            this.treeSolInterm.Appearance.EvenRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(242)))), ((int)(((byte)(254)))));
-            this.treeSolInterm.Appearance.EvenRow.ForeColor = System.Drawing.Color.Black;
-            this.treeSolInterm.Appearance.EvenRow.Options.UseBackColor = true;
-            this.treeSolInterm.Appearance.EvenRow.Options.UseForeColor = true;
-            this.treeSolInterm.Appearance.FocusedCell.BackColor = System.Drawing.Color.White;
-            this.treeSolInterm.Appearance.FocusedCell.ForeColor = System.Drawing.Color.Black;
-            this.treeSolInterm.Appearance.FocusedCell.Options.UseBackColor = true;
-            this.treeSolInterm.Appearance.FocusedCell.Options.UseForeColor = true;
-            this.treeSolInterm.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(240)))));
-            this.treeSolInterm.Appearance.FocusedRow.ForeColor = System.Drawing.Color.White;
-            this.treeSolInterm.Appearance.FocusedRow.Options.UseBackColor = true;
-            this.treeSolInterm.Appearance.FocusedRow.Options.UseForeColor = true;
-            this.treeSolInterm.Appearance.FooterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(236)))), ((int)(((byte)(254)))));
-            this.treeSolInterm.Appearance.FooterPanel.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(171)))), ((int)(((byte)(228)))));
-            this.treeSolInterm.Appearance.FooterPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(236)))), ((int)(((byte)(254)))));
-            this.treeSolInterm.Appearance.FooterPanel.ForeColor = System.Drawing.Color.Black;
-            this.treeSolInterm.Appearance.FooterPanel.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.treeSolInterm.Appearance.FooterPanel.Options.UseBackColor = true;
-            this.treeSolInterm.Appearance.FooterPanel.Options.UseBorderColor = true;
-            this.treeSolInterm.Appearance.FooterPanel.Options.UseForeColor = true;
-            this.treeSolInterm.Appearance.GroupButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(216)))), ((int)(((byte)(247)))));
-            this.treeSolInterm.Appearance.GroupButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(216)))), ((int)(((byte)(247)))));
-            this.treeSolInterm.Appearance.GroupButton.ForeColor = System.Drawing.Color.Black;
-            this.treeSolInterm.Appearance.GroupButton.Options.UseBackColor = true;
-            this.treeSolInterm.Appearance.GroupButton.Options.UseBorderColor = true;
-            this.treeSolInterm.Appearance.GroupButton.Options.UseForeColor = true;
-            this.treeSolInterm.Appearance.GroupFooter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(216)))), ((int)(((byte)(247)))));
-            this.treeSolInterm.Appearance.GroupFooter.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(216)))), ((int)(((byte)(247)))));
-            this.treeSolInterm.Appearance.GroupFooter.ForeColor = System.Drawing.Color.Black;
-            this.treeSolInterm.Appearance.GroupFooter.Options.UseBackColor = true;
-            this.treeSolInterm.Appearance.GroupFooter.Options.UseBorderColor = true;
-            this.treeSolInterm.Appearance.GroupFooter.Options.UseForeColor = true;
-            this.treeSolInterm.Appearance.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(236)))), ((int)(((byte)(254)))));
-            this.treeSolInterm.Appearance.HeaderPanel.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(171)))), ((int)(((byte)(228)))));
-            this.treeSolInterm.Appearance.HeaderPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(236)))), ((int)(((byte)(254)))));
-            this.treeSolInterm.Appearance.HeaderPanel.ForeColor = System.Drawing.Color.Black;
-            this.treeSolInterm.Appearance.HeaderPanel.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.treeSolInterm.Appearance.HeaderPanel.Options.UseBackColor = true;
-            this.treeSolInterm.Appearance.HeaderPanel.Options.UseBorderColor = true;
-            this.treeSolInterm.Appearance.HeaderPanel.Options.UseForeColor = true;
-            this.treeSolInterm.Appearance.HideSelectionRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.treeSolInterm.Appearance.HideSelectionRow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(224)))), ((int)(((byte)(251)))));
-            this.treeSolInterm.Appearance.HideSelectionRow.Options.UseBackColor = true;
-            this.treeSolInterm.Appearance.HideSelectionRow.Options.UseForeColor = true;
-            this.treeSolInterm.Appearance.HorzLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(127)))), ((int)(((byte)(196)))));
-            this.treeSolInterm.Appearance.HorzLine.Options.UseBackColor = true;
-            this.treeSolInterm.Appearance.OddRow.BackColor = System.Drawing.Color.White;
-            this.treeSolInterm.Appearance.OddRow.ForeColor = System.Drawing.Color.Black;
-            this.treeSolInterm.Appearance.OddRow.Options.UseBackColor = true;
-            this.treeSolInterm.Appearance.OddRow.Options.UseForeColor = true;
-            this.treeSolInterm.Appearance.Preview.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(252)))), ((int)(((byte)(255)))));
-            this.treeSolInterm.Appearance.Preview.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(129)))), ((int)(((byte)(185)))));
-            this.treeSolInterm.Appearance.Preview.Options.UseBackColor = true;
-            this.treeSolInterm.Appearance.Preview.Options.UseForeColor = true;
-            this.treeSolInterm.Appearance.Row.BackColor = System.Drawing.Color.White;
-            this.treeSolInterm.Appearance.Row.ForeColor = System.Drawing.Color.Black;
-            this.treeSolInterm.Appearance.Row.Options.UseBackColor = true;
-            this.treeSolInterm.Appearance.Row.Options.UseForeColor = true;
-            this.treeSolInterm.Appearance.SelectedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(240)))));
-            this.treeSolInterm.Appearance.SelectedRow.ForeColor = System.Drawing.Color.White;
-            this.treeSolInterm.Appearance.SelectedRow.Options.UseBackColor = true;
-            this.treeSolInterm.Appearance.SelectedRow.Options.UseForeColor = true;
-            this.treeSolInterm.Appearance.TreeLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(97)))), ((int)(((byte)(156)))));
-            this.treeSolInterm.Appearance.TreeLine.Options.UseBackColor = true;
-            this.treeSolInterm.Appearance.VertLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(127)))), ((int)(((byte)(196)))));
-            this.treeSolInterm.Appearance.VertLine.Options.UseBackColor = true;
             this.treeSolInterm.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
             this.tcol_Cod_solution,
             this.tcol_Nombre,
@@ -544,9 +581,12 @@
             this.tcol_Date_end,
             this.tcol_Solution_status,
             this.tcol_Prepared_by,
-            this.tcol_Concat_methods,
+            this.tcol_Flag_current_method,
             this.tcol_Idsolution,
-            this.tcol_Type_sol});
+            this.tcol_Type_sol,
+            this.tcol_ShowMethods,
+            this.tcol_Root_type_pattern,
+            this.tcol_Expired_status});
             this.treeSolInterm.ContextMenuStrip = this.cmsAddSolution;
             this.treeSolInterm.Dock = System.Windows.Forms.DockStyle.Fill;
             styleFormatCondition1.Appearance.BackColor = System.Drawing.Color.White;
@@ -570,11 +610,11 @@
             styleFormatCondition2});
             this.treeSolInterm.ImageIndexFieldName = "Image_index";
             this.treeSolInterm.KeyFieldName = "Id";
-            this.treeSolInterm.Location = new System.Drawing.Point(168, 79);
+            this.treeSolInterm.Location = new System.Drawing.Point(0, 81);
             this.treeSolInterm.Name = "treeSolInterm";
+            this.treeSolInterm.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.treeSolInterm.OptionsSelection.MultiSelect = true;
             this.treeSolInterm.OptionsView.AutoWidth = false;
-            this.treeSolInterm.OptionsView.EnableAppearanceEvenRow = true;
-            this.treeSolInterm.OptionsView.EnableAppearanceOddRow = true;
             this.treeSolInterm.ParentFieldName = "Parentid";
             this.treeSolInterm.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repStatusSolution,
@@ -583,10 +623,12 @@
             this.redDate,
             this.repUser,
             this.repVolumen,
-            this.repBtOpenMethods});
+            this.repBtOpenMethods,
+            this.repAddMethod});
             this.treeSolInterm.SelectImageList = this.imageList1;
-            this.treeSolInterm.Size = new System.Drawing.Size(822, 276);
+            this.treeSolInterm.Size = new System.Drawing.Size(293, 340);
             this.treeSolInterm.TabIndex = 40;
+            this.treeSolInterm.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeSolInterm_FocusedNodeChanged);
             this.treeSolInterm.CellValueChanged += new DevExpress.XtraTreeList.CellValueChangedEventHandler(this.treeSolInterm_CellValueChanged);
             this.treeSolInterm.MouseDown += new System.Windows.Forms.MouseEventHandler(this.treeSolInterm_MouseDown);
             // 
@@ -599,7 +641,7 @@
             this.tcol_Cod_solution.OptionsColumn.AllowEdit = false;
             this.tcol_Cod_solution.OptionsColumn.FixedWidth = true;
             this.tcol_Cod_solution.VisibleIndex = 0;
-            this.tcol_Cod_solution.Width = 154;
+            this.tcol_Cod_solution.Width = 151;
             // 
             // tcol_Nombre
             // 
@@ -623,8 +665,7 @@
             this.tcol_Aliquot.FieldName = "Aliquot";
             this.tcol_Aliquot.Name = "tcol_Aliquot";
             this.tcol_Aliquot.OptionsColumn.AllowEdit = false;
-            this.tcol_Aliquot.VisibleIndex = 2;
-            this.tcol_Aliquot.Width = 57;
+            this.tcol_Aliquot.Width = 54;
             // 
             // tcol_Volumen
             // 
@@ -632,8 +673,7 @@
             this.tcol_Volumen.ColumnEdit = this.repVolumen;
             this.tcol_Volumen.FieldName = "Volumen";
             this.tcol_Volumen.Name = "tcol_Volumen";
-            this.tcol_Volumen.VisibleIndex = 3;
-            this.tcol_Volumen.Width = 63;
+            this.tcol_Volumen.Width = 57;
             // 
             // repVolumen
             // 
@@ -649,7 +689,6 @@
             this.tcol_Idreactive_medium.FieldName = "Idreactive_medium";
             this.tcol_Idreactive_medium.Name = "tcol_Idreactive_medium";
             this.tcol_Idreactive_medium.OptionsColumn.AllowEdit = false;
-            this.tcol_Idreactive_medium.VisibleIndex = 4;
             this.tcol_Idreactive_medium.Width = 86;
             // 
             // repReactive
@@ -672,8 +711,7 @@
             this.tcol_Reactive_medium_value.FieldName = "Reactive_medium_value";
             this.tcol_Reactive_medium_value.Name = "tcol_Reactive_medium_value";
             this.tcol_Reactive_medium_value.OptionsColumn.AllowEdit = false;
-            this.tcol_Reactive_medium_value.VisibleIndex = 5;
-            this.tcol_Reactive_medium_value.Width = 62;
+            this.tcol_Reactive_medium_value.Width = 57;
             // 
             // repReactiveValue
             // 
@@ -689,7 +727,6 @@
             this.tcol_Idreactive_modif.FieldName = "Idreactive_modif";
             this.tcol_Idreactive_modif.Name = "tcol_Idreactive_modif";
             this.tcol_Idreactive_modif.OptionsColumn.AllowEdit = false;
-            this.tcol_Idreactive_modif.VisibleIndex = 6;
             this.tcol_Idreactive_modif.Width = 91;
             // 
             // tcol_Reactive_modif_value
@@ -699,8 +736,7 @@
             this.tcol_Reactive_modif_value.FieldName = "Reactive_modif_value";
             this.tcol_Reactive_modif_value.Name = "tcol_Reactive_modif_value";
             this.tcol_Reactive_modif_value.OptionsColumn.AllowEdit = false;
-            this.tcol_Reactive_modif_value.VisibleIndex = 7;
-            this.tcol_Reactive_modif_value.Width = 62;
+            this.tcol_Reactive_modif_value.Width = 56;
             // 
             // tcol_Date_begin
             // 
@@ -709,7 +745,6 @@
             this.tcol_Date_begin.FieldName = "Date_begin";
             this.tcol_Date_begin.Name = "tcol_Date_begin";
             this.tcol_Date_begin.OptionsColumn.AllowEdit = false;
-            this.tcol_Date_begin.VisibleIndex = 8;
             this.tcol_Date_begin.Width = 72;
             // 
             // redDate
@@ -726,7 +761,6 @@
             this.tcol_Date_end.FieldName = "Date_end";
             this.tcol_Date_end.Name = "tcol_Date_end";
             this.tcol_Date_end.OptionsColumn.AllowEdit = false;
-            this.tcol_Date_end.VisibleIndex = 9;
             this.tcol_Date_end.Width = 74;
             // 
             // tcol_Prepared_by
@@ -735,8 +769,7 @@
             this.tcol_Prepared_by.ColumnEdit = this.repUser;
             this.tcol_Prepared_by.FieldName = "Prepared_by";
             this.tcol_Prepared_by.Name = "tcol_Prepared_by";
-            this.tcol_Prepared_by.VisibleIndex = 11;
-            this.tcol_Prepared_by.Width = 85;
+            this.tcol_Prepared_by.Width = 81;
             // 
             // repUser
             // 
@@ -750,14 +783,38 @@
             this.repUser.ShowFooter = false;
             this.repUser.ShowHeader = false;
             // 
-            // tcol_Concat_methods
+            // tcol_Flag_current_method
             // 
-            this.tcol_Concat_methods.Caption = "Metodos";
-            this.tcol_Concat_methods.ColumnEdit = this.repBtOpenMethods;
-            this.tcol_Concat_methods.FieldName = "Concat_cod_methods";
-            this.tcol_Concat_methods.Name = "tcol_Concat_methods";
-            this.tcol_Concat_methods.VisibleIndex = 12;
-            this.tcol_Concat_methods.Width = 56;
+            this.tcol_Flag_current_method.Caption = "Asignado al Método";
+            this.tcol_Flag_current_method.ColumnEdit = this.repAddMethod;
+            this.tcol_Flag_current_method.FieldName = "Flag_current_method";
+            this.tcol_Flag_current_method.Name = "tcol_Flag_current_method";
+            this.tcol_Flag_current_method.Width = 108;
+            // 
+            // repAddMethod
+            // 
+            this.repAddMethod.AutoHeight = false;
+            this.repAddMethod.Name = "repAddMethod";
+            // 
+            // tcol_Idsolution
+            // 
+            this.tcol_Idsolution.Caption = "Idsolution";
+            this.tcol_Idsolution.FieldName = "Idsolution_interm";
+            this.tcol_Idsolution.Name = "tcol_Idsolution";
+            // 
+            // tcol_Type_sol
+            // 
+            this.tcol_Type_sol.Caption = "type_sol";
+            this.tcol_Type_sol.FieldName = "Type_sol";
+            this.tcol_Type_sol.Name = "tcol_Type_sol";
+            // 
+            // tcol_ShowMethods
+            // 
+            this.tcol_ShowMethods.Caption = "#";
+            this.tcol_ShowMethods.ColumnEdit = this.repBtOpenMethods;
+            this.tcol_ShowMethods.FieldName = "#";
+            this.tcol_ShowMethods.Name = "tcol_ShowMethods";
+            this.tcol_ShowMethods.Width = 53;
             // 
             // repBtOpenMethods
             // 
@@ -766,19 +823,19 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Ver", -1, true, true, false, DevExpress.Utils.HorzAlignment.Center, null)});
             this.repBtOpenMethods.Name = "repBtOpenMethods";
             this.repBtOpenMethods.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            this.repBtOpenMethods.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repBtOpenMethods_ButtonClick_1);
+            this.repBtOpenMethods.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repBtOpenMethods_ButtonClick);
             // 
-            // tcol_Idsolution
+            // tcol_Root_type_pattern
             // 
-            this.tcol_Idsolution.Caption = "Idsolution";
-            this.tcol_Idsolution.FieldName = "Idsolution";
-            this.tcol_Idsolution.Name = "tcol_Idsolution";
+            this.tcol_Root_type_pattern.Caption = "Root_type_pattern";
+            this.tcol_Root_type_pattern.FieldName = "Root_type_pattern";
+            this.tcol_Root_type_pattern.Name = "tcol_Root_type_pattern";
             // 
-            // tcol_Type_sol
+            // tcol_Expired_status
             // 
-            this.tcol_Type_sol.Caption = "type_sol";
-            this.tcol_Type_sol.FieldName = "Type_sol";
-            this.tcol_Type_sol.Name = "tcol_Type_sol";
+            this.tcol_Expired_status.Caption = "Expiracion";
+            this.tcol_Expired_status.FieldName = "Expired_status";
+            this.tcol_Expired_status.Name = "tcol_Expired_status";
             // 
             // cmsAddSolution
             // 
@@ -810,10 +867,29 @@
             this.btNewSolStdVer.Text = "Nuevo Estandar de Verificación";
             this.btNewSolStdVer.Click += new System.EventHandler(this.btNewSolStdVer_Click);
             // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "fiola_group.png");
+            this.imageList1.Images.SetKeyName(1, "fiola.png");
+            this.imageList1.Images.SetKeyName(2, "fiola_ver.png");
+            // 
+            // panelControl2
+            // 
+            this.panelControl2.Controls.Add(this.cbMethod1);
+            this.panelControl2.Controls.Add(this.cbElement1);
+            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl2.Location = new System.Drawing.Point(0, 26);
+            this.panelControl2.Name = "panelControl2";
+            this.panelControl2.Size = new System.Drawing.Size(293, 55);
+            this.panelControl2.TabIndex = 41;
+            this.panelControl2.Text = "panelControl2";
+            // 
             // ucSign1
             // 
             this.ucSign1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ucSign1.Location = new System.Drawing.Point(829, 4);
+            this.ucSign1.Location = new System.Drawing.Point(800, 4);
             this.ucSign1.Margin = new System.Windows.Forms.Padding(0);
             this.ucSign1.Name = "ucSign1";
             this.ucSign1.Pwd = null;
@@ -822,11 +898,113 @@
             this.ucSign1.Title = "";
             this.ucSign1.OnSign += new LimsProject.sign(this.ucSign1_OnSign);
             // 
+            // gcMethods
+            // 
+            this.gcMethods.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcMethods.EmbeddedNavigator.Name = "";
+            this.gcMethods.Location = new System.Drawing.Point(301, 254);
+            this.gcMethods.MainView = this.gvMethods;
+            this.gcMethods.Name = "gcMethods";
+            this.gcMethods.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repSel});
+            this.gcMethods.Size = new System.Drawing.Size(660, 143);
+            this.gcMethods.TabIndex = 40;
+            this.gcMethods.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvMethods});
+            // 
+            // gvMethods
+            // 
+            this.gvMethods.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gmet_Sel,
+            this.gmet_Idtemplate_method,
+            this.gmet_Cod_template_method,
+            this.gmet_Title});
+            this.gvMethods.GridControl = this.gcMethods;
+            this.gvMethods.Name = "gvMethods";
+            this.gvMethods.OptionsBehavior.Editable = false;
+            this.gvMethods.OptionsView.ShowGroupPanel = false;
+            // 
+            // gmet_Sel
+            // 
+            this.gmet_Sel.Caption = "#";
+            this.gmet_Sel.ColumnEdit = this.repSel;
+            this.gmet_Sel.FieldName = "Sel";
+            this.gmet_Sel.Name = "gmet_Sel";
+            this.gmet_Sel.OptionsColumn.FixedWidth = true;
+            this.gmet_Sel.Width = 53;
+            // 
+            // repSel
+            // 
+            this.repSel.AutoHeight = false;
+            this.repSel.Name = "repSel";
+            // 
+            // gmet_Idtemplate_method
+            // 
+            this.gmet_Idtemplate_method.Caption = "Idtemplate_method";
+            this.gmet_Idtemplate_method.FieldName = "Idtemplate_method";
+            this.gmet_Idtemplate_method.Name = "gmet_Idtemplate_method";
+            this.gmet_Idtemplate_method.Width = 86;
+            // 
+            // gmet_Cod_template_method
+            // 
+            this.gmet_Cod_template_method.Caption = "Código";
+            this.gmet_Cod_template_method.FieldName = "Cod_template_method";
+            this.gmet_Cod_template_method.Name = "gmet_Cod_template_method";
+            this.gmet_Cod_template_method.OptionsColumn.AllowEdit = false;
+            this.gmet_Cod_template_method.OptionsColumn.FixedWidth = true;
+            this.gmet_Cod_template_method.Visible = true;
+            this.gmet_Cod_template_method.VisibleIndex = 0;
+            this.gmet_Cod_template_method.Width = 71;
+            // 
+            // gmet_Title
+            // 
+            this.gmet_Title.Caption = "Título";
+            this.gmet_Title.FieldName = "Title";
+            this.gmet_Title.Name = "gmet_Title";
+            this.gmet_Title.Visible = true;
+            this.gmet_Title.VisibleIndex = 1;
+            this.gmet_Title.Width = 618;
+            // 
+            // splitterControl1
+            // 
+            this.splitterControl1.Location = new System.Drawing.Point(295, 2);
+            this.splitterControl1.Name = "splitterControl1";
+            this.splitterControl1.Size = new System.Drawing.Size(6, 421);
+            this.splitterControl1.TabIndex = 41;
+            this.splitterControl1.TabStop = false;
+            // 
+            // exPanel
+            // 
+            this.exPanel.Controls.Add(this.ckDisabledSolution);
+            this.exPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.exPanel.Expanded = false;
+            this.exPanel.ExpandedBounds = new System.Drawing.Rectangle(301, 369, 660, 54);
+            this.exPanel.Location = new System.Drawing.Point(301, 397);
+            this.exPanel.Name = "exPanel";
+            this.exPanel.Size = new System.Drawing.Size(660, 26);
+            this.exPanel.TabIndex = 37;
+            this.exPanel.Text = "expandablePanel2";
+            this.exPanel.TitleStyle.BackColor1.Color = System.Drawing.Color.LightSteelBlue;
+            this.exPanel.TitleStyle.ForeColor.Color = System.Drawing.Color.Blue;
+            this.exPanel.TitleText = "Desactivar";
+            // 
+            // ckDisabledSolution
+            // 
+            this.ckDisabledSolution.Location = new System.Drawing.Point(13, 29);
+            this.ckDisabledSolution.Name = "ckDisabledSolution";
+            this.ckDisabledSolution.Properties.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.ckDisabledSolution.Properties.Appearance.Options.UseForeColor = true;
+            this.ckDisabledSolution.Properties.Caption = "Desactivando la solución, no podrá ser usada en ningún módulo que haga referencia" +
+    "";
+            this.ckDisabledSolution.Size = new System.Drawing.Size(442, 19);
+            this.ckDisabledSolution.TabIndex = 1;
+            this.ckDisabledSolution.CheckedChanged += new System.EventHandler(this.ckDisabledSolution_CheckedChanged);
+            // 
             // FormSolInterm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(992, 461);
+            this.ClientSize = new System.Drawing.Size(963, 517);
             this.Name = "FormSolInterm";
             this.Text = "Soluciones Intermedias";
             this.Load += new System.EventHandler(this.FormSolInterm_Load);
@@ -846,25 +1024,46 @@
             ((System.ComponentModel.ISupportInitialize)(this.repStatusSolution)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.paHeader)).EndInit();
             this.paHeader.ResumeLayout(false);
-            this.paHeader.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cbModif.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbMedium.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbMrpattern.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcSolutionChild)).EndInit();
+            this.gcSolutionChild.ResumeLayout(false);
+            this.gcSolutionChild.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tbParentMediumValue.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbParentMedium.Properties)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tbParentModifValue.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbParentModif.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbUser1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deDateEnd.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deDateIni.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbAliquot.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckAssignMethod.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbVolumen.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbConcentration.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.paSeparator)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcSolutionParent)).EndInit();
+            this.gcSolutionParent.ResumeLayout(false);
+            this.gcSolutionParent.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbParentConcentration.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbElement1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbUnd.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbTypeSolPatron.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbConcentPattern.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbMethod1.Properties)).EndInit();
             this.expandablePanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.treeSolution)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.treeSolInterm)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repVolumen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repReactive)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repReactiveValue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.redDate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repUser)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repAddMethod)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repBtOpenMethods)).EndInit();
             this.cmsAddSolution.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
+            this.panelControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gcMethods)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvMethods)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repSel)).EndInit();
+            this.exPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ckDisabledSolution.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -872,24 +1071,10 @@
         #endregion
 
         private DevExpress.XtraEditors.PanelControl paHeader;
-        private cbReactive cbModif;
-        private cbReactive cbMedium;
-        private DevExpress.XtraEditors.ImageComboBoxEdit cbTypeSolPatron;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label15;
-        private DevExpress.XtraEditors.TextEdit tbUnd;
-        private DevExpress.XtraEditors.TextEdit tbConcentPattern;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label13;
+        private cbReactive cbParentModif;
+        private cbReactive cbParentMedium;
         private cbMethod cbMethod1;
         private DevComponents.DotNetBar.ExpandablePanel expandablePanel1;
-        private DevExpress.XtraTreeList.TreeList treeSolution;
-        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn1;
-        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn4;
-        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn5;
-        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn6;
         private DevExpress.XtraTreeList.TreeList treeSolInterm;
         private DevExpress.XtraTreeList.Columns.TreeListColumn tcol_Cod_solution;
         private DevExpress.XtraTreeList.Columns.TreeListColumn tcol_Nombre;
@@ -910,20 +1095,55 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox repStatusSolution;
         private DevExpress.XtraTreeList.Columns.TreeListColumn tcol_Prepared_by;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repUser;
-        private DevExpress.XtraTreeList.Columns.TreeListColumn tcol_Concat_methods;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn tcol_Flag_current_method;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repBtOpenMethods;
         private DevExpress.XtraTreeList.Columns.TreeListColumn tcol_Idsolution;
         private DevExpress.XtraTreeList.Columns.TreeListColumn tcol_Type_sol;
         private UcSign ucSign1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ContextMenuStrip cmsAddSolution;
         private System.Windows.Forms.ToolStripMenuItem btNewSolInt1;
         private System.Windows.Forms.ToolStripMenuItem btNewSolInt2;
         private System.Windows.Forms.ToolStripMenuItem btNewSolStdVer;
         private System.Windows.Forms.ImageList imageList1;
         private cbElement cbElement1;
-        private cbMR cbMrpattern;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repAddMethod;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn tcol_ShowMethods;
+        private DevExpress.XtraEditors.PanelControl panelControl2;
+        private DevExpress.XtraGrid.GridControl gcMethods;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvMethods;
+        private DevExpress.XtraGrid.Columns.GridColumn gmet_Sel;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repSel;
+        private DevExpress.XtraGrid.Columns.GridColumn gmet_Idtemplate_method;
+        private DevExpress.XtraGrid.Columns.GridColumn gmet_Cod_template_method;
+        private DevExpress.XtraGrid.Columns.GridColumn gmet_Title;
+        private DevExpress.XtraEditors.SplitterControl splitterControl1;
+        private customSpinEdit tbVolumen;
+        private customTextEdit tbConcentration;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
+        private customTextEdit tbParentConcentration;
+        private customSpinEdit tbParentModifValue;
+        private customSpinEdit tbParentMediumValue;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private DevExpress.XtraEditors.CheckEdit ckAssignMethod;
+        private customSpinEdit tbAliquot;
+        private System.Windows.Forms.Label label5;
+        private DevExpress.XtraEditors.GroupControl gcSolutionChild;
+        private DevExpress.XtraEditors.GroupControl gcSolutionParent;
+        private DevExpress.XtraEditors.PanelControl paSeparator;
+        private customDateEdit deDateEnd;
+        private customDateEdit deDateIni;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label8;
+        private UserControls.cbUser cbUser1;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn tcol_Root_type_pattern;
+        private DevComponents.DotNetBar.ExpandablePanel exPanel;
+        private DevExpress.XtraEditors.CheckEdit ckDisabledSolution;
+        private System.Windows.Forms.Label laVigencia;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn tcol_Expired_status;
 
     }
 }

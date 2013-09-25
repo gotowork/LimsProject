@@ -26,11 +26,13 @@ namespace LimsProject
 
         void Init()
         {
+            this.Properties.Columns.Clear();
             this.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo() { FieldName = "Idtemplate_method", Visible = false });
             this.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo() { FieldName = "Title", Visible = true });
             this.Properties.ShowHeader = false;
             this.Properties.ShowFooter = false;
-            this.Properties.NullText = "Seleccionar";
+            if (this.Properties.NullText.Trim().Length == 0)
+                this.Properties.NullText = "Seleccionar";
         }
 
         public void Bind(short idelement)
@@ -47,6 +49,18 @@ namespace LimsProject
             this.Properties.DataSource = new Methods().GetAllLastVersionMethods();
             this.Properties.DisplayMember = "Title";
             this.Properties.ValueMember = "Idtemplate_method";
+        }
+
+        protected override void OnEnter(EventArgs e)
+        {
+            base.OnEnter(e);
+            this.BackColor = Color.LightYellow;
+        }
+
+        protected override void OnLeave(EventArgs e)
+        {
+            base.OnLeave(e);
+            this.BackColor = Color.White;
         }
     }
 }

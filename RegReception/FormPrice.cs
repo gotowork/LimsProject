@@ -349,7 +349,7 @@ namespace LimsProject
 
             CPriceFactory faPrice = new CPriceFactory();
             if (!(loadData == LoadData.FromPrice_ToNewVersion))
-                oPrice.Cod_price = new ModCorrelatives().GetCorrelative(ModCorrelatives.Correlative.Price);
+                oPrice.Cod_price = new ModCorrelatives().GetCorrelative(Comun.Correlative.Price);
 
             // --- person
             if (ckDispatchPerson.Checked)

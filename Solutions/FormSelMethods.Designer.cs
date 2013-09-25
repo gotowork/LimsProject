@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btOk = new DevExpress.XtraEditors.SimpleButton();
-            this.btCancel = new DevExpress.XtraEditors.SimpleButton();
+            this.btClose = new DevExpress.XtraEditors.SimpleButton();
             this.gvMethods = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gmet_Sel = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repSel = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
@@ -62,8 +61,7 @@
             // 
             // paBottom
             // 
-            this.paBottom.Controls.Add(this.btCancel);
-            this.paBottom.Controls.Add(this.btOk);
+            this.paBottom.Controls.Add(this.btClose);
             this.paBottom.Location = new System.Drawing.Point(0, 308);
             this.paBottom.Size = new System.Drawing.Size(767, 34);
             // 
@@ -82,24 +80,16 @@
             // panelControl1
             // 
             this.panelControl1.Size = new System.Drawing.Size(767, 14);
+            this.panelControl1.Visible = false;
             // 
-            // btOk
+            // btClose
             // 
-            this.btOk.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btOk.Location = new System.Drawing.Point(12, 6);
-            this.btOk.Name = "btOk";
-            this.btOk.Size = new System.Drawing.Size(34, 23);
-            this.btOk.TabIndex = 0;
-            this.btOk.Text = "Ok";
-            // 
-            // btCancel
-            // 
-            this.btCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btCancel.Location = new System.Drawing.Point(52, 6);
-            this.btCancel.Name = "btCancel";
-            this.btCancel.Size = new System.Drawing.Size(59, 23);
-            this.btCancel.TabIndex = 0;
-            this.btCancel.Text = "Cancelar";
+            this.btClose.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btClose.Location = new System.Drawing.Point(12, 6);
+            this.btClose.Name = "btClose";
+            this.btClose.Size = new System.Drawing.Size(45, 23);
+            this.btClose.TabIndex = 0;
+            this.btClose.Text = "Cerrar";
             // 
             // gvMethods
             // 
@@ -139,6 +129,7 @@
             this.gmet_Cod_template_method.Caption = "Código";
             this.gmet_Cod_template_method.FieldName = "Cod_template_method";
             this.gmet_Cod_template_method.Name = "gmet_Cod_template_method";
+            this.gmet_Cod_template_method.OptionsColumn.AllowEdit = false;
             this.gmet_Cod_template_method.OptionsColumn.FixedWidth = true;
             this.gmet_Cod_template_method.Visible = true;
             this.gmet_Cod_template_method.VisibleIndex = 0;
@@ -176,6 +167,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Seleccionar métodos";
+            this.Load += new System.EventHandler(this.FormSelMethods_Load);
             ((System.ComponentModel.ISupportInitialize)(this.paTitle)).EndInit();
             this.paTitle.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.paBottom)).EndInit();
@@ -193,8 +185,7 @@
 
         #endregion
 
-        private DevExpress.XtraEditors.SimpleButton btCancel;
-        private DevExpress.XtraEditors.SimpleButton btOk;
+        private DevExpress.XtraEditors.SimpleButton btClose;
         private DevExpress.XtraGrid.GridControl gcMethods;
         private DevExpress.XtraGrid.Views.Grid.GridView gvMethods;
         private DevExpress.XtraGrid.Columns.GridColumn gmet_Sel;

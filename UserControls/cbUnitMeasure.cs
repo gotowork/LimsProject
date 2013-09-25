@@ -42,5 +42,17 @@ namespace LimsProject
             this.Properties.ValueMember = "Idunit";
             this.Properties.DisplayMember = "Name_unit";
         }
+
+        protected override void OnEnter(EventArgs e)
+        {
+            base.OnEnter(e);
+            this.BackColor = Color.LightYellow;
+        }
+
+        protected override void OnLeave(EventArgs e)
+        {
+            base.OnLeave(e);
+            this.BackColor = Color.White;
+        }
     }
 }

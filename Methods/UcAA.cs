@@ -280,18 +280,44 @@ namespace LimsProject
                         tbStdConcentration.EditValue = oTemplate_method_aa.Std_concentration;
                         tbStdConcenOne.EditValue = oTemplate_method_aa.Std_concentration_sol1;
                         tbStdConcenTwo.EditValue = oTemplate_method_aa.Std_concentration_sol2;
-                        tbStdValidity.Value = Convert.ToInt16(oTemplate_method_aa.Std_validity);
-                        cbStdSolStatus.EditValue = Convert.ToBoolean(oTemplate_method_aa.Std_status);
-                        deStdDatePreparation.DateTime = Convert.ToDateTime(oTemplate_method_aa.Std_date_preparation);
-                        deStdDateExpiration.DateTime = Convert.ToDateTime(oTemplate_method_aa.Std_date_expiration);
+                                                
                         tbMediumSol1.Value = Convert.ToDecimal(oTemplate_method_aa.Std_sol1_medium);
                         tbMediumSol2.Value = Convert.ToDecimal(oTemplate_method_aa.Std_sol2_medium);
                         tbMediumStdVerif.Value = Convert.ToDecimal(oTemplate_method_aa.Std_stdverif_medium);
 
+                        tbValiditySI1.Value = Convert.ToInt16(oTemplate_method_aa.Std_validity_sol1);
+                        tbValiditySI2.Value = Convert.ToInt16(oTemplate_method_aa.Std_validity_sol2);
+                        tbValiditySV.Value = Convert.ToInt16(oTemplate_method_aa.Std_validity_sv);
+
+                        tbValiditySI1.Enabled = Convert.ToBoolean(oTemplate_method_aa.Std_flag_sol_intermedia1);
+                        tbValiditySI2.Enabled = Convert.ToBoolean(oTemplate_method_aa.Std_flag_sol_intermedia2);
+                        tbValiditySV.Enabled = true;                        
+
                         // --- recuperate
                         CCalibFactory faCalib = new CCalibFactory();
-                        gcCalibracion.DataSource = new BindingList<CCalib>(faCalib.GetAll().Where(x => x.Idtemplate_method == oTemplate_Method.Idtemplate_method).ToList());                        
-                        
+                        gcCalibracion.DataSource = new BindingList<CCalib>(faCalib.GetAll().Where(x => x.Idtemplate_method == oTemplate_Method.Idtemplate_method).ToList());
+
+                        // --- recuperar soluciones
+                        List<CSolution_interm> lstSim = new ModSolInterm().GetLstSolution_intermByMethod(Convert.ToInt32(IDTemplate_Method));
+
+                        foreach (CSolution_interm item in lstSim)
+                        {
+                            if (item.Type_sol == 1)
+                            {
+                                tbCodSol1.Text = item.Cod_solution;
+                                deExpSolInterm1.DateTime = Convert.ToDateTime(item.Date_end);
+                            }
+                            else if (item.Type_sol == 2)
+                            {
+                                tbCodSol2.Text = item.Cod_solution;
+                                deExpSolInterm2.DateTime = Convert.ToDateTime(item.Date_end);
+                            }
+                            else if (item.Type_sol == 3)
+                            {
+                                tbCodStdVer.Text = item.Cod_solution;
+                                deExpSV.DateTime = Convert.ToDateTime(item.Date_end);
+                            }
+                        }
                     }
                 }
                 else
@@ -344,6 +370,9 @@ namespace LimsProject
                 oTemplate_method_aa.Date_allowed_error = Convert.ToDateTime(deDate_allowed_error.EditValue);
                 oTemplate_method_aa.Rexp2 = tbRexp2.Value;
                 oTemplate_method_aa.Validity_calib = Convert.ToInt16(tbValidity_calib.Value);
+                oTemplate_method_aa.Std_validity_sol1 = Convert.ToInt16(tbValiditySI1.Value);
+                oTemplate_method_aa.Std_validity_sol2 = Convert.ToInt16(tbValiditySI2.Value);
+                oTemplate_method_aa.Std_validity_sv = Convert.ToInt16(tbValiditySV.Value);
 
                 if (cbTypePattern.EditValue != null)
                     oTemplate_method_aa.Type_pattern = Convert.ToInt32(cbTypePattern.EditValue);
@@ -371,16 +400,17 @@ namespace LimsProject
                 }
 
                 oTemplate_method_aa.Sol_status = Convert.ToBoolean(cbSolStatus.EditValue);
+                
+                if (cbStdMrcOrPattern.EditValue != null)
+                    oTemplate_method_aa.Std_mrorpattern = Convert.ToInt32(cbStdMrcOrPattern.EditValue);
 
-                oTemplate_method_aa.Std_mrorpattern = Convert.ToInt32(cbStdMrcOrPattern.EditValue);
                 oTemplate_method_aa.Std_type_pattern = Convert.ToInt32(cbStdType_pattern.EditValue);
                 oTemplate_method_aa.Std_flag_sol_intermedia1 = ckStdSolIntermOne.Checked;
                 oTemplate_method_aa.Std_flag_sol_intermedia2 = ckStdSolIntermTwo.Checked;
                 oTemplate_method_aa.Std_concentration = Convert.ToDecimal(tbStdConcentration.EditValue);
                 oTemplate_method_aa.Std_concentration_sol1 = Convert.ToDecimal(tbStdConcenOne.EditValue);
                 oTemplate_method_aa.Std_concentration_sol2 = Convert.ToDecimal(tbStdConcenTwo.EditValue);
-                oTemplate_method_aa.Std_validity = Convert.ToInt16(tbStdValidity.EditValue);
-                oTemplate_method_aa.Std_status = Convert.ToBoolean(cbStdSolStatus.EditValue);
+                
                 oTemplate_method_aa.Std_sol1_medium = tbMediumSol1.Value;
                 oTemplate_method_aa.Std_sol2_medium = tbMediumSol2.Value;
                 oTemplate_method_aa.Std_stdverif_medium = tbMediumStdVerif.Value;
@@ -460,6 +490,9 @@ namespace LimsProject
             tbModifConc.Enabled = false;
             ckSolInterm.Checked = false;
             tbValidity_calib.Value = 0;
+            tbValiditySI1.Value = 0;
+            tbValiditySI2.Value = 0;
+            tbValiditySV.Value = 0;
         }
 
         private void gvCalibracion_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
@@ -519,6 +552,7 @@ namespace LimsProject
 
                     //TODO=MR
                     //cbMrcOrPattern.Properties.DataSource =  oModSolution.GetLstMrc(Convert.ToInt16(IDElement));
+                    cbMrcOrPattern.Bind(Convert.ToInt16(IDElement));
                     cbMrcOrPattern.Properties.DisplayMember = "Name";
                     cbMrcOrPattern.Properties.ValueMember = "Idmr_detail";
 
@@ -534,6 +568,7 @@ namespace LimsProject
                     ModSolution oModSolution = new ModSolution();
                     //TODO=MR
                     //cbMrcOrPattern.Properties.DataSource = oModSolution.GetLstPatron(Convert.ToInt16(IDElement));
+                    cbMrcOrPattern.Bind(Convert.ToInt16(IDElement));
                     cbMrcOrPattern.Properties.DisplayMember = "Name";
                     cbMrcOrPattern.Properties.ValueMember = "Idmr_detail";
 
@@ -603,9 +638,7 @@ namespace LimsProject
                     ModSolution oModSolution = new ModSolution();
                     //TODO=MR
                     //cbStdMrcOrPattern.Properties.DataSource = oModSolution.GetLstMrc(Convert.ToInt16(IDElement));
-                    cbStdMrcOrPattern.Properties.DisplayMember = "Name";
-                    cbStdMrcOrPattern.Properties.ValueMember = "Idmr_detail";
-                    cbStdMrcOrPattern.EditValue = null;
+                    cbStdMrcOrPattern.Bind(Convert.ToInt16(IDElement));
 
                     tbStdConcentration.Text = "";
                 }
@@ -656,11 +689,13 @@ namespace LimsProject
         private void ckStdSolIntermOne_CheckedChanged(object sender, EventArgs e)
         {
             tbStdConcenOne.Enabled = ckStdSolIntermOne.Checked;
+            tbValiditySI1.Enabled = ckStdSolIntermOne.Checked;
         }
 
         private void ckStdSolIntermTwo_CheckedChanged(object sender, EventArgs e)
         {
             tbStdConcenTwo.Enabled = ckStdSolIntermTwo.Checked;
+            tbValiditySI2.Enabled = ckStdSolIntermTwo.Checked;
         }
 
         private void tbStd_verif_EditValueChanged(object sender, EventArgs e)

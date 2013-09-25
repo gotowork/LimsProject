@@ -370,7 +370,7 @@ namespace LimsProject
                 if (result)
                 {
                     ModCorrelatives oModCorrelatives = new ModCorrelatives();
-                    group_solution.Cod_solution = oModCorrelatives.GetCorrelative(ModCorrelatives.Correlative.EstandarCalibracion);
+                    group_solution.Cod_solution = oModCorrelatives.GetCorrelative(Comun.Correlative.EstandarCalibracion);
                     result = faGroup_solution.Update(group_solution);
                 }
 

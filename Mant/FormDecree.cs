@@ -206,7 +206,7 @@ namespace LimsProject
             {
                 if (new CDecreeFactory().Insert(oDecree))
                 {
-                    oDecree.Cod_decree = new ModCorrelatives().GetCorrelative(ModCorrelatives.Correlative.Decree);
+                    oDecree.Cod_decree = new ModCorrelatives().GetCorrelative(Comun.Correlative.Decree);
                     new CDecreeFactory().Update(oDecree);
 
                     //guardar items

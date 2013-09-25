@@ -69,6 +69,17 @@ namespace LimsProject
             }
         } 
        
+        protected override void OnEnter(EventArgs e)
+        {
+ 	        base.OnEnter(e);
+            tbPwd.BackColor = Color.LightYellow;
+        }
+
+        protected override void OnLeave(EventArgs e)
+        {
+            base.OnLeave(e);
+            tbPwd.BackColor = Color.White;
+        }
         
     }
 }

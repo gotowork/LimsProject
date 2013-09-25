@@ -41,12 +41,13 @@
             this.gridBand3 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gcol_Lineality_axial = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gcol_Lineality_radial = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.btSync = new DevExpress.XtraEditors.SimpleButton();
             this.ckElement = new DevExpress.XtraEditors.CheckEdit();
             this.cbElement1 = new LimsProject.cbElement();
+            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.paTitle)).BeginInit();
             this.paTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.paBottom)).BeginInit();
+            this.paBottom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.paCenter)).BeginInit();
             this.paCenter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.paTop)).BeginInit();
@@ -56,6 +57,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gvElemWavelength)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ckElement.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbElement1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // laTitle
@@ -69,6 +71,7 @@
             // 
             // paBottom
             // 
+            this.paBottom.Controls.Add(this.textEdit1);
             this.paBottom.Location = new System.Drawing.Point(0, 312);
             this.paBottom.Size = new System.Drawing.Size(803, 46);
             // 
@@ -82,7 +85,6 @@
             // 
             this.paTop.Controls.Add(this.cbElement1);
             this.paTop.Controls.Add(this.ckElement);
-            this.paTop.Controls.Add(this.btSync);
             this.paTop.Size = new System.Drawing.Size(803, 35);
             // 
             // panelControl1
@@ -128,7 +130,7 @@
             this.gridBand1.Columns.Add(this.gcol_Idelement);
             this.gridBand1.Columns.Add(this.gcol_Wavelength);
             this.gridBand1.Name = "gridBand1";
-            this.gridBand1.Width = 75;
+            this.gridBand1.Width = 224;
             // 
             // gcol_Element_wavelength
             // 
@@ -142,12 +144,14 @@
             this.gcol_Idelement_wavelength.Caption = "Idelement_wavelength";
             this.gcol_Idelement_wavelength.FieldName = "Idelement_wavelength";
             this.gcol_Idelement_wavelength.Name = "gcol_Idelement_wavelength";
+            this.gcol_Idelement_wavelength.Visible = true;
             // 
             // gcol_Idelement
             // 
             this.gcol_Idelement.Caption = "Elemento";
             this.gcol_Idelement.FieldName = "Idelement";
             this.gcol_Idelement.Name = "gcol_Idelement";
+            this.gcol_Idelement.Visible = true;
             this.gcol_Idelement.Width = 74;
             // 
             // gcol_Wavelength
@@ -205,22 +209,12 @@
             this.gcol_Lineality_radial.Visible = true;
             this.gcol_Lineality_radial.Width = 45;
             // 
-            // btSync
-            // 
-            this.btSync.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btSync.Location = new System.Drawing.Point(688, 6);
-            this.btSync.Name = "btSync";
-            this.btSync.Size = new System.Drawing.Size(87, 23);
-            this.btSync.TabIndex = 2;
-            this.btSync.Text = "Sincronizar ICP";
-            this.btSync.Click += new System.EventHandler(this.btSync_Click);
-            // 
             // ckElement
             // 
             this.ckElement.Location = new System.Drawing.Point(13, 7);
             this.ckElement.Name = "ckElement";
             this.ckElement.Properties.Caption = "Elemento";
-            this.ckElement.Size = new System.Drawing.Size(75, 19);
+            this.ckElement.Size = new System.Drawing.Size(75, 18);
             this.ckElement.TabIndex = 3;
             this.ckElement.CheckedChanged += new System.EventHandler(this.ckElement_CheckedChanged);
             // 
@@ -231,9 +225,17 @@
             this.cbElement1.Name = "cbElement1";
             this.cbElement1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbElement1.Properties.NullText = "";
             this.cbElement1.Size = new System.Drawing.Size(133, 20);
             this.cbElement1.TabIndex = 4;
             this.cbElement1.EditValueChanged += new System.EventHandler(this.cbElement1_EditValueChanged);
+            // 
+            // textEdit1
+            // 
+            this.textEdit1.Location = new System.Drawing.Point(35, 14);
+            this.textEdit1.Name = "textEdit1";
+            this.textEdit1.Size = new System.Drawing.Size(100, 20);
+            this.textEdit1.TabIndex = 0;
             // 
             // FormElemWavelength
             // 
@@ -246,6 +248,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.paTitle)).EndInit();
             this.paTitle.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.paBottom)).EndInit();
+            this.paBottom.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.paCenter)).EndInit();
             this.paCenter.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.paTop)).EndInit();
@@ -255,6 +258,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gvElemWavelength)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ckElement.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbElement1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -273,9 +277,9 @@
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand4;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gcol_Idl_axial;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gcol_Idl_radial;
-        private DevExpress.XtraEditors.SimpleButton btSync;
         private DevExpress.XtraEditors.CheckEdit ckElement;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gcol_Element_wavelength;
         private cbElement cbElement1;
+        private DevExpress.XtraEditors.TextEdit textEdit1;
     }
 }

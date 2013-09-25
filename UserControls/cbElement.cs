@@ -14,6 +14,15 @@ namespace LimsProject
 {
     public partial class cbElement : DevExpress.XtraEditors.LookUpEdit
     {
+        public short Idelement
+        {
+            get {
+                if (this.EditValue != null)
+                    return Convert.ToInt16(this.EditValue);
+                return 0;
+            }
+        }
+
         public cbElement()
         {
             InitializeComponent();            
@@ -30,7 +39,8 @@ namespace LimsProject
             this.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo() { FieldName = "Cod_element", Visible = true });
             this.Properties.ShowHeader = false;
             this.Properties.ShowFooter = false;
-            this.Properties.NullText = "Seleccionar";            
+            if (this.Properties.NullText.Trim().Length == 0)
+                this.Properties.NullText = "Seleccionar";
         }
 
         public void Bind()
@@ -39,6 +49,18 @@ namespace LimsProject
             this.Properties.DataSource = new CElementFactory().GetAll();
             this.Properties.ValueMember = "Idelement";
             this.Properties.DisplayMember = "Cod_element";
+        }
+
+        protected override void OnEnter(EventArgs e)
+        {
+            base.OnEnter(e);
+            this.BackColor = Color.LightYellow;
+        }
+
+        protected override void OnLeave(EventArgs e)
+        {
+            base.OnLeave(e);
+            this.BackColor = Color.White;
         }
     }
 }

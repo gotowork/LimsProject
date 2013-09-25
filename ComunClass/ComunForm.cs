@@ -41,6 +41,18 @@ namespace LimsProject
             fmFactorEstequ
         }
 
+        public static DateTime RankIni(this DateTime dt)
+        {
+            DateTime dateTime = new DateTime(dt.Year, dt.Month, dt.Day, 0, 0, 0);
+            return dateTime;
+        }
+
+        public static DateTime RankEnd(this DateTime dt)
+        {
+            DateTime dateTime = new DateTime(dt.Year, dt.Month, dt.Day, 23, 59, 59);
+            return dateTime;
+        }
+
         public static void Send_message(string module, TypeMsg type_msg, string msg)
         {
             Even_show_action(module, type_msg, msg);
