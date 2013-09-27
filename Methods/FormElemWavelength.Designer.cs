@@ -130,7 +130,7 @@
             this.gridBand1.Columns.Add(this.gcol_Idelement);
             this.gridBand1.Columns.Add(this.gcol_Wavelength);
             this.gridBand1.Name = "gridBand1";
-            this.gridBand1.Width = 224;
+            this.gridBand1.Width = 173;
             // 
             // gcol_Element_wavelength
             // 
@@ -144,14 +144,12 @@
             this.gcol_Idelement_wavelength.Caption = "Idelement_wavelength";
             this.gcol_Idelement_wavelength.FieldName = "Idelement_wavelength";
             this.gcol_Idelement_wavelength.Name = "gcol_Idelement_wavelength";
-            this.gcol_Idelement_wavelength.Visible = true;
             // 
             // gcol_Idelement
             // 
             this.gcol_Idelement.Caption = "Elemento";
             this.gcol_Idelement.FieldName = "Idelement";
             this.gcol_Idelement.Name = "gcol_Idelement";
-            this.gcol_Idelement.Visible = true;
             this.gcol_Idelement.Width = 74;
             // 
             // gcol_Wavelength
@@ -159,6 +157,7 @@
             this.gcol_Wavelength.Caption = "Long. Onda";
             this.gcol_Wavelength.FieldName = "Wavelength";
             this.gcol_Wavelength.Name = "gcol_Wavelength";
+            this.gcol_Wavelength.Visible = true;
             this.gcol_Wavelength.Width = 98;
             // 
             // gridBand4
@@ -214,7 +213,7 @@
             this.ckElement.Location = new System.Drawing.Point(13, 7);
             this.ckElement.Name = "ckElement";
             this.ckElement.Properties.Caption = "Elemento";
-            this.ckElement.Size = new System.Drawing.Size(75, 18);
+            this.ckElement.Size = new System.Drawing.Size(75, 19);
             this.ckElement.TabIndex = 3;
             this.ckElement.CheckedChanged += new System.EventHandler(this.ckElement_CheckedChanged);
             // 

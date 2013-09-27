@@ -218,6 +218,11 @@ namespace LimsProject
             ComunForm.OpenForm(ComunForm.Formulario.fmFactorEstequ);
         }
 
+        private void nbiSolCalibs_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            ComunForm.OpenForm(ComunForm.Formulario.fmCalibs);
+        }
+
         
 
     }

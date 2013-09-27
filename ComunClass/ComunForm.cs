@@ -38,7 +38,8 @@ namespace LimsProject
             fmDecree,
             fmPreparationSamples,
             fmCompound,
-            fmFactorEstequ
+            fmFactorEstequ,
+            fmCalibs
         }
 
         public static DateTime RankIni(this DateTime dt)
@@ -161,6 +162,11 @@ namespace LimsProject
                     FormFactorEstequiometrico fmFactorEstequ = new FormFactorEstequiometrico();
                     fmFactorEstequ.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
                     fmFactorEstequ.Show();
+                    break;
+                case Formulario.fmCalibs:
+                    FormCalibs fmCalibs = new FormCalibs();
+                    fmCalibs.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+                    fmCalibs.Show();
                     break;
             }
         }

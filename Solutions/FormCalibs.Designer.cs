@@ -1,6 +1,6 @@
 ﻿namespace LimsProject
 {
-    partial class FormSolInterm
+    partial class FormCalibs
     {
         /// <summary>
         /// Required designer variable.
@@ -31,43 +31,25 @@
             this.components = new System.ComponentModel.Container();
             DevExpress.XtraTreeList.StyleFormatConditions.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraTreeList.StyleFormatConditions.StyleFormatCondition();
             DevExpress.XtraTreeList.StyleFormatConditions.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraTreeList.StyleFormatConditions.StyleFormatCondition();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSolInterm));
-            LimsProject.BusinessLayer.CSolution_interm cSolution_interm1 = new LimsProject.BusinessLayer.CSolution_interm();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCalibs));
+            LimsProject.BusinessLayer.CGroup_solution cGroup_solution1 = new LimsProject.BusinessLayer.CGroup_solution();
             this.tcol_Solution_status = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.repStatusSolution = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
             this.paHeader = new DevExpress.XtraEditors.PanelControl();
             this.gcSolutionChild = new DevExpress.XtraEditors.GroupControl();
-            this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
-            this.paDate = new DevExpress.XtraEditors.PanelControl();
-            this.ckAssignMethod = new DevExpress.XtraEditors.CheckEdit();
-            this.laVigencia = new System.Windows.Forms.Label();
-            this.deDateIni = new LimsProject.customDateEdit();
-            this.label7 = new System.Windows.Forms.Label();
-            this.cbUser1 = new UserControls.cbUser();
-            this.label6 = new System.Windows.Forms.Label();
-            this.deDateEnd = new LimsProject.customDateEdit();
-            this.label8 = new System.Windows.Forms.Label();
-            this.paCalAliquot = new DevExpress.XtraEditors.PanelControl();
-            this.tbAliquot = new LimsProject.customSpinEdit();
-            this.tbConcentration = new LimsProject.customTextEdit();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tbVolumen = new LimsProject.customSpinEdit();
-            this.label5 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tbParentMediumValue = new LimsProject.customSpinEdit();
             this.cbParentMedium = new LimsProject.cbReactive();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tbParentModifValue = new LimsProject.customSpinEdit();
             this.cbParentModif = new LimsProject.cbReactive();
-            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
-            this.gcCalibracion = new DevExpress.XtraGrid.GridControl();
-            this.gvCalibracion = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gcCal_Order = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gcCal_Nom_Calib = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gcCal_Concentration = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gcCal_Aliquot = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gcCal_Volumen = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cbUser1 = new UserControls.cbUser();
+            this.deDateEnd = new LimsProject.customDateEdit();
+            this.deDateIni = new LimsProject.customDateEdit();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.ckAssignMethod = new DevExpress.XtraEditors.CheckEdit();
             this.paSeparator = new DevExpress.XtraEditors.PanelControl();
             this.gcSolutionParent = new DevExpress.XtraEditors.GroupControl();
             this.label3 = new System.Windows.Forms.Label();
@@ -105,10 +87,8 @@
             this.btNewSolInt1 = new System.Windows.Forms.ToolStripMenuItem();
             this.btNewSolInt2 = new System.Windows.Forms.ToolStripMenuItem();
             this.btNewSolStdVer = new System.Windows.Forms.ToolStripMenuItem();
-            this.btNewSolCalib = new System.Windows.Forms.ToolStripMenuItem();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            this.ucSign1 = new LimsProject.UcSign();
             this.gcMethods = new DevExpress.XtraGrid.GridControl();
             this.gvMethods = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gmet_Sel = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -117,16 +97,13 @@
             this.gmet_Cod_template_method = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gmet_Title = new DevExpress.XtraGrid.Columns.GridColumn();
             this.splitterControl1 = new DevExpress.XtraEditors.SplitterControl();
-            this.exPanel = new DevComponents.DotNetBar.ExpandablePanel();
-            this.ckDisabledSolution = new DevExpress.XtraEditors.CheckEdit();
             this.customPageControl1 = new LimsProject.customPageControl();
-            this.tpMethod = new DevExpress.XtraTab.XtraTabPage();
-            this.tpCalib = new DevExpress.XtraTab.XtraTabPage();
+            this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
+            this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
             this.ucCalibStd1 = new LimsProject.UcCalibStd();
             ((System.ComponentModel.ISupportInitialize)(this.paTitle)).BeginInit();
             this.paTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.paBottom)).BeginInit();
-            this.paBottom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.paCenter)).BeginInit();
             this.paCenter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.paTop)).BeginInit();
@@ -136,28 +113,16 @@
             this.paHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcSolutionChild)).BeginInit();
             this.gcSolutionChild.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
-            this.panelControl4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.paDate)).BeginInit();
-            this.paDate.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ckAssignMethod.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deDateIni.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbUser1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deDateEnd.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.paCalAliquot)).BeginInit();
-            this.paCalAliquot.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tbAliquot.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbConcentration.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbVolumen.Properties)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbParentMediumValue.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbParentMedium.Properties)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbParentModifValue.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbParentModif.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gcCalibracion)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvCalibracion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbUser1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deDateEnd.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deDateIni.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckAssignMethod.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.paSeparator)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcSolutionParent)).BeginInit();
             this.gcSolutionParent.SuspendLayout();
@@ -179,51 +144,48 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcMethods)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvMethods)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repSel)).BeginInit();
-            this.exPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ckDisabledSolution.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customPageControl1)).BeginInit();
             this.customPageControl1.SuspendLayout();
-            this.tpMethod.SuspendLayout();
-            this.tpCalib.SuspendLayout();
+            this.xtraTabPage1.SuspendLayout();
+            this.xtraTabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // laTitle
             // 
-            this.laTitle.Size = new System.Drawing.Size(1125, 660);
+            this.laTitle.Size = new System.Drawing.Size(959, 487);
             // 
             // paTitle
             // 
             this.paTitle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.paTitle.Location = new System.Drawing.Point(0, 26);
-            this.paTitle.Size = new System.Drawing.Size(1129, 664);
+            this.paTitle.Size = new System.Drawing.Size(963, 491);
             this.paTitle.Visible = false;
             // 
             // paBottom
             // 
-            this.paBottom.Controls.Add(this.ucSign1);
-            this.paBottom.Location = new System.Drawing.Point(0, 644);
-            this.paBottom.Size = new System.Drawing.Size(1129, 46);
+            this.paBottom.Location = new System.Drawing.Point(0, 471);
+            this.paBottom.Size = new System.Drawing.Size(963, 46);
+            this.paBottom.Visible = false;
             // 
             // paCenter
             // 
             this.paCenter.Controls.Add(this.customPageControl1);
-            this.paCenter.Controls.Add(this.exPanel);
             this.paCenter.Controls.Add(this.paHeader);
             this.paCenter.Controls.Add(this.splitterControl1);
             this.paCenter.Controls.Add(this.expandablePanel1);
             this.paCenter.Location = new System.Drawing.Point(0, 46);
-            this.paCenter.Size = new System.Drawing.Size(1129, 598);
+            this.paCenter.Size = new System.Drawing.Size(963, 425);
             // 
             // paTop
             // 
             this.paTop.Location = new System.Drawing.Point(0, 26);
             this.paTop.Padding = new System.Windows.Forms.Padding(10);
-            this.paTop.Size = new System.Drawing.Size(1129, 20);
+            this.paTop.Size = new System.Drawing.Size(963, 20);
             this.paTop.Visible = false;
             // 
             // panelControl1
             // 
-            this.panelControl1.Size = new System.Drawing.Size(1129, 26);
+            this.panelControl1.Size = new System.Drawing.Size(963, 26);
             this.panelControl1.Visible = false;
             // 
             // tcol_Solution_status
@@ -246,236 +208,40 @@
             // paHeader
             // 
             this.paHeader.Controls.Add(this.gcSolutionChild);
-            this.paHeader.Controls.Add(this.panelControl3);
-            this.paHeader.Controls.Add(this.gcCalibracion);
             this.paHeader.Controls.Add(this.paSeparator);
             this.paHeader.Controls.Add(this.gcSolutionParent);
             this.paHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.paHeader.Location = new System.Drawing.Point(301, 2);
+            this.paHeader.Location = new System.Drawing.Point(303, 2);
             this.paHeader.Name = "paHeader";
             this.paHeader.Padding = new System.Windows.Forms.Padding(10);
-            this.paHeader.Size = new System.Drawing.Size(826, 251);
+            this.paHeader.Size = new System.Drawing.Size(658, 230);
             this.paHeader.TabIndex = 37;
             this.paHeader.Text = "panelControl2";
             // 
             // gcSolutionChild
             // 
-            this.gcSolutionChild.Controls.Add(this.panelControl4);
             this.gcSolutionChild.Controls.Add(this.groupBox3);
             this.gcSolutionChild.Controls.Add(this.groupBox2);
-            this.gcSolutionChild.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcSolutionChild.Controls.Add(this.cbUser1);
+            this.gcSolutionChild.Controls.Add(this.deDateEnd);
+            this.gcSolutionChild.Controls.Add(this.deDateIni);
+            this.gcSolutionChild.Controls.Add(this.label8);
+            this.gcSolutionChild.Controls.Add(this.label7);
+            this.gcSolutionChild.Controls.Add(this.label6);
+            this.gcSolutionChild.Controls.Add(this.ckAssignMethod);
             this.gcSolutionChild.Location = new System.Drawing.Point(12, 77);
             this.gcSolutionChild.Name = "gcSolutionChild";
-            this.gcSolutionChild.Size = new System.Drawing.Size(488, 162);
+            this.gcSolutionChild.Size = new System.Drawing.Size(417, 141);
             this.gcSolutionChild.TabIndex = 39;
             this.gcSolutionChild.Text = "Solución Hijo";
-            // 
-            // panelControl4
-            // 
-            this.panelControl4.Controls.Add(this.paDate);
-            this.panelControl4.Controls.Add(this.paCalAliquot);
-            this.panelControl4.Location = new System.Drawing.Point(6, 66);
-            this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(474, 89);
-            this.panelControl4.TabIndex = 37;
-            this.panelControl4.Text = "panelControl4";
-            // 
-            // paDate
-            // 
-            this.paDate.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.paDate.Controls.Add(this.ckAssignMethod);
-            this.paDate.Controls.Add(this.laVigencia);
-            this.paDate.Controls.Add(this.deDateIni);
-            this.paDate.Controls.Add(this.label7);
-            this.paDate.Controls.Add(this.cbUser1);
-            this.paDate.Controls.Add(this.label6);
-            this.paDate.Controls.Add(this.deDateEnd);
-            this.paDate.Controls.Add(this.label8);
-            this.paDate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.paDate.Location = new System.Drawing.Point(172, 2);
-            this.paDate.Name = "paDate";
-            this.paDate.Size = new System.Drawing.Size(300, 85);
-            this.paDate.TabIndex = 39;
-            this.paDate.Text = "panelControl5";
-            // 
-            // ckAssignMethod
-            // 
-            this.ckAssignMethod.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ckAssignMethod.Location = new System.Drawing.Point(145, 58);
-            this.ckAssignMethod.Name = "ckAssignMethod";
-            this.ckAssignMethod.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-            this.ckAssignMethod.Properties.Appearance.ForeColor = System.Drawing.Color.ForestGreen;
-            this.ckAssignMethod.Properties.Appearance.Options.UseFont = true;
-            this.ckAssignMethod.Properties.Appearance.Options.UseForeColor = true;
-            this.ckAssignMethod.Properties.Caption = "Asignar al método";
-            this.ckAssignMethod.Size = new System.Drawing.Size(143, 21);
-            this.ckAssignMethod.TabIndex = 4;
-            // 
-            // laVigencia
-            // 
-            this.laVigencia.AutoSize = true;
-            this.laVigencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.laVigencia.ForeColor = System.Drawing.Color.Red;
-            this.laVigencia.Location = new System.Drawing.Point(170, 19);
-            this.laVigencia.Name = "laVigencia";
-            this.laVigencia.Size = new System.Drawing.Size(70, 13);
-            this.laVigencia.TabIndex = 34;
-            this.laVigencia.Text = "EXPIRADO";
-            this.laVigencia.Visible = false;
-            // 
-            // deDateIni
-            // 
-            this.deDateIni.EditValue = null;
-            this.deDateIni.Location = new System.Drawing.Point(75, 4);
-            this.deDateIni.Name = "deDateIni";
-            this.deDateIni.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.deDateIni.Size = new System.Drawing.Size(86, 20);
-            this.deDateIni.TabIndex = 22;
-            this.deDateIni.EditValueChanged += new System.EventHandler(this.deDateIni_EditValueChanged);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(15, 28);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(57, 13);
-            this.label7.TabIndex = 21;
-            this.label7.Text = "Fecha Fin:";
-            // 
-            // cbUser1
-            // 
-            this.cbUser1.Location = new System.Drawing.Point(75, 48);
-            this.cbUser1.Name = "cbUser1";
-            this.cbUser1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, DevExpress.Utils.HorzAlignment.Center, null)});
-            this.cbUser1.Properties.NullText = "";
-            this.cbUser1.Properties.ReadOnly = true;
-            this.cbUser1.Properties.ShowDropDown = DevExpress.XtraEditors.Controls.ShowDropDown.Never;
-            this.cbUser1.Size = new System.Drawing.Size(86, 20);
-            this.cbUser1.TabIndex = 23;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(4, 6);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(68, 13);
-            this.label6.TabIndex = 21;
-            this.label6.Text = "Fecha Inicio:";
-            // 
-            // deDateEnd
-            // 
-            this.deDateEnd.EditValue = null;
-            this.deDateEnd.Location = new System.Drawing.Point(75, 26);
-            this.deDateEnd.Name = "deDateEnd";
-            this.deDateEnd.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.deDateEnd.Size = new System.Drawing.Size(86, 20);
-            this.deDateEnd.TabIndex = 22;
-            this.deDateEnd.EditValueChanged += new System.EventHandler(this.deDateEnd_EditValueChanged);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(26, 50);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(46, 13);
-            this.label8.TabIndex = 21;
-            this.label8.Text = "Usuario:";
-            // 
-            // paCalAliquot
-            // 
-            this.paCalAliquot.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.paCalAliquot.Controls.Add(this.tbAliquot);
-            this.paCalAliquot.Controls.Add(this.tbConcentration);
-            this.paCalAliquot.Controls.Add(this.label1);
-            this.paCalAliquot.Controls.Add(this.label2);
-            this.paCalAliquot.Controls.Add(this.tbVolumen);
-            this.paCalAliquot.Controls.Add(this.label5);
-            this.paCalAliquot.Dock = System.Windows.Forms.DockStyle.Left;
-            this.paCalAliquot.Location = new System.Drawing.Point(2, 2);
-            this.paCalAliquot.Name = "paCalAliquot";
-            this.paCalAliquot.Size = new System.Drawing.Size(170, 85);
-            this.paCalAliquot.TabIndex = 38;
-            this.paCalAliquot.Text = "panelControl5";
-            // 
-            // tbAliquot
-            // 
-            this.tbAliquot.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.tbAliquot.Location = new System.Drawing.Point(88, 49);
-            this.tbAliquot.Name = "tbAliquot";
-            this.tbAliquot.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, false, false, DevExpress.Utils.HorzAlignment.Center, null)});
-            this.tbAliquot.Properties.ReadOnly = true;
-            this.tbAliquot.Size = new System.Drawing.Size(76, 20);
-            this.tbAliquot.TabIndex = 3;
-            this.tbAliquot.TabStop = false;
-            // 
-            // tbConcentration
-            // 
-            this.tbConcentration.Location = new System.Drawing.Point(88, 5);
-            this.tbConcentration.Name = "tbConcentration";
-            this.tbConcentration.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.tbConcentration.Properties.Appearance.Options.UseBackColor = true;
-            this.tbConcentration.Properties.ReadOnly = true;
-            this.tbConcentration.Size = new System.Drawing.Size(76, 20);
-            this.tbConcentration.TabIndex = 1;
-            this.tbConcentration.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(4, 6);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 13);
-            this.label1.TabIndex = 21;
-            this.label1.Text = "Concentración:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(31, 28);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 13);
-            this.label2.TabIndex = 21;
-            this.label2.Text = "Volumen:";
-            // 
-            // tbVolumen
-            // 
-            this.tbVolumen.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.tbVolumen.Location = new System.Drawing.Point(88, 27);
-            this.tbVolumen.Name = "tbVolumen";
-            this.tbVolumen.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.tbVolumen.Size = new System.Drawing.Size(76, 20);
-            this.tbVolumen.TabIndex = 2;
-            this.tbVolumen.EditValueChanged += new System.EventHandler(this.tbVolumen_EditValueChanged);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(34, 50);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(48, 13);
-            this.label5.TabIndex = 21;
-            this.label5.Text = "Alicuota:";
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.tbParentMediumValue);
             this.groupBox3.Controls.Add(this.cbParentMedium);
-            this.groupBox3.Location = new System.Drawing.Point(6, 23);
+            this.groupBox3.Location = new System.Drawing.Point(10, 20);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(172, 42);
+            this.groupBox3.Size = new System.Drawing.Size(194, 42);
             this.groupBox3.TabIndex = 36;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Medio";
@@ -487,12 +253,12 @@
             0,
             0,
             0});
-            this.tbParentMediumValue.Location = new System.Drawing.Point(109, 14);
+            this.tbParentMediumValue.Location = new System.Drawing.Point(120, 14);
             this.tbParentMediumValue.Name = "tbParentMediumValue";
             this.tbParentMediumValue.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, false, false, DevExpress.Utils.HorzAlignment.Center, null)});
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.tbParentMediumValue.Properties.ReadOnly = true;
-            this.tbParentMediumValue.Size = new System.Drawing.Size(55, 20);
+            this.tbParentMediumValue.Size = new System.Drawing.Size(67, 20);
             this.tbParentMediumValue.TabIndex = 35;
             this.tbParentMediumValue.TabStop = false;
             // 
@@ -507,7 +273,7 @@
             this.cbParentMedium.Properties.NullText = "";
             this.cbParentMedium.Properties.ReadOnly = true;
             this.cbParentMedium.Properties.ShowDropDown = DevExpress.XtraEditors.Controls.ShowDropDown.Never;
-            this.cbParentMedium.Size = new System.Drawing.Size(102, 20);
+            this.cbParentMedium.Size = new System.Drawing.Size(112, 20);
             this.cbParentMedium.TabIndex = 31;
             this.cbParentMedium.TabStop = false;
             // 
@@ -515,9 +281,9 @@
             // 
             this.groupBox2.Controls.Add(this.tbParentModifValue);
             this.groupBox2.Controls.Add(this.cbParentModif);
-            this.groupBox2.Location = new System.Drawing.Point(182, 23);
+            this.groupBox2.Location = new System.Drawing.Point(210, 19);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(169, 42);
+            this.groupBox2.Size = new System.Drawing.Size(193, 42);
             this.groupBox2.TabIndex = 36;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Modificador";
@@ -529,12 +295,12 @@
             0,
             0,
             0});
-            this.tbParentModifValue.Location = new System.Drawing.Point(108, 14);
+            this.tbParentModifValue.Location = new System.Drawing.Point(121, 14);
             this.tbParentModifValue.Name = "tbParentModifValue";
             this.tbParentModifValue.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, false, false, DevExpress.Utils.HorzAlignment.Center, null)});
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.tbParentModifValue.Properties.ReadOnly = true;
-            this.tbParentModifValue.Size = new System.Drawing.Size(55, 20);
+            this.tbParentModifValue.Size = new System.Drawing.Size(65, 20);
             this.tbParentModifValue.TabIndex = 35;
             this.tbParentModifValue.TabStop = false;
             // 
@@ -549,212 +315,83 @@
             this.cbParentModif.Properties.NullText = "";
             this.cbParentModif.Properties.ReadOnly = true;
             this.cbParentModif.Properties.ShowDropDown = DevExpress.XtraEditors.Controls.ShowDropDown.Never;
-            this.cbParentModif.Size = new System.Drawing.Size(100, 20);
+            this.cbParentModif.Size = new System.Drawing.Size(112, 20);
             this.cbParentModif.TabIndex = 32;
             this.cbParentModif.TabStop = false;
             // 
-            // panelControl3
+            // cbUser1
             // 
-            this.panelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelControl3.Location = new System.Drawing.Point(500, 77);
-            this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(11, 162);
-            this.panelControl3.TabIndex = 46;
-            this.panelControl3.Text = "panelControl3";
+            this.cbUser1.Location = new System.Drawing.Point(262, 79);
+            this.cbUser1.Name = "cbUser1";
+            this.cbUser1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, DevExpress.Utils.HorzAlignment.Center, null)});
+            this.cbUser1.Properties.NullText = "";
+            this.cbUser1.Properties.ReadOnly = true;
+            this.cbUser1.Properties.ShowDropDown = DevExpress.XtraEditors.Controls.ShowDropDown.Never;
+            this.cbUser1.Size = new System.Drawing.Size(100, 20);
+            this.cbUser1.TabIndex = 23;
             // 
-            // gcCalibracion
+            // deDateEnd
             // 
-            this.gcCalibracion.Dock = System.Windows.Forms.DockStyle.Right;
-            this.gcCalibracion.EmbeddedNavigator.Buttons.First.Visible = false;
-            this.gcCalibracion.EmbeddedNavigator.Buttons.Last.Visible = false;
-            this.gcCalibracion.EmbeddedNavigator.Buttons.Next.Visible = false;
-            this.gcCalibracion.EmbeddedNavigator.Buttons.NextPage.Visible = false;
-            this.gcCalibracion.EmbeddedNavigator.Buttons.Prev.Visible = false;
-            this.gcCalibracion.EmbeddedNavigator.Buttons.PrevPage.Visible = false;
-            this.gcCalibracion.EmbeddedNavigator.Name = "";
-            this.gcCalibracion.Location = new System.Drawing.Point(511, 77);
-            this.gcCalibracion.MainView = this.gvCalibracion;
-            this.gcCalibracion.Name = "gcCalibracion";
-            this.gcCalibracion.Size = new System.Drawing.Size(303, 162);
-            this.gcCalibracion.TabIndex = 47;
-            this.gcCalibracion.UseEmbeddedNavigator = true;
-            this.gcCalibracion.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gvCalibracion});
+            this.deDateEnd.EditValue = null;
+            this.deDateEnd.Location = new System.Drawing.Point(84, 102);
+            this.deDateEnd.Name = "deDateEnd";
+            this.deDateEnd.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.deDateEnd.Size = new System.Drawing.Size(100, 20);
+            this.deDateEnd.TabIndex = 22;
+            this.deDateEnd.EditValueChanged += new System.EventHandler(this.deDateEnd_EditValueChanged);
             // 
-            // gvCalibracion
+            // deDateIni
             // 
-            this.gvCalibracion.Appearance.ColumnFilterButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(236)))), ((int)(((byte)(254)))));
-            this.gvCalibracion.Appearance.ColumnFilterButton.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(171)))), ((int)(((byte)(228)))));
-            this.gvCalibracion.Appearance.ColumnFilterButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(236)))), ((int)(((byte)(254)))));
-            this.gvCalibracion.Appearance.ColumnFilterButton.ForeColor = System.Drawing.Color.Black;
-            this.gvCalibracion.Appearance.ColumnFilterButton.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.gvCalibracion.Appearance.ColumnFilterButton.Options.UseBackColor = true;
-            this.gvCalibracion.Appearance.ColumnFilterButton.Options.UseBorderColor = true;
-            this.gvCalibracion.Appearance.ColumnFilterButton.Options.UseForeColor = true;
-            this.gvCalibracion.Appearance.ColumnFilterButtonActive.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
-            this.gvCalibracion.Appearance.ColumnFilterButtonActive.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(190)))), ((int)(((byte)(243)))));
-            this.gvCalibracion.Appearance.ColumnFilterButtonActive.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
-            this.gvCalibracion.Appearance.ColumnFilterButtonActive.ForeColor = System.Drawing.Color.Black;
-            this.gvCalibracion.Appearance.ColumnFilterButtonActive.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.gvCalibracion.Appearance.ColumnFilterButtonActive.Options.UseBackColor = true;
-            this.gvCalibracion.Appearance.ColumnFilterButtonActive.Options.UseBorderColor = true;
-            this.gvCalibracion.Appearance.ColumnFilterButtonActive.Options.UseForeColor = true;
-            this.gvCalibracion.Appearance.Empty.BackColor = System.Drawing.Color.White;
-            this.gvCalibracion.Appearance.Empty.Options.UseBackColor = true;
-            this.gvCalibracion.Appearance.EvenRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(242)))), ((int)(((byte)(254)))));
-            this.gvCalibracion.Appearance.EvenRow.ForeColor = System.Drawing.Color.Black;
-            this.gvCalibracion.Appearance.EvenRow.Options.UseBackColor = true;
-            this.gvCalibracion.Appearance.EvenRow.Options.UseForeColor = true;
-            this.gvCalibracion.Appearance.FilterCloseButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(236)))), ((int)(((byte)(254)))));
-            this.gvCalibracion.Appearance.FilterCloseButton.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(171)))), ((int)(((byte)(228)))));
-            this.gvCalibracion.Appearance.FilterCloseButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(236)))), ((int)(((byte)(254)))));
-            this.gvCalibracion.Appearance.FilterCloseButton.ForeColor = System.Drawing.Color.Black;
-            this.gvCalibracion.Appearance.FilterCloseButton.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.gvCalibracion.Appearance.FilterCloseButton.Options.UseBackColor = true;
-            this.gvCalibracion.Appearance.FilterCloseButton.Options.UseBorderColor = true;
-            this.gvCalibracion.Appearance.FilterCloseButton.Options.UseForeColor = true;
-            this.gvCalibracion.Appearance.FilterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(109)))), ((int)(((byte)(185)))));
-            this.gvCalibracion.Appearance.FilterPanel.ForeColor = System.Drawing.Color.White;
-            this.gvCalibracion.Appearance.FilterPanel.Options.UseBackColor = true;
-            this.gvCalibracion.Appearance.FilterPanel.Options.UseForeColor = true;
-            this.gvCalibracion.Appearance.FixedLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(97)))), ((int)(((byte)(156)))));
-            this.gvCalibracion.Appearance.FixedLine.Options.UseBackColor = true;
-            this.gvCalibracion.Appearance.FocusedCell.BackColor = System.Drawing.Color.White;
-            this.gvCalibracion.Appearance.FocusedCell.ForeColor = System.Drawing.Color.Black;
-            this.gvCalibracion.Appearance.FocusedCell.Options.UseBackColor = true;
-            this.gvCalibracion.Appearance.FocusedCell.Options.UseForeColor = true;
-            this.gvCalibracion.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(106)))), ((int)(((byte)(197)))));
-            this.gvCalibracion.Appearance.FocusedRow.ForeColor = System.Drawing.Color.White;
-            this.gvCalibracion.Appearance.FocusedRow.Options.UseBackColor = true;
-            this.gvCalibracion.Appearance.FocusedRow.Options.UseForeColor = true;
-            this.gvCalibracion.Appearance.FooterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(236)))), ((int)(((byte)(254)))));
-            this.gvCalibracion.Appearance.FooterPanel.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(171)))), ((int)(((byte)(228)))));
-            this.gvCalibracion.Appearance.FooterPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(236)))), ((int)(((byte)(254)))));
-            this.gvCalibracion.Appearance.FooterPanel.ForeColor = System.Drawing.Color.Black;
-            this.gvCalibracion.Appearance.FooterPanel.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.gvCalibracion.Appearance.FooterPanel.Options.UseBackColor = true;
-            this.gvCalibracion.Appearance.FooterPanel.Options.UseBorderColor = true;
-            this.gvCalibracion.Appearance.FooterPanel.Options.UseForeColor = true;
-            this.gvCalibracion.Appearance.GroupButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(216)))), ((int)(((byte)(247)))));
-            this.gvCalibracion.Appearance.GroupButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(216)))), ((int)(((byte)(247)))));
-            this.gvCalibracion.Appearance.GroupButton.ForeColor = System.Drawing.Color.Black;
-            this.gvCalibracion.Appearance.GroupButton.Options.UseBackColor = true;
-            this.gvCalibracion.Appearance.GroupButton.Options.UseBorderColor = true;
-            this.gvCalibracion.Appearance.GroupButton.Options.UseForeColor = true;
-            this.gvCalibracion.Appearance.GroupFooter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(216)))), ((int)(((byte)(247)))));
-            this.gvCalibracion.Appearance.GroupFooter.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(216)))), ((int)(((byte)(247)))));
-            this.gvCalibracion.Appearance.GroupFooter.ForeColor = System.Drawing.Color.Black;
-            this.gvCalibracion.Appearance.GroupFooter.Options.UseBackColor = true;
-            this.gvCalibracion.Appearance.GroupFooter.Options.UseBorderColor = true;
-            this.gvCalibracion.Appearance.GroupFooter.Options.UseForeColor = true;
-            this.gvCalibracion.Appearance.GroupPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(109)))), ((int)(((byte)(185)))));
-            this.gvCalibracion.Appearance.GroupPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(236)))), ((int)(((byte)(254)))));
-            this.gvCalibracion.Appearance.GroupPanel.Options.UseBackColor = true;
-            this.gvCalibracion.Appearance.GroupPanel.Options.UseForeColor = true;
-            this.gvCalibracion.Appearance.GroupRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(216)))), ((int)(((byte)(247)))));
-            this.gvCalibracion.Appearance.GroupRow.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(216)))), ((int)(((byte)(247)))));
-            this.gvCalibracion.Appearance.GroupRow.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
-            this.gvCalibracion.Appearance.GroupRow.ForeColor = System.Drawing.Color.Black;
-            this.gvCalibracion.Appearance.GroupRow.Options.UseBackColor = true;
-            this.gvCalibracion.Appearance.GroupRow.Options.UseBorderColor = true;
-            this.gvCalibracion.Appearance.GroupRow.Options.UseFont = true;
-            this.gvCalibracion.Appearance.GroupRow.Options.UseForeColor = true;
-            this.gvCalibracion.Appearance.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(236)))), ((int)(((byte)(254)))));
-            this.gvCalibracion.Appearance.HeaderPanel.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(171)))), ((int)(((byte)(228)))));
-            this.gvCalibracion.Appearance.HeaderPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(236)))), ((int)(((byte)(254)))));
-            this.gvCalibracion.Appearance.HeaderPanel.ForeColor = System.Drawing.Color.Black;
-            this.gvCalibracion.Appearance.HeaderPanel.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.gvCalibracion.Appearance.HeaderPanel.Options.UseBackColor = true;
-            this.gvCalibracion.Appearance.HeaderPanel.Options.UseBorderColor = true;
-            this.gvCalibracion.Appearance.HeaderPanel.Options.UseForeColor = true;
-            this.gvCalibracion.Appearance.HideSelectionRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(153)))), ((int)(((byte)(228)))));
-            this.gvCalibracion.Appearance.HideSelectionRow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(224)))), ((int)(((byte)(251)))));
-            this.gvCalibracion.Appearance.HideSelectionRow.Options.UseBackColor = true;
-            this.gvCalibracion.Appearance.HideSelectionRow.Options.UseForeColor = true;
-            this.gvCalibracion.Appearance.HorzLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(127)))), ((int)(((byte)(196)))));
-            this.gvCalibracion.Appearance.HorzLine.Options.UseBackColor = true;
-            this.gvCalibracion.Appearance.OddRow.BackColor = System.Drawing.Color.White;
-            this.gvCalibracion.Appearance.OddRow.ForeColor = System.Drawing.Color.Black;
-            this.gvCalibracion.Appearance.OddRow.Options.UseBackColor = true;
-            this.gvCalibracion.Appearance.OddRow.Options.UseForeColor = true;
-            this.gvCalibracion.Appearance.Preview.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(252)))), ((int)(((byte)(255)))));
-            this.gvCalibracion.Appearance.Preview.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(129)))), ((int)(((byte)(185)))));
-            this.gvCalibracion.Appearance.Preview.Options.UseBackColor = true;
-            this.gvCalibracion.Appearance.Preview.Options.UseForeColor = true;
-            this.gvCalibracion.Appearance.Row.BackColor = System.Drawing.Color.White;
-            this.gvCalibracion.Appearance.Row.ForeColor = System.Drawing.Color.Black;
-            this.gvCalibracion.Appearance.Row.Options.UseBackColor = true;
-            this.gvCalibracion.Appearance.Row.Options.UseForeColor = true;
-            this.gvCalibracion.Appearance.RowSeparator.BackColor = System.Drawing.Color.White;
-            this.gvCalibracion.Appearance.RowSeparator.Options.UseBackColor = true;
-            this.gvCalibracion.Appearance.SelectedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(126)))), ((int)(((byte)(217)))));
-            this.gvCalibracion.Appearance.SelectedRow.ForeColor = System.Drawing.Color.White;
-            this.gvCalibracion.Appearance.SelectedRow.Options.UseBackColor = true;
-            this.gvCalibracion.Appearance.SelectedRow.Options.UseForeColor = true;
-            this.gvCalibracion.Appearance.VertLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(127)))), ((int)(((byte)(196)))));
-            this.gvCalibracion.Appearance.VertLine.Options.UseBackColor = true;
-            this.gvCalibracion.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gcCal_Order,
-            this.gcCal_Nom_Calib,
-            this.gcCal_Concentration,
-            this.gcCal_Aliquot,
-            this.gcCal_Volumen});
-            this.gvCalibracion.GridControl = this.gcCalibracion;
-            this.gvCalibracion.Name = "gvCalibracion";
-            this.gvCalibracion.OptionsView.EnableAppearanceEvenRow = true;
-            this.gvCalibracion.OptionsView.EnableAppearanceOddRow = true;
-            this.gvCalibracion.OptionsView.ShowGroupPanel = false;
+            this.deDateIni.EditValue = null;
+            this.deDateIni.Location = new System.Drawing.Point(84, 79);
+            this.deDateIni.Name = "deDateIni";
+            this.deDateIni.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.deDateIni.Size = new System.Drawing.Size(100, 20);
+            this.deDateIni.TabIndex = 22;
+            this.deDateIni.EditValueChanged += new System.EventHandler(this.deDateIni_EditValueChanged);
             // 
-            // gcCal_Order
+            // label8
             // 
-            this.gcCal_Order.Caption = "N°";
-            this.gcCal_Order.FieldName = "Order_calib";
-            this.gcCal_Order.Name = "gcCal_Order";
-            this.gcCal_Order.OptionsFilter.AllowFilter = false;
-            this.gcCal_Order.Visible = true;
-            this.gcCal_Order.VisibleIndex = 0;
-            this.gcCal_Order.Width = 58;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(210, 82);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(46, 13);
+            this.label8.TabIndex = 21;
+            this.label8.Text = "Usuario:";
             // 
-            // gcCal_Nom_Calib
+            // label7
             // 
-            this.gcCal_Nom_Calib.Caption = "Nombre";
-            this.gcCal_Nom_Calib.FieldName = "Name_calib";
-            this.gcCal_Nom_Calib.Name = "gcCal_Nom_Calib";
-            this.gcCal_Nom_Calib.OptionsFilter.AllowFilter = false;
-            this.gcCal_Nom_Calib.Visible = true;
-            this.gcCal_Nom_Calib.VisibleIndex = 1;
-            this.gcCal_Nom_Calib.Width = 108;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(21, 105);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(57, 13);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "Fecha Fin:";
             // 
-            // gcCal_Concentration
+            // label6
             // 
-            this.gcCal_Concentration.Caption = "Concentración";
-            this.gcCal_Concentration.FieldName = "Concentration";
-            this.gcCal_Concentration.Name = "gcCal_Concentration";
-            this.gcCal_Concentration.OptionsFilter.AllowFilter = false;
-            this.gcCal_Concentration.Visible = true;
-            this.gcCal_Concentration.VisibleIndex = 2;
-            this.gcCal_Concentration.Width = 110;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(10, 82);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(68, 13);
+            this.label6.TabIndex = 21;
+            this.label6.Text = "Fecha Inicio:";
             // 
-            // gcCal_Aliquot
+            // ckAssignMethod
             // 
-            this.gcCal_Aliquot.Caption = "Alicuota(g ml)";
-            this.gcCal_Aliquot.FieldName = "Aliquot";
-            this.gcCal_Aliquot.Name = "gcCal_Aliquot";
-            this.gcCal_Aliquot.OptionsFilter.AllowFilter = false;
-            this.gcCal_Aliquot.Visible = true;
-            this.gcCal_Aliquot.VisibleIndex = 3;
-            this.gcCal_Aliquot.Width = 98;
-            // 
-            // gcCal_Volumen
-            // 
-            this.gcCal_Volumen.Caption = "Volumen (ml)";
-            this.gcCal_Volumen.FieldName = "Volumen";
-            this.gcCal_Volumen.Name = "gcCal_Volumen";
-            this.gcCal_Volumen.OptionsFilter.AllowFilter = false;
-            this.gcCal_Volumen.Visible = true;
-            this.gcCal_Volumen.VisibleIndex = 4;
-            this.gcCal_Volumen.Width = 106;
+            this.ckAssignMethod.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ckAssignMethod.Location = new System.Drawing.Point(226, 106);
+            this.ckAssignMethod.Name = "ckAssignMethod";
+            this.ckAssignMethod.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.ckAssignMethod.Properties.Appearance.ForeColor = System.Drawing.Color.ForestGreen;
+            this.ckAssignMethod.Properties.Appearance.Options.UseFont = true;
+            this.ckAssignMethod.Properties.Appearance.Options.UseForeColor = true;
+            this.ckAssignMethod.Properties.Caption = "Asignar al método";
+            this.ckAssignMethod.Size = new System.Drawing.Size(143, 21);
+            this.ckAssignMethod.TabIndex = 4;
             // 
             // paSeparator
             // 
@@ -762,7 +399,7 @@
             this.paSeparator.Dock = System.Windows.Forms.DockStyle.Top;
             this.paSeparator.Location = new System.Drawing.Point(12, 67);
             this.paSeparator.Name = "paSeparator";
-            this.paSeparator.Size = new System.Drawing.Size(802, 10);
+            this.paSeparator.Size = new System.Drawing.Size(634, 10);
             this.paSeparator.TabIndex = 40;
             this.paSeparator.Text = "panelControl4";
             // 
@@ -773,7 +410,7 @@
             this.gcSolutionParent.Dock = System.Windows.Forms.DockStyle.Top;
             this.gcSolutionParent.Location = new System.Drawing.Point(12, 12);
             this.gcSolutionParent.Name = "gcSolutionParent";
-            this.gcSolutionParent.Size = new System.Drawing.Size(802, 55);
+            this.gcSolutionParent.Size = new System.Drawing.Size(634, 55);
             this.gcSolutionParent.TabIndex = 39;
             this.gcSolutionParent.Text = "Solucion Padre";
             // 
@@ -826,7 +463,7 @@
             this.expandablePanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.expandablePanel1.Location = new System.Drawing.Point(2, 2);
             this.expandablePanel1.Name = "expandablePanel1";
-            this.expandablePanel1.Size = new System.Drawing.Size(293, 594);
+            this.expandablePanel1.Size = new System.Drawing.Size(293, 421);
             this.expandablePanel1.TabIndex = 39;
             this.expandablePanel1.Text = "expandablePanel1";
             this.expandablePanel1.TitleText = "Title Bar";
@@ -892,7 +529,7 @@
             this.repBtOpenMethods,
             this.repAddMethod});
             this.treeSolInterm.SelectImageList = this.imageList1;
-            this.treeSolInterm.Size = new System.Drawing.Size(293, 513);
+            this.treeSolInterm.Size = new System.Drawing.Size(293, 340);
             this.treeSolInterm.TabIndex = 40;
             this.treeSolInterm.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeSolInterm_FocusedNodeChanged);
             this.treeSolInterm.CellValueChanged += new DevExpress.XtraTreeList.CellValueChangedEventHandler(this.treeSolInterm_CellValueChanged);
@@ -1108,10 +745,9 @@
             this.cmsAddSolution.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btNewSolInt1,
             this.btNewSolInt2,
-            this.btNewSolStdVer,
-            this.btNewSolCalib});
+            this.btNewSolStdVer});
             this.cmsAddSolution.Name = "cmsAddSolution";
-            this.cmsAddSolution.Size = new System.Drawing.Size(239, 92);
+            this.cmsAddSolution.Size = new System.Drawing.Size(239, 70);
             // 
             // btNewSolInt1
             // 
@@ -1134,13 +770,6 @@
             this.btNewSolStdVer.Text = "Nuevo Estandar de Verificación";
             this.btNewSolStdVer.Click += new System.EventHandler(this.btNewSolStdVer_Click);
             // 
-            // btNewSolCalib
-            // 
-            this.btNewSolCalib.Name = "btNewSolCalib";
-            this.btNewSolCalib.Size = new System.Drawing.Size(238, 22);
-            this.btNewSolCalib.Text = "Nuevo Estandar de Calibración";
-            this.btNewSolCalib.Click += new System.EventHandler(this.btNewSolCalib_Click);
-            // 
             // imageList1
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
@@ -1160,18 +789,6 @@
             this.panelControl2.TabIndex = 41;
             this.panelControl2.Text = "panelControl2";
             // 
-            // ucSign1
-            // 
-            this.ucSign1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ucSign1.Location = new System.Drawing.Point(966, 4);
-            this.ucSign1.Margin = new System.Windows.Forms.Padding(0);
-            this.ucSign1.Name = "ucSign1";
-            this.ucSign1.Pwd = null;
-            this.ucSign1.Size = new System.Drawing.Size(158, 40);
-            this.ucSign1.TabIndex = 7;
-            this.ucSign1.Title = "";
-            this.ucSign1.OnSign += new LimsProject.sign(this.ucSign1_OnSign);
-            // 
             // gcMethods
             // 
             this.gcMethods.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1181,7 +798,7 @@
             this.gcMethods.Name = "gcMethods";
             this.gcMethods.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repSel});
-            this.gcMethods.Size = new System.Drawing.Size(824, 296);
+            this.gcMethods.Size = new System.Drawing.Size(656, 170);
             this.gcMethods.TabIndex = 40;
             this.gcMethods.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvMethods});
@@ -1243,36 +860,9 @@
             // 
             this.splitterControl1.Location = new System.Drawing.Point(295, 2);
             this.splitterControl1.Name = "splitterControl1";
-            this.splitterControl1.Size = new System.Drawing.Size(6, 594);
+            this.splitterControl1.Size = new System.Drawing.Size(8, 421);
             this.splitterControl1.TabIndex = 41;
             this.splitterControl1.TabStop = false;
-            // 
-            // exPanel
-            // 
-            this.exPanel.Controls.Add(this.ckDisabledSolution);
-            this.exPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.exPanel.Expanded = false;
-            this.exPanel.ExpandedBounds = new System.Drawing.Rectangle(301, 369, 660, 54);
-            this.exPanel.Location = new System.Drawing.Point(301, 570);
-            this.exPanel.Name = "exPanel";
-            this.exPanel.Size = new System.Drawing.Size(826, 26);
-            this.exPanel.TabIndex = 37;
-            this.exPanel.Text = "expandablePanel2";
-            this.exPanel.TitleStyle.BackColor1.Color = System.Drawing.Color.LightSteelBlue;
-            this.exPanel.TitleStyle.ForeColor.Color = System.Drawing.Color.Blue;
-            this.exPanel.TitleText = "Desactivar";
-            // 
-            // ckDisabledSolution
-            // 
-            this.ckDisabledSolution.Location = new System.Drawing.Point(13, 29);
-            this.ckDisabledSolution.Name = "ckDisabledSolution";
-            this.ckDisabledSolution.Properties.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.ckDisabledSolution.Properties.Appearance.Options.UseForeColor = true;
-            this.ckDisabledSolution.Properties.Caption = "Desactivando la solución, no podrá ser usada en ningún módulo que haga referencia" +
-    "";
-            this.ckDisabledSolution.Size = new System.Drawing.Size(442, 19);
-            this.ckDisabledSolution.TabIndex = 1;
-            this.ckDisabledSolution.CheckedChanged += new System.EventHandler(this.ckDisabledSolution_CheckedChanged);
             // 
             // customPageControl1
             // 
@@ -1287,83 +877,63 @@
             this.customPageControl1.AppearancePage.PageClient.BorderColor = System.Drawing.Color.Gainsboro;
             this.customPageControl1.AppearancePage.PageClient.Options.UseBorderColor = true;
             this.customPageControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.customPageControl1.Location = new System.Drawing.Point(301, 253);
+            this.customPageControl1.Location = new System.Drawing.Point(303, 232);
             this.customPageControl1.Name = "customPageControl1";
             this.customPageControl1.PaintStyleName = "PropertyView";
-            this.customPageControl1.SelectedTabPage = this.tpMethod;
-            this.customPageControl1.Size = new System.Drawing.Size(826, 317);
+            this.customPageControl1.SelectedTabPage = this.xtraTabPage1;
+            this.customPageControl1.Size = new System.Drawing.Size(658, 191);
             this.customPageControl1.TabIndex = 42;
             this.customPageControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
-            this.tpMethod,
-            this.tpCalib});
-            this.customPageControl1.Text = "customPageControl1";
+            this.xtraTabPage1,
+            this.xtraTabPage2});
+            this.customPageControl1.Text = "Calibraciones";
             // 
-            // tpMethod
+            // xtraTabPage1
             // 
-            this.tpMethod.Controls.Add(this.gcMethods);
-            this.tpMethod.Name = "tpMethod";
-            this.tpMethod.Size = new System.Drawing.Size(824, 296);
-            this.tpMethod.Text = "Método";
+            this.xtraTabPage1.Controls.Add(this.gcMethods);
+            this.xtraTabPage1.Name = "xtraTabPage1";
+            this.xtraTabPage1.Size = new System.Drawing.Size(656, 170);
+            this.xtraTabPage1.Text = "Métodos";
             // 
-            // tpCalib
+            // xtraTabPage2
             // 
-            this.tpCalib.Controls.Add(this.ucCalibStd1);
-            this.tpCalib.Name = "tpCalib";
-            this.tpCalib.Size = new System.Drawing.Size(0, 0);
-            this.tpCalib.Text = "Calibración";
+            this.xtraTabPage2.Controls.Add(this.ucCalibStd1);
+            this.xtraTabPage2.Name = "xtraTabPage2";
+            this.xtraTabPage2.Size = new System.Drawing.Size(0, 0);
+            this.xtraTabPage2.Text = "Estandares";
             // 
             // ucCalibStd1
             // 
             this.ucCalibStd1.Date_end = new System.DateTime(((long)(0)));
             this.ucCalibStd1.Date_init = new System.DateTime(((long)(0)));
-            this.ucCalibStd1.DateSign = new System.DateTime(((long)(0)));
             this.ucCalibStd1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucCalibStd1.Idtemplate_method = 0;
+            cGroup_solution1.Cod_solution = null;
+            cGroup_solution1.Date_end = null;
+            cGroup_solution1.Date_ini = null;
+            cGroup_solution1.Date_sign_calib = null;
+            cGroup_solution1.Flag_close_calib = null;
+            cGroup_solution1.Flag_selected_methods = null;
+            cGroup_solution1.Flag_sign_calib = null;
+            cGroup_solution1.Idelement = null;
+            cGroup_solution1.Idgroup_solution = 0;
+            cGroup_solution1.Idmr_detail = null;
+            cGroup_solution1.Idreactive_medium = null;
+            cGroup_solution1.Idreactive_modif = null;
+            cGroup_solution1.Idtemplate_method = null;
+            cGroup_solution1.Type_pattern = null;
+            cGroup_solution1.Type_solution = null;
+            cGroup_solution1.User_sign_calib = null;            
             this.ucCalibStd1.Location = new System.Drawing.Point(0, 0);
             this.ucCalibStd1.Name = "ucCalibStd1";
             this.ucCalibStd1.Size = new System.Drawing.Size(0, 0);
-            cSolution_interm1.Aliquot = null;
-            cSolution_interm1.Cod_solution = null;
-            cSolution_interm1.Concentration = null;
-            cSolution_interm1.Date_begin = null;
-            cSolution_interm1.Date_end = null;
-            cSolution_interm1.Dateedit = null;
-            cSolution_interm1.Datenew = null;
-            cSolution_interm1.Expired_status = null;
-            cSolution_interm1.Flag_current_method = null;
-            cSolution_interm1.Id = null;
-            cSolution_interm1.Idelement = null;
-            cSolution_interm1.Idreactive_medium = null;
-            cSolution_interm1.Idreactive_modif = null;
-            cSolution_interm1.Idsolution_interm = 0;
-            cSolution_interm1.Image_index = null;
-            cSolution_interm1.Lote = null;
-            cSolution_interm1.Num_months = null;
-            cSolution_interm1.Observation = null;
-            cSolution_interm1.Parentid = null;
-            cSolution_interm1.Prepared_by = null;
-            cSolution_interm1.Purity = null;
-            cSolution_interm1.Reactive_medium_value = null;
-            cSolution_interm1.Reactive_modif_value = null;
-            cSolution_interm1.Root_idmr_detail = null;
-            cSolution_interm1.Root_type_pattern = null;
-            cSolution_interm1.Solution_name = null;
-            cSolution_interm1.Solution_status = null;
-            cSolution_interm1.Status = null;
-            cSolution_interm1.Type_sol = null;
-            cSolution_interm1.Useredit = null;
-            cSolution_interm1.Usernew = null;
-            cSolution_interm1.Volumen = null;
-            this.ucCalibStd1.Solution_interm = cSolution_interm1;
             this.ucCalibStd1.TabIndex = 0;
-            this.ucCalibStd1.UserSign = null;
             // 
-            // FormSolInterm
+            // FormCalibs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1129, 690);
-            this.Name = "FormSolInterm";
+            this.ClientSize = new System.Drawing.Size(963, 517);
+            this.Name = "FormCalibs";
             this.Text = "Soluciones Intermedias";
             this.Load += new System.EventHandler(this.FormSolInterm_Load);
             this.Controls.SetChildIndex(this.panelControl1, 0);
@@ -1374,7 +944,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.paTitle)).EndInit();
             this.paTitle.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.paBottom)).EndInit();
-            this.paBottom.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.paCenter)).EndInit();
             this.paCenter.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.paTop)).EndInit();
@@ -1384,30 +953,17 @@
             this.paHeader.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcSolutionChild)).EndInit();
             this.gcSolutionChild.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
-            this.panelControl4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.paDate)).EndInit();
-            this.paDate.ResumeLayout(false);
-            this.paDate.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ckAssignMethod.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deDateIni.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbUser1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deDateEnd.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.paCalAliquot)).EndInit();
-            this.paCalAliquot.ResumeLayout(false);
-            this.paCalAliquot.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tbAliquot.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbConcentration.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbVolumen.Properties)).EndInit();
+            this.gcSolutionChild.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tbParentMediumValue.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbParentMedium.Properties)).EndInit();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tbParentModifValue.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbParentModif.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gcCalibracion)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvCalibracion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbUser1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deDateEnd.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deDateIni.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckAssignMethod.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.paSeparator)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcSolutionParent)).EndInit();
             this.gcSolutionParent.ResumeLayout(false);
@@ -1430,12 +986,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcMethods)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvMethods)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repSel)).EndInit();
-            this.exPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ckDisabledSolution.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.customPageControl1)).EndInit();
             this.customPageControl1.ResumeLayout(false);
-            this.tpMethod.ResumeLayout(false);
-            this.tpCalib.ResumeLayout(false);
+            this.xtraTabPage1.ResumeLayout(false);
+            this.xtraTabPage2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1471,7 +1025,6 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repBtOpenMethods;
         private DevExpress.XtraTreeList.Columns.TreeListColumn tcol_Idsolution;
         private DevExpress.XtraTreeList.Columns.TreeListColumn tcol_Type_sol;
-        private UcSign ucSign1;
         private System.Windows.Forms.ContextMenuStrip cmsAddSolution;
         private System.Windows.Forms.ToolStripMenuItem btNewSolInt1;
         private System.Windows.Forms.ToolStripMenuItem btNewSolInt2;
@@ -1489,10 +1042,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gmet_Cod_template_method;
         private DevExpress.XtraGrid.Columns.GridColumn gmet_Title;
         private DevExpress.XtraEditors.SplitterControl splitterControl1;
-        private customSpinEdit tbVolumen;
-        private customTextEdit tbConcentration;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private customTextEdit tbParentConcentration;
         private customSpinEdit tbParentModifValue;
@@ -1500,8 +1049,6 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox2;
         private DevExpress.XtraEditors.CheckEdit ckAssignMethod;
-        private customSpinEdit tbAliquot;
-        private System.Windows.Forms.Label label5;
         private DevExpress.XtraEditors.GroupControl gcSolutionChild;
         private DevExpress.XtraEditors.GroupControl gcSolutionParent;
         private DevExpress.XtraEditors.PanelControl paSeparator;
@@ -1512,27 +1059,11 @@
         private System.Windows.Forms.Label label8;
         private UserControls.cbUser cbUser1;
         private DevExpress.XtraTreeList.Columns.TreeListColumn tcol_Root_type_pattern;
-        private DevComponents.DotNetBar.ExpandablePanel exPanel;
-        private DevExpress.XtraEditors.CheckEdit ckDisabledSolution;
-        private System.Windows.Forms.Label laVigencia;
         private DevExpress.XtraTreeList.Columns.TreeListColumn tcol_Expired_status;
-        private DevExpress.XtraEditors.PanelControl panelControl3;
-        private DevExpress.XtraGrid.GridControl gcCalibracion;
-        private DevExpress.XtraGrid.Views.Grid.GridView gvCalibracion;
-        private DevExpress.XtraGrid.Columns.GridColumn gcCal_Order;
-        private DevExpress.XtraGrid.Columns.GridColumn gcCal_Nom_Calib;
-        private DevExpress.XtraGrid.Columns.GridColumn gcCal_Concentration;
-        private DevExpress.XtraGrid.Columns.GridColumn gcCal_Aliquot;
-        private DevExpress.XtraGrid.Columns.GridColumn gcCal_Volumen;
-        private DevExpress.XtraEditors.PanelControl panelControl4;
-        private DevExpress.XtraEditors.PanelControl paDate;
-        private DevExpress.XtraEditors.PanelControl paCalAliquot;
         private customPageControl customPageControl1;
-        private DevExpress.XtraTab.XtraTabPage tpMethod;
-        private DevExpress.XtraTab.XtraTabPage tpCalib;
-        
-        private System.Windows.Forms.ToolStripMenuItem btNewSolCalib;
-        private UcCalibStd ucCalibStd1;        
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage2;
+        private UcCalibStd ucCalibStd1;
 
     }
 }

@@ -321,6 +321,7 @@ namespace LimsProject
              */
             #endregion
 
+            
 
         }
 
@@ -372,6 +373,8 @@ namespace LimsProject
 
                 expandablePanel1.Visible = true;
             }
+            
+            //
         }
 
         private void xtraTabControl1_SelectedPageChanged(object sender, DevExpress.XtraTab.TabPageChangedEventArgs e)

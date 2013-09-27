@@ -67,20 +67,7 @@
             this.gcCal_Name = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcCal_Concentration = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcCal_Idtemplate_method = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gcCal_Cod_template_method = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repTemplate_method = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            this.paCalibNew = new System.Windows.Forms.Panel();
-            this.paDates = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btNuevaCalibracion = new DevExpress.XtraEditors.SimpleButton();
-            this.deDateIni = new DevExpress.XtraEditors.DateEdit();
-            this.label5 = new System.Windows.Forms.Label();
-            this.deDateEnd = new DevExpress.XtraEditors.DateEdit();
-            this.paTraceCalib = new System.Windows.Forms.Panel();
-            this.ucTraceUser1 = new LimsProject.UcTraceUser();
-            this.paCalibSign = new System.Windows.Forms.Panel();
-            this.ucSignCalibStd = new LimsProject.UcSign();
             ((System.ComponentModel.ISupportInitialize)(this.paCalibCenter)).BeginInit();
             this.paCalibCenter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
@@ -106,14 +93,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcCalibStd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvCalibStd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repTemplate_method)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
-            this.panelControl2.SuspendLayout();
-            this.paCalibNew.SuspendLayout();
-            this.paDates.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.deDateIni.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deDateEnd.Properties)).BeginInit();
-            this.paTraceCalib.SuspendLayout();
-            this.paCalibSign.SuspendLayout();
             this.SuspendLayout();
             // 
             // gcCal_Absorbance_previus
@@ -140,7 +119,7 @@
             this.paCalibCenter.Dock = System.Windows.Forms.DockStyle.Fill;
             this.paCalibCenter.Location = new System.Drawing.Point(0, 0);
             this.paCalibCenter.Name = "paCalibCenter";
-            this.paCalibCenter.Size = new System.Drawing.Size(806, 424);
+            this.paCalibCenter.Size = new System.Drawing.Size(806, 477);
             this.paCalibCenter.TabIndex = 0;
             this.paCalibCenter.Text = "paCalibCenter";
             // 
@@ -152,7 +131,7 @@
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl3.Location = new System.Drawing.Point(454, 2);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(350, 420);
+            this.panelControl3.Size = new System.Drawing.Size(350, 473);
             this.panelControl3.TabIndex = 2;
             this.panelControl3.Text = "panelControl3";
             // 
@@ -188,14 +167,14 @@
             series2});
             this.chartCalib.SeriesTemplate.View = lineSeriesView3;
             this.chartCalib.SeriesTemplate.PointOptionsTypeName = "PointOptions";
-            this.chartCalib.Size = new System.Drawing.Size(346, 295);
+            this.chartCalib.Size = new System.Drawing.Size(346, 348);
             this.chartCalib.TabIndex = 1;
             // 
             // rgSelectGraphic
             // 
             this.rgSelectGraphic.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.rgSelectGraphic.EditValue = 1D;
-            this.rgSelectGraphic.Location = new System.Drawing.Point(2, 297);
+            this.rgSelectGraphic.Location = new System.Drawing.Point(2, 350);
             this.rgSelectGraphic.Name = "rgSelectGraphic";
             this.rgSelectGraphic.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(0D, "Actual Absorbancia"),
@@ -223,7 +202,7 @@
             this.groupControl1.Controls.Add(this.label128);
             this.groupControl1.Controls.Add(this.label126);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupControl1.Location = new System.Drawing.Point(2, 327);
+            this.groupControl1.Location = new System.Drawing.Point(2, 380);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(346, 91);
             this.groupControl1.TabIndex = 0;
@@ -413,7 +392,7 @@
             this.gcCalibStd.Name = "gcCalibStd";
             this.gcCalibStd.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repTemplate_method});
-            this.gcCalibStd.Size = new System.Drawing.Size(452, 420);
+            this.gcCalibStd.Size = new System.Drawing.Size(452, 473);
             this.gcCalibStd.TabIndex = 1;
             this.gcCalibStd.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvCalibStd});
@@ -537,8 +516,7 @@
             this.gcCal_Concentration,
             this.gcCal_Absorbance_previus,
             this.gcCal_Absorbance,
-            this.gcCal_Idtemplate_method,
-            this.gcCal_Cod_template_method});
+            this.gcCal_Idtemplate_method});
             styleFormatCondition1.Appearance.BackColor = System.Drawing.Color.LightSteelBlue;
             styleFormatCondition1.Appearance.Options.UseBackColor = true;
             styleFormatCondition1.Column = this.gcCal_Absorbance_previus;
@@ -553,13 +531,10 @@
             styleFormatCondition1,
             styleFormatCondition2});
             this.gvCalibStd.GridControl = this.gcCalibStd;
-            this.gvCalibStd.GroupCount = 1;
             this.gvCalibStd.Name = "gvCalibStd";
             this.gvCalibStd.OptionsView.EnableAppearanceEvenRow = true;
             this.gvCalibStd.OptionsView.EnableAppearanceOddRow = true;
             this.gvCalibStd.OptionsView.ShowGroupPanel = false;
-            this.gvCalibStd.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
-            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gcCal_Cod_template_method, DevExpress.Data.ColumnSortOrder.Ascending)});
             this.gvCalibStd.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gvCalibStd_FocusedRowChanged);
             this.gvCalibStd.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvCalibStd_CellValueChanged);
             // 
@@ -600,12 +575,6 @@
             this.gcCal_Idtemplate_method.FieldName = "Idtemplate_method";
             this.gcCal_Idtemplate_method.Name = "gcCal_Idtemplate_method";
             // 
-            // gcCal_Cod_template_method
-            // 
-            this.gcCal_Cod_template_method.Caption = "Método";
-            this.gcCal_Cod_template_method.FieldName = "Cod_template_method";
-            this.gcCal_Cod_template_method.Name = "gcCal_Cod_template_method";
-            // 
             // repTemplate_method
             // 
             this.repTemplate_method.AutoHeight = false;
@@ -616,131 +585,11 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Cod_template_method")});
             this.repTemplate_method.Name = "repTemplate_method";
             // 
-            // panelControl2
-            // 
-            this.panelControl2.Controls.Add(this.paCalibNew);
-            this.panelControl2.Controls.Add(this.paTraceCalib);
-            this.panelControl2.Controls.Add(this.paCalibSign);
-            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl2.Location = new System.Drawing.Point(0, 424);
-            this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(806, 53);
-            this.panelControl2.TabIndex = 1;
-            this.panelControl2.Text = "panelControl2";
-            // 
-            // paCalibNew
-            // 
-            this.paCalibNew.Controls.Add(this.paDates);
-            this.paCalibNew.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.paCalibNew.Location = new System.Drawing.Point(197, 2);
-            this.paCalibNew.Name = "paCalibNew";
-            this.paCalibNew.Size = new System.Drawing.Size(427, 49);
-            this.paCalibNew.TabIndex = 30;
-            // 
-            // paDates
-            // 
-            this.paDates.Controls.Add(this.label1);
-            this.paDates.Controls.Add(this.btNuevaCalibracion);
-            this.paDates.Controls.Add(this.deDateIni);
-            this.paDates.Controls.Add(this.label5);
-            this.paDates.Controls.Add(this.deDateEnd);
-            this.paDates.Location = new System.Drawing.Point(3, 0);
-            this.paDates.Name = "paDates";
-            this.paDates.Size = new System.Drawing.Size(409, 48);
-            this.paDates.TabIndex = 39;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 4);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 13);
-            this.label1.TabIndex = 30;
-            this.label1.Text = "Preparación";
-            // 
-            // btNuevaCalibracion
-            // 
-            this.btNuevaCalibracion.Location = new System.Drawing.Point(282, 15);
-            this.btNuevaCalibracion.Name = "btNuevaCalibracion";
-            this.btNuevaCalibracion.Size = new System.Drawing.Size(113, 23);
-            this.btNuevaCalibracion.TabIndex = 0;
-            this.btNuevaCalibracion.Text = "Nueva Calibración";
-            this.btNuevaCalibracion.Click += new System.EventHandler(this.btNuevaCalibracion_Click);
-            // 
-            // deDateIni
-            // 
-            this.deDateIni.EditValue = null;
-            this.deDateIni.Enabled = false;
-            this.deDateIni.Location = new System.Drawing.Point(11, 18);
-            this.deDateIni.Name = "deDateIni";
-            this.deDateIni.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.deDateIni.Size = new System.Drawing.Size(100, 20);
-            this.deDateIni.TabIndex = 33;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(132, 4);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(56, 13);
-            this.label5.TabIndex = 31;
-            this.label5.Text = "Expiración";
-            // 
-            // deDateEnd
-            // 
-            this.deDateEnd.EditValue = null;
-            this.deDateEnd.Enabled = false;
-            this.deDateEnd.Location = new System.Drawing.Point(117, 18);
-            this.deDateEnd.Name = "deDateEnd";
-            this.deDateEnd.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.deDateEnd.Size = new System.Drawing.Size(100, 20);
-            this.deDateEnd.TabIndex = 32;
-            // 
-            // paTraceCalib
-            // 
-            this.paTraceCalib.Controls.Add(this.ucTraceUser1);
-            this.paTraceCalib.Dock = System.Windows.Forms.DockStyle.Left;
-            this.paTraceCalib.Location = new System.Drawing.Point(2, 2);
-            this.paTraceCalib.Name = "paTraceCalib";
-            this.paTraceCalib.Size = new System.Drawing.Size(195, 49);
-            this.paTraceCalib.TabIndex = 29;
-            // 
-            // ucTraceUser1
-            // 
-            this.ucTraceUser1.Location = new System.Drawing.Point(5, 6);
-            this.ucTraceUser1.Name = "ucTraceUser1";
-            this.ucTraceUser1.Size = new System.Drawing.Size(174, 37);
-            this.ucTraceUser1.TabIndex = 25;
-            this.ucTraceUser1.UserSign = "---------";
-            // 
-            // paCalibSign
-            // 
-            this.paCalibSign.Controls.Add(this.ucSignCalibStd);
-            this.paCalibSign.Dock = System.Windows.Forms.DockStyle.Right;
-            this.paCalibSign.Location = new System.Drawing.Point(624, 2);
-            this.paCalibSign.Name = "paCalibSign";
-            this.paCalibSign.Size = new System.Drawing.Size(180, 49);
-            this.paCalibSign.TabIndex = 28;
-            // 
-            // ucSignCalibStd
-            // 
-            this.ucSignCalibStd.Location = new System.Drawing.Point(16, 4);
-            this.ucSignCalibStd.Margin = new System.Windows.Forms.Padding(0);
-            this.ucSignCalibStd.Name = "ucSignCalibStd";
-            this.ucSignCalibStd.Pwd = null;
-            this.ucSignCalibStd.Size = new System.Drawing.Size(158, 40);
-            this.ucSignCalibStd.TabIndex = 27;
-            this.ucSignCalibStd.Title = "Firmar";
-            this.ucSignCalibStd.OnSign += new LimsProject.sign(this.ucSignCalibStd_OnSign);
-            // 
             // UcCalibStd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.paCalibCenter);
-            this.Controls.Add(this.panelControl2);
             this.Name = "UcCalibStd";
             this.Size = new System.Drawing.Size(806, 477);
             ((System.ComponentModel.ISupportInitialize)(this.paCalibCenter)).EndInit();
@@ -769,15 +618,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcCalibStd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvCalibStd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repTemplate_method)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
-            this.panelControl2.ResumeLayout(false);
-            this.paCalibNew.ResumeLayout(false);
-            this.paDates.ResumeLayout(false);
-            this.paDates.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.deDateIni.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deDateEnd.Properties)).EndInit();
-            this.paTraceCalib.ResumeLayout(false);
-            this.paCalibSign.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -794,9 +634,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gcCal_Absorbance_previus;
         private DevExpress.XtraGrid.Columns.GridColumn gcCal_Absorbance;
         private DevExpress.XtraGrid.Columns.GridColumn gcCal_Idtemplate_method;
-        private DevExpress.XtraGrid.Columns.GridColumn gcCal_Cod_template_method;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repTemplate_method;
-        private DevExpress.XtraEditors.PanelControl panelControl2;
         private DevExpress.XtraEditors.PanelControl panelControl3;
         private DevExpress.XtraCharts.ChartControl chartCalib;
         private DevExpress.XtraEditors.RadioGroup rgSelectGraphic;
@@ -816,16 +654,5 @@
         private System.Windows.Forms.Label label131;
         private System.Windows.Forms.Label label128;
         private System.Windows.Forms.Label label126;
-        private UcTraceUser ucTraceUser1;
-        private UcSign ucSignCalibStd;
-        private System.Windows.Forms.Panel paCalibSign;
-        private System.Windows.Forms.Panel paCalibNew;
-        private System.Windows.Forms.Panel paTraceCalib;
-        private DevExpress.XtraEditors.SimpleButton btNuevaCalibracion;
-        private System.Windows.Forms.Panel paDates;
-        private System.Windows.Forms.Label label1;
-        private DevExpress.XtraEditors.DateEdit deDateIni;
-        private System.Windows.Forms.Label label5;
-        private DevExpress.XtraEditors.DateEdit deDateEnd;
     }
 }

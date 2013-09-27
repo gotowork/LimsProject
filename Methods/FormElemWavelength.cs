@@ -57,7 +57,7 @@ namespace LimsProject
 
             var queryIcpElement =
                 (from p in queryIcp.AsEnumerable()
-                 join q in new CElementFactory().GetAll() on p.Field<string>("elementSymbol") equals q.Cod_element                 
+                 join q in new CElementFactory().GetAll() on p.Field<string>("elementSymbol") equals q.Cod_element
                  select new
                  {
                      Wavelength = p.Field<string>("wavelength"),
@@ -72,7 +72,7 @@ namespace LimsProject
 
             List<CElement_wavelength> lst =
                 (from t in queryIcpElement
-                 join p in query on t.Element_wavelength equals p.Element_wavelength into tp
+                 join p in query on t.Wavelength equals p.Wavelength into tp
                  from q in tp.DefaultIfEmpty()
                  select new CElement_wavelength
                  {
@@ -80,14 +80,14 @@ namespace LimsProject
                      Idelement = t.Idelement,
                      Wavelength = t.Wavelength,
                      Element_wavelength = t.Element_wavelength,
-                     Idl_radial = t.Idl_radial,
-                     Idl_axial = t.Idl_axial,
-                     Lineality_radial = t.Lineality_radial,
-                     Lineality_axial = t.Lineality_axial
+                     Idl_radial = q == null ? t.Idl_radial : q.Idl_radial,
+                     Idl_axial = q == null ? t.Idl_axial : q.Idl_axial,
+                     Lineality_radial = q == null ? t.Lineality_radial : q.Lineality_radial,
+                     Lineality_axial = q == null ? t.Lineality_axial : q.Lineality_axial
                  }).ToList();
 
             gcElemWavelength.DataSource = new BindingList<CElement_wavelength>(lst);
-            
+
             SaveData();
         }
 

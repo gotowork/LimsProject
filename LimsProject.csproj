@@ -179,6 +179,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ComunClass\ComunForm.cs" />
+    <Compile Include="UserControls\customPageControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserControls\customPageControl.Designer.cs">
+      <DependentUpon>customPageControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Solutions\FormCalibs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Solutions\FormCalibs.Designer.cs">
+      <DependentUpon>FormCalibs.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\cbUser.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -251,12 +263,6 @@
     </Compile>
     <Compile Include="Methods\UcGR.Designer.cs">
       <DependentUpon>UcGR.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Solutions\FormSolutions.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Solutions\FormSolutions.Designer.cs">
-      <DependentUpon>FormSolutions.cs</DependentUpon>
     </Compile>
     <Compile Include="Solutions\UcSelectMethods.cs">
       <SubType>UserControl</SubType>
@@ -703,11 +709,11 @@
     <EmbeddedResource Include="Methods\UcAA.resx">
       <DependentUpon>UcAA.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Solutions\FormCalibs.resx">
+      <DependentUpon>FormCalibs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Solutions\FormSolInterm.resx">
       <DependentUpon>FormSolInterm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Solutions\FormSolutions.resx">
-      <DependentUpon>FormSolutions.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Solutions\UcSelectMethods.resx">
       <DependentUpon>UcSelectMethods.cs</DependentUpon>

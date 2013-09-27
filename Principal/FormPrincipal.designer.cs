@@ -31,6 +31,14 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
             this.navBarControl1 = new DevExpress.XtraNavBar.NavBarControl();
+            this.grProcess = new DevExpress.XtraNavBar.NavBarGroup();
+            this.nbiPrueba = new DevExpress.XtraNavBar.NavBarItem();
+            this.nbiSolution = new DevExpress.XtraNavBar.NavBarItem();
+            this.nbiMethod = new DevExpress.XtraNavBar.NavBarItem();
+            this.nbiReception = new DevExpress.XtraNavBar.NavBarItem();
+            this.nbiModuloQaQc = new DevExpress.XtraNavBar.NavBarItem();
+            this.nbiAuthorizations = new DevExpress.XtraNavBar.NavBarItem();
+            this.nbiPrice = new DevExpress.XtraNavBar.NavBarItem();
             this.grMant = new DevExpress.XtraNavBar.NavBarGroup();
             this.nbiFactorEstequ = new DevExpress.XtraNavBar.NavBarItem();
             this.nbiCompuestos = new DevExpress.XtraNavBar.NavBarItem();
@@ -48,14 +56,6 @@
             this.nbiConvertUM = new DevExpress.XtraNavBar.NavBarItem();
             this.nbiCorrelative = new DevExpress.XtraNavBar.NavBarItem();
             this.nbiReactive = new DevExpress.XtraNavBar.NavBarItem();
-            this.grProcess = new DevExpress.XtraNavBar.NavBarGroup();
-            this.nbiPrueba = new DevExpress.XtraNavBar.NavBarItem();
-            this.nbiSolution = new DevExpress.XtraNavBar.NavBarItem();
-            this.nbiMethod = new DevExpress.XtraNavBar.NavBarItem();
-            this.nbiReception = new DevExpress.XtraNavBar.NavBarItem();
-            this.nbiModuloQaQc = new DevExpress.XtraNavBar.NavBarItem();
-            this.nbiAuthorizations = new DevExpress.XtraNavBar.NavBarItem();
-            this.nbiPrice = new DevExpress.XtraNavBar.NavBarItem();
             this.grSecurity = new DevExpress.XtraNavBar.NavBarGroup();
             this.nbiUsers = new DevExpress.XtraNavBar.NavBarItem();
             this.barManager1 = new DevExpress.XtraBars.BarManager();
@@ -86,6 +86,7 @@
             this.barMdiChildrenListItem1 = new DevExpress.XtraBars.BarMdiChildrenListItem();
             this.expandablePanel1 = new DevComponents.DotNetBar.ExpandablePanel();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
+            this.nbiSolCalibs = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             this.expandablePanel1.SuspendLayout();
@@ -124,7 +125,8 @@
             this.nbiDecrees,
             this.nbiPrueba,
             this.nbiCompuestos,
-            this.nbiFactorEstequ});
+            this.nbiFactorEstequ,
+            this.nbiSolCalibs});
             this.navBarControl1.Location = new System.Drawing.Point(0, 26);
             this.navBarControl1.LookAndFeel.SkinName = "Money Twins";
             this.navBarControl1.Name = "navBarControl1";
@@ -133,6 +135,63 @@
             this.navBarControl1.TabIndex = 14;
             this.navBarControl1.Text = "navBarControl1";
             this.navBarControl1.View = new DevExpress.XtraNavBar.ViewInfo.StandardSkinNavigationPaneViewInfoRegistrator("Money Twins");
+            // 
+            // grProcess
+            // 
+            this.grProcess.Caption = "Procesos";
+            this.grProcess.Expanded = true;
+            this.grProcess.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            new DevExpress.XtraNavBar.NavBarItemLink(this.nbiSolCalibs),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.nbiPrueba),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.nbiSolution),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.nbiMethod),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.nbiReception),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.nbiModuloQaQc),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.nbiAuthorizations),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.nbiPrice)});
+            this.grProcess.Name = "grProcess";
+            // 
+            // nbiPrueba
+            // 
+            this.nbiPrueba.Caption = "Preparación de Muestras";
+            this.nbiPrueba.Name = "nbiPrueba";
+            this.nbiPrueba.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbiPrueba_LinkClicked);
+            // 
+            // nbiSolution
+            // 
+            this.nbiSolution.Caption = "Soluciones Intermedias";
+            this.nbiSolution.Name = "nbiSolution";
+            this.nbiSolution.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbiSolution_LinkClicked);
+            // 
+            // nbiMethod
+            // 
+            this.nbiMethod.Caption = "Métodos";
+            this.nbiMethod.Name = "nbiMethod";
+            this.nbiMethod.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbiMethod_LinkClicked);
+            // 
+            // nbiReception
+            // 
+            this.nbiReception.Caption = "Registro de Recepción";
+            this.nbiReception.Name = "nbiReception";
+            this.nbiReception.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbiReception_LinkClicked);
+            // 
+            // nbiModuloQaQc
+            // 
+            this.nbiModuloQaQc.Caption = "Módulo QaQc";
+            this.nbiModuloQaQc.Name = "nbiModuloQaQc";
+            this.nbiModuloQaQc.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbiModuloQaQc_LinkClicked);
+            // 
+            // nbiAuthorizations
+            // 
+            this.nbiAuthorizations.Caption = "Autorizaciones";
+            this.nbiAuthorizations.Name = "nbiAuthorizations";
+            this.nbiAuthorizations.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbiAuthorizations_LinkClicked);
+            // 
+            // nbiPrice
+            // 
+            this.nbiPrice.Caption = "Cotizaciones";
+            this.nbiPrice.Name = "nbiPrice";
+            this.nbiPrice.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbiPrice_LinkClicked);
             // 
             // grMant
             // 
@@ -253,62 +312,6 @@
             this.nbiReactive.Caption = "Reactivos";
             this.nbiReactive.Name = "nbiReactive";
             this.nbiReactive.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbiReactive_LinkClicked);
-            // 
-            // grProcess
-            // 
-            this.grProcess.Caption = "Procesos";
-            this.grProcess.Expanded = true;
-            this.grProcess.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
-            new DevExpress.XtraNavBar.NavBarItemLink(this.nbiPrueba),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.nbiSolution),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.nbiMethod),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.nbiReception),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.nbiModuloQaQc),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.nbiAuthorizations),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.nbiPrice)});
-            this.grProcess.Name = "grProcess";
-            // 
-            // nbiPrueba
-            // 
-            this.nbiPrueba.Caption = "Preparación de Muestras";
-            this.nbiPrueba.Name = "nbiPrueba";
-            this.nbiPrueba.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbiPrueba_LinkClicked);
-            // 
-            // nbiSolution
-            // 
-            this.nbiSolution.Caption = "Soluciones Intermedias";
-            this.nbiSolution.Name = "nbiSolution";
-            this.nbiSolution.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbiSolution_LinkClicked);
-            // 
-            // nbiMethod
-            // 
-            this.nbiMethod.Caption = "Métodos";
-            this.nbiMethod.Name = "nbiMethod";
-            this.nbiMethod.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbiMethod_LinkClicked);
-            // 
-            // nbiReception
-            // 
-            this.nbiReception.Caption = "Registro de Recepción";
-            this.nbiReception.Name = "nbiReception";
-            this.nbiReception.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbiReception_LinkClicked);
-            // 
-            // nbiModuloQaQc
-            // 
-            this.nbiModuloQaQc.Caption = "Módulo QaQc";
-            this.nbiModuloQaQc.Name = "nbiModuloQaQc";
-            this.nbiModuloQaQc.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbiModuloQaQc_LinkClicked);
-            // 
-            // nbiAuthorizations
-            // 
-            this.nbiAuthorizations.Caption = "Autorizaciones";
-            this.nbiAuthorizations.Name = "nbiAuthorizations";
-            this.nbiAuthorizations.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbiAuthorizations_LinkClicked);
-            // 
-            // nbiPrice
-            // 
-            this.nbiPrice.Caption = "Cotizaciones";
-            this.nbiPrice.Name = "nbiPrice";
-            this.nbiPrice.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbiPrice_LinkClicked);
             // 
             // grSecurity
             // 
@@ -552,6 +555,12 @@
             // 
             this.defaultLookAndFeel1.LookAndFeel.SkinName = "Lilian";
             // 
+            // nbiSolCalibs
+            // 
+            this.nbiSolCalibs.Caption = "Soluciones de Calibración";
+            this.nbiSolCalibs.Name = "nbiSolCalibs";
+            this.nbiSolCalibs.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbiSolCalibs_LinkClicked);
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -634,6 +643,7 @@
         private DevExpress.XtraNavBar.NavBarItem nbiPrueba;
         private DevExpress.XtraNavBar.NavBarItem nbiCompuestos;
         private DevExpress.XtraNavBar.NavBarItem nbiFactorEstequ;
+        private DevExpress.XtraNavBar.NavBarItem nbiSolCalibs;
 
     }
 }
