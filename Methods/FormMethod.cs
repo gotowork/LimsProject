@@ -186,7 +186,34 @@ namespace LimsProject
 
         protected override void Recuperar_Registro()
         {
-            
+            try
+            {
+                // --- recuperate head 
+                if (IDTemplate_Method > 0)
+                {
+                    // --- recuperate head
+
+                    CTemplate_methodFactory faTemplate_Method = new CTemplate_methodFactory();
+                    CTemplate_method oTemplate_Method = faTemplate_Method.GetByPrimaryKey(new CTemplate_methodKeys(IDTemplate_Method));
+                    gluCod_method.EditValue = oTemplate_Method.Cod_template_method;
+                    Num_version = Convert.ToInt16(oTemplate_Method.Num_version);
+                    tbTitle.Text = oTemplate_Method.Title;
+                    laTitulo.Text = string.Format("Metodo ({0}-{1})", oTemplate_Method.Num_version, oTemplate_Method.Useredit);
+                    cbDigestion.EditValue = oTemplate_Method.Cod_digestion_method;
+                    tbCost_Method.Value = Convert.ToDecimal(oTemplate_Method.Cost_method);
+                    tbAbreviation.Text = oTemplate_Method.Abbreviation;
+                    ckRecognized.Checked = Convert.ToBoolean(oTemplate_Method.Recognized);
+                    cbTypeSample.EditValue = oTemplate_Method.Cod_type_sample;
+                    cbElement.EditValue = Convert.ToInt16(oTemplate_Method.Idelement);
+                    cbTypeAnalysis.EditValue = null;
+                    cbTypeAnalysis.EditValue = oTemplate_Method.Type_analisys; //recupera el tipo de analisis
+                    cbRepetition.EditValue = oTemplate_Method.Cod_repetition;                    
+                }               
+            }
+            catch (Exception ex)
+            {
+                ComunForm.Send_message(this.Text, TypeMsg.error, ex.Message);
+            }
         }
 
         protected override void Accion_Despues_Grabar()
@@ -257,42 +284,7 @@ namespace LimsProject
         
         public void RecuperateAA()
         {            
-            try
-            {                
-                // --- recuperate head 
-                if (IDTemplate_Method > 0)
-                {                    
-                    // --- recuperate head
-                    
-                    CTemplate_methodFactory faTemplate_Method = new CTemplate_methodFactory();
-                    CTemplate_method oTemplate_Method = faTemplate_Method.GetByPrimaryKey(new CTemplate_methodKeys(IDTemplate_Method));
-                    gluCod_method.EditValue = oTemplate_Method.Cod_template_method;
-                    Num_version = Convert.ToInt16(oTemplate_Method.Num_version);
-                    tbTitle.Text = oTemplate_Method.Title;
-                    laTitulo.Text = string.Format("Metodo ({0}-{1})", oTemplate_Method.Num_version, oTemplate_Method.Useredit);
-                    cbDigestion.EditValue = oTemplate_Method.Cod_digestion_method;
-                    tbCost_Method.Value = Convert.ToDecimal(oTemplate_Method.Cost_method);
-                    tbAbreviation.Text = oTemplate_Method.Abbreviation;
-                    ckRecognized.Checked = Convert.ToBoolean(oTemplate_Method.Recognized);
-                    cbTypeSample.EditValue = oTemplate_Method.Cod_type_sample;
-                    cbElement.EditValue = Convert.ToInt16(oTemplate_Method.Idelement);
-                    cbTypeAnalysis.EditValue = oTemplate_Method.Type_analisys;
-                    cbRepetition.EditValue = oTemplate_Method.Cod_repetition;                                        
-                    
-                        // --- show type analysis
-                    RetrieveTypeAnalysis();                    
-                }
-                //else
-                //{
-                //    // --- recuperate 
-                //    CCalibFactory faCalib = new CCalibFactory();
-                //    gcCalibracion.DataSource = new BindingList<CCalib>(faCalib.GetAll().Where(x => x.Idtemplate_method == 0).ToList());
-                //}
-            }
-            catch (Exception ex)
-            {
-                ComunForm.Send_message(this.Text, TypeMsg.error, ex.Message);
-            }
+            
         }
 
         bool SaveAA()
@@ -470,15 +462,13 @@ namespace LimsProject
         {
             // --- filterig by element, type_sample and type_analysis         
             Methods oMethods = new Methods();
-
             int index = Convert.ToInt32(gluCod_method.Properties.GetIndexByKeyValue(gluCod_method.EditValue));
-
 
             if (index != -1)
             {
-                IDTemplate_Method = Convert.ToInt32(gluCod_method.Properties.View.GetRowCellValue(index, gcMet_Idtemplate_method));                
+                IDTemplate_Method = Convert.ToInt32(gluCod_method.Properties.View.GetRowCellValue(index, gcMet_Idtemplate_method));
 
-                RecuperateAA();
+                Recuperar_Registro();
             }            
         }
 
@@ -704,7 +694,8 @@ namespace LimsProject
 
         private void cbTypeAnalysis_EditValueChanged(object sender, EventArgs e)
         {
-            RetrieveTypeAnalysis();
+            if (cbTypeAnalysis.EditValue != null)
+                RetrieveTypeAnalysis();
         }
 
         private void cbElement_EditValueChanged_1(object sender, EventArgs e)

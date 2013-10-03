@@ -52,6 +52,18 @@ namespace LimsProject
             this.Properties.DisplayMember = "Cod_mr";
         }
 
+        public void BindConcen(Comun.TypeMr typemr, short idelement)
+        {
+            this.Properties.Columns.Clear();            
+            this.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo() { FieldName = "Nominal_value", Visible = true });
+            this.Properties.ShowHeader = false;
+            this.Properties.ShowFooter = false;
+
+            this.Properties.DataSource = new ModMaterialReference().GetConcentration_By_TypeMr(typemr, idelement);
+            this.Properties.ValueMember = "Nominal_value";
+            this.Properties.DisplayMember = "Nominal_value";
+        }
+
         protected override void OnEnter(EventArgs e)
         {
             base.OnEnter(e);
@@ -61,7 +73,7 @@ namespace LimsProject
         protected override void OnLeave(EventArgs e)
         {
             base.OnLeave(e);
-            this.BackColor = Color.White;
-        }
+            this.BackColor = Color.White;            
+        }        
     }
 }

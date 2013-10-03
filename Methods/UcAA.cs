@@ -14,8 +14,7 @@ namespace LimsProject
 {    
     public partial class UcAA : UserControl
     {
-        public int? IDTemplate_Method { get; set; }
-        CTemplate_method oTemplate_Method = new CTemplate_method();
+        public int? IDTemplate_Method { get; set; }        
         public short? IDElement { get; set; }        
 
         public UcAA()
@@ -30,40 +29,19 @@ namespace LimsProject
 
             try
             {                
+                cbUnit_result.Bind();
+                cbUnit_calib.Bind();
+                cbMedium.Bind();
+                cbModif.Bind();
+                cbSolCalib.BindSolCalib();
+                cbMaterialRef.Bind(Convert.ToInt16(IDElement));
+                List<CCalib> lst = new CCalibFactory().GetAll();
 
-                CMeasurement_unitFactory faMeasurement_unit = new CMeasurement_unitFactory();
-                cbUnit_result.Properties.DataSource = faMeasurement_unit.GetAll();
-                cbUnit_result.Properties.DisplayMember = "Name_unit";
-                cbUnit_result.Properties.ValueMember = "Idunit";
-
-                cbUnit_calib.Properties.DataSource = faMeasurement_unit.GetAll();
-                cbUnit_calib.Properties.DisplayMember = "Name_unit";
-                cbUnit_calib.Properties.ValueMember = "Idunit";                
-
-                CReactiveFactory faReactive = new CReactiveFactory();
-                List<CReactive> lstReactive = faReactive.GetAll();
-
-                lstReactive.Add(new CReactive() { Idreactive = 0, Reactive_name = "---", Chemical_formula = "---" });
-
-                cbMedium.Properties.DataSource = lstReactive;
-                cbMedium.Properties.ValueMember = "Idreactive";
-                cbMedium.Properties.DisplayMember = "Reactive_name";
-
-                cbModif.Properties.DataSource = lstReactive;
-                cbModif.Properties.ValueMember = "Idreactive";
-                cbModif.Properties.DisplayMember = "Reactive_name";
-
-                CGroup_solutionFactory faGroup_solution = new CGroup_solutionFactory();
-                cbSolIntermType.Properties.DataSource = faGroup_solution.GetAll().Where(c => c.Type_solution == 2).ToList();
-                cbSolIntermType.Properties.ValueMember = "Idgroup_solution";
-                cbSolIntermType.Properties.DisplayMember = "Cod_solution";
-
-                // --- init combo material reference
-                Methods oMethods = new Methods();
-                cbMaterialRef.Properties.DataSource = oMethods.GetByElement(Convert.ToInt16(IDElement));
-                cbMaterialRef.Properties.DisplayMember = "Cod_mr";
-                cbMaterialRef.Properties.ValueMember = "Idmr_detail";   
-
+                gcCalibracion.DataSource =
+                    new BindingList<CCalib>(
+                        new CCalibFactory()
+                        .GetAll()
+                        .Where(x => x.Idtemplate_method == 0).ToList());
             }
             catch (Exception ex)
             {
@@ -130,18 +108,7 @@ namespace LimsProject
             {
                 ComunForm.Send_message(this.Text, TypeMsg.error, "Error: No ha seleccionado el valor del Mr o Patrón.");
                 return false;
-            }
-            if (ckSolInterm.Checked && cbSolIntermType.EditValue == null)
-            {
-                ComunForm.Send_message(this.Text, TypeMsg.error, "Error: No ha seleccionado la solución intermedia.");
-                return false;
-            }
-            if (ckSolInterm.Checked && cbSolIntermType.EditValue != null
-                && (tbSolIntermConcen.Text.Trim().Length == 0 || tbSolIntermConcen.Value == 0))
-            {
-                ComunForm.Send_message(this.Text, TypeMsg.error, "Error: No ingresado laconcentración para la solución intermedia.");
-                return false;
-            }
+            }            
             if ((cbMedium.EditValue != null || Convert.ToInt32(cbMedium.EditValue) != 0) && tbMediumConc.Value == 0)
             {
                 ComunForm.Send_message(this.Text, TypeMsg.error, "Error: No ha ingresado la concentración del medio.");
@@ -187,12 +154,9 @@ namespace LimsProject
                     CTemplate_method_aa oTemplate_method_aa = new CTemplate_method_aa();
                     CTemplate_method_aaFactory faTemplate_method_aa = new CTemplate_method_aaFactory();
                     oTemplate_method_aa = faTemplate_method_aa.GetByPrimaryKey(new CTemplate_method_aaKeys(Convert.ToInt32(IDTemplate_Method)));
-
-                                     
-                    
+                                                         
                     if (oTemplate_method_aa != null)
-                    {
-                        oTemplate_method_aa.Idtemplate_method = oTemplate_Method.Idtemplate_method;
+                    {                        
                         cbUnit_result.EditValue = oTemplate_method_aa.Idunit_result;
                         tbNum_samples.Value = Convert.ToDecimal(oTemplate_method_aa.Num_samples);
                         tbNum_days.Value = Convert.ToDecimal(oTemplate_method_aa.Num_days);
@@ -222,12 +186,13 @@ namespace LimsProject
                         cbMaterialRef.EditValue = oTemplate_method_aa.Idmr_detail;
                         cbUnit_calib.EditValue = oTemplate_method_aa.Idunit_calib;
 
-                        cbMrcOrPattern.EditValue = Convert.ToInt16(oTemplate_method_aa.Mrorpattern);
+                        cbMrcOrPattern.EditValue = oTemplate_method_aa.Mrorpattern;
                         tbRexp2.Value = Convert.ToDecimal(oTemplate_method_aa.Rexp2);
                         tbNum_days.Value = Convert.ToInt16(oTemplate_method_aa.Num_days);
                         tbNum_samples.Value = Convert.ToInt16(oTemplate_method_aa.Num_samples);
                         cbUnit_result.EditValue = oTemplate_method_aa.Idunit_result;
                         tbLimit_samples.EditValue = oTemplate_method_aa.Limit_samples;
+                        tbCalibConcen.EditValue = oTemplate_method_aa.Sol_concentration;
 
                         /// medio de matriz
                         cbMedium.EditValue = oTemplate_method_aa.Medium;
@@ -257,22 +222,9 @@ namespace LimsProject
 
                         tbValidity_calib.Value = Convert.ToDecimal(oTemplate_method_aa.Validity_calib);
 
-                        cbTypePattern.EditValue = oTemplate_method_aa.Type_pattern;
-                        ckSolInterm.Checked = Convert.ToBoolean(oTemplate_method_aa.Flag_sol_intermedia);
-                        //cbSolIntermType.EditValue = oTemplate_method_aa.Sol_intermedia;                        
-
-
-
-                        if (oTemplate_method_aa.Flag_sol_intermedia == true
-                            && oTemplate_method_aa.Sol_concentration != null)
-                            tbSolIntermConcen.Value = Convert.ToInt32(oTemplate_method_aa.Sol_concentration);
-
-                        if (oTemplate_method_aa.Type_pattern == 1 || oTemplate_method_aa.Type_pattern == 2)
-                            cbMrcOrPattern.EditValue = oTemplate_method_aa.Mrorpattern;
-
-                        cbSolStatus.EditValue = Convert.ToBoolean(oTemplate_method_aa.Std_status);
-                        deDatePreparation.DateTime = Convert.ToDateTime(oTemplate_method_aa.Sol_date_preparation);
-                        deDateExpiration.DateTime = Convert.ToDateTime(oTemplate_method_aa.Sol_date_expiration);
+                        cbTypePattern.EditValue = oTemplate_method_aa.Type_pattern;                        
+                        
+                        deCalibDateExpir.DateTime = Convert.ToDateTime(oTemplate_method_aa.Sol_date_expiration);
                         cbStdType_pattern.EditValue = oTemplate_method_aa.Std_type_pattern;
                         cbStdMrcOrPattern.EditValue = oTemplate_method_aa.Std_mrorpattern;
                         ckStdSolIntermOne.Checked = Convert.ToBoolean(oTemplate_method_aa.Std_flag_sol_intermedia1);
@@ -291,11 +243,16 @@ namespace LimsProject
 
                         tbValiditySI1.Enabled = Convert.ToBoolean(oTemplate_method_aa.Std_flag_sol_intermedia1);
                         tbValiditySI2.Enabled = Convert.ToBoolean(oTemplate_method_aa.Std_flag_sol_intermedia2);
-                        tbValiditySV.Enabled = true;                        
+                        tbValiditySV.Enabled = true;
 
                         // --- recuperate
                         CCalibFactory faCalib = new CCalibFactory();
-                        gcCalibracion.DataSource = new BindingList<CCalib>(faCalib.GetAll().Where(x => x.Idtemplate_method == oTemplate_Method.Idtemplate_method).ToList());
+                        List<CCalib> lst = new CCalibFactory().GetAll();
+                        gcCalibracion.DataSource = 
+                            new BindingList<CCalib>(
+                                faCalib
+                                .GetAll()
+                                .Where(x => x.Idtemplate_method == oTemplate_method_aa.Idtemplate_method).ToList());
 
                         // --- recuperar soluciones
                         List<CSolution_interm> lstSim = new ModSolInterm().GetLstSolution_intermByMethod(Convert.ToInt32(IDTemplate_Method));
@@ -303,19 +260,24 @@ namespace LimsProject
                         foreach (CSolution_interm item in lstSim)
                         {
                             if (item.Type_sol == 1)
-                            {
+                            {//solución intermedia 1
                                 tbCodSol1.Text = item.Cod_solution;
                                 deExpSolInterm1.DateTime = Convert.ToDateTime(item.Date_end);
                             }
                             else if (item.Type_sol == 2)
-                            {
+                            {//solución intermedia 2
                                 tbCodSol2.Text = item.Cod_solution;
                                 deExpSolInterm2.DateTime = Convert.ToDateTime(item.Date_end);
                             }
                             else if (item.Type_sol == 3)
-                            {
+                            {//estandar de calibración
                                 tbCodStdVer.Text = item.Cod_solution;
                                 deExpSV.DateTime = Convert.ToDateTime(item.Date_end);
+                            }
+                            else if (item.Type_sol == 4)
+                            {//calibraciones
+                                cbSolCalib.EditValue = item.Idsolution_interm;
+                                deCalibDateExpir.DateTime = Convert.ToDateTime(item.Date_end);
                             }
                         }
                     }
@@ -340,8 +302,11 @@ namespace LimsProject
 
             if (IDTemplate_Method != null && IDTemplate_Method > 0)
             {
-                bool result_template_method_aa = false;
-                CTemplate_method_aa oTemplate_method_aa = new CTemplate_method_aa();
+                bool result_template_method_aa = false;                
+
+                CTemplate_method_aa oTemplate_method_aa = new CTemplate_method_aaFactory().GetByPrimaryKey(new CTemplate_method_aaKeys(Convert.ToInt32(IDTemplate_Method)));
+                if (oTemplate_method_aa == null)
+                    oTemplate_method_aa = new CTemplate_method_aa();
 
                 oTemplate_method_aa.Idtemplate_method = Convert.ToInt32(IDTemplate_Method);
                 oTemplate_method_aa.Weight = tbWeight.Value;
@@ -370,6 +335,8 @@ namespace LimsProject
                 oTemplate_method_aa.Date_allowed_error = Convert.ToDateTime(deDate_allowed_error.EditValue);
                 oTemplate_method_aa.Rexp2 = tbRexp2.Value;
                 oTemplate_method_aa.Validity_calib = Convert.ToInt16(tbValidity_calib.Value);
+                oTemplate_method_aa.Sol_concentration = Convert.ToDecimal(tbCalibConcen.Text);
+
                 oTemplate_method_aa.Std_validity_sol1 = Convert.ToInt16(tbValiditySI1.Value);
                 oTemplate_method_aa.Std_validity_sol2 = Convert.ToInt16(tbValiditySI2.Value);
                 oTemplate_method_aa.Std_validity_sv = Convert.ToInt16(tbValiditySV.Value);
@@ -377,15 +344,10 @@ namespace LimsProject
                 if (cbTypePattern.EditValue != null)
                     oTemplate_method_aa.Type_pattern = Convert.ToInt32(cbTypePattern.EditValue);
 
-                if (oTemplate_method_aa.Type_pattern == 1
-                    || oTemplate_method_aa.Type_pattern == 2) // mrc                        
-                    oTemplate_method_aa.Mrorpattern = Convert.ToInt16(cbMrcOrPattern.EditValue);
-
-                if (oTemplate_method_aa.Type_pattern == 3) // solucion
-                {
-                    oTemplate_method_aa.Flag_sol_intermedia = ckSolInterm.Checked;
-                    oTemplate_method_aa.Sol_concentration = tbSolIntermConcen.Value;
-                }
+                //if (oTemplate_method_aa.Type_pattern == 1) // mrc                        
+                //    oTemplate_method_aa.Mrorpattern = Convert.ToInt16(cbMrcOrPattern.EditValue);
+                //else if (oTemplate_method_aa.Type_pattern == 2) // solucion                
+                //    oTemplate_method_aa.Flag_sol_intermedia = true;
 
                 if (cbMedium.EditValue != null)
                 {
@@ -397,9 +359,7 @@ namespace LimsProject
                 {
                     oTemplate_method_aa.Modif = Convert.ToInt32(cbModif.EditValue);
                     oTemplate_method_aa.Modif_conc = Convert.ToDecimal(tbModifConc.Value);
-                }
-
-                oTemplate_method_aa.Sol_status = Convert.ToBoolean(cbSolStatus.EditValue);
+                }                
                 
                 if (cbStdMrcOrPattern.EditValue != null)
                     oTemplate_method_aa.Std_mrorpattern = Convert.ToInt32(cbStdMrcOrPattern.EditValue);
@@ -431,7 +391,7 @@ namespace LimsProject
                     {
                         CCalibFactory faCalib = new CCalibFactory();
                         CCalib oCalib = gvCalibracion.GetRow(i) as CCalib;
-                        oCalib.Idtemplate_method = oTemplate_Method.Idtemplate_method;
+                        oCalib.Idtemplate_method = IDTemplate_Method;
 
                         if (!faCalib.Update(oCalib))
                             faCalib.Insert(oCalib);
@@ -488,7 +448,6 @@ namespace LimsProject
             cbModif.EditValue = null;
             tbModifConc.Value = 0;
             tbModifConc.Enabled = false;
-            ckSolInterm.Checked = false;
             tbValidity_calib.Value = 0;
             tbValiditySI1.Value = 0;
             tbValiditySI2.Value = 0;
@@ -506,7 +465,7 @@ namespace LimsProject
         {
             if (e.Column == gcCal_Volumen)
             {
-                if (tbConcentration.Text.Trim() != ""
+                if (( (Convert.ToInt32(cbTypePattern.EditValue) == 1 && tbCalibConcen.Text.Trim().Length > 0) )
                     && gvCalibracion.GetFocusedRowCellValue(gcCal_Concentration) != null
                     && gvCalibracion.GetFocusedRowCellValue(gcCal_Concentration).ToString().Trim() != ""
                     && gvCalibracion.GetFocusedRowCellValue(gcCal_Volumen) != null
@@ -517,11 +476,7 @@ namespace LimsProject
 
                     // --- selecciona una concentración patrón 
                     decimal concentration_pattern = 0;
-                    if (ckSolInterm.Checked)
-                        concentration_pattern = Convert.ToDecimal(tbSolIntermConcen.Value);
-                    else
-                        concentration_pattern = Convert.ToDecimal(tbConcentration.Text);
-
+                    concentration_pattern = Convert.ToDecimal(tbCalibConcen.Text);
 
                     // --- calcular el volumen
                     if (Convert.ToInt32(cbTypePattern.EditValue) == 1)
@@ -530,8 +485,7 @@ namespace LimsProject
                         decimal weight = volumen * concentration / concentration_pattern;
                         gvCalibracion.SetFocusedRowCellValue(gcCal_Aliquot, Math.Round(weight, 5));
                     }
-                    if (Convert.ToInt32(cbTypePattern.EditValue) == 2
-                        && Convert.ToInt32(cbTypePattern.EditValue) == 3)
+                    if (Convert.ToInt32(cbTypePattern.EditValue) == 2)
                     {
                         // alicuota = volumen / (concentracion pedida / concentracion total)
                         decimal aliquot = volumen / (concentration / concentration_pattern);
@@ -539,71 +493,18 @@ namespace LimsProject
                     }
                 }
             }
-        }
-
-        private void cbGroupSol_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // --- mostrar mrc o patron de soluciones
-            if (cbTypePattern.SelectedIndex == 0)
-            {
-                if (IDElement != null)
-                {
-                    ModSolution oModSolution = new ModSolution();
-
-                    //TODO=MR
-                    //cbMrcOrPattern.Properties.DataSource =  oModSolution.GetLstMrc(Convert.ToInt16(IDElement));
-                    cbMrcOrPattern.Bind(Convert.ToInt16(IDElement));
-                    cbMrcOrPattern.Properties.DisplayMember = "Name";
-                    cbMrcOrPattern.Properties.ValueMember = "Idmr_detail";
-
-                    cbMrcOrPattern.EditValue = null;
-
-                    tbConcentration.Text = "";
-                }
-            }
-            if (cbTypePattern.SelectedIndex == 1)
-            {
-                if (IDElement != null)
-                {
-                    ModSolution oModSolution = new ModSolution();
-                    //TODO=MR
-                    //cbMrcOrPattern.Properties.DataSource = oModSolution.GetLstPatron(Convert.ToInt16(IDElement));
-                    cbMrcOrPattern.Bind(Convert.ToInt16(IDElement));
-                    cbMrcOrPattern.Properties.DisplayMember = "Name";
-                    cbMrcOrPattern.Properties.ValueMember = "Idmr_detail";
-
-                    cbMrcOrPattern.EditValue = null;
-
-                    tbConcentration.Text = "";
-                }
-            }
-            if (cbTypePattern.SelectedIndex == 2)
-            {
-                if (IDElement != null)
-                {
-                    ModSolution oModSolution = new ModSolution();
-                    //TODO=MR
-                    //cbMrcOrPattern.Properties.DataSource = oModSolution.GetLstSolutions(Convert.ToInt16(IDElement));
-                    cbMrcOrPattern.Properties.DisplayMember = "Name";
-                    cbMrcOrPattern.Properties.ValueMember = "Idsolution";
-
-                    cbMrcOrPattern.EditValue = null;
-
-                    tbConcentration.Text = "";
-                }
-            }
-        }
+        }        
 
         private void cbMrcOrPattern_EditValueChanged(object sender, EventArgs e)
         {
             // --- recuperar concentración
 
-            if (cbMrcOrPattern.EditValue != null && cbTypePattern.EditValue != null
-                && (Convert.ToInt16(cbTypePattern.EditValue) == 0 || Convert.ToInt16(cbTypePattern.EditValue) == 1))
-            {
-                ModSolution oModSolution = new ModSolution();
-                tbConcentration.Text = oModSolution.GetConcentrationPPM(Convert.ToInt16(cbMrcOrPattern.EditValue)).ToString();
-            }
+            //if (cbMrcOrPattern.EditValue != null && cbTypePattern.EditValue != null
+            //    && (Convert.ToInt16(cbTypePattern.EditValue) == 1))
+            //{
+            //    ModSolution oModSolution = new ModSolution();
+            //    tbCalibConcen.Text = oModSolution.GetConcentrationPPM(Convert.ToInt16(cbMrcOrPattern.EditValue)).ToString();
+            //}
         }        
 
         private void cbMedium_EditValueChanged(object sender, EventArgs e)
@@ -639,7 +540,6 @@ namespace LimsProject
                     //TODO=MR
                     //cbStdMrcOrPattern.Properties.DataSource = oModSolution.GetLstMrc(Convert.ToInt16(IDElement));
                     cbStdMrcOrPattern.Bind(Convert.ToInt16(IDElement));
-
                     tbStdConcentration.Text = "";
                 }
             }
@@ -704,44 +604,38 @@ namespace LimsProject
         }
 
         private void cbTypePattern_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        {            
             // --- mostrar mrc o patron de soluciones
-            if (cbTypePattern.SelectedIndex == 0)
+            if (Convert.ToInt32(cbTypePattern.EditValue) == 1)
             {
+                //MRC
                 if (IDElement != null)
                 {
                     cbMrcOrPattern.Bind(Comun.TypeMr.Certificado, Convert.ToInt16(IDElement));
-                    
-                    cbMrcOrPattern.EditValue = null;
+                    tbCalibConcen.BindConcen(Comun.TypeMr.Certificado, Convert.ToInt16(IDElement));
+                    cbMrcOrPattern.EditValue = null;                    
 
-                    tbConcentration.Text = "";
+                    cbMrcOrPattern.Enabled = false;
+
+                }                
+            }
+            else if (Convert.ToInt32(cbTypePattern.EditValue) == 2)
+            {
+                //SOLUCION PATRON
+                if (IDElement != null)
+                {                                        
+                    cbMrcOrPattern.Bind(Comun.TypeMr.SolucionPatron, Convert.ToInt16(IDElement));
+                    tbCalibConcen.BindConcen(Comun.TypeMr.SolucionPatron, Convert.ToInt16(IDElement));
+                    cbMrcOrPattern.EditValue = null;                    
+
+                    cbMrcOrPattern.Enabled = false;
                 }
             }
-            if (cbTypePattern.SelectedIndex == 1)
+            if (tbCalibConcen.Text.Trim().Length != 0)
             {
-                if (IDElement != null)
-                {
-                    cbMrcOrPattern.Bind(Comun.TypeMr.SolucionPatron, Convert.ToInt16(IDElement));                    
-
-                    cbMrcOrPattern.EditValue = null;
-
-                    tbConcentration.Text = "";
-                }
-            }
-            if (cbTypePattern.SelectedIndex == 2)
-            {
-                if (IDElement != null)
-                {
-                    ModSolution oModSolution = new ModSolution();
-
-                    cbMrcOrPattern.Properties.DataSource = oModSolution.GetLstSolutions(Convert.ToInt16(IDElement));
-                    cbMrcOrPattern.Properties.DisplayMember = "Name";
-                    cbMrcOrPattern.Properties.ValueMember = "Idsolution";
-
-                    cbMrcOrPattern.EditValue = null;
-
-                    tbConcentration.Text = "";
-                }
+                //modificar calibraciones
+                for (int i = 0; i < gvCalibracion.RowCount; i++)
+                    ModifyCalibConcern(i);
             }
         }
 
@@ -752,85 +646,15 @@ namespace LimsProject
                 new CMr_detailKeys(Convert.ToInt16(cbMaterialRef.EditValue)));
             if (oMr_detail != null)
                 tbLawMri.Text = oMr_detail.Nominal_value.ToString();
-        }
-
-        private void ckSolInterm_CheckedChanged(object sender, EventArgs e)
-        {
-            tbSolIntermConcen.Enabled = ckSolInterm.Checked;
-            cbSolIntermType.Enabled = ckSolInterm.Checked;
-        }
-
-        private void tbSolIntermConcen_EditValueChanged(object sender, EventArgs e)
-        {
-            if (tbConcentration.Text.Trim() != ""
-                    && gvCalibracion.GetFocusedRowCellValue(gcCal_Concentration) != null
-                    && gvCalibracion.GetFocusedRowCellValue(gcCal_Concentration).ToString().Trim() != ""
-                    && gvCalibracion.GetFocusedRowCellValue(gcCal_Volumen) != null
-                    && gvCalibracion.GetFocusedRowCellValue(gcCal_Volumen).ToString().Trim() != "")
-            {
-                decimal volumen = Convert.ToDecimal(gvCalibracion.GetFocusedRowCellValue(gcCal_Volumen));
-                decimal concentration = Convert.ToDecimal(gvCalibracion.GetFocusedRowCellValue(gcCal_Concentration));
-                decimal concentration_pattern;
-
-                if ((ckSolInterm.Checked && cbSolIntermType.EditValue != null && tbSolIntermConcen.Text.Length > 0)
-                    || cbTypePattern.EditValue != null && cbMrcOrPattern.EditValue != null)
-                {
-                    if (ckSolInterm.Checked && cbSolIntermType.EditValue != null)
-                        concentration_pattern = Convert.ToDecimal(tbSolIntermConcen.Value);
-                    else
-                        concentration_pattern = Convert.ToDecimal(tbConcentration.Text);
-
-                    // --- recorrer filas para actualizar datos
-                    for (int i = 0; i < gvCalibracion.RowCount; i++)
-                    {
-                        // --- calcular el volumen
-                        if (Convert.ToInt32(cbTypePattern.EditValue) == 1)
-                        {
-                            // peso = volumen * concentracion pedida / concentracion total
-                            decimal weight = volumen * concentration / concentration_pattern;
-                            gvCalibracion.SetRowCellValue(i, gcCal_Aliquot, Math.Round(weight, 5));
-                        }
-                        if (Convert.ToInt32(cbTypePattern.EditValue) == 2
-                            && Convert.ToInt32(cbTypePattern.EditValue) == 3)
-                        {
-                            // alicuota = volumen / (concentracion pedida / concentracion total)
-                            decimal aliquot = volumen / (concentration / concentration_pattern);
-                            gvCalibracion.SetRowCellValue(i, gcCal_Aliquot, Math.Round(aliquot, 5));
-                        }
-                    }
-                }
-            }
-        }
+        }                
         
         private void tbConcentration_EditValueChanged(object sender, EventArgs e)
         {
-            if (tbConcentration.Text.Trim() != ""
-                    && gvCalibracion.GetFocusedRowCellValue(gcCal_Concentration) != null
-                    && gvCalibracion.GetFocusedRowCellValue(gcCal_Concentration).ToString().Trim() != ""
-                    && gvCalibracion.GetFocusedRowCellValue(gcCal_Volumen) != null
-                    && gvCalibracion.GetFocusedRowCellValue(gcCal_Volumen).ToString().Trim() != "")
+            //modificar calibraciones
+            if (tbCalibConcen.Text.Trim().Length != 0)
             {
-                decimal volumen = Convert.ToDecimal(gvCalibracion.GetFocusedRowCellValue(gcCal_Volumen));
-                decimal concentration = Convert.ToDecimal(gvCalibracion.GetFocusedRowCellValue(gcCal_Concentration));
-                decimal concentration_pattern = Convert.ToDecimal(tbConcentration.Text);
-
                 for (int i = 0; i < gvCalibracion.RowCount; i++)
-                {
-                    // --- calcular el volumen
-                    if (Convert.ToInt32(cbTypePattern.EditValue) == 1)
-                    {
-                        // peso = volumen * concentracion pedida / concentracion total
-                        decimal weight = volumen * concentration / concentration_pattern;
-                        gvCalibracion.SetRowCellValue(i, gcCal_Aliquot, Math.Round(weight, 5));
-                    }
-                    if (Convert.ToInt32(cbTypePattern.EditValue) == 2
-                        && Convert.ToInt32(cbTypePattern.EditValue) == 3)
-                    {
-                        // alicuota = volumen / (concentracion pedida / concentracion total)
-                        decimal aliquot = volumen / (concentration / concentration_pattern);
-                        gvCalibracion.SetRowCellValue(i, gcCal_Aliquot, Math.Round(aliquot, 5));
-                    }
-                }
+                    ModifyCalibConcern(i);
             }
         }
 
@@ -839,10 +663,8 @@ namespace LimsProject
             int max = 0;
             for (int i = 0; i < gvCalibracion.RowCount; i++)
             {
-                if (Convert.ToInt32(gvCalibracion.GetRowCellValue(i, gcCal_Order)) > max)
-                {
-                    max = Convert.ToInt32(gvCalibracion.GetRowCellValue(i, gcCal_Order));
-                }
+                if (Convert.ToInt32(gvCalibracion.GetRowCellValue(i, gcCal_Order)) > max)                
+                    max = Convert.ToInt32(gvCalibracion.GetRowCellValue(i, gcCal_Order));                
             }
             return max;
         }
@@ -922,5 +744,32 @@ namespace LimsProject
                 return Comun.MethodSaveProperty.Nothing;
             }
         }
+
+        void ModifyCalibConcern(int i)
+        {            
+            decimal volumen = Convert.ToDecimal(gvCalibracion.GetRowCellValue(i, gcCal_Volumen));
+            decimal concentration = Convert.ToDecimal(gvCalibracion.GetRowCellValue(i, gcCal_Concentration));
+            
+            // --- selecciona una concentración patrón
+            decimal concentration_pattern = 0;
+            concentration_pattern = Convert.ToDecimal(tbCalibConcen.Text);
+
+            if (concentration_pattern != 0)
+            {
+                // --- calcular la aliquota
+                if (Convert.ToInt32(cbTypePattern.EditValue) == 1)
+                {
+                    // peso = volumen * concentracion pedida / concentracion total
+                    decimal weight = volumen * concentration / concentration_pattern;
+                    gvCalibracion.SetRowCellValue(i, gcCal_Aliquot, Math.Round(weight, 5));
+                }
+                else if (Convert.ToInt32(cbTypePattern.EditValue) == 2)
+                {
+                    // alicuota = volumen / (concentracion pedida / concentracion total)
+                    decimal aliquot = volumen / (concentration / concentration_pattern);
+                    gvCalibracion.SetRowCellValue(i, gcCal_Aliquot, Math.Round(aliquot, 5));
+                }
+            }
+        }       
     }
 }

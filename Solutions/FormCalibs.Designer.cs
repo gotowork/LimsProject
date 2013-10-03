@@ -725,8 +725,7 @@
             this.repBtOpenMethods.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Ver", -1, true, true, false, DevExpress.Utils.HorzAlignment.Center, null)});
             this.repBtOpenMethods.Name = "repBtOpenMethods";
-            this.repBtOpenMethods.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            this.repBtOpenMethods.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repBtOpenMethods_ButtonClick);
+            this.repBtOpenMethods.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;            
             // 
             // tcol_Root_type_pattern
             // 

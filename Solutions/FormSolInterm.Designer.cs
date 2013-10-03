@@ -36,7 +36,7 @@
             this.tcol_Solution_status = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.repStatusSolution = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
             this.paHeader = new DevExpress.XtraEditors.PanelControl();
-            this.gcSolutionChild = new DevExpress.XtraEditors.GroupControl();
+            this.paSolutionChild = new DevExpress.XtraEditors.GroupControl();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
             this.paDate = new DevExpress.XtraEditors.PanelControl();
             this.ckAssignMethod = new DevExpress.XtraEditors.CheckEdit();
@@ -61,6 +61,7 @@
             this.tbParentModifValue = new LimsProject.customSpinEdit();
             this.cbParentModif = new LimsProject.cbReactive();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.paCalibraciones = new DevExpress.XtraEditors.GroupControl();
             this.gcCalibracion = new DevExpress.XtraGrid.GridControl();
             this.gvCalibracion = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gcCal_Order = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -69,7 +70,7 @@
             this.gcCal_Aliquot = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcCal_Volumen = new DevExpress.XtraGrid.Columns.GridColumn();
             this.paSeparator = new DevExpress.XtraEditors.PanelControl();
-            this.gcSolutionParent = new DevExpress.XtraEditors.GroupControl();
+            this.paSolutionParent = new DevExpress.XtraEditors.GroupControl();
             this.label3 = new System.Windows.Forms.Label();
             this.tbParentConcentration = new LimsProject.customTextEdit();
             this.cbElement1 = new LimsProject.cbElement();
@@ -101,6 +102,7 @@
             this.repBtOpenMethods = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.tcol_Root_type_pattern = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.tcol_Expired_status = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.tcol_Solution_obs = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.cmsAddSolution = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.btNewSolInt1 = new System.Windows.Forms.ToolStripMenuItem();
             this.btNewSolInt2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -111,15 +113,17 @@
             this.ucSign1 = new LimsProject.UcSign();
             this.gcMethods = new DevExpress.XtraGrid.GridControl();
             this.gvMethods = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gmet_Sel = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repSel = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.gmet_Idtemplate_method = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gmet_Cod_template_method = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gmet_Title = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gmet_Unlink = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repSel = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.splitterControl1 = new DevExpress.XtraEditors.SplitterControl();
             this.exPanel = new DevComponents.DotNetBar.ExpandablePanel();
+            this.cbMotivo = new LimsProject.customComboBoxEdit();
             this.ckDisabledSolution = new DevExpress.XtraEditors.CheckEdit();
-            this.customPageControl1 = new LimsProject.customPageControl();
+            this.label4 = new System.Windows.Forms.Label();
+            this.pcDetail = new LimsProject.customPageControl();
             this.tpMethod = new DevExpress.XtraTab.XtraTabPage();
             this.tpCalib = new DevExpress.XtraTab.XtraTabPage();
             this.ucCalibStd1 = new LimsProject.UcCalibStd();
@@ -134,8 +138,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.repStatusSolution)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.paHeader)).BeginInit();
             this.paHeader.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gcSolutionChild)).BeginInit();
-            this.gcSolutionChild.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.paSolutionChild)).BeginInit();
+            this.paSolutionChild.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
             this.panelControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.paDate)).BeginInit();
@@ -156,11 +160,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.tbParentModifValue.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbParentModif.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.paCalibraciones)).BeginInit();
+            this.paCalibraciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcCalibracion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvCalibracion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.paSeparator)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gcSolutionParent)).BeginInit();
-            this.gcSolutionParent.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.paSolutionParent)).BeginInit();
+            this.paSolutionParent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbParentConcentration.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbElement1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbMethod1.Properties)).BeginInit();
@@ -180,9 +186,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.gvMethods)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repSel)).BeginInit();
             this.exPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbMotivo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ckDisabledSolution.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customPageControl1)).BeginInit();
-            this.customPageControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcDetail)).BeginInit();
+            this.pcDetail.SuspendLayout();
             this.tpMethod.SuspendLayout();
             this.tpCalib.SuspendLayout();
             this.SuspendLayout();
@@ -206,7 +213,7 @@
             // 
             // paCenter
             // 
-            this.paCenter.Controls.Add(this.customPageControl1);
+            this.paCenter.Controls.Add(this.pcDetail);
             this.paCenter.Controls.Add(this.exPanel);
             this.paCenter.Controls.Add(this.paHeader);
             this.paCenter.Controls.Add(this.splitterControl1);
@@ -245,11 +252,11 @@
             // 
             // paHeader
             // 
-            this.paHeader.Controls.Add(this.gcSolutionChild);
+            this.paHeader.Controls.Add(this.paSolutionChild);
             this.paHeader.Controls.Add(this.panelControl3);
-            this.paHeader.Controls.Add(this.gcCalibracion);
+            this.paHeader.Controls.Add(this.paCalibraciones);
             this.paHeader.Controls.Add(this.paSeparator);
-            this.paHeader.Controls.Add(this.gcSolutionParent);
+            this.paHeader.Controls.Add(this.paSolutionParent);
             this.paHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.paHeader.Location = new System.Drawing.Point(301, 2);
             this.paHeader.Name = "paHeader";
@@ -258,17 +265,17 @@
             this.paHeader.TabIndex = 37;
             this.paHeader.Text = "panelControl2";
             // 
-            // gcSolutionChild
+            // paSolutionChild
             // 
-            this.gcSolutionChild.Controls.Add(this.panelControl4);
-            this.gcSolutionChild.Controls.Add(this.groupBox3);
-            this.gcSolutionChild.Controls.Add(this.groupBox2);
-            this.gcSolutionChild.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcSolutionChild.Location = new System.Drawing.Point(12, 77);
-            this.gcSolutionChild.Name = "gcSolutionChild";
-            this.gcSolutionChild.Size = new System.Drawing.Size(488, 162);
-            this.gcSolutionChild.TabIndex = 39;
-            this.gcSolutionChild.Text = "Solución Hijo";
+            this.paSolutionChild.Controls.Add(this.panelControl4);
+            this.paSolutionChild.Controls.Add(this.groupBox3);
+            this.paSolutionChild.Controls.Add(this.groupBox2);
+            this.paSolutionChild.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.paSolutionChild.Location = new System.Drawing.Point(12, 77);
+            this.paSolutionChild.Name = "paSolutionChild";
+            this.paSolutionChild.Size = new System.Drawing.Size(478, 162);
+            this.paSolutionChild.TabIndex = 39;
+            this.paSolutionChild.Text = "Solución Hijo";
             // 
             // panelControl4
             // 
@@ -300,15 +307,16 @@
             // 
             // ckAssignMethod
             // 
-            this.ckAssignMethod.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ckAssignMethod.Location = new System.Drawing.Point(145, 58);
+            this.ckAssignMethod.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ckAssignMethod.Location = new System.Drawing.Point(162, 58);
+            this.ckAssignMethod.Margin = new System.Windows.Forms.Padding(0);
             this.ckAssignMethod.Name = "ckAssignMethod";
-            this.ckAssignMethod.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.ckAssignMethod.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
             this.ckAssignMethod.Properties.Appearance.ForeColor = System.Drawing.Color.ForestGreen;
             this.ckAssignMethod.Properties.Appearance.Options.UseFont = true;
             this.ckAssignMethod.Properties.Appearance.Options.UseForeColor = true;
             this.ckAssignMethod.Properties.Caption = "Asignar al método";
-            this.ckAssignMethod.Size = new System.Drawing.Size(143, 21);
+            this.ckAssignMethod.Size = new System.Drawing.Size(135, 19);
             this.ckAssignMethod.TabIndex = 4;
             // 
             // laVigencia
@@ -316,7 +324,7 @@
             this.laVigencia.AutoSize = true;
             this.laVigencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.laVigencia.ForeColor = System.Drawing.Color.Red;
-            this.laVigencia.Location = new System.Drawing.Point(170, 19);
+            this.laVigencia.Location = new System.Drawing.Point(165, 24);
             this.laVigencia.Name = "laVigencia";
             this.laVigencia.Size = new System.Drawing.Size(70, 13);
             this.laVigencia.TabIndex = 34;
@@ -326,7 +334,7 @@
             // deDateIni
             // 
             this.deDateIni.EditValue = null;
-            this.deDateIni.Location = new System.Drawing.Point(75, 4);
+            this.deDateIni.Location = new System.Drawing.Point(75, 10);
             this.deDateIni.Name = "deDateIni";
             this.deDateIni.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -337,7 +345,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(15, 28);
+            this.label7.Location = new System.Drawing.Point(15, 34);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(57, 13);
             this.label7.TabIndex = 21;
@@ -345,7 +353,7 @@
             // 
             // cbUser1
             // 
-            this.cbUser1.Location = new System.Drawing.Point(75, 48);
+            this.cbUser1.Location = new System.Drawing.Point(75, 54);
             this.cbUser1.Name = "cbUser1";
             this.cbUser1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, DevExpress.Utils.HorzAlignment.Center, null)});
@@ -358,7 +366,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(4, 6);
+            this.label6.Location = new System.Drawing.Point(4, 12);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(68, 13);
             this.label6.TabIndex = 21;
@@ -367,7 +375,7 @@
             // deDateEnd
             // 
             this.deDateEnd.EditValue = null;
-            this.deDateEnd.Location = new System.Drawing.Point(75, 26);
+            this.deDateEnd.Location = new System.Drawing.Point(75, 32);
             this.deDateEnd.Name = "deDateEnd";
             this.deDateEnd.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -378,7 +386,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(26, 50);
+            this.label8.Location = new System.Drawing.Point(26, 56);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(46, 13);
             this.label8.TabIndex = 21;
@@ -407,7 +415,7 @@
             0,
             0,
             0});
-            this.tbAliquot.Location = new System.Drawing.Point(88, 49);
+            this.tbAliquot.Location = new System.Drawing.Point(88, 53);
             this.tbAliquot.Name = "tbAliquot";
             this.tbAliquot.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, false, false, DevExpress.Utils.HorzAlignment.Center, null)});
@@ -418,7 +426,7 @@
             // 
             // tbConcentration
             // 
-            this.tbConcentration.Location = new System.Drawing.Point(88, 5);
+            this.tbConcentration.Location = new System.Drawing.Point(88, 9);
             this.tbConcentration.Name = "tbConcentration";
             this.tbConcentration.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.tbConcentration.Properties.Appearance.Options.UseBackColor = true;
@@ -430,7 +438,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(4, 6);
+            this.label1.Location = new System.Drawing.Point(4, 10);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 13);
             this.label1.TabIndex = 21;
@@ -439,7 +447,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(31, 28);
+            this.label2.Location = new System.Drawing.Point(31, 32);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(51, 13);
             this.label2.TabIndex = 21;
@@ -452,7 +460,7 @@
             0,
             0,
             0});
-            this.tbVolumen.Location = new System.Drawing.Point(88, 27);
+            this.tbVolumen.Location = new System.Drawing.Point(88, 31);
             this.tbVolumen.Name = "tbVolumen";
             this.tbVolumen.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
@@ -463,7 +471,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(34, 50);
+            this.label5.Location = new System.Drawing.Point(34, 54);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(48, 13);
             this.label5.TabIndex = 21;
@@ -557,15 +565,25 @@
             // 
             this.panelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelControl3.Location = new System.Drawing.Point(500, 77);
+            this.panelControl3.Location = new System.Drawing.Point(490, 77);
             this.panelControl3.Name = "panelControl3";
             this.panelControl3.Size = new System.Drawing.Size(11, 162);
             this.panelControl3.TabIndex = 46;
             this.panelControl3.Text = "panelControl3";
             // 
+            // paCalibraciones
+            // 
+            this.paCalibraciones.Controls.Add(this.gcCalibracion);
+            this.paCalibraciones.Dock = System.Windows.Forms.DockStyle.Right;
+            this.paCalibraciones.Location = new System.Drawing.Point(501, 77);
+            this.paCalibraciones.Name = "paCalibraciones";
+            this.paCalibraciones.Size = new System.Drawing.Size(313, 162);
+            this.paCalibraciones.TabIndex = 48;
+            this.paCalibraciones.Text = "Calibraciones";
+            // 
             // gcCalibracion
             // 
-            this.gcCalibracion.Dock = System.Windows.Forms.DockStyle.Right;
+            this.gcCalibracion.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gcCalibracion.EmbeddedNavigator.Buttons.First.Visible = false;
             this.gcCalibracion.EmbeddedNavigator.Buttons.Last.Visible = false;
             this.gcCalibracion.EmbeddedNavigator.Buttons.Next.Visible = false;
@@ -573,12 +591,11 @@
             this.gcCalibracion.EmbeddedNavigator.Buttons.Prev.Visible = false;
             this.gcCalibracion.EmbeddedNavigator.Buttons.PrevPage.Visible = false;
             this.gcCalibracion.EmbeddedNavigator.Name = "";
-            this.gcCalibracion.Location = new System.Drawing.Point(511, 77);
+            this.gcCalibracion.Location = new System.Drawing.Point(2, 20);
             this.gcCalibracion.MainView = this.gvCalibracion;
             this.gcCalibracion.Name = "gcCalibracion";
-            this.gcCalibracion.Size = new System.Drawing.Size(303, 162);
+            this.gcCalibracion.Size = new System.Drawing.Size(309, 140);
             this.gcCalibracion.TabIndex = 47;
-            this.gcCalibracion.UseEmbeddedNavigator = true;
             this.gcCalibracion.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvCalibracion});
             // 
@@ -702,6 +719,7 @@
             this.gcCal_Volumen});
             this.gvCalibracion.GridControl = this.gcCalibracion;
             this.gvCalibracion.Name = "gvCalibracion";
+            this.gvCalibracion.OptionsBehavior.Editable = false;
             this.gvCalibracion.OptionsView.EnableAppearanceEvenRow = true;
             this.gvCalibracion.OptionsView.EnableAppearanceOddRow = true;
             this.gvCalibracion.OptionsView.ShowGroupPanel = false;
@@ -766,16 +784,16 @@
             this.paSeparator.TabIndex = 40;
             this.paSeparator.Text = "panelControl4";
             // 
-            // gcSolutionParent
+            // paSolutionParent
             // 
-            this.gcSolutionParent.Controls.Add(this.label3);
-            this.gcSolutionParent.Controls.Add(this.tbParentConcentration);
-            this.gcSolutionParent.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gcSolutionParent.Location = new System.Drawing.Point(12, 12);
-            this.gcSolutionParent.Name = "gcSolutionParent";
-            this.gcSolutionParent.Size = new System.Drawing.Size(802, 55);
-            this.gcSolutionParent.TabIndex = 39;
-            this.gcSolutionParent.Text = "Solucion Padre";
+            this.paSolutionParent.Controls.Add(this.label3);
+            this.paSolutionParent.Controls.Add(this.tbParentConcentration);
+            this.paSolutionParent.Dock = System.Windows.Forms.DockStyle.Top;
+            this.paSolutionParent.Location = new System.Drawing.Point(12, 12);
+            this.paSolutionParent.Name = "paSolutionParent";
+            this.paSolutionParent.Size = new System.Drawing.Size(802, 55);
+            this.paSolutionParent.TabIndex = 39;
+            this.paSolutionParent.Text = "Solucion Padre";
             // 
             // label3
             // 
@@ -852,7 +870,8 @@
             this.tcol_Type_sol,
             this.tcol_ShowMethods,
             this.tcol_Root_type_pattern,
-            this.tcol_Expired_status});
+            this.tcol_Expired_status,
+            this.tcol_Solution_obs});
             this.treeSolInterm.ContextMenuStrip = this.cmsAddSolution;
             this.treeSolInterm.Dock = System.Windows.Forms.DockStyle.Fill;
             styleFormatCondition1.Appearance.BackColor = System.Drawing.Color.White;
@@ -1089,7 +1108,6 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Ver", -1, true, true, false, DevExpress.Utils.HorzAlignment.Center, null)});
             this.repBtOpenMethods.Name = "repBtOpenMethods";
             this.repBtOpenMethods.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            this.repBtOpenMethods.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repBtOpenMethods_ButtonClick);
             // 
             // tcol_Root_type_pattern
             // 
@@ -1103,6 +1121,12 @@
             this.tcol_Expired_status.FieldName = "Expired_status";
             this.tcol_Expired_status.Name = "tcol_Expired_status";
             // 
+            // tcol_Solution_obs
+            // 
+            this.tcol_Solution_obs.Caption = "Solution_obs";
+            this.tcol_Solution_obs.FieldName = "Solution_obs";
+            this.tcol_Solution_obs.Name = "tcol_Solution_obs";
+            // 
             // cmsAddSolution
             // 
             this.cmsAddSolution.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1111,7 +1135,7 @@
             this.btNewSolStdVer,
             this.btNewSolCalib});
             this.cmsAddSolution.Name = "cmsAddSolution";
-            this.cmsAddSolution.Size = new System.Drawing.Size(239, 92);
+            this.cmsAddSolution.Size = new System.Drawing.Size(239, 114);
             // 
             // btNewSolInt1
             // 
@@ -1189,28 +1213,13 @@
             // gvMethods
             // 
             this.gvMethods.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gmet_Sel,
             this.gmet_Idtemplate_method,
             this.gmet_Cod_template_method,
-            this.gmet_Title});
+            this.gmet_Title,
+            this.gmet_Unlink});
             this.gvMethods.GridControl = this.gcMethods;
             this.gvMethods.Name = "gvMethods";
-            this.gvMethods.OptionsBehavior.Editable = false;
             this.gvMethods.OptionsView.ShowGroupPanel = false;
-            // 
-            // gmet_Sel
-            // 
-            this.gmet_Sel.Caption = "#";
-            this.gmet_Sel.ColumnEdit = this.repSel;
-            this.gmet_Sel.FieldName = "Sel";
-            this.gmet_Sel.Name = "gmet_Sel";
-            this.gmet_Sel.OptionsColumn.FixedWidth = true;
-            this.gmet_Sel.Width = 53;
-            // 
-            // repSel
-            // 
-            this.repSel.AutoHeight = false;
-            this.repSel.Name = "repSel";
             // 
             // gmet_Idtemplate_method
             // 
@@ -1235,9 +1244,22 @@
             this.gmet_Title.Caption = "Título";
             this.gmet_Title.FieldName = "Title";
             this.gmet_Title.Name = "gmet_Title";
+            this.gmet_Title.OptionsColumn.AllowEdit = false;
             this.gmet_Title.Visible = true;
             this.gmet_Title.VisibleIndex = 1;
             this.gmet_Title.Width = 618;
+            // 
+            // gmet_Unlink
+            // 
+            this.gmet_Unlink.Caption = "Desvincular";
+            this.gmet_Unlink.ColumnEdit = this.repSel;
+            this.gmet_Unlink.FieldName = "Unlink";
+            this.gmet_Unlink.Name = "gmet_Unlink";
+            // 
+            // repSel
+            // 
+            this.repSel.AutoHeight = false;
+            this.repSel.Name = "repSel";
             // 
             // splitterControl1
             // 
@@ -1249,10 +1271,12 @@
             // 
             // exPanel
             // 
+            this.exPanel.Controls.Add(this.cbMotivo);
             this.exPanel.Controls.Add(this.ckDisabledSolution);
+            this.exPanel.Controls.Add(this.label4);
             this.exPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.exPanel.Expanded = false;
-            this.exPanel.ExpandedBounds = new System.Drawing.Rectangle(301, 369, 660, 54);
+            this.exPanel.ExpandedBounds = new System.Drawing.Rectangle(301, 542, 826, 54);
             this.exPanel.Location = new System.Drawing.Point(301, 570);
             this.exPanel.Name = "exPanel";
             this.exPanel.Size = new System.Drawing.Size(826, 26);
@@ -1261,6 +1285,19 @@
             this.exPanel.TitleStyle.BackColor1.Color = System.Drawing.Color.LightSteelBlue;
             this.exPanel.TitleStyle.ForeColor.Color = System.Drawing.Color.Blue;
             this.exPanel.TitleText = "Desactivar";
+            // 
+            // cbMotivo
+            // 
+            this.cbMotivo.EditValue = "";
+            this.cbMotivo.Location = new System.Drawing.Point(509, 29);
+            this.cbMotivo.Name = "cbMotivo";
+            this.cbMotivo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbMotivo.Properties.Items.AddRange(new object[] {
+            "",
+            "Perdida"});
+            this.cbMotivo.Size = new System.Drawing.Size(97, 20);
+            this.cbMotivo.TabIndex = 22;
             // 
             // ckDisabledSolution
             // 
@@ -1274,29 +1311,38 @@
             this.ckDisabledSolution.TabIndex = 1;
             this.ckDisabledSolution.CheckedChanged += new System.EventHandler(this.ckDisabledSolution_CheckedChanged);
             // 
-            // customPageControl1
+            // label4
             // 
-            this.customPageControl1.AppearancePage.Header.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(222)))), ((int)(((byte)(243)))));
-            this.customPageControl1.AppearancePage.Header.BorderColor = System.Drawing.Color.White;
-            this.customPageControl1.AppearancePage.Header.Options.UseBackColor = true;
-            this.customPageControl1.AppearancePage.Header.Options.UseBorderColor = true;
-            this.customPageControl1.AppearancePage.HeaderActive.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.customPageControl1.AppearancePage.HeaderActive.BorderColor = System.Drawing.Color.Gainsboro;
-            this.customPageControl1.AppearancePage.HeaderActive.Options.UseBackColor = true;
-            this.customPageControl1.AppearancePage.HeaderActive.Options.UseBorderColor = true;
-            this.customPageControl1.AppearancePage.PageClient.BorderColor = System.Drawing.Color.Gainsboro;
-            this.customPageControl1.AppearancePage.PageClient.Options.UseBorderColor = true;
-            this.customPageControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.customPageControl1.Location = new System.Drawing.Point(301, 253);
-            this.customPageControl1.Name = "customPageControl1";
-            this.customPageControl1.PaintStyleName = "PropertyView";
-            this.customPageControl1.SelectedTabPage = this.tpMethod;
-            this.customPageControl1.Size = new System.Drawing.Size(826, 317);
-            this.customPageControl1.TabIndex = 42;
-            this.customPageControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(461, 32);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(42, 13);
+            this.label4.TabIndex = 21;
+            this.label4.Text = "Motivo:";
+            // 
+            // pcDetail
+            // 
+            this.pcDetail.AppearancePage.Header.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(222)))), ((int)(((byte)(243)))));
+            this.pcDetail.AppearancePage.Header.BorderColor = System.Drawing.Color.White;
+            this.pcDetail.AppearancePage.Header.Options.UseBackColor = true;
+            this.pcDetail.AppearancePage.Header.Options.UseBorderColor = true;
+            this.pcDetail.AppearancePage.HeaderActive.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.pcDetail.AppearancePage.HeaderActive.BorderColor = System.Drawing.Color.Gainsboro;
+            this.pcDetail.AppearancePage.HeaderActive.Options.UseBackColor = true;
+            this.pcDetail.AppearancePage.HeaderActive.Options.UseBorderColor = true;
+            this.pcDetail.AppearancePage.PageClient.BorderColor = System.Drawing.Color.Gainsboro;
+            this.pcDetail.AppearancePage.PageClient.Options.UseBorderColor = true;
+            this.pcDetail.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pcDetail.Location = new System.Drawing.Point(301, 253);
+            this.pcDetail.Name = "pcDetail";
+            this.pcDetail.PaintStyleName = "PropertyView";
+            this.pcDetail.SelectedTabPage = this.tpMethod;
+            this.pcDetail.Size = new System.Drawing.Size(826, 317);
+            this.pcDetail.TabIndex = 42;
+            this.pcDetail.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.tpMethod,
             this.tpCalib});
-            this.customPageControl1.Text = "customPageControl1";
+            this.pcDetail.Text = "customPageControl1";
             // 
             // tpMethod
             // 
@@ -1348,6 +1394,7 @@
             cSolution_interm1.Root_idmr_detail = null;
             cSolution_interm1.Root_type_pattern = null;
             cSolution_interm1.Solution_name = null;
+            cSolution_interm1.Solution_obs = null;
             cSolution_interm1.Solution_status = null;
             cSolution_interm1.Status = null;
             cSolution_interm1.Type_sol = null;
@@ -1382,8 +1429,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.repStatusSolution)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.paHeader)).EndInit();
             this.paHeader.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gcSolutionChild)).EndInit();
-            this.gcSolutionChild.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.paSolutionChild)).EndInit();
+            this.paSolutionChild.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
             this.panelControl4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.paDate)).EndInit();
@@ -1406,12 +1453,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.tbParentModifValue.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbParentModif.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.paCalibraciones)).EndInit();
+            this.paCalibraciones.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcCalibracion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvCalibracion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.paSeparator)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gcSolutionParent)).EndInit();
-            this.gcSolutionParent.ResumeLayout(false);
-            this.gcSolutionParent.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.paSolutionParent)).EndInit();
+            this.paSolutionParent.ResumeLayout(false);
+            this.paSolutionParent.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbParentConcentration.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbElement1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbMethod1.Properties)).EndInit();
@@ -1431,9 +1480,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.gvMethods)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repSel)).EndInit();
             this.exPanel.ResumeLayout(false);
+            this.exPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbMotivo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ckDisabledSolution.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customPageControl1)).EndInit();
-            this.customPageControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pcDetail)).EndInit();
+            this.pcDetail.ResumeLayout(false);
             this.tpMethod.ResumeLayout(false);
             this.tpCalib.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -1483,7 +1534,6 @@
         private DevExpress.XtraEditors.PanelControl panelControl2;
         private DevExpress.XtraGrid.GridControl gcMethods;
         private DevExpress.XtraGrid.Views.Grid.GridView gvMethods;
-        private DevExpress.XtraGrid.Columns.GridColumn gmet_Sel;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repSel;
         private DevExpress.XtraGrid.Columns.GridColumn gmet_Idtemplate_method;
         private DevExpress.XtraGrid.Columns.GridColumn gmet_Cod_template_method;
@@ -1502,8 +1552,8 @@
         private DevExpress.XtraEditors.CheckEdit ckAssignMethod;
         private customSpinEdit tbAliquot;
         private System.Windows.Forms.Label label5;
-        private DevExpress.XtraEditors.GroupControl gcSolutionChild;
-        private DevExpress.XtraEditors.GroupControl gcSolutionParent;
+        private DevExpress.XtraEditors.GroupControl paSolutionChild;
+        private DevExpress.XtraEditors.GroupControl paSolutionParent;
         private DevExpress.XtraEditors.PanelControl paSeparator;
         private customDateEdit deDateEnd;
         private customDateEdit deDateIni;
@@ -1527,12 +1577,17 @@
         private DevExpress.XtraEditors.PanelControl panelControl4;
         private DevExpress.XtraEditors.PanelControl paDate;
         private DevExpress.XtraEditors.PanelControl paCalAliquot;
-        private customPageControl customPageControl1;
+        private customPageControl pcDetail;
         private DevExpress.XtraTab.XtraTabPage tpMethod;
         private DevExpress.XtraTab.XtraTabPage tpCalib;
         
         private System.Windows.Forms.ToolStripMenuItem btNewSolCalib;
-        private UcCalibStd ucCalibStd1;        
+        private UcCalibStd ucCalibStd1;
+        private DevExpress.XtraEditors.GroupControl paCalibraciones;
+        private DevExpress.XtraGrid.Columns.GridColumn gmet_Unlink;
+        private System.Windows.Forms.Label label4;
+        private customComboBoxEdit cbMotivo;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn tcol_Solution_obs;        
 
     }
 }

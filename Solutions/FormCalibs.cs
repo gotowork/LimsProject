@@ -694,18 +694,7 @@ namespace LimsProject
             }
             else
                 new FormMessage("Error", "Contraseña incorrecta.", true, false).ShowDialog();
-        }
-
-        private void repBtOpenMethods_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
-        {
-            // abrir ventana de metodos
-            FormSelMethods fmSelMethods = new FormSelMethods();
-            if (Convert.ToInt32(treeSolInterm.FocusedNode["Idsolution_interm"]) != 0)
-            {
-                fmSelMethods.Idsolution_interm = Convert.ToInt32(treeSolInterm.FocusedNode["Idsolution_interm"]);
-                fmSelMethods.ShowDialog();
-            }
-        }
+        }        
 
         private void treeSolInterm_FocusedNodeChanged(object sender, FocusedNodeChangedEventArgs e)
         {            

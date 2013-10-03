@@ -94,6 +94,7 @@ namespace LimsProject
         public void Init(int idsolution_interm, CTemplate_method_aa template_method_aa)
         {
             Idtemplate_method = template_method_aa.Idtemplate_method;
+            rgSelectGraphic.SelectedIndex = 1;
 
             CReactiveFactory faReactive = new CReactiveFactory();
             List<CReactive> lstReactive = faReactive.GetAll();
@@ -110,9 +111,22 @@ namespace LimsProject
 
             LstAllCalibs = new BindingList<CCustomCalibStd>(oModCalibStd.GetCustomCalibStd(idsolution_interm, template_method_aa));
 
+            CSet_calibs oSet_calibs = new CSet_calibsFactory()
+                .GetAll()
+                .Where(x => x.Idsolution_interm == idsolution_interm 
+                    && x.Idtemplate_method == template_method_aa.Idtemplate_method
+                    && x.Last_calib == true)
+                .FirstOrDefault();
+
+            if (oSet_calibs != null)
+            {
+                ucTraceUser1.UserSign = oSet_calibs.Usersign;
+                ucTraceUser1.DateSign = Convert.ToDateTime(oSet_calibs.Datesign);
+            }
+
             gcCalibStd.DataSource = LstAllCalibs;
-            gvCalibStd.ExpandAllGroups();
-                   
+
+            PlotChart();
         }
 
         void InitXYDiagram()
@@ -223,56 +237,7 @@ namespace LimsProject
 
         void GrabarStdFocused(int rowindex)
         {
-            CSet_calibsFactory faSet_calibs = new CSet_calibsFactory();
-
-            CCustomCalibStd customCalibStd = gvCalibStd.GetRow(rowindex) as CCustomCalibStd;
-
-            ModCalibStd oModCalibStd = new ModCalibStd();
             
-            int idtemplate_method = Convert.ToInt32(gvCalibStd.GetRowCellValue(rowindex, gcCal_Idtemplate_method));
-            CSet_calibs oSet_calib = oModCalibStd.GetSet_CalibBy(solution_interm.Idsolution_interm, idtemplate_method);
-
-            if (oSet_calib == null)
-            {
-                oSet_calib = new CSet_calibs();
-                oSet_calib.Idset_calibs = 0;
-                oSet_calib.Idtemplate_method = customCalibStd.Idtemplate_method;
-                oSet_calib.Idset_calibs = customCalibStd.Idset_calibs;
-                oSet_calib.Idsolution_interm = solution_interm.Idsolution_interm;
-            }
-
-            bool result_set_calib = false;
-
-            // --- grupo de calibración
-            if (!(result_set_calib = faSet_calibs.Update(oSet_calib)))
-                result_set_calib = faSet_calibs.Insert(oSet_calib);
-
-            if (result_set_calib)
-            {
-                // --- guardar calibración
-                CCalib_stdFactory faCalib_std = new CCalib_stdFactory();
-                CCalib_std oCalib_std = new CCalib_std();
-
-                oCalib_std = faCalib_std.GetByPrimaryKey(new CCalib_stdKeys(customCalibStd.Idcalib_std));
-
-                if (oCalib_std == null)
-                    oCalib_std = new CCalib_std();
-                
-                oCalib_std.Absorbance = customCalibStd.Absorbance;
-                oCalib_std.Concentration = customCalibStd.Concentration;
-                oCalib_std.Idcalib = customCalibStd.Idcalib;
-                oCalib_std.Idset_calibs = oSet_calib.Idset_calibs;
-                oCalib_std.Idsolution_interm = solution_interm.Idsolution_interm;
-                oCalib_std.Idtemplate_method = idtemplate_method;
-
-                bool result_std = false;
-                if (!(result_std = faCalib_std.Update(oCalib_std)))
-                    result_std = faCalib_std.Insert(oCalib_std);
-
-                if (result_std)                                    
-                    gvCalibStd.SetRowCellValue(rowindex, gcCal_Idcalib_std, oCalib_std.Idcalib_std);
-                
-            }
         }
 
         public void Clear()
@@ -300,10 +265,7 @@ namespace LimsProject
         private void gvCalibStd_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {            
             if (e.Column == gcCal_Absorbance)
-            {
-                // --- grabar
-                //GrabarStdFocused();
-
+            {                
                 // --- mostrar grafica
                 PlotChart();
             }
@@ -314,55 +276,81 @@ namespace LimsProject
             PlotChart();
         }
 
-        bool Son_datos_correctos()        
+        public bool Son_datos_correctos()        
         {
+            for (int i = 0; i < gvCalibStd.RowCount; i++)
+            {                
+                if (Convert.ToDecimal(gvCalibStd.GetRowCellValue(i, gcCal_Absorbance)) == 0)
+                {
+                    ComunForm.Send_message("Módulo de Soluciones", TypeMsg.error, "No se ingreso el estandar de calibración.");
+                    return false;
+                }
+            }
+            if (tbRexp2.BackColor == Color.Red)
+            {
+                ComunForm.Send_message("Módulo de Soluciones", TypeMsg.error, "Error en correlación.");
+                return false;
+            }
             return true;
         }
 
-        public void SaveCalibs()
+        public void SaveCalibs(CSolution_interm pSolution_interm)
         {
-            if (Son_datos_correctos())
+            solution_interm = pSolution_interm;
+
+            Date_init = Convert.ToDateTime(solution_interm.Date_begin);
+            Date_end = Convert.ToDateTime(solution_interm.Date_end);
+
+            UserSign = Comun.GetUser();
+            DateSign = Comun.GetDate();
+            
+            //poner como historico la actual grupo de calibraciones            
+            CSet_calibs oSet_calib = oModCalibStd.GetSet_CalibBy(solution_interm.Idsolution_interm, idtemplate_method);
+
+            if (oSet_calib != null)
             {
-                bool result = false;
+                oSet_calib.Last_calib = false;
+                new CSet_calibsFactory().Update(oSet_calib);
+            }
 
-                ModSolution modSolution = new ModSolution();
+            // --- guardar la nueva calibración
+            oSet_calib = new CSet_calibs();
+            oSet_calib.Idset_calibs = 0;
+            oSet_calib.Idtemplate_method = idtemplate_method;            
+            oSet_calib.Idsolution_interm = solution_interm.Idsolution_interm;
+            oSet_calib.Datesign = Comun.GetDate();
+            oSet_calib.Usersign = Comun.GetUser();
+            oSet_calib.Last_calib = true;
+                        
+            bool result_set_calib = new CSet_calibsFactory().Insert(oSet_calib);
 
-                solution_interm.Date_begin = DateTime.Now;
-                solution_interm.Date_end = DateTime.Now.AddMonths(new CSettings().GetNumMonthStdCalib());
-
-                CSolution_intermFactory faSolution_interm = new CSolution_intermFactory();
-                if (!(result = faSolution_interm.Update(solution_interm)))
-                    result = faSolution_interm.Insert(solution_interm);
-
-                if (result)
+            // --- guardar estandares de calibración
+            if (result_set_calib)
+            {
+                for (int i = 0; i < gvCalibStd.RowCount; i++)
                 {
-                    ModCorrelatives oModCorrelatives = new ModCorrelatives();
-                    solution_interm.Cod_solution = oModCorrelatives.GetCorrelative(Comun.Correlative.EstandarCalibracion);
-                    result = faSolution_interm.Update(solution_interm);
-                }
+                    CSet_calibsFactory faSet_calibs = new CSet_calibsFactory();
 
-                if (result)
-                {
-                    Date_init = Convert.ToDateTime(solution_interm.Date_begin);
-                    Date_end = Convert.ToDateTime(solution_interm.Date_end);
+                    CCustomCalibStd customCalibStd = gvCalibStd.GetRow(i) as CCustomCalibStd;
 
-                    UserSign = Comun.GetUser();
-                    DateSign = Comun.GetDate();
+                    // --- guardar calibración
+                    CCalib_stdFactory faCalib_std = new CCalib_stdFactory();
+                    CCalib_std oCalib_std = new CCalib_std();
 
-                    // --- guardar estandares de calibración
-                    for (int i = 0; i < gvCalibStd.RowCount; i++)
-                        GrabarStdFocused(i);
+                    oCalib_std = new CCalib_std();
+                    oCalib_std.Idcalib = customCalibStd.Idcalib;
+                    oCalib_std.Absorbance = customCalibStd.Absorbance;
+                    oCalib_std.Concentration = customCalibStd.Concentration;
+                    oCalib_std.Idset_calibs = oSet_calib.Idset_calibs;
+                    oCalib_std.Idsolution_interm = solution_interm.Idsolution_interm;
+                    oCalib_std.Idtemplate_method = idtemplate_method;
 
-                    // --- guardar metodo
-                    CSolution_interm_methodsFactory faSolution_interm_methods = new CSolution_interm_methodsFactory();
-                    CSolution_interm_methods solution_interm_methods = new CSolution_interm_methods();
-                    solution_interm_methods.Idtemplate_method = Idtemplate_method;
-                    solution_interm_methods.Idsolution_interm = solution_interm.Idsolution_interm;
+                    bool result_std = false;
+                    if (!(result_std = faCalib_std.Update(oCalib_std)))
+                        result_std = faCalib_std.Insert(oCalib_std);
 
-                    if (!faSolution_interm_methods.Update(solution_interm_methods))
-                        faSolution_interm_methods.Insert(solution_interm_methods);
-
-                    onSignCalibs(solution_interm);
+                    if (result_std)
+                        gvCalibStd.SetRowCellValue(i, gcCal_Idcalib_std, oCalib_std.Idcalib_std);                    
                 }
             }
         }

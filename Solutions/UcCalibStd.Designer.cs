@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
+            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
             DevExpress.XtraCharts.XYDiagram xyDiagram1 = new DevExpress.XtraCharts.XYDiagram();
             DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
             DevExpress.XtraCharts.LineSeriesView lineSeriesView1 = new DevExpress.XtraCharts.LineSeriesView();
@@ -36,11 +38,19 @@
             DevExpress.XtraCharts.LineSeriesView lineSeriesView2 = new DevExpress.XtraCharts.LineSeriesView();
             DevExpress.XtraCharts.PointSeriesLabel pointSeriesLabel2 = new DevExpress.XtraCharts.PointSeriesLabel();
             DevExpress.XtraCharts.LineSeriesView lineSeriesView3 = new DevExpress.XtraCharts.LineSeriesView();
-            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
-            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
             this.gcCal_Absorbance_previus = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcCal_Absorbance = new DevExpress.XtraGrid.Columns.GridColumn();
             this.paCalibCenter = new DevExpress.XtraEditors.PanelControl();
+            this.gcCalibStd = new DevExpress.XtraGrid.GridControl();
+            this.gvCalibStd = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gcCal_Idcalib_std = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gcCal_Idcalib = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gcCal_Name = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gcCal_Concentration = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gcCal_Idtemplate_method = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repTemplate_method = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.ucTraceUser1 = new LimsProject.UcTraceUser();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.chartCalib = new DevExpress.XtraCharts.ChartControl();
             this.rgSelectGraphic = new DevExpress.XtraEditors.RadioGroup();
@@ -60,16 +70,13 @@
             this.label131 = new System.Windows.Forms.Label();
             this.label128 = new System.Windows.Forms.Label();
             this.label126 = new System.Windows.Forms.Label();
-            this.gcCalibStd = new DevExpress.XtraGrid.GridControl();
-            this.gvCalibStd = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gcCal_Idcalib_std = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gcCal_Idcalib = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gcCal_Name = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gcCal_Concentration = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gcCal_Idtemplate_method = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repTemplate_method = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.paCalibCenter)).BeginInit();
             this.paCalibCenter.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gcCalibStd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvCalibStd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repTemplate_method)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartCalib)).BeginInit();
@@ -90,9 +97,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.tbValidity_calib.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbMediumConc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbRexp2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gcCalibStd)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvCalibStd)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repTemplate_method)).BeginInit();
             this.SuspendLayout();
             // 
             // gcCal_Absorbance_previus
@@ -114,8 +118,9 @@
             // 
             // paCalibCenter
             // 
-            this.paCalibCenter.Controls.Add(this.panelControl3);
             this.paCalibCenter.Controls.Add(this.gcCalibStd);
+            this.paCalibCenter.Controls.Add(this.panelControl1);
+            this.paCalibCenter.Controls.Add(this.panelControl3);
             this.paCalibCenter.Dock = System.Windows.Forms.DockStyle.Fill;
             this.paCalibCenter.Location = new System.Drawing.Point(0, 0);
             this.paCalibCenter.Name = "paCalibCenter";
@@ -123,276 +128,16 @@
             this.paCalibCenter.TabIndex = 0;
             this.paCalibCenter.Text = "paCalibCenter";
             // 
-            // panelControl3
-            // 
-            this.panelControl3.Controls.Add(this.chartCalib);
-            this.panelControl3.Controls.Add(this.rgSelectGraphic);
-            this.panelControl3.Controls.Add(this.groupControl1);
-            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl3.Location = new System.Drawing.Point(454, 2);
-            this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(350, 473);
-            this.panelControl3.TabIndex = 2;
-            this.panelControl3.Text = "panelControl3";
-            // 
-            // chartCalib
-            // 
-            this.chartCalib.AppearanceName = "The Trees";
-            xyDiagram1.AxisX.Title.Text = "Concentracion";
-            xyDiagram1.AxisX.Title.Visible = true;
-            xyDiagram1.AxisY.Title.Text = "Absorbancia";
-            xyDiagram1.AxisY.Title.Visible = true;
-            this.chartCalib.Diagram = xyDiagram1;
-            this.chartCalib.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chartCalib.Legend.AlignmentHorizontal = DevExpress.XtraCharts.LegendAlignmentHorizontal.Center;
-            this.chartCalib.Legend.AlignmentVertical = DevExpress.XtraCharts.LegendAlignmentVertical.TopOutside;
-            this.chartCalib.Location = new System.Drawing.Point(2, 2);
-            this.chartCalib.Name = "chartCalib";
-            series1.Name = "Series 1";
-            series1.View = lineSeriesView1;
-            pointSeriesLabel1.Angle = 0;
-            pointSeriesLabel1.LineLength = 30;
-            pointSeriesLabel1.Border.Visible = false;
-            series1.Label = pointSeriesLabel1;
-            series1.PointOptionsTypeName = "PointOptions";
-            series2.Name = "Series 2";
-            series2.View = lineSeriesView2;
-            pointSeriesLabel2.Angle = 90;
-            pointSeriesLabel2.LineLength = 20;
-            pointSeriesLabel2.Border.Visible = false;
-            series2.Label = pointSeriesLabel2;
-            series2.PointOptionsTypeName = "PointOptions";
-            this.chartCalib.Series.AddRange(new DevExpress.XtraCharts.Series[] {
-            series1,
-            series2});
-            this.chartCalib.SeriesTemplate.View = lineSeriesView3;
-            this.chartCalib.SeriesTemplate.PointOptionsTypeName = "PointOptions";
-            this.chartCalib.Size = new System.Drawing.Size(346, 348);
-            this.chartCalib.TabIndex = 1;
-            // 
-            // rgSelectGraphic
-            // 
-            this.rgSelectGraphic.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.rgSelectGraphic.EditValue = 1D;
-            this.rgSelectGraphic.Location = new System.Drawing.Point(2, 350);
-            this.rgSelectGraphic.Name = "rgSelectGraphic";
-            this.rgSelectGraphic.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(0D, "Actual Absorbancia"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(1D, "Nueva Absorbancia"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(2D, "Ambas Absorbancias")});
-            this.rgSelectGraphic.Size = new System.Drawing.Size(346, 30);
-            this.rgSelectGraphic.TabIndex = 3;
-            this.rgSelectGraphic.SelectedIndexChanged += new System.EventHandler(this.rgSelectGraphic_SelectedIndexChanged);
-            // 
-            // groupControl1
-            // 
-            this.groupControl1.Controls.Add(this.label127);
-            this.groupControl1.Controls.Add(this.label124);
-            this.groupControl1.Controls.Add(this.cbModif);
-            this.groupControl1.Controls.Add(this.cbMedium);
-            this.groupControl1.Controls.Add(this.label133);
-            this.groupControl1.Controls.Add(this.tbModifConc);
-            this.groupControl1.Controls.Add(this.tbValidity_calib);
-            this.groupControl1.Controls.Add(this.tbMediumConc);
-            this.groupControl1.Controls.Add(this.tbRexp2);
-            this.groupControl1.Controls.Add(this.label130);
-            this.groupControl1.Controls.Add(this.label129);
-            this.groupControl1.Controls.Add(this.label132);
-            this.groupControl1.Controls.Add(this.label131);
-            this.groupControl1.Controls.Add(this.label128);
-            this.groupControl1.Controls.Add(this.label126);
-            this.groupControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupControl1.Location = new System.Drawing.Point(2, 380);
-            this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(346, 91);
-            this.groupControl1.TabIndex = 0;
-            // 
-            // label127
-            // 
-            this.label127.AutoSize = true;
-            this.label127.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label127.Location = new System.Drawing.Point(227, 24);
-            this.label127.Name = "label127";
-            this.label127.Size = new System.Drawing.Size(9, 9);
-            this.label127.TabIndex = 23;
-            this.label127.Text = "2";
-            // 
-            // label124
-            // 
-            this.label124.AutoSize = true;
-            this.label124.Location = new System.Drawing.Point(215, 26);
-            this.label124.Name = "label124";
-            this.label124.Size = new System.Drawing.Size(27, 13);
-            this.label124.TabIndex = 35;
-            this.label124.Text = "R   :";
-            // 
-            // cbModif
-            // 
-            this.cbModif.Location = new System.Drawing.Point(69, 65);
-            this.cbModif.Name = "cbModif";
-            this.cbModif.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbModif.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Idreactive", "", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Chemical_formula", "", 10, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Reactive_name")});
-            this.cbModif.Properties.NullText = "---";
-            this.cbModif.Properties.ReadOnly = true;
-            this.cbModif.Properties.ShowFooter = false;
-            this.cbModif.Properties.ShowHeader = false;
-            this.cbModif.Size = new System.Drawing.Size(105, 20);
-            this.cbModif.TabIndex = 33;
-            // 
-            // cbMedium
-            // 
-            this.cbMedium.Location = new System.Drawing.Point(69, 43);
-            this.cbMedium.Name = "cbMedium";
-            this.cbMedium.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbMedium.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Idreactive", "", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Chemical_formula", "", 10, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Reactive_name")});
-            this.cbMedium.Properties.NullText = "---";
-            this.cbMedium.Properties.ReadOnly = true;
-            this.cbMedium.Properties.ShowFooter = false;
-            this.cbMedium.Properties.ShowHeader = false;
-            this.cbMedium.Size = new System.Drawing.Size(105, 20);
-            this.cbMedium.TabIndex = 34;
-            // 
-            // label133
-            // 
-            this.label133.AutoSize = true;
-            this.label133.Location = new System.Drawing.Point(23, 24);
-            this.label133.Name = "label133";
-            this.label133.Size = new System.Drawing.Size(44, 13);
-            this.label133.TabIndex = 22;
-            this.label133.Text = "Validez:";
-            // 
-            // tbModifConc
-            // 
-            this.tbModifConc.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.tbModifConc.Location = new System.Drawing.Point(251, 65);
-            this.tbModifConc.Name = "tbModifConc";
-            this.tbModifConc.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.tbModifConc.Properties.ReadOnly = true;
-            this.tbModifConc.Size = new System.Drawing.Size(70, 20);
-            this.tbModifConc.TabIndex = 30;
-            // 
-            // tbValidity_calib
-            // 
-            this.tbValidity_calib.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.tbValidity_calib.Location = new System.Drawing.Point(69, 21);
-            this.tbValidity_calib.Name = "tbValidity_calib";
-            this.tbValidity_calib.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.tbValidity_calib.Properties.ReadOnly = true;
-            this.tbValidity_calib.Size = new System.Drawing.Size(105, 20);
-            this.tbValidity_calib.TabIndex = 21;
-            // 
-            // tbMediumConc
-            // 
-            this.tbMediumConc.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.tbMediumConc.Location = new System.Drawing.Point(251, 43);
-            this.tbMediumConc.Name = "tbMediumConc";
-            this.tbMediumConc.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.tbMediumConc.Properties.ReadOnly = true;
-            this.tbMediumConc.Size = new System.Drawing.Size(70, 20);
-            this.tbMediumConc.TabIndex = 31;
-            // 
-            // tbRexp2
-            // 
-            this.tbRexp2.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.tbRexp2.Location = new System.Drawing.Point(251, 21);
-            this.tbRexp2.Name = "tbRexp2";
-            this.tbRexp2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.tbRexp2.Properties.ReadOnly = true;
-            this.tbRexp2.Size = new System.Drawing.Size(70, 20);
-            this.tbRexp2.TabIndex = 32;
-            // 
-            // label130
-            // 
-            this.label130.AutoSize = true;
-            this.label130.Location = new System.Drawing.Point(216, 68);
-            this.label130.Name = "label130";
-            this.label130.Size = new System.Drawing.Size(35, 13);
-            this.label130.TabIndex = 24;
-            this.label130.Text = "Conc:";
-            // 
-            // label129
-            // 
-            this.label129.AutoSize = true;
-            this.label129.Location = new System.Drawing.Point(23, 68);
-            this.label129.Name = "label129";
-            this.label129.Size = new System.Drawing.Size(36, 13);
-            this.label129.TabIndex = 25;
-            this.label129.Text = "Modif:";
-            // 
-            // label132
-            // 
-            this.label132.AutoSize = true;
-            this.label132.Location = new System.Drawing.Point(319, 68);
-            this.label132.Name = "label132";
-            this.label132.Size = new System.Drawing.Size(15, 13);
-            this.label132.TabIndex = 26;
-            this.label132.Text = "%";
-            // 
-            // label131
-            // 
-            this.label131.AutoSize = true;
-            this.label131.Location = new System.Drawing.Point(319, 46);
-            this.label131.Name = "label131";
-            this.label131.Size = new System.Drawing.Size(15, 13);
-            this.label131.TabIndex = 27;
-            this.label131.Text = "%";
-            // 
-            // label128
-            // 
-            this.label128.AutoSize = true;
-            this.label128.Location = new System.Drawing.Point(216, 46);
-            this.label128.Name = "label128";
-            this.label128.Size = new System.Drawing.Size(35, 13);
-            this.label128.TabIndex = 28;
-            this.label128.Text = "Conc:";
-            // 
-            // label126
-            // 
-            this.label126.AutoSize = true;
-            this.label126.Location = new System.Drawing.Point(23, 46);
-            this.label126.Name = "label126";
-            this.label126.Size = new System.Drawing.Size(39, 13);
-            this.label126.TabIndex = 29;
-            this.label126.Text = "Medio:";
-            // 
             // gcCalibStd
             // 
-            this.gcCalibStd.Dock = System.Windows.Forms.DockStyle.Left;
+            this.gcCalibStd.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gcCalibStd.EmbeddedNavigator.Name = "";
             this.gcCalibStd.Location = new System.Drawing.Point(2, 2);
             this.gcCalibStd.MainView = this.gvCalibStd;
             this.gcCalibStd.Name = "gcCalibStd";
             this.gcCalibStd.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repTemplate_method});
-            this.gcCalibStd.Size = new System.Drawing.Size(452, 473);
+            this.gcCalibStd.Size = new System.Drawing.Size(420, 423);
             this.gcCalibStd.TabIndex = 1;
             this.gcCalibStd.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvCalibStd});
@@ -585,6 +330,284 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Cod_template_method")});
             this.repTemplate_method.Name = "repTemplate_method";
             // 
+            // panelControl1
+            // 
+            this.panelControl1.Controls.Add(this.ucTraceUser1);
+            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelControl1.Location = new System.Drawing.Point(2, 425);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(420, 50);
+            this.panelControl1.TabIndex = 3;
+            this.panelControl1.Text = "panelControl1";
+            // 
+            // ucTraceUser1
+            // 
+            this.ucTraceUser1.Location = new System.Drawing.Point(5, 6);
+            this.ucTraceUser1.Name = "ucTraceUser1";
+            this.ucTraceUser1.Size = new System.Drawing.Size(133, 37);
+            this.ucTraceUser1.TabIndex = 0;
+            this.ucTraceUser1.UserSign = "---------";
+            // 
+            // panelControl3
+            // 
+            this.panelControl3.Controls.Add(this.chartCalib);
+            this.panelControl3.Controls.Add(this.rgSelectGraphic);
+            this.panelControl3.Controls.Add(this.groupControl1);
+            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelControl3.Location = new System.Drawing.Point(422, 2);
+            this.panelControl3.Name = "panelControl3";
+            this.panelControl3.Size = new System.Drawing.Size(382, 473);
+            this.panelControl3.TabIndex = 2;
+            this.panelControl3.Text = "panelControl3";
+            // 
+            // chartCalib
+            // 
+            this.chartCalib.AppearanceName = "The Trees";
+            xyDiagram1.AxisX.Title.Text = "Concentracion";
+            xyDiagram1.AxisX.Title.Visible = true;
+            xyDiagram1.AxisY.Title.Text = "Absorbancia";
+            xyDiagram1.AxisY.Title.Visible = true;
+            this.chartCalib.Diagram = xyDiagram1;
+            this.chartCalib.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chartCalib.Legend.AlignmentHorizontal = DevExpress.XtraCharts.LegendAlignmentHorizontal.Center;
+            this.chartCalib.Legend.AlignmentVertical = DevExpress.XtraCharts.LegendAlignmentVertical.TopOutside;
+            this.chartCalib.Location = new System.Drawing.Point(2, 2);
+            this.chartCalib.Name = "chartCalib";
+            series1.Name = "Series 1";
+            series1.View = lineSeriesView1;
+            pointSeriesLabel1.Angle = 0;
+            pointSeriesLabel1.LineLength = 30;
+            pointSeriesLabel1.Border.Visible = false;
+            series1.Label = pointSeriesLabel1;
+            series1.PointOptionsTypeName = "PointOptions";
+            series2.Name = "Series 2";
+            series2.View = lineSeriesView2;
+            pointSeriesLabel2.Angle = 90;
+            pointSeriesLabel2.LineLength = 20;
+            pointSeriesLabel2.Border.Visible = false;
+            series2.Label = pointSeriesLabel2;
+            series2.PointOptionsTypeName = "PointOptions";
+            this.chartCalib.Series.AddRange(new DevExpress.XtraCharts.Series[] {
+            series1,
+            series2});
+            this.chartCalib.SeriesTemplate.View = lineSeriesView3;
+            this.chartCalib.SeriesTemplate.PointOptionsTypeName = "PointOptions";
+            this.chartCalib.Size = new System.Drawing.Size(378, 348);
+            this.chartCalib.TabIndex = 1;
+            // 
+            // rgSelectGraphic
+            // 
+            this.rgSelectGraphic.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.rgSelectGraphic.EditValue = 1D;
+            this.rgSelectGraphic.Location = new System.Drawing.Point(2, 350);
+            this.rgSelectGraphic.Name = "rgSelectGraphic";
+            this.rgSelectGraphic.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(0D, "Actual Absorbancia"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(1D, "Nueva Absorbancia"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(2D, "Ambas Absorbancias")});
+            this.rgSelectGraphic.Size = new System.Drawing.Size(378, 30);
+            this.rgSelectGraphic.TabIndex = 3;
+            this.rgSelectGraphic.SelectedIndexChanged += new System.EventHandler(this.rgSelectGraphic_SelectedIndexChanged);
+            // 
+            // groupControl1
+            // 
+            this.groupControl1.Controls.Add(this.label127);
+            this.groupControl1.Controls.Add(this.label124);
+            this.groupControl1.Controls.Add(this.cbModif);
+            this.groupControl1.Controls.Add(this.cbMedium);
+            this.groupControl1.Controls.Add(this.label133);
+            this.groupControl1.Controls.Add(this.tbModifConc);
+            this.groupControl1.Controls.Add(this.tbValidity_calib);
+            this.groupControl1.Controls.Add(this.tbMediumConc);
+            this.groupControl1.Controls.Add(this.tbRexp2);
+            this.groupControl1.Controls.Add(this.label130);
+            this.groupControl1.Controls.Add(this.label129);
+            this.groupControl1.Controls.Add(this.label132);
+            this.groupControl1.Controls.Add(this.label131);
+            this.groupControl1.Controls.Add(this.label128);
+            this.groupControl1.Controls.Add(this.label126);
+            this.groupControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.groupControl1.Location = new System.Drawing.Point(2, 380);
+            this.groupControl1.Name = "groupControl1";
+            this.groupControl1.Size = new System.Drawing.Size(378, 91);
+            this.groupControl1.TabIndex = 0;
+            // 
+            // label127
+            // 
+            this.label127.AutoSize = true;
+            this.label127.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label127.Location = new System.Drawing.Point(227, 24);
+            this.label127.Name = "label127";
+            this.label127.Size = new System.Drawing.Size(9, 9);
+            this.label127.TabIndex = 23;
+            this.label127.Text = "2";
+            // 
+            // label124
+            // 
+            this.label124.AutoSize = true;
+            this.label124.Location = new System.Drawing.Point(215, 26);
+            this.label124.Name = "label124";
+            this.label124.Size = new System.Drawing.Size(27, 13);
+            this.label124.TabIndex = 35;
+            this.label124.Text = "R   :";
+            // 
+            // cbModif
+            // 
+            this.cbModif.Location = new System.Drawing.Point(69, 65);
+            this.cbModif.Name = "cbModif";
+            this.cbModif.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbModif.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Idreactive", "", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Chemical_formula", "", 10, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Reactive_name")});
+            this.cbModif.Properties.NullText = "---";
+            this.cbModif.Properties.ReadOnly = true;
+            this.cbModif.Properties.ShowFooter = false;
+            this.cbModif.Properties.ShowHeader = false;
+            this.cbModif.Size = new System.Drawing.Size(105, 20);
+            this.cbModif.TabIndex = 33;
+            // 
+            // cbMedium
+            // 
+            this.cbMedium.Location = new System.Drawing.Point(69, 43);
+            this.cbMedium.Name = "cbMedium";
+            this.cbMedium.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbMedium.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Idreactive", "", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Chemical_formula", "", 10, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Reactive_name")});
+            this.cbMedium.Properties.NullText = "---";
+            this.cbMedium.Properties.ReadOnly = true;
+            this.cbMedium.Properties.ShowFooter = false;
+            this.cbMedium.Properties.ShowHeader = false;
+            this.cbMedium.Size = new System.Drawing.Size(105, 20);
+            this.cbMedium.TabIndex = 34;
+            // 
+            // label133
+            // 
+            this.label133.AutoSize = true;
+            this.label133.Location = new System.Drawing.Point(23, 24);
+            this.label133.Name = "label133";
+            this.label133.Size = new System.Drawing.Size(44, 13);
+            this.label133.TabIndex = 22;
+            this.label133.Text = "Validez:";
+            // 
+            // tbModifConc
+            // 
+            this.tbModifConc.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.tbModifConc.Location = new System.Drawing.Point(251, 65);
+            this.tbModifConc.Name = "tbModifConc";
+            this.tbModifConc.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.tbModifConc.Properties.ReadOnly = true;
+            this.tbModifConc.Size = new System.Drawing.Size(70, 20);
+            this.tbModifConc.TabIndex = 30;
+            // 
+            // tbValidity_calib
+            // 
+            this.tbValidity_calib.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.tbValidity_calib.Location = new System.Drawing.Point(69, 21);
+            this.tbValidity_calib.Name = "tbValidity_calib";
+            this.tbValidity_calib.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.tbValidity_calib.Properties.ReadOnly = true;
+            this.tbValidity_calib.Size = new System.Drawing.Size(105, 20);
+            this.tbValidity_calib.TabIndex = 21;
+            // 
+            // tbMediumConc
+            // 
+            this.tbMediumConc.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.tbMediumConc.Location = new System.Drawing.Point(251, 43);
+            this.tbMediumConc.Name = "tbMediumConc";
+            this.tbMediumConc.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.tbMediumConc.Properties.ReadOnly = true;
+            this.tbMediumConc.Size = new System.Drawing.Size(70, 20);
+            this.tbMediumConc.TabIndex = 31;
+            // 
+            // tbRexp2
+            // 
+            this.tbRexp2.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.tbRexp2.Location = new System.Drawing.Point(251, 21);
+            this.tbRexp2.Name = "tbRexp2";
+            this.tbRexp2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.tbRexp2.Properties.ReadOnly = true;
+            this.tbRexp2.Size = new System.Drawing.Size(70, 20);
+            this.tbRexp2.TabIndex = 32;
+            // 
+            // label130
+            // 
+            this.label130.AutoSize = true;
+            this.label130.Location = new System.Drawing.Point(216, 68);
+            this.label130.Name = "label130";
+            this.label130.Size = new System.Drawing.Size(35, 13);
+            this.label130.TabIndex = 24;
+            this.label130.Text = "Conc:";
+            // 
+            // label129
+            // 
+            this.label129.AutoSize = true;
+            this.label129.Location = new System.Drawing.Point(23, 68);
+            this.label129.Name = "label129";
+            this.label129.Size = new System.Drawing.Size(36, 13);
+            this.label129.TabIndex = 25;
+            this.label129.Text = "Modif:";
+            // 
+            // label132
+            // 
+            this.label132.AutoSize = true;
+            this.label132.Location = new System.Drawing.Point(319, 68);
+            this.label132.Name = "label132";
+            this.label132.Size = new System.Drawing.Size(15, 13);
+            this.label132.TabIndex = 26;
+            this.label132.Text = "%";
+            // 
+            // label131
+            // 
+            this.label131.AutoSize = true;
+            this.label131.Location = new System.Drawing.Point(319, 46);
+            this.label131.Name = "label131";
+            this.label131.Size = new System.Drawing.Size(15, 13);
+            this.label131.TabIndex = 27;
+            this.label131.Text = "%";
+            // 
+            // label128
+            // 
+            this.label128.AutoSize = true;
+            this.label128.Location = new System.Drawing.Point(216, 46);
+            this.label128.Name = "label128";
+            this.label128.Size = new System.Drawing.Size(35, 13);
+            this.label128.TabIndex = 28;
+            this.label128.Text = "Conc:";
+            // 
+            // label126
+            // 
+            this.label126.AutoSize = true;
+            this.label126.Location = new System.Drawing.Point(23, 46);
+            this.label126.Name = "label126";
+            this.label126.Size = new System.Drawing.Size(39, 13);
+            this.label126.TabIndex = 29;
+            this.label126.Text = "Medio:";
+            // 
             // UcCalibStd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -594,6 +617,11 @@
             this.Size = new System.Drawing.Size(806, 477);
             ((System.ComponentModel.ISupportInitialize)(this.paCalibCenter)).EndInit();
             this.paCalibCenter.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gcCalibStd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvCalibStd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repTemplate_method)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).EndInit();
@@ -615,9 +643,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.tbValidity_calib.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbMediumConc.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbRexp2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gcCalibStd)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvCalibStd)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repTemplate_method)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -654,5 +679,7 @@
         private System.Windows.Forms.Label label131;
         private System.Windows.Forms.Label label128;
         private System.Windows.Forms.Label label126;
+        private DevExpress.XtraEditors.PanelControl panelControl1;
+        private UcTraceUser ucTraceUser1;
     }
 }

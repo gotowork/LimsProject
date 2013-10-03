@@ -55,10 +55,10 @@
             this.tbReading_max = new DevExpress.XtraEditors.SpinEdit();
             this.tbReading_min = new DevExpress.XtraEditors.SpinEdit();
             this.xtraTabPage5 = new DevExpress.XtraTab.XtraTabPage();
+            this.cbUnit_result = new LimsProject.cbUnitMeasure();
             this.tbSymbol = new DevExpress.XtraEditors.TextEdit();
             this.checkEdit8 = new DevExpress.XtraEditors.CheckEdit();
             this.spinEdit48 = new DevExpress.XtraEditors.SpinEdit();
-            this.cbUnit_result = new DevExpress.XtraEditors.LookUpEdit();
             this.label119 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
@@ -68,15 +68,14 @@
             this.tbLaw_limit_bottom = new DevExpress.XtraEditors.SpinEdit();
             this.label17 = new System.Windows.Forms.Label();
             this.xtraTabPage6 = new DevExpress.XtraTab.XtraTabPage();
+            this.tbCalibConcen = new LimsProject.cbMR();
+            this.cbUnit_calib = new LimsProject.cbUnitMeasure();
+            this.cbSolCalib = new LimsProject.cbSolution();
+            this.cbModif = new LimsProject.cbReactive();
+            this.cbMedium = new LimsProject.cbReactive();
             this.cbMrcOrPattern = new LimsProject.cbMR();
-            this.ckSolInterm = new DevExpress.XtraEditors.CheckEdit();
             this.cbTypePattern = new DevExpress.XtraEditors.ImageComboBoxEdit();
-            this.cbSolStatus = new DevExpress.XtraEditors.ImageComboBoxEdit();
-            this.tbConcentration = new DevExpress.XtraEditors.TextEdit();
-            this.deDatePreparation = new DevExpress.XtraEditors.DateEdit();
-            this.deDateExpiration = new DevExpress.XtraEditors.DateEdit();
-            this.cbModif = new DevExpress.XtraEditors.LookUpEdit();
-            this.cbMedium = new DevExpress.XtraEditors.LookUpEdit();
+            this.deCalibDateExpir = new DevExpress.XtraEditors.DateEdit();
             this.gcCalibracion = new DevExpress.XtraGrid.GridControl();
             this.gvCalibracion = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gcCal_Order = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -84,18 +83,13 @@
             this.gcCal_Concentration = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcCal_Aliquot = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcCal_Volumen = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.cbSolIntermType = new DevExpress.XtraEditors.LookUpEdit();
-            this.cbUnit_calib = new DevExpress.XtraEditors.LookUpEdit();
             this.label133 = new System.Windows.Forms.Label();
             this.label125 = new System.Windows.Forms.Label();
             this.tbModifConc = new DevExpress.XtraEditors.SpinEdit();
             this.tbValidity_calib = new DevExpress.XtraEditors.SpinEdit();
-            this.tbSolIntermConcen = new DevExpress.XtraEditors.SpinEdit();
             this.tbMediumConc = new DevExpress.XtraEditors.SpinEdit();
             this.tbRexp2 = new DevExpress.XtraEditors.SpinEdit();
             this.label127 = new System.Windows.Forms.Label();
-            this.label138 = new System.Windows.Forms.Label();
-            this.label135 = new System.Windows.Forms.Label();
             this.label124 = new System.Windows.Forms.Label();
             this.label134 = new System.Windows.Forms.Label();
             this.label129 = new System.Windows.Forms.Label();
@@ -185,29 +179,25 @@
             ((System.ComponentModel.ISupportInitialize)(this.tbReading_max.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbReading_min.Properties)).BeginInit();
             this.xtraTabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbUnit_result.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbSymbol.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit8.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinEdit48.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbUnit_result.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbLaw_limit_top.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbLaw_limit_bottom.Properties)).BeginInit();
             this.xtraTabPage6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cbMrcOrPattern.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ckSolInterm.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbTypePattern.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbSolStatus.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbConcentration.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deDatePreparation.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deDateExpiration.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbCalibConcen.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbUnit_calib.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbSolCalib.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbModif.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbMedium.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbMrcOrPattern.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbTypePattern.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deCalibDateExpir.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcCalibracion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvCalibracion)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbSolIntermType.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbUnit_calib.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbModifConc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbValidity_calib.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbSolIntermConcen.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbMediumConc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbRexp2.Properties)).BeginInit();
             this.xtraTabPage4.SuspendLayout();
@@ -318,7 +308,7 @@
             // deDate_allowed_error
             // 
             this.deDate_allowed_error.EditValue = null;
-            this.deDate_allowed_error.Location = new System.Drawing.Point(422, 73);
+            this.deDate_allowed_error.Location = new System.Drawing.Point(422, 94);
             this.deDate_allowed_error.Name = "deDate_allowed_error";
             this.deDate_allowed_error.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -329,7 +319,7 @@
             // 
             this.label38.AutoSize = true;
             this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label38.Location = new System.Drawing.Point(422, 59);
+            this.label38.Location = new System.Drawing.Point(422, 80);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(78, 13);
             this.label38.TabIndex = 4;
@@ -338,7 +328,7 @@
             // label37
             // 
             this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(422, 9);
+            this.label37.Location = new System.Drawing.Point(422, 30);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(71, 13);
             this.label37.TabIndex = 12;
@@ -348,7 +338,7 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(260, 76);
+            this.label20.Location = new System.Drawing.Point(260, 97);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(77, 13);
             this.label20.TabIndex = 4;
@@ -361,7 +351,7 @@
             0,
             0,
             0});
-            this.tbWeight_incertitude.Location = new System.Drawing.Point(176, 7);
+            this.tbWeight_incertitude.Location = new System.Drawing.Point(176, 28);
             this.tbWeight_incertitude.Name = "tbWeight_incertitude";
             this.tbWeight_incertitude.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
@@ -371,7 +361,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(154, 10);
+            this.label22.Location = new System.Drawing.Point(154, 31);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(21, 13);
             this.label22.TabIndex = 17;
@@ -381,7 +371,7 @@
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(266, 54);
+            this.label21.Location = new System.Drawing.Point(266, 75);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(71, 13);
             this.label21.TabIndex = 5;
@@ -394,7 +384,7 @@
             0,
             0,
             0});
-            this.tbWeight.Location = new System.Drawing.Point(78, 7);
+            this.tbWeight.Location = new System.Drawing.Point(78, 28);
             this.tbWeight.Name = "tbWeight";
             this.tbWeight.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
@@ -408,7 +398,7 @@
             0,
             0,
             0});
-            this.tbReason_rep.Location = new System.Drawing.Point(344, 51);
+            this.tbReason_rep.Location = new System.Drawing.Point(344, 72);
             this.tbReason_rep.Name = "tbReason_rep";
             this.tbReason_rep.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
@@ -422,7 +412,7 @@
             0,
             0,
             0});
-            this.tbNum_decimal.Location = new System.Drawing.Point(496, 7);
+            this.tbNum_decimal.Location = new System.Drawing.Point(496, 28);
             this.tbNum_decimal.Name = "tbNum_decimal";
             this.tbNum_decimal.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
@@ -436,7 +426,7 @@
             0,
             0,
             0});
-            this.tbError_allowed.Location = new System.Drawing.Point(344, 73);
+            this.tbError_allowed.Location = new System.Drawing.Point(344, 94);
             this.tbError_allowed.Name = "tbError_allowed";
             this.tbError_allowed.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
@@ -446,7 +436,7 @@
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(12, 53);
+            this.label27.Location = new System.Drawing.Point(12, 74);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(57, 13);
             this.label27.TabIndex = 12;
@@ -455,7 +445,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(240, 10);
+            this.label9.Location = new System.Drawing.Point(240, 31);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(97, 13);
             this.label9.TabIndex = 12;
@@ -468,7 +458,7 @@
             0,
             0,
             0});
-            this.tbVolumen.Location = new System.Drawing.Point(78, 29);
+            this.tbVolumen.Location = new System.Drawing.Point(78, 50);
             this.tbVolumen.Name = "tbVolumen";
             this.tbVolumen.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
@@ -478,7 +468,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(12, 10);
+            this.label10.Location = new System.Drawing.Point(12, 31);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(34, 13);
             this.label10.TabIndex = 12;
@@ -487,7 +477,7 @@
             // label117
             // 
             this.label117.AutoSize = true;
-            this.label117.Location = new System.Drawing.Point(212, 98);
+            this.label117.Location = new System.Drawing.Point(212, 119);
             this.label117.Name = "label117";
             this.label117.Size = new System.Drawing.Size(125, 13);
             this.label117.TabIndex = 12;
@@ -496,7 +486,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 76);
+            this.label5.Location = new System.Drawing.Point(12, 97);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(57, 13);
             this.label5.TabIndex = 12;
@@ -505,7 +495,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(237, 32);
+            this.label7.Location = new System.Drawing.Point(237, 53);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(100, 13);
             this.label7.TabIndex = 12;
@@ -514,7 +504,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(10, 32);
+            this.label11.Location = new System.Drawing.Point(10, 53);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(67, 13);
             this.label11.TabIndex = 12;
@@ -527,7 +517,7 @@
             0,
             0,
             0});
-            this.tbLimit_samples.Location = new System.Drawing.Point(344, 95);
+            this.tbLimit_samples.Location = new System.Drawing.Point(344, 116);
             this.tbLimit_samples.Name = "tbLimit_samples";
             this.tbLimit_samples.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
@@ -546,7 +536,7 @@
             0,
             0,
             0});
-            this.tbDilution3.Location = new System.Drawing.Point(78, 73);
+            this.tbDilution3.Location = new System.Drawing.Point(78, 94);
             this.tbDilution3.Name = "tbDilution3";
             this.tbDilution3.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
@@ -560,7 +550,7 @@
             0,
             0,
             0});
-            this.tbDilution2.Location = new System.Drawing.Point(78, 51);
+            this.tbDilution2.Location = new System.Drawing.Point(78, 72);
             this.tbDilution2.Name = "tbDilution2";
             this.tbDilution2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
@@ -574,7 +564,7 @@
             0,
             0,
             0});
-            this.tbReading_max.Location = new System.Drawing.Point(344, 29);
+            this.tbReading_max.Location = new System.Drawing.Point(344, 50);
             this.tbReading_max.Name = "tbReading_max";
             this.tbReading_max.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
@@ -588,7 +578,7 @@
             0,
             0,
             0});
-            this.tbReading_min.Location = new System.Drawing.Point(344, 7);
+            this.tbReading_min.Location = new System.Drawing.Point(344, 28);
             this.tbReading_min.Name = "tbReading_min";
             this.tbReading_min.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
@@ -597,10 +587,10 @@
             // 
             // xtraTabPage5
             // 
+            this.xtraTabPage5.Controls.Add(this.cbUnit_result);
             this.xtraTabPage5.Controls.Add(this.tbSymbol);
             this.xtraTabPage5.Controls.Add(this.checkEdit8);
             this.xtraTabPage5.Controls.Add(this.spinEdit48);
-            this.xtraTabPage5.Controls.Add(this.cbUnit_result);
             this.xtraTabPage5.Controls.Add(this.label119);
             this.xtraTabPage5.Controls.Add(this.label35);
             this.xtraTabPage5.Controls.Add(this.label19);
@@ -612,6 +602,16 @@
             this.xtraTabPage5.Name = "xtraTabPage5";
             this.xtraTabPage5.Size = new System.Drawing.Size(639, 395);
             this.xtraTabPage5.Text = "Resultados";
+            // 
+            // cbUnit_result
+            // 
+            this.cbUnit_result.Location = new System.Drawing.Point(91, 43);
+            this.cbUnit_result.Name = "cbUnit_result";
+            this.cbUnit_result.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbUnit_result.Properties.NullText = "Seleccionar";
+            this.cbUnit_result.Size = new System.Drawing.Size(120, 20);
+            this.cbUnit_result.TabIndex = 30;
             // 
             // tbSymbol
             // 
@@ -643,21 +643,6 @@
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.spinEdit48.Size = new System.Drawing.Size(62, 20);
             this.spinEdit48.TabIndex = 27;
-            // 
-            // cbUnit_result
-            // 
-            this.cbUnit_result.Location = new System.Drawing.Point(91, 43);
-            this.cbUnit_result.Name = "cbUnit_result";
-            this.cbUnit_result.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbUnit_result.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Idunit", "", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name_unit")});
-            this.cbUnit_result.Properties.NullText = "Seleccionar";
-            this.cbUnit_result.Properties.ShowFooter = false;
-            this.cbUnit_result.Properties.ShowHeader = false;
-            this.cbUnit_result.Size = new System.Drawing.Size(120, 20);
-            this.cbUnit_result.TabIndex = 11;
             // 
             // label119
             // 
@@ -749,28 +734,22 @@
             // 
             // xtraTabPage6
             // 
-            this.xtraTabPage6.Controls.Add(this.cbMrcOrPattern);
-            this.xtraTabPage6.Controls.Add(this.ckSolInterm);
-            this.xtraTabPage6.Controls.Add(this.cbTypePattern);
-            this.xtraTabPage6.Controls.Add(this.cbSolStatus);
-            this.xtraTabPage6.Controls.Add(this.tbConcentration);
-            this.xtraTabPage6.Controls.Add(this.deDatePreparation);
-            this.xtraTabPage6.Controls.Add(this.deDateExpiration);
+            this.xtraTabPage6.Controls.Add(this.tbCalibConcen);
+            this.xtraTabPage6.Controls.Add(this.cbUnit_calib);
+            this.xtraTabPage6.Controls.Add(this.cbSolCalib);
             this.xtraTabPage6.Controls.Add(this.cbModif);
             this.xtraTabPage6.Controls.Add(this.cbMedium);
+            this.xtraTabPage6.Controls.Add(this.cbMrcOrPattern);
+            this.xtraTabPage6.Controls.Add(this.cbTypePattern);
+            this.xtraTabPage6.Controls.Add(this.deCalibDateExpir);
             this.xtraTabPage6.Controls.Add(this.gcCalibracion);
-            this.xtraTabPage6.Controls.Add(this.cbSolIntermType);
-            this.xtraTabPage6.Controls.Add(this.cbUnit_calib);
             this.xtraTabPage6.Controls.Add(this.label133);
             this.xtraTabPage6.Controls.Add(this.label125);
             this.xtraTabPage6.Controls.Add(this.tbModifConc);
             this.xtraTabPage6.Controls.Add(this.tbValidity_calib);
-            this.xtraTabPage6.Controls.Add(this.tbSolIntermConcen);
             this.xtraTabPage6.Controls.Add(this.tbMediumConc);
             this.xtraTabPage6.Controls.Add(this.tbRexp2);
             this.xtraTabPage6.Controls.Add(this.label127);
-            this.xtraTabPage6.Controls.Add(this.label138);
-            this.xtraTabPage6.Controls.Add(this.label135);
             this.xtraTabPage6.Controls.Add(this.label124);
             this.xtraTabPage6.Controls.Add(this.label134);
             this.xtraTabPage6.Controls.Add(this.label129);
@@ -783,116 +762,95 @@
             this.xtraTabPage6.Size = new System.Drawing.Size(639, 395);
             this.xtraTabPage6.Text = "Calibraciones";
             // 
+            // tbCalibConcen
+            // 
+            this.tbCalibConcen.Location = new System.Drawing.Point(282, 183);
+            this.tbCalibConcen.Name = "tbCalibConcen";
+            this.tbCalibConcen.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, DevExpress.Utils.HorzAlignment.Center, null)});
+            this.tbCalibConcen.Properties.NullText = "";
+            this.tbCalibConcen.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.tbCalibConcen.Size = new System.Drawing.Size(83, 20);
+            this.tbCalibConcen.TabIndex = 32;
+            this.tbCalibConcen.EditValueChanged += new System.EventHandler(this.tbConcentration_EditValueChanged);
+            // 
+            // cbUnit_calib
+            // 
+            this.cbUnit_calib.Location = new System.Drawing.Point(78, 246);
+            this.cbUnit_calib.Name = "cbUnit_calib";
+            this.cbUnit_calib.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbUnit_calib.Properties.NullText = "Seleccionar";
+            this.cbUnit_calib.Size = new System.Drawing.Size(82, 20);
+            this.cbUnit_calib.TabIndex = 31;
+            // 
+            // cbSolCalib
+            // 
+            this.cbSolCalib.Enabled = false;
+            this.cbSolCalib.Location = new System.Drawing.Point(170, 183);
+            this.cbSolCalib.Name = "cbSolCalib";
+            this.cbSolCalib.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbSolCalib.Properties.NullText = "---";
+            this.cbSolCalib.Size = new System.Drawing.Size(110, 20);
+            this.cbSolCalib.TabIndex = 30;
+            // 
+            // cbModif
+            // 
+            this.cbModif.Location = new System.Drawing.Point(208, 268);
+            this.cbModif.Name = "cbModif";
+            this.cbModif.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbModif.Properties.NullText = "---";
+            this.cbModif.Size = new System.Drawing.Size(100, 20);
+            this.cbModif.TabIndex = 29;
+            // 
+            // cbMedium
+            // 
+            this.cbMedium.Location = new System.Drawing.Point(208, 246);
+            this.cbMedium.Name = "cbMedium";
+            this.cbMedium.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbMedium.Properties.NullText = "---";
+            this.cbMedium.Size = new System.Drawing.Size(100, 20);
+            this.cbMedium.TabIndex = 28;
+            // 
             // cbMrcOrPattern
             // 
-            this.cbMrcOrPattern.Location = new System.Drawing.Point(169, 167);
+            this.cbMrcOrPattern.Location = new System.Drawing.Point(3, 162);
             this.cbMrcOrPattern.Name = "cbMrcOrPattern";
             this.cbMrcOrPattern.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cbMrcOrPattern.Properties.NullText = "";
-            this.cbMrcOrPattern.Size = new System.Drawing.Size(110, 20);
+            this.cbMrcOrPattern.Size = new System.Drawing.Size(26, 20);
             this.cbMrcOrPattern.TabIndex = 27;
+            this.cbMrcOrPattern.Visible = false;
             this.cbMrcOrPattern.EditValueChanged += new System.EventHandler(this.cbMrcOrPattern_EditValueChanged);
-            // 
-            // ckSolInterm
-            // 
-            this.ckSolInterm.Location = new System.Drawing.Point(46, 191);
-            this.ckSolInterm.Name = "ckSolInterm";
-            this.ckSolInterm.Properties.Caption = "Solución intermedia";
-            this.ckSolInterm.Size = new System.Drawing.Size(117, 19);
-            this.ckSolInterm.TabIndex = 26;
-            this.ckSolInterm.CheckedChanged += new System.EventHandler(this.ckSolInterm_CheckedChanged);
             // 
             // cbTypePattern
             // 
-            this.cbTypePattern.Location = new System.Drawing.Point(49, 167);
+            this.cbTypePattern.Location = new System.Drawing.Point(78, 183);
             this.cbTypePattern.Name = "cbTypePattern";
             this.cbTypePattern.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cbTypePattern.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
             new DevExpress.XtraEditors.Controls.ImageComboBoxItem("MRC", 1, -1),
             new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Sol. Patron", 2, -1)});
-            this.cbTypePattern.Size = new System.Drawing.Size(114, 20);
+            this.cbTypePattern.Size = new System.Drawing.Size(90, 20);
             this.cbTypePattern.TabIndex = 25;
             this.cbTypePattern.SelectedIndexChanged += new System.EventHandler(this.cbTypePattern_SelectedIndexChanged);
             this.cbTypePattern.EditValueChanged += new System.EventHandler(this.cbTypePattern_SelectedIndexChanged);
             // 
-            // cbSolStatus
+            // deCalibDateExpir
             // 
-            this.cbSolStatus.EditValue = 0;
-            this.cbSolStatus.Location = new System.Drawing.Point(499, 191);
-            this.cbSolStatus.Name = "cbSolStatus";
-            this.cbSolStatus.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.deCalibDateExpir.EditValue = null;
+            this.deCalibDateExpir.Enabled = false;
+            this.deCalibDateExpir.Location = new System.Drawing.Point(465, 183);
+            this.deCalibDateExpir.Name = "deCalibDateExpir";
+            this.deCalibDateExpir.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbSolStatus.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Activado", true, -1),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Desactivado", false, -1)});
-            this.cbSolStatus.Size = new System.Drawing.Size(94, 20);
-            this.cbSolStatus.TabIndex = 22;
-            // 
-            // tbConcentration
-            // 
-            this.tbConcentration.Location = new System.Drawing.Point(281, 167);
-            this.tbConcentration.Name = "tbConcentration";
-            this.tbConcentration.Size = new System.Drawing.Size(82, 20);
-            this.tbConcentration.TabIndex = 4;
-            this.tbConcentration.EditValueChanged += new System.EventHandler(this.tbConcentration_EditValueChanged);
-            // 
-            // deDatePreparation
-            // 
-            this.deDatePreparation.EditValue = null;
-            this.deDatePreparation.Enabled = false;
-            this.deDatePreparation.Location = new System.Drawing.Point(498, 220);
-            this.deDatePreparation.Name = "deDatePreparation";
-            this.deDatePreparation.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.deDatePreparation.Size = new System.Drawing.Size(95, 20);
-            this.deDatePreparation.TabIndex = 21;
-            // 
-            // deDateExpiration
-            // 
-            this.deDateExpiration.EditValue = null;
-            this.deDateExpiration.Enabled = false;
-            this.deDateExpiration.Location = new System.Drawing.Point(498, 242);
-            this.deDateExpiration.Name = "deDateExpiration";
-            this.deDateExpiration.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.deDateExpiration.Size = new System.Drawing.Size(95, 20);
-            this.deDateExpiration.TabIndex = 21;
-            // 
-            // cbModif
-            // 
-            this.cbModif.Location = new System.Drawing.Point(187, 285);
-            this.cbModif.Name = "cbModif";
-            this.cbModif.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbModif.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Idreactive", "", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Chemical_formula", "", 10, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Reactive_name")});
-            this.cbModif.Properties.NullText = "---";
-            this.cbModif.Properties.ShowFooter = false;
-            this.cbModif.Properties.ShowHeader = false;
-            this.cbModif.Size = new System.Drawing.Size(105, 20);
-            this.cbModif.TabIndex = 20;
-            this.cbModif.EditValueChanged += new System.EventHandler(this.cbModif_EditValueChanged);
-            // 
-            // cbMedium
-            // 
-            this.cbMedium.Location = new System.Drawing.Point(187, 263);
-            this.cbMedium.Name = "cbMedium";
-            this.cbMedium.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbMedium.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Idreactive", "", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Chemical_formula", "", 10, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Reactive_name")});
-            this.cbMedium.Properties.NullText = "---";
-            this.cbMedium.Properties.ShowFooter = false;
-            this.cbMedium.Properties.ShowHeader = false;
-            this.cbMedium.Size = new System.Drawing.Size(105, 20);
-            this.cbMedium.TabIndex = 20;
-            this.cbMedium.EditValueChanged += new System.EventHandler(this.cbMedium_EditValueChanged);
+            this.deCalibDateExpir.Size = new System.Drawing.Size(94, 20);
+            this.deCalibDateExpir.TabIndex = 21;
             // 
             // gcCalibracion
             // 
@@ -1035,6 +993,7 @@
             this.gvCalibracion.OptionsView.EnableAppearanceEvenRow = true;
             this.gvCalibracion.OptionsView.EnableAppearanceOddRow = true;
             this.gvCalibracion.OptionsView.ShowGroupPanel = false;
+            this.gvCalibracion.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvCalibracion_CellValueChanged);
             // 
             // gcCal_Order
             // 
@@ -1081,50 +1040,19 @@
             this.gcCal_Volumen.VisibleIndex = 4;
             this.gcCal_Volumen.Width = 106;
             // 
-            // cbSolIntermType
-            // 
-            this.cbSolIntermType.Enabled = false;
-            this.cbSolIntermType.Location = new System.Drawing.Point(169, 191);
-            this.cbSolIntermType.Name = "cbSolIntermType";
-            this.cbSolIntermType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbSolIntermType.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Idgroup_solution", "", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Cod_solution")});
-            this.cbSolIntermType.Properties.NullText = "Seleccionar";
-            this.cbSolIntermType.Properties.ShowFooter = false;
-            this.cbSolIntermType.Properties.ShowHeader = false;
-            this.cbSolIntermType.Size = new System.Drawing.Size(110, 20);
-            this.cbSolIntermType.TabIndex = 1;
-            // 
-            // cbUnit_calib
-            // 
-            this.cbUnit_calib.Location = new System.Drawing.Point(57, 263);
-            this.cbUnit_calib.Name = "cbUnit_calib";
-            this.cbUnit_calib.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbUnit_calib.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Idunit", "", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name_unit")});
-            this.cbUnit_calib.Properties.NullText = "Seleccionar";
-            this.cbUnit_calib.Properties.ShowFooter = false;
-            this.cbUnit_calib.Properties.ShowHeader = false;
-            this.cbUnit_calib.Size = new System.Drawing.Size(82, 20);
-            this.cbUnit_calib.TabIndex = 19;
-            // 
             // label133
             // 
             this.label133.AutoSize = true;
-            this.label133.Location = new System.Drawing.Point(425, 171);
+            this.label133.Location = new System.Drawing.Point(381, 169);
             this.label133.Name = "label133";
-            this.label133.Size = new System.Drawing.Size(70, 13);
+            this.label133.Size = new System.Drawing.Size(66, 13);
             this.label133.TabIndex = 12;
-            this.label133.Text = "Validez Calib:";
+            this.label133.Text = "Validez(mes)";
             // 
             // label125
             // 
             this.label125.AutoSize = true;
-            this.label125.Location = new System.Drawing.Point(13, 171);
+            this.label125.Location = new System.Drawing.Point(45, 186);
             this.label125.Name = "label125";
             this.label125.Size = new System.Drawing.Size(34, 13);
             this.label125.TabIndex = 12;
@@ -1138,7 +1066,7 @@
             0,
             0});
             this.tbModifConc.Enabled = false;
-            this.tbModifConc.Location = new System.Drawing.Point(295, 285);
+            this.tbModifConc.Location = new System.Drawing.Point(311, 268);
             this.tbModifConc.Name = "tbModifConc";
             this.tbModifConc.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
@@ -1152,27 +1080,12 @@
             0,
             0,
             0});
-            this.tbValidity_calib.Location = new System.Drawing.Point(498, 168);
+            this.tbValidity_calib.Location = new System.Drawing.Point(367, 183);
             this.tbValidity_calib.Name = "tbValidity_calib";
             this.tbValidity_calib.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.tbValidity_calib.Size = new System.Drawing.Size(95, 20);
             this.tbValidity_calib.TabIndex = 2;
-            // 
-            // tbSolIntermConcen
-            // 
-            this.tbSolIntermConcen.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.tbSolIntermConcen.Enabled = false;
-            this.tbSolIntermConcen.Location = new System.Drawing.Point(281, 191);
-            this.tbSolIntermConcen.Name = "tbSolIntermConcen";
-            this.tbSolIntermConcen.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.tbSolIntermConcen.Size = new System.Drawing.Size(82, 20);
-            this.tbSolIntermConcen.TabIndex = 17;
             // 
             // tbMediumConc
             // 
@@ -1182,7 +1095,7 @@
             0,
             0});
             this.tbMediumConc.Enabled = false;
-            this.tbMediumConc.Location = new System.Drawing.Point(295, 263);
+            this.tbMediumConc.Location = new System.Drawing.Point(311, 246);
             this.tbMediumConc.Name = "tbMediumConc";
             this.tbMediumConc.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
@@ -1196,7 +1109,7 @@
             0,
             0,
             262144});
-            this.tbRexp2.Location = new System.Drawing.Point(57, 285);
+            this.tbRexp2.Location = new System.Drawing.Point(78, 268);
             this.tbRexp2.Name = "tbRexp2";
             this.tbRexp2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
@@ -1207,34 +1120,16 @@
             // 
             this.label127.AutoSize = true;
             this.label127.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label127.Location = new System.Drawing.Point(39, 285);
+            this.label127.Location = new System.Drawing.Point(60, 268);
             this.label127.Name = "label127";
             this.label127.Size = new System.Drawing.Size(9, 9);
             this.label127.TabIndex = 12;
             this.label127.Text = "2";
             // 
-            // label138
-            // 
-            this.label138.AutoSize = true;
-            this.label138.Location = new System.Drawing.Point(449, 194);
-            this.label138.Name = "label138";
-            this.label138.Size = new System.Drawing.Size(43, 13);
-            this.label138.TabIndex = 12;
-            this.label138.Text = "Estado.";
-            // 
-            // label135
-            // 
-            this.label135.AutoSize = true;
-            this.label135.Location = new System.Drawing.Point(428, 223);
-            this.label135.Name = "label135";
-            this.label135.Size = new System.Drawing.Size(64, 13);
-            this.label135.TabIndex = 12;
-            this.label135.Text = "Fecha prep.";
-            // 
             // label124
             // 
             this.label124.AutoSize = true;
-            this.label124.Location = new System.Drawing.Point(28, 287);
+            this.label124.Location = new System.Drawing.Point(49, 270);
             this.label124.Name = "label124";
             this.label124.Size = new System.Drawing.Size(27, 13);
             this.label124.TabIndex = 12;
@@ -1243,16 +1138,16 @@
             // label134
             // 
             this.label134.AutoSize = true;
-            this.label134.Location = new System.Drawing.Point(431, 245);
+            this.label134.Location = new System.Drawing.Point(468, 169);
             this.label134.Name = "label134";
-            this.label134.Size = new System.Drawing.Size(61, 13);
+            this.label134.Size = new System.Drawing.Size(89, 13);
             this.label134.TabIndex = 12;
-            this.label134.Text = "Fecha Exp.";
+            this.label134.Text = "Fecha Expiración";
             // 
             // label129
             // 
             this.label129.AutoSize = true;
-            this.label129.Location = new System.Drawing.Point(151, 288);
+            this.label129.Location = new System.Drawing.Point(172, 271);
             this.label129.Name = "label129";
             this.label129.Size = new System.Drawing.Size(36, 13);
             this.label129.TabIndex = 12;
@@ -1261,7 +1156,7 @@
             // label132
             // 
             this.label132.AutoSize = true;
-            this.label132.Location = new System.Drawing.Point(363, 288);
+            this.label132.Location = new System.Drawing.Point(383, 271);
             this.label132.Name = "label132";
             this.label132.Size = new System.Drawing.Size(15, 13);
             this.label132.TabIndex = 12;
@@ -1270,7 +1165,7 @@
             // label131
             // 
             this.label131.AutoSize = true;
-            this.label131.Location = new System.Drawing.Point(363, 265);
+            this.label131.Location = new System.Drawing.Point(383, 248);
             this.label131.Name = "label131";
             this.label131.Size = new System.Drawing.Size(15, 13);
             this.label131.TabIndex = 12;
@@ -1279,7 +1174,7 @@
             // label128
             // 
             this.label128.AutoSize = true;
-            this.label128.Location = new System.Drawing.Point(293, 247);
+            this.label128.Location = new System.Drawing.Point(309, 230);
             this.label128.Name = "label128";
             this.label128.Size = new System.Drawing.Size(76, 13);
             this.label128.TabIndex = 12;
@@ -1288,7 +1183,7 @@
             // label126
             // 
             this.label126.AutoSize = true;
-            this.label126.Location = new System.Drawing.Point(148, 266);
+            this.label126.Location = new System.Drawing.Point(169, 249);
             this.label126.Name = "label126";
             this.label126.Size = new System.Drawing.Size(39, 13);
             this.label126.TabIndex = 12;
@@ -1297,7 +1192,7 @@
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(0, 266);
+            this.label26.Location = new System.Drawing.Point(21, 249);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(56, 13);
             this.label26.TabIndex = 12;
@@ -1876,7 +1771,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(366, 27);
+            this.label8.Location = new System.Drawing.Point(380, 27);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(66, 13);
             this.label8.TabIndex = 22;
@@ -2078,30 +1973,26 @@
             ((System.ComponentModel.ISupportInitialize)(this.tbReading_min.Properties)).EndInit();
             this.xtraTabPage5.ResumeLayout(false);
             this.xtraTabPage5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbUnit_result.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbSymbol.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit8.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinEdit48.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbUnit_result.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbLaw_limit_top.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbLaw_limit_bottom.Properties)).EndInit();
             this.xtraTabPage6.ResumeLayout(false);
             this.xtraTabPage6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cbMrcOrPattern.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ckSolInterm.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbTypePattern.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbSolStatus.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbConcentration.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deDatePreparation.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deDateExpiration.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbCalibConcen.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbUnit_calib.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbSolCalib.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbModif.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbMedium.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbMrcOrPattern.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbTypePattern.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deCalibDateExpir.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcCalibracion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvCalibracion)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbSolIntermType.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbUnit_calib.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbModifConc.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbValidity_calib.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbSolIntermConcen.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbMediumConc.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbRexp2.Properties)).EndInit();
             this.xtraTabPage4.ResumeLayout(false);
@@ -2189,7 +2080,6 @@
         private DevExpress.XtraEditors.TextEdit tbSymbol;
         private DevExpress.XtraEditors.CheckEdit checkEdit8;
         private DevExpress.XtraEditors.SpinEdit spinEdit48;
-        private DevExpress.XtraEditors.LookUpEdit cbUnit_result;
         private System.Windows.Forms.Label label119;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Label label19;
@@ -2199,14 +2089,8 @@
         private DevExpress.XtraEditors.SpinEdit tbLaw_limit_bottom;
         private System.Windows.Forms.Label label17;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage6;
-        private DevExpress.XtraEditors.CheckEdit ckSolInterm;
         private DevExpress.XtraEditors.ImageComboBoxEdit cbTypePattern;
-        private DevExpress.XtraEditors.ImageComboBoxEdit cbSolStatus;
-        private DevExpress.XtraEditors.TextEdit tbConcentration;
-        private DevExpress.XtraEditors.DateEdit deDatePreparation;
-        private DevExpress.XtraEditors.DateEdit deDateExpiration;
-        private DevExpress.XtraEditors.LookUpEdit cbModif;
-        private DevExpress.XtraEditors.LookUpEdit cbMedium;
+        private DevExpress.XtraEditors.DateEdit deCalibDateExpir;
         private DevExpress.XtraGrid.GridControl gcCalibracion;
         private DevExpress.XtraGrid.Views.Grid.GridView gvCalibracion;
         private DevExpress.XtraGrid.Columns.GridColumn gcCal_Order;
@@ -2214,18 +2098,13 @@
         private DevExpress.XtraGrid.Columns.GridColumn gcCal_Concentration;
         private DevExpress.XtraGrid.Columns.GridColumn gcCal_Aliquot;
         private DevExpress.XtraGrid.Columns.GridColumn gcCal_Volumen;
-        private DevExpress.XtraEditors.LookUpEdit cbSolIntermType;
-        private DevExpress.XtraEditors.LookUpEdit cbUnit_calib;
         private System.Windows.Forms.Label label133;
         private System.Windows.Forms.Label label125;
         private DevExpress.XtraEditors.SpinEdit tbModifConc;
         private DevExpress.XtraEditors.SpinEdit tbValidity_calib;
-        private DevExpress.XtraEditors.SpinEdit tbSolIntermConcen;
         private DevExpress.XtraEditors.SpinEdit tbMediumConc;
         private DevExpress.XtraEditors.SpinEdit tbRexp2;
         private System.Windows.Forms.Label label127;
-        private System.Windows.Forms.Label label138;
-        private System.Windows.Forms.Label label135;
         private System.Windows.Forms.Label label124;
         private System.Windows.Forms.Label label134;
         private System.Windows.Forms.Label label129;
@@ -2300,5 +2179,11 @@
         private customSpinEdit tbValiditySI2;
         private customSpinEdit tbValiditySI1;
         private cbMR cbStdMrcOrPattern;
+        private cbReactive cbModif;
+        private cbReactive cbMedium;
+        private cbSolution cbSolCalib;
+        private cbUnitMeasure cbUnit_calib;
+        private cbUnitMeasure cbUnit_result;
+        private cbMR tbCalibConcen;
     }
 }
